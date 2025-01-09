@@ -22,7 +22,7 @@ struct SearchFeatureStationTapSendModel: Equatable {
 }
 
 @Reducer
-class SearchFeature: NSObject {
+struct SearchFeature: Reducer {
     @Dependency(\.locationManager) private var locationManager
     @Dependency(\.totalLoad) private var totalLoad
     
