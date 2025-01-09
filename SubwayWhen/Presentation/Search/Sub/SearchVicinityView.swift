@@ -39,7 +39,7 @@ struct SearchVicinityView: View {
                     ExpandedViewInSUI(alignment: .center) {
                         Text("현재 가까운 지하철역이 없어요.")
                             .font(.system(size: ViewStyle.FontSize.mediumSize, weight: .bold))
-                            .padding(.vertical, 15)
+                            .padding(EdgeInsets(top: 15, leading: 0, bottom: 30, trailing: 0))
                     }
                 } else if self.store.nowVicintyStationLoading {
                     ExpandedViewInSUI(alignment: .center) {
