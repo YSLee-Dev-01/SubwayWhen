@@ -297,28 +297,29 @@ struct SearchFeature: Reducer {
                 if state.searchQuery.isEmpty {
                     state.nowStationSearchList = []
                     state.nowSearchLoading = false
-                    return .cancel(id: Key.searchDelay)
+                    return .none
                 } else if state.nowStationSearchList.firstIndex(where: {$0.stationName == state.searchQuery}) != nil {
                     return .none
                 }
+                
                 state.nowSearchLoading = true
-                return .concatenate([
-                    .cancel(id: Key.searchDelay),
-                    .run { send in
-                        try await Task.sleep(for: .milliseconds(650))
-                        await send(.stationSearchRequest)
-                    }
-                ])
-                .cancellable(id: Key.searchDelay)
+                return .send(.stationSearchRequest)
+                    .debounce(id: Key.searchDelay, for: 0.7, scheduler: DispatchQueue.main)
                 
             case .stationSearchRequest:
+                if state.searchQuery.isEmpty {
+                    state.nowStationSearchList = []
+                    state.nowSearchLoading = false
+                    return .none
+                }
+                
                 Analytics.logEvent("SerachVC_Search", parameters: [
                     "Search_Station" : state.searchQuery
                 ])
                 state.nowStationSearchList = []
                 return .run { [name = state.searchQuery] send in
                     let result = await self.totalLoad.stationNameSearchReponse(name)
-                    try await Task.sleep(for: .milliseconds(350))
+                    try await Task.sleep(for: .milliseconds(300))
                     await send(.stationSearchResult(result))
                 }
                 
