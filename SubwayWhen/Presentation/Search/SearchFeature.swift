@@ -302,7 +302,10 @@ struct SearchFeature: Reducer {
                     return .none
                 }
                 
-                state.nowSearchLoading = true
+                if !state.nowSearchLoading {
+                    state.nowSearchLoading = true
+                }
+                
                 return .send(.stationSearchRequest)
                     .debounce(id: Key.searchDelay, for: 0.7, scheduler: DispatchQueue.main)
                 
