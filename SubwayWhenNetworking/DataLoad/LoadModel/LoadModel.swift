@@ -201,6 +201,26 @@ final class LoadModel : LoadModelProtocol{
             .asObservable()
     }
     
+    func searchQueryRecommendListRequest() -> Observable<[SearchQueryRecommendData]> {
+        let recommendListData = PublishSubject<[SearchQueryRecommendData]>()
+        
+        self.database.observe(.value){ dataBase, _ in
+            guard let data = dataBase.value as? [String : [String :Any]] else {return}
+            let subwayWhen = data["SubwayWhen"]
+            let search = subwayWhen?["SearchQueryRecommendList"]
+            guard let list = search as? [String : [[String : String]]] else  {return}
+            guard let encoding = try? PropertyListEncoder().encode(list["value"]),
+                  let decodingData = try? PropertyListDecoder().decode([SearchQueryRecommendData].self, from: encoding) else {
+                return
+            }
+            
+            recommendListData.onNext(decodingData)
+        }
+        
+        return recommendListData
+            .asObservable()
+    }
+    
     private func arrivalStationNameChack(stationName: String) -> String {
         // 부역명 필수 지하철역
         switch stationName{
