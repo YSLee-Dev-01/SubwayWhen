@@ -9,15 +9,15 @@ import SwiftUI
 
 struct StationTitleViewInSUI: View {
     let title: String
-    let lineColor: String
+    let lineColor: String?
     let size: CGFloat
     let isFill: Bool
     var fontSize: CGFloat = ViewStyle.FontSize.mediumSize
     
     var body: some View {
         Circle()
-            .stroke(Color.init(self.lineColor))
-            .fill(self.isFill ? Color.init(self.lineColor) : Color.white)
+            .stroke(self.lineColor == nil ? Color.gray : Color.init(self.lineColor!))
+            .fill(self.isFill ? (self.lineColor == nil ? Color.gray : Color.init(self.lineColor!)) : Color.white)
             .frame(width: self.size, height: self.size)
             .overlay {
                 HStack {
