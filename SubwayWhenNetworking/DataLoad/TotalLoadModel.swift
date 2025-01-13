@@ -377,15 +377,15 @@ class TotalLoadModel : TotalLoadProtocol {
                 })
                 .disposed(by: self.bag)
         }
-        
-        func searchQueryRecommendListLoad() async -> [SearchQueryRecommendData] {
-            return await withCheckedContinuation { continuation in
-                self.loadModel.searchQueryRecommendListRequest()
-                    .subscribe(onNext: {
-                        continuation.resume(returning: $0)
-                    })
-                    .disposed(by: self.bag)
-            }
+    }
+    
+    func searchQueryRecommendListLoad() async -> [SearchQueryRecommendData] {
+        return await withCheckedContinuation { continuation in
+            self.loadModel.searchQueryRecommendListRequest()
+                .subscribe(onNext: {
+                    continuation.resume(returning: $0)
+                })
+                .disposed(by: self.bag)
         }
     }
     

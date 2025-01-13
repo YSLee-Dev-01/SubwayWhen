@@ -14,6 +14,7 @@ class TestTotalLoadTCADependency: TotalLoadTCADependencyProtocol {
     var vicinityStationsData: [VicinityTransformData] = []
     var defaultViewListdata: [String] = []
     var searchStationName: [searchStationInfo] = []
+    var queryRecoomendList: [SearchQueryRecommendData] = []
     
     init() {}
     
@@ -35,5 +36,9 @@ class TestTotalLoadTCADependency: TotalLoadTCADependencyProtocol {
     
     func stationNameSearchReponse(_ stationName : String) async -> [searchStationInfo] {
         self.searchStationName.filter {$0.stationName == stationName} // 임시 데이터가 넘어올 때 체크하기 위함
+    }
+    
+    func searchQueryRecommendListLoad() async -> [SearchQueryRecommendData] {
+        self.queryRecoomendList
     }
 }
