@@ -440,6 +440,7 @@
 		FFA67B742D0C017D006EFAB7 /* SearchStaion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C6DB78293627AE00C4ED80 /* SearchStaion.swift */; };
 		FFABBB022C92A5C300CCC692 /* CoreDataScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFABBB012C92A5C300CCC692 /* CoreDataScheduleManager.swift */; };
 		FFABBB1A2C92C34000CCC692 /* CoreDataScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFABBB012C92A5C300CCC692 /* CoreDataScheduleManager.swift */; };
+		FFC07F682D349B4E0001B1CD /* SearchQueryRecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC07F672D349B4E0001B1CD /* SearchQueryRecommendView.swift */; };
 		FFE826202D06B1300070BFED /* DetailStationId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349B516029A4616700A53879 /* DetailStationId.swift */; };
 		FFE826212D06B1300070BFED /* DetailStationId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349B516029A4616700A53879 /* DetailStationId.swift */; };
 		FFE826222D06B1370070BFED /* DetailStationIdList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 349B515E29A452EC00A53879 /* DetailStationIdList.plist */; };
@@ -910,6 +911,7 @@
 		FF8CBE292C8977F700E6B4D2 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/System/iOSSupport/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
 		FF8CBE2B2C89781600E6B4D2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		FFABBB012C92A5C300CCC692 /* CoreDataScheduleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataScheduleManager.swift; sourceTree = "<group>"; };
+		FFC07F672D349B4E0001B1CD /* SearchQueryRecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchQueryRecommendView.swift; sourceTree = "<group>"; };
 		FFE826242D06B8910070BFED /* TotalRealtimeStationArrival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalRealtimeStationArrival.swift; sourceTree = "<group>"; };
 		FFE826282D081DE60070BFED /* SearchStationResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStationResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2555,6 +2557,7 @@
 				FF3A5EAF2D01609000BC7716 /* SearchVicinityView.swift */,
 				FF3A5EB12D016FDA00BC7716 /* SearchWordRecommendView.swift */,
 				FFE826282D081DE60070BFED /* SearchStationResultView.swift */,
+				FFC07F672D349B4E0001B1CD /* SearchQueryRecommendView.swift */,
 			);
 			path = Sub;
 			sourceTree = "<group>";
@@ -3294,6 +3297,7 @@
 				34A303B429AF86FD00948EDD /* RealtimeStationArrival.swift in Sources */,
 				349E2F5129BDBF9200C54EE9 /* DetailVCDelegate.swift in Sources */,
 				FAD2F6042BB568B000B95B52 /* UserDefault+.swift in Sources */,
+				FFC07F682D349B4E0001B1CD /* SearchQueryRecommendView.swift in Sources */,
 				34A303C029AF86FD00948EDD /* LoadModel.swift in Sources */,
 				3499DEA429D1B53D00A6E8C1 /* ReportCheckModalModel.swift in Sources */,
 				34C6DB9D293627AF00C4ED80 /* SaveStation.swift in Sources */,
