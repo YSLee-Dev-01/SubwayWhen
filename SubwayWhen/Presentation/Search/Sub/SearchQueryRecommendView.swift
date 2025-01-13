@@ -18,7 +18,7 @@ struct SearchQueryRecommendView: View {
                     Text("혹시 이 역을 찾으셨나요?")
                         .font(.system(size: ViewStyle.FontSize.largeSize, weight: .heavy))
                 }
-                .frame(height: 15)
+                .padding(.bottom, 10)
                 
                 ForEach(Array(zip(self.store.filteredSearchQueryRecommendList, self.store.filteredSearchQueryRecommendList.indices)), id: \.1) { data in
                     AnimationButtonInSUI(bgColor: Color.gray.opacity(0.1), tappedBGColor: Color.gray.opacity(0.01), buttonView: {
