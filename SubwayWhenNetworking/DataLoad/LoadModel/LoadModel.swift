@@ -250,6 +250,8 @@ final class LoadModel : LoadModelProtocol{
             return "몽촌토성(평화의문)"
         case "남한산성입구":
             return "남한산성입구(성남법원, 검찰청)"
+        case "서울" :
+            return "서울역"
         default:
             return stationName
         }
