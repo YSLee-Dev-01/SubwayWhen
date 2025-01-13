@@ -92,14 +92,12 @@ struct SearchView: View {
                 .animation(.smooth, value: self.store.searchQuery.isEmpty)
                 
                 Group {
-                    if !self.store.searchQuery.isEmpty &&
-                                !self.store.nowSearchLoading &&
-                                self.store.nowStationSearchList.isEmpty {
+                    if !self.store.filteredSearchQueryRecommendList.isEmpty {
                         SearchQueryRecommendView(store: self.$store)
-                            .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .opacity.animation(.easeIn)))
+                            .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .opacity.animation(.easeIn(duration: 0.2))))
                     }
                 }
-                .animation(.smooth(duration: 0.3), value: self.store.state.nowSearchLoading)
+                .animation(.smooth(duration: 0.3), value: self.store.filteredSearchQueryRecommendList.isEmpty)
             }
             .animation(.smooth(duration: 0.3), value: self.store.nowTappedStationIndex == nil)
             .animation(.smooth(duration: 0.3), value: self.store.locationAuth)

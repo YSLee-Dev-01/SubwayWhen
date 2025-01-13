@@ -58,7 +58,7 @@ struct SearchStationResultView: View {
                                 }
                             })
                         }
-                        .transition(.move(edge: .bottom))
+                        .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .opacity.animation(.easeIn(duration: 0.2))))
                         .padding(.vertical, 5)
                     }
                 }

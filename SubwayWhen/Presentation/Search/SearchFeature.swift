@@ -17,7 +17,7 @@ struct SearchFeatureStationTapSendModel: Equatable {
     let type: StationTapSendModelType
     
     enum StationTapSendModelType {
-        case recommend, location
+        case recommend, location, searchQueryRecommend
     }
 }
 
@@ -40,12 +40,14 @@ struct SearchFeature: Reducer {
             // 통신 전 임시 값
             "강남", "교대", "선릉", "삼성", "을지로3가", "종각", "홍대입구", "잠실", "명동", "여의도", "가산디지털단지", "판교"
         ]
+        fileprivate var nowSearchQueryRecommendList: [SearchQueryRecommendData] = [] // 파이어베이스에서 통신 받은 값
+        var filteredSearchQueryRecommendList: [SearchQueryRecommendData] = [] // 위 값을 현재 쿼리를 통해 필터링 거친 값
         var isSearchMode = false
-        var isFirst = true
+        fileprivate var isFirst = true
         var searchQuery = ""
         var locationAuth = false
-        var isAutoDelegateAction: AutoDelegateAction?
-        var lastVicintySearchTime: Date?
+        fileprivate var isAutoDelegateAction: AutoDelegateAction?
+        fileprivate var lastVicintySearchTime: Date?
         
         @Presents var dialogState: ConfirmationDialogState<Action.DialogAction>?
     }
@@ -65,6 +67,8 @@ struct SearchFeature: Reducer {
         case liveDataResult([TotalRealtimeStationArrival])
         case recommendStationRequest
         case recommendStationResult([String])
+        case searchQueryRecommendListRequest
+        case searchQueryRecommendListResult([SearchQueryRecommendData])
         case refreshBtnTapped
         case vicinityListOpenBtnTapped
         case disposableDetailBtnTapped
@@ -105,7 +109,8 @@ struct SearchFeature: Reducer {
                     state.isFirst = false
                     return .merge([
                         .send(.locationAuthResult([true, self.locationManager.locationAuthCheck()])),
-                        .send(.recommendStationRequest)
+                        .send(.recommendStationRequest),
+                        .send(.searchQueryRecommendListRequest)
                     ])
                 } else {
                     return .send(.locationAuthResult([true, self.locationManager.locationAuthCheck()]))
@@ -238,6 +243,16 @@ struct SearchFeature: Reducer {
                 state.nowRecommendStationList = data
                 return .none
                 
+            case .searchQueryRecommendListRequest:
+                return .run { send in
+                    let data = await self.totalLoad.searchQueryRecommendListLoad()
+                    await send(.searchQueryRecommendListResult(data))
+                }
+                
+            case .searchQueryRecommendListResult(let data):
+                state.nowSearchQueryRecommendList = data
+                return .none
+                
             case .refreshBtnTapped:
                 return .send(.liveDataRequest)
                 
@@ -290,12 +305,14 @@ struct SearchFeature: Reducer {
                 if !isOn {
                     state.searchQuery = ""
                     state.nowStationSearchList = []
+                    state.filteredSearchQueryRecommendList = []
                 }
                 return .none
                 
             case .binding(\.searchQuery):
                 if state.searchQuery.isEmpty {
                     state.nowStationSearchList = []
+                    state.filteredSearchQueryRecommendList = []
                     state.nowSearchLoading = false
                     return .none
                 } else if state.nowStationSearchList.firstIndex(where: {$0.stationName == state.searchQuery}) != nil {
@@ -304,6 +321,7 @@ struct SearchFeature: Reducer {
                 
                 if !state.nowSearchLoading {
                     state.nowSearchLoading = true
+                    state.filteredSearchQueryRecommendList = []
                 }
                 
                 return .send(.stationSearchRequest)
@@ -329,6 +347,10 @@ struct SearchFeature: Reducer {
             case .stationSearchResult(let result):
                 state.nowStationSearchList = result
                 state.nowSearchLoading = false
+                state.filteredSearchQueryRecommendList = state.nowSearchQueryRecommendList.filter {
+                    $0.queryName == state.searchQuery
+                }
+                
                 if state.isAutoDelegateAction == nil {
                     return .none
                 } else if state.isAutoDelegateAction == .plusModal {
@@ -356,9 +378,16 @@ struct SearchFeature: Reducer {
                 return .none
                 
             case .stationTapped(let model):
+                state.searchQuery = model.type == .recommend ?
+                    state.nowRecommendStationList[model.index] :
+                    (model.type == .location ?
+                        state.nowVicinityStationList[model.index].name :
+                        state.filteredSearchQueryRecommendList[model.index].stationName
+                    )
+                state.filteredSearchQueryRecommendList = []
                 state.nowSearchLoading = true
                 state.isSearchMode = true
-                state.searchQuery = model.type == .recommend ?  state.nowRecommendStationList[model.index] : state.nowVicinityStationList[model.index].name
+                
                 return .send(.stationSearchRequest)
                 
             case .disposableDetailPushRequest:
