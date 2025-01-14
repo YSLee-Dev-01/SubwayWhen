@@ -83,7 +83,7 @@ struct SearchFeature: Reducer {
         
         enum DialogAction: Equatable {
             case cancelBtnTapped
-            case upDownBtnTapped(Bool) // 상행/외선이 true, 하행/내선이 false
+            case upDownBtnTapped(Bool) // 상행/내선 true, 하행/외선이 false
         }
     }
     
@@ -188,11 +188,11 @@ struct SearchFeature: Reducer {
                 state.nowLiveDataLoading = [true, true]
                 return .merge([
                     .run { send in
-                        let data = await self.totalLoad.singleLiveAsyncData(requestModel: .init(upDown: tappedData.line == "2호선" ? "외선" : "상행", stationName: tappedData.name, line: line, exceptionLastStation: ""))
+                        let data = await self.totalLoad.singleLiveAsyncData(requestModel: .init(upDown: tappedData.line == "2호선" ? "내선" : "상행", stationName: tappedData.name, line: line, exceptionLastStation: ""))
                         await send(.liveDataResult(data))
                     },
                     .run { send in
-                        let data = await self.totalLoad.singleLiveAsyncData(requestModel: .init(upDown: tappedData.line == "2호선" ? "내선" : "하행", stationName: tappedData.name, line: line, exceptionLastStation: ""))
+                        let data = await self.totalLoad.singleLiveAsyncData(requestModel: .init(upDown: tappedData.line == "2호선" ? "외선" : "하행", stationName: tappedData.name, line: line, exceptionLastStation: ""))
                         await send(.liveDataResult(data))
                     }
                 ])
@@ -204,7 +204,7 @@ struct SearchFeature: Reducer {
                 guard let line = SubwayLineData(rawValue: tappedData.lineColorName) else {return .none}
                 
                 // 9호선은 상하행이 반대이기 때문에 아래와 같이 개발
-                if (line != .nine && data.first!.upDown == "상행") || (line == .nine && data.first!.upDown == "하행")  || data.first!.upDown == "외선" {
+                if (line != .nine && data.first!.upDown == "상행") || (line == .nine && data.first!.upDown == "하행")  || data.first!.upDown == "내선" {
                     state.nowUpLiveData = data.first!
                     state.nowLiveDataLoading[0] = false
                 } else {
@@ -272,16 +272,16 @@ struct SearchFeature: Reducer {
                     TextState("")
                 }, actions: {
                     ButtonState(action: .upDownBtnTapped(line != .nine)) {
-                        TextState(line == .two ? "외선" : "상행")
+                        TextState(line == .two ? "내선" : "상행")
                     }
                     ButtonState(action: .upDownBtnTapped(line == .nine)) {
-                        TextState(line == .two ? "내선" : "하행")
+                        TextState(line == .two ? "외선" : "하행")
                     }
                     ButtonState(role: .cancel, action: .cancelBtnTapped) {
                         TextState("취소")
                     }
                 }, message: {
-                    TextState("\(line == .two ? "외/내선" : "상/하행") 정보를 확인해주세요.")
+                    TextState("\(line == .two ? "내/외선" : "상/하행") 정보를 확인해주세요.")
                 })
                 return .none
                 
