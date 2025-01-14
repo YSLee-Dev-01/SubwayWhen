@@ -81,6 +81,7 @@ struct DetailView: View {
                                             .foregroundColor(.red)
                                     }
                                 }
+                                .padding(5)
                             }
                             .frame(maxWidth: .infinity)
                             .frame(height: 40)
