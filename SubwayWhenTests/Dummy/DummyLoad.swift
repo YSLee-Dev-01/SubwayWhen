@@ -58,6 +58,10 @@ let vicinityTransformData: [VicinityTransformData] =  [
     .init(id: "3", name: "고속터미널", line: "9호선", distance: "2000m"),
     .init(id: "4", name: "사당", line: "4호선", distance: "3000m")
 ]
+let searchQueryRecommend = [
+    SearchQueryRecommendData(queryName: "강남", stationName: "강남구청", line: "7, 수인"),
+    SearchQueryRecommendData(queryName: "마포", stationName: "마포구청", line: "6")
+]
 
 let urlResponse = HTTPURLResponse(url: URL(string: url)!,
                                   statusCode: 200,

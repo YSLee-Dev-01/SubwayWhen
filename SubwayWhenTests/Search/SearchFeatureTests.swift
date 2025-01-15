@@ -20,6 +20,7 @@ class SearchFeatureTests : XCTestCase {
         self.testTotalDependency.vicinityStationsData = vicinityTransformData
         self.testTotalDependency.realtimeStationArrival = totalArrivalDummyData
         self.testTotalDependency.searchStationName = stationNameSearcDummyhData.SearchInfoBySubwayNameService.row
+        self.testTotalDependency.queryRecoomendList = searchQueryRecommend
         
         self.testLocationDependency.locationData = locationData
         self.testLocationDependency.authRequest = true
@@ -292,6 +293,29 @@ class SearchFeatureTests : XCTestCase {
             $0.testIsAutoDelegateAction = nil // 검색결과에 따라 modal을 열 수 없을 때는 nil
             XCTAssertNotNil($0.dialogState) // 오류 안내 팝업 표출
         }
+    }
+    
+    func testSearchQueryRecommend() async {
+        let testStore = await self.createStore()
+        
+        // WHEN
+        await testStore.send(.searchQueryRecommendListRequest) // 추천 검색 쿼리 데이터 요청
+        await testStore.send(.binding(.set(\.searchQuery, "강남"))) // 검색 쿼리 입력
+        await testStore.receive(.stationSearchRequest) // 지하철역 통신 요청
+        
+        await testStore.receive(.stationSearchResult([])){ // 빈 배열 반환 (dummy 데이터는 교대역 기준)
+            // THEN
+            $0.filteredSearchQueryRecommendList = searchQueryRecommend.filter {$0.queryName == "강남"} // 검색 쿼리와 동일한 "강남" 역의 추천역인 "강남구청"역이 나와야함
+        }
+        
+        await testStore.send(.binding(.set(\.searchQuery, "교대"))) // 검색 쿼리 입력
+        await testStore.receive(.stationSearchRequest) // 지하철역 통신 요청
+        
+        await testStore.receive(.stationSearchResult(stationNameSearcDummyhData.SearchInfoBySubwayNameService.row)){ // 교대역 기준 데이터 반환
+            // THEN
+            $0.filteredSearchQueryRecommendList = [] // 추천 역이 없을 때는 빈 배열이 나와야함
+        }
+        
     }
 }
 
