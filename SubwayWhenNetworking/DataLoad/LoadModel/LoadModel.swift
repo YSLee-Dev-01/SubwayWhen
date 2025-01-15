@@ -111,12 +111,13 @@ final class LoadModel : LoadModelProtocol{
         let listData = PublishSubject<[String]>()
         
         self.database.observe(.value){dataBase, _ in
-            guard let data = dataBase.value as? [String : [String :Any]] else {return}
+            guard let data = dataBase.value as? [String : [String :Any]] else {listData.onCompleted(); return}
             let subwayWhen = data["SubwayWhen"]
             let search = subwayWhen?["SearchDefaultList"]
             let list = search as? [String]
             
             listData.onNext(list ?? [])
+            listData.onCompleted()
         }
         return listData
             .asObservable()
@@ -142,7 +143,7 @@ final class LoadModel : LoadModelProtocol{
         let importantData = PublishSubject<ImportantData>()
         
         self.database.observe(.value){ dataBase, _ in
-            guard let data = dataBase.value as? [String : [String :Any]] else {return}
+            guard let data = dataBase.value as? [String : [String :Any]] else {importantData.onCompleted(); return}
             let subwayWhen = data["SubwayWhen"]
             let search = subwayWhen?["ImportantData"]
             let list = search as? [String]
@@ -152,6 +153,7 @@ final class LoadModel : LoadModelProtocol{
             {
                 importantData.onNext(.init(title: infoData[0], contents: infoData[1]))
             }
+            importantData.onCompleted();
         }
         
         return importantData
@@ -162,24 +164,31 @@ final class LoadModel : LoadModelProtocol{
     func shinbundangScheduleReqeust(scheduleSearch: ScheduleSearch) -> Observable<[ShinbundangScheduleModel]> {
         let scheduleListSubject = PublishSubject<[ShinbundangScheduleModel]>()
         
+        func close() {
+            scheduleListSubject.onNext([]);
+            scheduleListSubject.onCompleted();
+        }
+        
         self.database.observe(.value) { dataBase, _ in
-            guard let dataBaseRoot = dataBase.value as? [String : [String :Any]] else {scheduleListSubject.onNext([]); return}
+            guard let dataBaseRoot = dataBase.value as? [String : [String :Any]] else {close();  return}
             // 신분당선 시간표는 기존 데이터베이스와 다른 root를 가지고 있음
             let subwayWhenSinbundangRoot = dataBaseRoot["SubwayWhenShinbundangScheduleData"]
             
             // 시간표 데이터가 많기 때문에 key에 맞는 데이터만 조회하기 위해 key를 먼저 조회
-            guard let stationKeys = subwayWhenSinbundangRoot?["Keys"]  as? [String] else {scheduleListSubject.onNext([]); return}
-            guard let stationIndex = stationKeys.firstIndex(of: scheduleSearch.stationName) else {return}
+            guard let stationKeys = subwayWhenSinbundangRoot?["Keys"]  as? [String] else {close(); return}
+            guard let stationIndex = stationKeys.firstIndex(of: scheduleSearch.stationName) else {close(); return}
             
-            guard let scheduleList = subwayWhenSinbundangRoot?["ScheduleList"] as? [[Any]] else {scheduleListSubject.onNext([]); return}
-            if scheduleList.count < stationIndex {return}
+            guard let scheduleList = subwayWhenSinbundangRoot?["ScheduleList"] as? [[Any]] else {close(); return}
+            if scheduleList.count < stationIndex {close(); return}
             
             let matchingStationSchedule =  scheduleList[stationIndex]
-            guard let matchingStationScheduleTypeCheck = matchingStationSchedule as? [[String: String]] else {scheduleListSubject.onNext([]); return}
+            guard let matchingStationScheduleTypeCheck = matchingStationSchedule as? [[String: String]] else {close(); return}
             
-            guard let data = try? PropertyListEncoder().encode(matchingStationScheduleTypeCheck) else {scheduleListSubject.onNext([]); return}
-            guard let successData = try? PropertyListDecoder().decode([ShinbundangScheduleModel].self, from: data) else {scheduleListSubject.onNext([]); return}
+            guard let data = try? PropertyListEncoder().encode(matchingStationScheduleTypeCheck) else {close(); return}
+            guard let successData = try? PropertyListDecoder().decode([ShinbundangScheduleModel].self, from: data) else {close();return}
+            
             scheduleListSubject.onNext(successData)
+            scheduleListSubject.onCompleted()
         }
         
         return scheduleListSubject
@@ -191,10 +200,11 @@ final class LoadModel : LoadModelProtocol{
         let scheduleVersion = PublishSubject<Double>()
         
         self.database.observe(.value){ dataBase, _ in
-            guard let data = dataBase.value as? [String : [String :Any]] else {return}
+            guard let data = dataBase.value as? [String : [String :Any]] else {scheduleVersion.onCompleted(); return}
             let subwayWhen = data["SubwayWhen"]
             let version = subwayWhen?["ShinbundangLineScheduleVersion"] as? [String: Double]
             scheduleVersion.onNext(version?["version"] ?? 0.0)
+            scheduleVersion.onCompleted();
         }
         
         return scheduleVersion
@@ -205,16 +215,18 @@ final class LoadModel : LoadModelProtocol{
         let recommendListData = PublishSubject<[SearchQueryRecommendData]>()
         
         self.database.observe(.value){ dataBase, _ in
-            guard let data = dataBase.value as? [String : [String :Any]] else {return}
+            guard let data = dataBase.value as? [String : [String :Any]] else {recommendListData.onCompleted(); return}
             let subwayWhen = data["SubwayWhen"]
             let search = subwayWhen?["SearchQueryRecommendList"]
             guard let list = search as? [String : [[String : String]]] else  {return}
             guard let encoding = try? PropertyListEncoder().encode(list["value"]),
                   let decodingData = try? PropertyListDecoder().decode([SearchQueryRecommendData].self, from: encoding) else {
+                recommendListData.onCompleted()
                 return
             }
             
             recommendListData.onNext(decodingData)
+            recommendListData.onCompleted()
         }
         
         return recommendListData
