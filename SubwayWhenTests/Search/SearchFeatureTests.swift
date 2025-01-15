@@ -33,7 +33,7 @@ class SearchFeatureTests : XCTestCase {
         // WHEN -> View가 처음 로딩 되었을 때
         await testStore.send(.onAppear) {
             // THEN
-            $0.isFirst = false
+            $0.testIsFirst = false
             $0.locationAuth = false // 권한을 아직 가져오지 못한 상태
             $0.nowRecommendStationList =  [
                 // 추천 역 통신 전 임시 값
@@ -45,14 +45,14 @@ class SearchFeatureTests : XCTestCase {
         await testStore.receive(.locationAuthResult([true, true])) // [자동 권한 확인 true, 권한 승인 true]
         await testStore.receive(.locationDataRequest) { // 권한 획득 후 Location 데이터 요청
             $0.nowVicintyStationLoading = true
-            $0.lastVicintySearchTime = nil
+            $0.testLastVicinitySearchTime = nil
         }
         await testStore.receive(.recommendStationResult(searchDeafultList)) // 추천 역 통신 후 값
         await testStore.receive(.locationDataResult(locationData)) // Location 값 획득
         await testStore.receive(.locationToVicinityStationRequest(locationData)) // Location 값을 기반으로 가까운 지하철역 요청
         await testStore.receive(.locationToVicinityStationResult(vicinityTransformData)) { // 가까운 지하철역 정보 획득
             $0.nowVicintyStationLoading = false
-            XCTAssertNotNil($0.lastVicintySearchTime)
+            XCTAssertNotNil($0.testLastVicinitySearchTime)
         }
     }
     
@@ -64,7 +64,7 @@ class SearchFeatureTests : XCTestCase {
         // WHEN
         await testStore.send(.onAppear) {
             // THEN
-            $0.isFirst = false
+            $0.testIsFirst = false
             $0.locationAuth = false // 권한을 아직 가져오지 못한 상태
             $0.nowRecommendStationList =  [
                 // 추천 역 통신 전 임시 값
@@ -106,7 +106,7 @@ class SearchFeatureTests : XCTestCase {
         await testStore.send(.locationAuthResult([true, true])) // [자동 권한 확인 true, 권한 승인 true]
         await testStore.receive(.locationToVicinityStationResult(vicinityTransformData)) { // 가까운 지하철역 정보 획득
             // THEN
-            XCTAssertNotNil($0.lastVicintySearchTime) // 마지막 시간 기록
+            XCTAssertNotNil($0.testLastVicinitySearchTime) // 마지막 시간 기록
         }
         
         // WHEN
@@ -231,7 +231,7 @@ class SearchFeatureTests : XCTestCase {
         
         await testStore.send(.dialogAction(.presented(.upDownBtnTapped(true)))) {
             // THEN
-            $0.isAutoDelegateAction = .disposableDetail(true) // disposableDetail 타입에 상행은 true
+            $0.testIsAutoDelegateAction = .disposableDetail(true) // disposableDetail 타입에 상행은 true
             $0.isSearchMode = true // 검색을 요청하기 때문에 mode, loading도 true
             $0.nowSearchLoading = true
             $0.searchQuery = $0.nowVicinityStationList[$0.nowTappedStationIndex!].name // 선택된 지하철역 이름 (0번 교대)
@@ -241,7 +241,7 @@ class SearchFeatureTests : XCTestCase {
         await testStore.receive(.stationSearchRequest) // 지하철역 통신 요청
         await testStore.receive(.stationSearchResult(stationNameSearcDummyhData.SearchInfoBySubwayNameService.row)) // 지하철역 검색 결과
         await testStore.receive(.disposableDetailPushRequest) { // 일회성 보기 요청
-            $0.isAutoDelegateAction = nil // 일회성 보기 present 후 action 값을 nil로 변경
+            $0.testIsAutoDelegateAction = nil // 일회성 보기 present 후 action 값을 nil로 변경
         }
     }
     
@@ -255,7 +255,7 @@ class SearchFeatureTests : XCTestCase {
         await testStore.send(.liveDataResult(totalArrivalDummyData.filter{$0.upDown == "상행" && $0.subWayId == "1003"} )) // 실시간 정보 주입
         await testStore.send(.stationAddBtnTapped) { // 지하철역 추가 모달 버튼 클릭
             // THEN
-            $0.isAutoDelegateAction = .plusModal // 검색을 요청하기 때문에 mode, loading도 true
+            $0.testIsAutoDelegateAction = .plusModal // 검색을 요청하기 때문에 mode, loading도 true
             $0.isSearchMode = true
             $0.nowSearchLoading = true
             $0.searchQuery = $0.nowVicinityStationList[$0.nowTappedStationIndex!].name // 선택된 지하철역 이름 (0번 교대)
@@ -265,7 +265,7 @@ class SearchFeatureTests : XCTestCase {
         await testStore.receive(.stationSearchRequest) // 지하철역 통신 요청
         await testStore.receive(.stationSearchResult(stationNameSearcDummyhData.SearchInfoBySubwayNameService.row)) // 지하철역 검색 결과
         await testStore.receive(.searchResultTapped(0)) { // 선택된 지하철역 index 전달 (0)
-            $0.isAutoDelegateAction = nil // modal present 후 action 값을 nil로 변경
+            $0.testIsAutoDelegateAction = nil // modal present 후 action 값을 nil로 변경
         }
     }
     
@@ -280,7 +280,7 @@ class SearchFeatureTests : XCTestCase {
         await testStore.send(.liveDataResult(totalArrivalDummyData.filter{$0.upDown == "상행" && $0.subWayId == "1003"} )) // 실시간 정보 주입
         await testStore.send(.stationAddBtnTapped) { // 지하철역 추가 모달 버튼 클릭
             // THEN
-            $0.isAutoDelegateAction = .plusModal // 검색을 요청하기 때문에 mode, loading도 true
+            $0.testIsAutoDelegateAction = .plusModal // 검색을 요청하기 때문에 mode, loading도 true
             $0.isSearchMode = true
             $0.nowSearchLoading = true
             $0.searchQuery = $0.nowVicinityStationList[$0.nowTappedStationIndex!].name // 선택된 지하철역 이름 (0번 교대)
@@ -289,7 +289,7 @@ class SearchFeatureTests : XCTestCase {
         // THEN
         await testStore.receive(.stationSearchRequest) // 지하철역 통신 요청
         await testStore.receive(.stationSearchResult([])) { // 지하철역 검색 결과 (빈 배열)
-            $0.isAutoDelegateAction = nil // 검색결과에 따라 modal을 열 수 없을 때는 nil
+            $0.testIsAutoDelegateAction = nil // 검색결과에 따라 modal을 열 수 없을 때는 nil
             XCTAssertNotNil($0.dialogState) // 오류 안내 팝업 표출
         }
     }
@@ -307,3 +307,4 @@ private extension SearchFeatureTests {
         return store
     }
 }
+

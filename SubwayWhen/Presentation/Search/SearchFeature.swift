@@ -21,6 +21,11 @@ struct SearchFeatureStationTapSendModel: Equatable {
     }
 }
 
+enum AutoDelegateAction: Equatable {
+    case disposableDetail(Bool)
+    case plusModal
+}
+
 @Reducer
 struct SearchFeature: Reducer {
     @Dependency(\.locationManager) private var locationManager
@@ -85,11 +90,6 @@ struct SearchFeature: Reducer {
             case cancelBtnTapped
             case upDownBtnTapped(Bool) // 상행/내선 true, 하행/외선이 false
         }
-    }
-    
-    enum AutoDelegateAction: Equatable {
-        case disposableDetail(Bool)
-        case plusModal
     }
     
     enum Key: Equatable, CaseIterable {
@@ -435,4 +435,29 @@ private extension SearchFeature {
             TextState(msg)
         })
     }
+}
+
+// 테스트용 State
+extension SearchFeature.State {
+    #if DEBUG
+    public var testLastVicinitySearchTime: Date? {
+        get { lastVicintySearchTime }
+        set { lastVicintySearchTime = newValue }
+    }
+    
+    var testNowSearchQueryRecommendList: [SearchQueryRecommendData] {
+        get { nowSearchQueryRecommendList }
+        set { nowSearchQueryRecommendList = newValue }
+    }
+    
+    public var testIsFirst: Bool {
+        get { isFirst }
+        set { isFirst = newValue }
+    }
+    
+    var testIsAutoDelegateAction: AutoDelegateAction? {
+        get { isAutoDelegateAction }
+        set { isAutoDelegateAction = newValue }
+    }
+    #endif
 }
