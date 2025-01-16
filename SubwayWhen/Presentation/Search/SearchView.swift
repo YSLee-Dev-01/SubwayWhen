@@ -90,9 +90,18 @@ struct SearchView: View {
                     }
                 }
                 .animation(.smooth, value: self.store.searchQuery.isEmpty)
+                
+                Group {
+                    if !self.store.filteredSearchQueryRecommendList.isEmpty {
+                        SearchQueryRecommendView(store: self.$store)
+                            .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .opacity.animation(.easeIn(duration: 0.2))))
+                    }
+                }
+                .animation(.smooth(duration: 0.3), value: self.store.filteredSearchQueryRecommendList.isEmpty)
             }
             .animation(.smooth(duration: 0.3), value: self.store.nowTappedStationIndex == nil)
             .animation(.smooth(duration: 0.3), value: self.store.locationAuth)
+            .animation(.smooth(duration: 0.3), value: self.store.nowVicinityStationList.isEmpty)
             .animation(.smooth(duration: 0.3), value: self.store.isSearchMode)
             .padding(.top, 12.5)
             .onAppear {

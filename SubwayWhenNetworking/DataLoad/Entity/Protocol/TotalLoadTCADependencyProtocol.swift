@@ -13,4 +13,5 @@ protocol TotalLoadTCADependencyProtocol {
     func vicinityStationsDataLoad(x: Double, y: Double) async -> [VicinityTransformData]
     func defaultViewListLoad() async -> [String]
     func stationNameSearchReponse(_ stationName : String) async -> [searchStationInfo]
+    func searchQueryRecommendListLoad() async -> [SearchQueryRecommendData]
 }

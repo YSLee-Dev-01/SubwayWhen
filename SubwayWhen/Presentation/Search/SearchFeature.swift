@@ -17,12 +17,17 @@ struct SearchFeatureStationTapSendModel: Equatable {
     let type: StationTapSendModelType
     
     enum StationTapSendModelType {
-        case recommend, location
+        case recommend, location, searchQueryRecommend
     }
 }
 
+enum AutoDelegateAction: Equatable {
+    case disposableDetail(Bool)
+    case plusModal
+}
+
 @Reducer
-class SearchFeature: NSObject {
+struct SearchFeature: Reducer {
     @Dependency(\.locationManager) private var locationManager
     @Dependency(\.totalLoad) private var totalLoad
     
@@ -40,12 +45,14 @@ class SearchFeature: NSObject {
             // 통신 전 임시 값
             "강남", "교대", "선릉", "삼성", "을지로3가", "종각", "홍대입구", "잠실", "명동", "여의도", "가산디지털단지", "판교"
         ]
+        fileprivate var nowSearchQueryRecommendList: [SearchQueryRecommendData] = [] // 파이어베이스에서 통신 받은 값
+        var filteredSearchQueryRecommendList: [SearchQueryRecommendData] = [] // 위 값을 현재 쿼리를 통해 필터링 거친 값
         var isSearchMode = false
-        var isFirst = true
+        fileprivate var isFirst = true
         var searchQuery = ""
         var locationAuth = false
-        var isAutoDelegateAction: AutoDelegateAction?
-        var lastVicintySearchTime: Date?
+        fileprivate var isAutoDelegateAction: AutoDelegateAction?
+        fileprivate var lastVicintySearchTime: Date?
         
         @Presents var dialogState: ConfirmationDialogState<Action.DialogAction>?
     }
@@ -65,6 +72,8 @@ class SearchFeature: NSObject {
         case liveDataResult([TotalRealtimeStationArrival])
         case recommendStationRequest
         case recommendStationResult([String])
+        case searchQueryRecommendListRequest
+        case searchQueryRecommendListResult([SearchQueryRecommendData])
         case refreshBtnTapped
         case vicinityListOpenBtnTapped
         case disposableDetailBtnTapped
@@ -79,13 +88,8 @@ class SearchFeature: NSObject {
         
         enum DialogAction: Equatable {
             case cancelBtnTapped
-            case upDownBtnTapped(Bool) // 상행/외선이 true, 하행/내선이 false
+            case upDownBtnTapped(Bool) // 상행/내선 true, 하행/외선이 false
         }
-    }
-    
-    enum AutoDelegateAction: Equatable {
-        case disposableDetail(Bool)
-        case plusModal
     }
     
     enum Key: Equatable, CaseIterable {
@@ -105,7 +109,8 @@ class SearchFeature: NSObject {
                     state.isFirst = false
                     return .merge([
                         .send(.locationAuthResult([true, self.locationManager.locationAuthCheck()])),
-                        .send(.recommendStationRequest)
+                        .send(.recommendStationRequest),
+                        .send(.searchQueryRecommendListRequest)
                     ])
                 } else {
                     return .send(.locationAuthResult([true, self.locationManager.locationAuthCheck()]))
@@ -183,11 +188,11 @@ class SearchFeature: NSObject {
                 state.nowLiveDataLoading = [true, true]
                 return .merge([
                     .run { send in
-                        let data = await self.totalLoad.singleLiveAsyncData(requestModel: .init(upDown: tappedData.line == "2호선" ? "외선" : "상행", stationName: tappedData.name, line: line, exceptionLastStation: ""))
+                        let data = await self.totalLoad.singleLiveAsyncData(requestModel: .init(upDown: tappedData.line == "2호선" ? "내선" : "상행", stationName: tappedData.name, line: line, exceptionLastStation: ""))
                         await send(.liveDataResult(data))
                     },
                     .run { send in
-                        let data = await self.totalLoad.singleLiveAsyncData(requestModel: .init(upDown: tappedData.line == "2호선" ? "내선" : "하행", stationName: tappedData.name, line: line, exceptionLastStation: ""))
+                        let data = await self.totalLoad.singleLiveAsyncData(requestModel: .init(upDown: tappedData.line == "2호선" ? "외선" : "하행", stationName: tappedData.name, line: line, exceptionLastStation: ""))
                         await send(.liveDataResult(data))
                     }
                 ])
@@ -199,7 +204,7 @@ class SearchFeature: NSObject {
                 guard let line = SubwayLineData(rawValue: tappedData.lineColorName) else {return .none}
                 
                 // 9호선은 상하행이 반대이기 때문에 아래와 같이 개발
-                if (line != .nine && data.first!.upDown == "상행") || (line == .nine && data.first!.upDown == "하행")  || data.first!.upDown == "외선" {
+                if (line != .nine && data.first!.upDown == "상행") || (line == .nine && data.first!.upDown == "하행")  || data.first!.upDown == "내선" {
                     state.nowUpLiveData = data.first!
                     state.nowLiveDataLoading[0] = false
                 } else {
@@ -238,6 +243,16 @@ class SearchFeature: NSObject {
                 state.nowRecommendStationList = data
                 return .none
                 
+            case .searchQueryRecommendListRequest:
+                return .run { send in
+                    let data = await self.totalLoad.searchQueryRecommendListLoad()
+                    await send(.searchQueryRecommendListResult(data))
+                }
+                
+            case .searchQueryRecommendListResult(let data):
+                state.nowSearchQueryRecommendList = data
+                return .none
+                
             case .refreshBtnTapped:
                 return .send(.liveDataRequest)
                 
@@ -257,16 +272,16 @@ class SearchFeature: NSObject {
                     TextState("")
                 }, actions: {
                     ButtonState(action: .upDownBtnTapped(line != .nine)) {
-                        TextState(line == .two ? "외선" : "상행")
+                        TextState(line == .two ? "내선" : "상행")
                     }
                     ButtonState(action: .upDownBtnTapped(line == .nine)) {
-                        TextState(line == .two ? "내선" : "하행")
+                        TextState(line == .two ? "외선" : "하행")
                     }
                     ButtonState(role: .cancel, action: .cancelBtnTapped) {
                         TextState("취소")
                     }
                 }, message: {
-                    TextState("\(line == .two ? "외/내선" : "상/하행") 정보를 확인해주세요.")
+                    TextState("\(line == .two ? "내/외선" : "상/하행") 정보를 확인해주세요.")
                 })
                 return .none
                 
@@ -290,41 +305,52 @@ class SearchFeature: NSObject {
                 if !isOn {
                     state.searchQuery = ""
                     state.nowStationSearchList = []
+                    state.filteredSearchQueryRecommendList = []
                 }
                 return .none
                 
             case .binding(\.searchQuery):
                 if state.searchQuery.isEmpty {
                     state.nowStationSearchList = []
+                    state.filteredSearchQueryRecommendList = []
                     state.nowSearchLoading = false
-                    return .cancel(id: Key.searchDelay)
+                    return .none
                 } else if state.nowStationSearchList.firstIndex(where: {$0.stationName == state.searchQuery}) != nil {
                     return .none
                 }
-                state.nowSearchLoading = true
-                return .concatenate([
-                    .cancel(id: Key.searchDelay),
-                    .run { send in
-                        try await Task.sleep(for: .milliseconds(650))
-                        await send(.stationSearchRequest)
-                    }
-                ])
-                .cancellable(id: Key.searchDelay)
+                
+                if !state.nowSearchLoading {
+                    state.nowSearchLoading = true
+                    state.filteredSearchQueryRecommendList = []
+                }
+                
+                return .send(.stationSearchRequest)
+                    .debounce(id: Key.searchDelay, for: 0.7, scheduler: DispatchQueue.main)
                 
             case .stationSearchRequest:
+                if state.searchQuery.isEmpty {
+                    state.nowStationSearchList = []
+                    state.nowSearchLoading = false
+                    return .none
+                }
+                
                 Analytics.logEvent("SerachVC_Search", parameters: [
                     "Search_Station" : state.searchQuery
                 ])
                 state.nowStationSearchList = []
                 return .run { [name = state.searchQuery] send in
                     let result = await self.totalLoad.stationNameSearchReponse(name)
-                    try await Task.sleep(for: .milliseconds(350))
+                    try await Task.sleep(for: .milliseconds(300))
                     await send(.stationSearchResult(result))
                 }
                 
             case .stationSearchResult(let result):
                 state.nowStationSearchList = result
                 state.nowSearchLoading = false
+                state.filteredSearchQueryRecommendList = state.nowSearchQueryRecommendList.filter {
+                    $0.queryName == state.searchQuery
+                }
+                
                 if state.isAutoDelegateAction == nil {
                     return .none
                 } else if state.isAutoDelegateAction == .plusModal {
@@ -352,9 +378,16 @@ class SearchFeature: NSObject {
                 return .none
                 
             case .stationTapped(let model):
+                state.searchQuery = model.type == .recommend ?
+                    state.nowRecommendStationList[model.index] :
+                    (model.type == .location ?
+                        state.nowVicinityStationList[model.index].name :
+                        state.filteredSearchQueryRecommendList[model.index].stationName
+                    )
+                state.filteredSearchQueryRecommendList = []
                 state.nowSearchLoading = true
                 state.isSearchMode = true
-                state.searchQuery = model.type == .recommend ?  state.nowRecommendStationList[model.index] : state.nowVicinityStationList[model.index].name
+                
                 return .send(.stationSearchRequest)
                 
             case .disposableDetailPushRequest:
@@ -402,4 +435,29 @@ private extension SearchFeature {
             TextState(msg)
         })
     }
+}
+
+// 테스트용 State
+extension SearchFeature.State {
+    #if DEBUG
+    public var testLastVicinitySearchTime: Date? {
+        get { lastVicintySearchTime }
+        set { lastVicintySearchTime = newValue }
+    }
+    
+    var testNowSearchQueryRecommendList: [SearchQueryRecommendData] {
+        get { nowSearchQueryRecommendList }
+        set { nowSearchQueryRecommendList = newValue }
+    }
+    
+    public var testIsFirst: Bool {
+        get { isFirst }
+        set { isFirst = newValue }
+    }
+    
+    var testIsAutoDelegateAction: AutoDelegateAction? {
+        get { isAutoDelegateAction }
+        set { isAutoDelegateAction = newValue }
+    }
+    #endif
 }

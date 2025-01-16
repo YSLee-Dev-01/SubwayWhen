@@ -52,4 +52,12 @@ class PreviewTotalLoadTCADependency: TotalLoadTCADependencyProtocol {
             .init(stationName: "신논현", line: .shinbundang, stationCode: "D06"),
         ]
     }
+    
+    func searchQueryRecommendListLoad() async -> [SearchQueryRecommendData] {
+        return [
+            .init(queryName: "가디", stationName: "가산디지털단지", line: "1, 7"),
+            .init(queryName: "구디", stationName: "구로디지털단지", line: "1, 7"),
+            .init(queryName: "디엠시", stationName: "디지털미디어시티", line: "1, 7")
+        ]
+    }
 }

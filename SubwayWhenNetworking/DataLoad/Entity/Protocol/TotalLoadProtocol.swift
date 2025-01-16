@@ -20,6 +20,7 @@ protocol TotalLoadProtocol{
     func importantDataLoad() -> Observable<ImportantData>
     func scheduleDataFetchAsyncData(_ scheduleData: Observable<[ResultSchdule]>) async -> [ResultSchdule]
     func shinbundangScheduleLoad(scheduleSearch: ScheduleSearch, isFirst: Bool, isNow: Bool, isWidget: Bool, requestDate: Date, isDisposable: Bool) -> Observable<[ResultSchdule]>
+    func searchQueryRecommendListLoad() async -> [SearchQueryRecommendData]
 }
 
 extension TotalLoadProtocol {

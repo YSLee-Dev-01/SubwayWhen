@@ -58,4 +58,8 @@ class TotalLoadTCADependency: TotalLoadTCADependencyProtocol {
     func stationNameSearchReponse(_ stationName : String) async -> [searchStationInfo] {
         await self.totalModel.stationNameSearchReponse(stationName)
     }
+    
+    func searchQueryRecommendListLoad() async -> [SearchQueryRecommendData] {
+        await self.totalModel.searchQueryRecommendListLoad()
+    }
 }

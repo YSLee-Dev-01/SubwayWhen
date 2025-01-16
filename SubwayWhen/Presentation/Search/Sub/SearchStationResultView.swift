@@ -43,7 +43,7 @@ struct SearchStationResultView: View {
                         ForEach(Array(zip(self.store.nowStationSearchList, self.store.nowStationSearchList.indices)), id: \.1) { data, index in
                             AnimationButtonInSUI(bgColor: Color.gray.opacity(0.1), tappedBGColor: Color.gray.opacity(0.01), buttonView: {
                                 HStack(spacing: 10) {
-                                    StationTitleViewInSUI(title: data.line.useLine, lineColor: data.line.rawValue, size: 62, isFill: true, fontSize: ViewStyle.FontSize.smallSize)
+                                    StationTitleViewInSUI(title: data.line.useLine, lineColor: data.line.rawValue, size: 61, isFill: true, fontSize: ViewStyle.FontSize.smallSize)
                                     
                                     Text(data.stationName)
                                         .font(.system(size: ViewStyle.FontSize.mediumSize, weight: .bold))
@@ -58,7 +58,7 @@ struct SearchStationResultView: View {
                                 }
                             })
                         }
-                        .transition(.move(edge: .bottom))
+                        .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .opacity.animation(.easeIn(duration: 0.2))))
                         .padding(.vertical, 5)
                     }
                 }

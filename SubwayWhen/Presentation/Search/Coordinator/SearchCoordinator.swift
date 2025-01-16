@@ -22,7 +22,7 @@ class SearchCoordinator : Coordinator{
     
     func start() {
         self.store = StoreOf<SearchFeature>(initialState: .init(), reducer: {
-            let feature = SearchFeature()
+            var feature = SearchFeature()
             feature.delegate = self
             return feature
         })
