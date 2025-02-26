@@ -16,7 +16,6 @@ struct TotalRealtimeStationArrival:  Equatable, Hashable {
     let subwayLineData : SubwayLineData
     let stationName : String
     let lastStation : String
-    let lineNumber : String?
     let isFast : String?
     let trainCode : String
     let backStationName: String
@@ -32,7 +31,6 @@ struct TotalRealtimeStationArrival:  Equatable, Hashable {
         self.subwayLineData = realTimeStationArrival.subwayLineData
         self.stationName = realTimeStationArrival.stationName
         self.lastStation = realTimeStationArrival.lastStation
-        self.lineNumber = realTimeStationArrival.lineNumber
         self.isFast = realTimeStationArrival.isFast
         self.trainCode = realTimeStationArrival.trainCode
         self.backStationName = backStationName

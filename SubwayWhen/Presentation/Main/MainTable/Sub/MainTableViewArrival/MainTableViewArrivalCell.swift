@@ -88,11 +88,11 @@ class MainTableViewCell : TableViewCellCustom{
         }
         
         self.station.text = "\(data.stationName) | \(data.lastStation)"
-        self.line.text = data.useLine
+        self.line.text = data.subwayLineData.useLine
         
         self.arrivalTime.text = "\(data.useTime)"
         self.now.text = data.type == .schedule ? "⏱️\(data.useFast)\(data.stateMSG)" : "\(data.useFast)\(data.stateMSG)"
-        self.lineColor(line: data.lineNumber)
+        self.lineColor(line: data.subwayLineData.rawValue)
         
         self.type = data.type
     }

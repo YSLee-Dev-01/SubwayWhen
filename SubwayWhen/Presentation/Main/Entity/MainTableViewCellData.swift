@@ -15,12 +15,9 @@ struct MainTableViewCellData: Decodable, Hashable {
     let previousStation : String
     let subPrevious : String
     let code : String
-    let subWayId : String
     let stationName : String
     let lastStation : String
-    let lineNumber : String
     let isFast : String
-    let useLine : String
     let group : String
     let id : String
     let stationCode : String
@@ -30,6 +27,7 @@ struct MainTableViewCellData: Decodable, Hashable {
     var nextStationId : String
     let korailCode : String
     var stateMSG: String
+    let subwayLineData : SubwayLineData
     
     var useTime : String{
         if self.type == .real{

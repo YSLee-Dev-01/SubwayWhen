@@ -34,9 +34,9 @@ class MainCoordinator : Coordinator{
         self.navigation.popToRootViewController(animated: true)
         self.navigation.dismiss(animated: true)
         
-        let data = MainTableViewCellData(upDown: saveStation.updnLine, arrivalTime: "", previousStation: "", subPrevious: "", code: "", subWayId: saveStation.lineCode, stationName: saveStation.stationName, lastStation: "", lineNumber: saveStation.line, isFast: "", useLine: saveStation.useLine, group: saveStation.group.rawValue, id: saveStation.id, stationCode: saveStation.stationCode, exceptionLastStation: saveStation.exceptionLastStation, type: .real, backStationId: "", nextStationId: "", korailCode: saveStation.korailCode, stateMSG: "")
+        let data = MainTableViewCellData(upDown: saveStation.updnLine, arrivalTime: "", previousStation: "", subPrevious: "", code: "", stationName: saveStation.stationName, lastStation: "",  isFast: "",  group: saveStation.group.rawValue, id: saveStation.id, stationCode: saveStation.stationCode, exceptionLastStation: saveStation.exceptionLastStation, type: .real, backStationId: "",  nextStationId: "", korailCode: saveStation.korailCode, stateMSG: "", subwayLineData: .init(subwayId: saveStation.lineCode))
         
-        let detailSendModel = DetailSendModel(upDown: data.upDown, stationName: data.stationName, lineNumber: data.lineNumber, stationCode: data.stationCode, lineCode: data.subWayId, exceptionLastStation: data.exceptionLastStation, korailCode: data.korailCode)
+        let detailSendModel = DetailSendModel(upDown: data.upDown, stationName: data.stationName, lineNumber: data.subwayLineData.rawValue, stationCode: data.stationCode, lineCode: data.subwayLineData.lineCode, exceptionLastStation: data.exceptionLastStation, korailCode: data.korailCode)
         
         let detail = DetailCoordinator(navigation: self.navigation, data: detailSendModel, isDisposable: false)
         self.childCoordinator.append(detail)
@@ -73,7 +73,7 @@ extension MainCoordinator : MainDelegate{
     }
     
     func pushDetailTap(data: MainTableViewCellData) {
-        let detailSendModel = DetailSendModel(upDown: data.upDown, stationName: data.stationName, lineNumber: data.lineNumber, stationCode: data.stationCode, lineCode: data.subWayId, exceptionLastStation: data.exceptionLastStation, korailCode: data.korailCode)
+        let detailSendModel = DetailSendModel(upDown: data.upDown, stationName: data.stationName, lineNumber: data.subwayLineData.rawValue, stationCode: data.stationCode, lineCode: data.subwayLineData.lineCode, exceptionLastStation: data.exceptionLastStation, korailCode: data.korailCode)
         let detail = DetailCoordinator(navigation: self.navigation, data: detailSendModel, isDisposable: false)
         self.childCoordinator.append(detail)
         detail.delegate = self
