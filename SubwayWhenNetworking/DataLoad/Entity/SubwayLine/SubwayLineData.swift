@@ -34,6 +34,31 @@ enum SubwayLineData : String, Decodable, Equatable {
     case gtxA = "GTX-A"
     case not = "not"
     
+    init(subwayId: String) {
+        switch subwayId {
+        case "1001": self = .one
+        case "1002": self = .two
+        case "1003" : self = .three
+        case "1004": self = .four
+        case "1005": self = .five
+        case "1006": self = .six
+        case "1007": self = .seven
+        case "1008": self = .eight
+        case "1009": self = .nine
+        case "1063": self = .gyeongui
+        case "1065": self = .airport
+        case "1067": self =  .gyeongchun
+        case "1075": self = .suinbundang
+        case "1077": self = .shinbundang
+        case "1092": self = .ui
+        case "1032": self = .gtxA
+        case "1093": self =  .seohae
+        case "1081": self = .gyeonggang
+        case "1094": self = .sillim
+        default: self = .not
+        }
+    }
+    
     var useLine: String{
         switch self {
         case .one:

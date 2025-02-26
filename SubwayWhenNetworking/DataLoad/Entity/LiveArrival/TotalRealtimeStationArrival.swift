@@ -13,7 +13,7 @@ struct TotalRealtimeStationArrival:  Equatable, Hashable {
     let previousStation : String?
     let subPrevious : String
     let code : String
-    let subWayId : String
+    let subwayLineData : SubwayLineData
     let stationName : String
     let lastStation : String
     let lineNumber : String?
@@ -29,7 +29,7 @@ struct TotalRealtimeStationArrival:  Equatable, Hashable {
         self.previousStation = realTimeStationArrival.previousStation
         self.subPrevious = realTimeStationArrival.subPrevious
         self.code = realTimeStationArrival.code
-        self.subWayId = realTimeStationArrival.subWayId
+        self.subwayLineData = realTimeStationArrival.subwayLineData
         self.stationName = realTimeStationArrival.stationName
         self.lastStation = realTimeStationArrival.lastStation
         self.lineNumber = realTimeStationArrival.lineNumber
