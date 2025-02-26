@@ -127,6 +127,8 @@ enum SubwayLineData : String, Decodable, Equatable {
             return "1093"
         case .gyeonggang:
             return "1081"
+        case .sillim:
+            return "1094"
         default :
             return ""
         }
