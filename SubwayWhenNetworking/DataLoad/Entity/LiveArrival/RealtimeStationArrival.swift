@@ -42,10 +42,6 @@ struct RealtimeStationArrival : Decodable, Equatable, Hashable {
         SubwayLineData(subwayId: subWayId)
     }
     
-    var detailArraivalViewText: String {
-        (self.subPrevious != "" && self.code != "") ? "🚇 \(self.trainCode) 열차(\(self.lastStation)행) \n \(self.subPrevious)" : "⚠️ 실시간 정보없음"
-    }
-    
     var useState : String{
         switch self.code{
         case "0":

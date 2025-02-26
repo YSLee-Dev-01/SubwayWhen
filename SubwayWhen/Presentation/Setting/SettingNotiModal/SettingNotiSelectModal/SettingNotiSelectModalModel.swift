@@ -30,7 +30,7 @@ class SettingNotiSelectModalModel: SettingNotiSelectModalModelProtocol {
         let cellData = data.enumerated().map {
             let isChecked = $0.offset == checkedRow
             
-            return SettingNotiSelectModalCellData(id: $0.element.id, stationName: $0.element.stationName, updnLine: $0.element.updnLine, line: $0.element.line, useLine: $0.element.useLine, isChecked: isChecked)
+            return SettingNotiSelectModalCellData(id: $0.element.id, stationName: $0.element.stationName, updnLine: $0.element.updnLine, line: $0.element.line, useLine: $0.element.subwayLineData.useLine, isChecked: isChecked)
         }
         
         return Observable.just([SettingNotiSelectModalSectionData(id: UUID().uuidString, items: cellData)])

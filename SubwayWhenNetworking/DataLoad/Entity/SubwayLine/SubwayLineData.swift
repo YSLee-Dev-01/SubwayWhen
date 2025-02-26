@@ -158,4 +158,12 @@ enum SubwayLineData : String, Decodable, Equatable {
             return ""
         }
     }
+    
+    var allowScheduleLoad: Bool {
+        return !( self == .airport  || self == .ui || self == .not  || self == .gyeonggang || self == .seohae || self == .gtxA || self == .sillim )
+    }
+    
+    var allowReport: Bool {
+        return !(self == .ui || self == .gtxA || self == .seohae || self == .sillim)
+    }
 }

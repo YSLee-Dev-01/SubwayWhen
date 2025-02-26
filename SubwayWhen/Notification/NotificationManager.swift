@@ -123,7 +123,7 @@ private extension NotificationManager {
     func saveStationToSettingNotiModalData(data: SaveStation?, group: SaveStationGroup) -> NotificationManagerRequestData {
         if let data = data {
             return NotificationManagerRequestData(
-                id: data.id, stationName: data.stationName, useLine: data.useLine, line: data.line, group: data.group
+                id: data.id, stationName: data.stationName, useLine: data.subwayLineData.useLine, line: data.line, group: data.group
             )
         } else {
             return NotificationManagerRequestData(id: "", stationName: "", useLine: "", line: "", group: group)

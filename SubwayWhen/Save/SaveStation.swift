@@ -18,29 +18,13 @@ struct SaveStation: Codable, Equatable {
     let exceptionLastStation: String
     var korailCode: String
     
-    var useLine: String{
-        let zeroCut = self.line.replacingOccurrences(of: "0", with: "").replacingOccurrences(of: "-", with: "")
-        
-        if zeroCut.count < 4 {
-            return String(zeroCut[zeroCut.startIndex ..< zeroCut.index(zeroCut.startIndex, offsetBy: zeroCut.count)])
-        }else{
-            return String(zeroCut[zeroCut.startIndex ..< zeroCut.index(zeroCut.startIndex, offsetBy: 4)])
-        }
+    var subwayLineData: SubwayLineData {
+        SubwayLineData(subwayId: lineCode)
     }
     
     var widgetUseText: String {
         let group = group == .one ? "출근" : "퇴근"
         let exception = exceptionLastStation == "" ? "" : " (\(exceptionLastStation) 행 제외)"
-        return  group + " " +  useLine + " (" + updnLine + ") "  + "\n" + stationName + exception
-    }
-    
-    var allowScheduleLoad: Bool {
-        return !( line == "공항철도" || line == "우이신설경전철" || line == ""  || line == "경강선" || line == "서해선" || line == "GTX-A" )
-    }
-    
-    var allowReport: Bool {
-        return !(line == "우이신설경전철" || line == "GTX-A" || line == "서해선")
+        return  group + " " +  subwayLineData.useLine + " (" + updnLine + ") "  + "\n" + stationName + exception
     }
 }
-
-
