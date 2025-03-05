@@ -9,15 +9,34 @@ import UIKit
 
 import Then
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class SettingNotiStationView: UIView {
-    let groupOneTitle = UILabel().then {
+    private let includeView = MainStyleUIView()
+    
+    private let includeWeekendTitle = UILabel().then {
+        $0.text = "주말포함"
+        $0.font = .systemFont(ofSize: ViewStyle.FontSize.largeSize, weight: .bold)
+        $0.textColor = .label
+    }
+    
+    fileprivate lazy var  includeWeekendList = UILabel().then {
+        $0.font = .boldSystemFont(ofSize: ViewStyle.FontSize.mediumSize)
+        $0.textColor = .gray
+    }
+    
+    let includeWeekendSwitch = UISwitch().then {
+        $0.onTintColor = UIColor(named: "AppIconColor")
+    }
+    
+    private let groupOneTitle = UILabel().then {
         $0.text = "출근시간"
         $0.font = .systemFont(ofSize: ViewStyle.FontSize.largeSize, weight: .bold)
         $0.textColor = .label
     }
     
-    let groupOneLine = UILabel().then {
+    private let groupOneLine = UILabel().then {
         $0.layer.masksToBounds = true
         $0.layer.cornerRadius = 30
         $0.backgroundColor = .systemGray
@@ -29,20 +48,20 @@ class SettingNotiStationView: UIView {
     
     let groupOneBtn = ModalCustomButton(bgColor: UIColor(named: "MainColor") ?? .gray, customTappedBG: nil)
     
-    let groupOneStation = UILabel().then {
+    private let groupOneStation = UILabel().then {
         $0.text = "역 선택"
         $0.textAlignment = .left
         $0.font = .systemFont(ofSize: ViewStyle.FontSize.mediumSize, weight: .medium)
         $0.textColor = .label
     }
     
-    let groupTwoTitle = UILabel().then {
+    private let groupTwoTitle = UILabel().then {
         $0.text = "퇴근시간"
         $0.font = .systemFont(ofSize: ViewStyle.FontSize.largeSize, weight: .bold)
         $0.textColor = .label
     }
     
-    let groupTwoLine = UILabel().then {
+    private let groupTwoLine = UILabel().then {
         $0.layer.masksToBounds = true
         $0.layer.cornerRadius = 30
         $0.backgroundColor = .systemGray
@@ -54,20 +73,24 @@ class SettingNotiStationView: UIView {
     
     let groupTwoLBtn = ModalCustomButton(bgColor: UIColor(named: "MainColor") ?? .gray, customTappedBG: nil)
     
-    let groupTwoStation = UILabel().then {
+    private  let groupTwoStation = UILabel().then {
         $0.text = "역 선택"
         $0.textAlignment = .left
         $0.font = .systemFont(ofSize: ViewStyle.FontSize.mediumSize, weight: .medium)
         $0.textColor = .label
     }
     
-    let border = UIView().then {
+    private let border = UIView().then {
         $0.backgroundColor = .gray.withAlphaComponent(0.5)
     }
     
+    private let bag = DisposeBag()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         self.layout()
+        self.bind()
     }
     
     required init?(coder: NSCoder) {
@@ -77,13 +100,41 @@ class SettingNotiStationView: UIView {
 
 extension SettingNotiStationView {
     private func layout() {
-        [self.groupOneTitle, self.groupTwoTitle, self.groupOneBtn, self.groupTwoLBtn, self.border].forEach {
+        [self.includeWeekendTitle, self.includeView ,self.groupOneTitle, self.groupTwoTitle, self.groupOneBtn, self.groupTwoLBtn, self.border].forEach {
             self.addSubview($0)
+        }
+        
+        self.includeView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(30)
+            $0.height.equalTo(60)
+            $0.leading.equalTo(self.includeWeekendTitle.snp.trailing).offset(ViewStyle.padding.mainStyleViewLR)
+            $0.trailing.equalToSuperview().inset(ViewStyle.padding.mainStyleViewLR)
+        }
+        
+        self.includeWeekendTitle.snp.makeConstraints {
+            $0.centerY.equalTo(self.includeView)
+            $0.leading.equalToSuperview().inset(ViewStyle.padding.mainStyleViewLR)
+        }
+        
+        [self.includeWeekendList, self.includeWeekendSwitch]
+            .forEach {
+                self.includeView.addSubview($0)
+            }
+        
+        self.includeWeekendList.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(15)
+            $0.trailing.equalTo(self.includeWeekendSwitch.snp.leading).offset(-15)
+            $0.centerY.equalTo(self.includeWeekendTitle)
+        }
+        
+        self.includeWeekendSwitch.snp.makeConstraints {
+            $0.centerY.equalTo(self.includeWeekendTitle)
+            $0.trailing.equalToSuperview().offset(-15)
         }
         
         self.groupOneTitle.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(ViewStyle.padding.mainStyleViewLR)
-            $0.top.equalToSuperview().offset(35)
+            $0.top.equalTo(includeView.snp.bottom).offset(30)
         }
         
         self.groupOneBtn.snp.makeConstraints {
@@ -112,7 +163,7 @@ extension SettingNotiStationView {
         
         self.groupTwoTitle.snp.makeConstraints {
             $0.leading.equalTo(self.snp.centerX).offset(ViewStyle.padding.mainStyleViewLR)
-            $0.top.equalToSuperview().offset(35)
+            $0.top.equalTo(includeView.snp.bottom).offset(30)
         }
         
         self.groupTwoLBtn.snp.makeConstraints {
@@ -146,6 +197,12 @@ extension SettingNotiStationView {
         }
     }
     
+    private func bind() {
+        self.includeWeekendSwitch.rx.isOn
+            .bind(onNext: self.weekendTitleSet)
+            .disposed(by: self.bag)
+    }
+    
     func viewDataSet(data: NotificationManagerRequestData, isRemove: Bool) {
         if isRemove {
             self.defaultSet(group: data.group)
@@ -160,6 +217,10 @@ extension SettingNotiStationView {
                 self.groupTwoLine.backgroundColor = UIColor(named: data.line)
             }
         }
+    }
+    
+    func weekendTitleSet(isOn: Bool) {
+        self.includeWeekendList.text = isOn ?  "월 화 수 목 금 토 일" :  "월 화 수 목 금"
     }
     
     private func defaultSet(group: SaveStationGroup) {

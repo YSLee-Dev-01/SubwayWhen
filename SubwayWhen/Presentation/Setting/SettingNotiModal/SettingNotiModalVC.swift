@@ -99,13 +99,21 @@ extension SettingNotiModalVC {
             .bind(to: self.stationTap)
             .disposed(by: self.bag)
         
+        self.settingNotiExplanationView.goBtn.rx.tap
+            .withUnretained(self)
+            .subscribe(onNext: { viewModel, _ in
+                viewModel.modalDismiss()
+            })
+            .disposed(by: self.bag)
+        
         let input = SettingNotiModalViewModel
             .Input(
                 didDisappearAction: self.didDisappearAction,
                 dismissAction: self.dismissAction,
                 stationTapAction: self.stationTap,
                 okBtnTap: self.okBtn!.rx.tap.asObservable(),
-                groupTimeGoBtnTap: self.settingNotiExplanationView.goBtn.rx.tap.asObservable()
+                groupTimeGoBtnTap: self.settingNotiExplanationView.goBtn.rx.tap.asObservable(),
+                isWeekendNoficationEnabled: self.settingNotiStationView.includeWeekendSwitch.rx.isOn.asObservable()
             )
         let output =  self.viewModel.transform(input: input)
         
@@ -117,11 +125,8 @@ extension SettingNotiModalVC {
             .drive(self.rx.viewSet)
             .disposed(by: self.bag)
         
-        self.settingNotiExplanationView.goBtn.rx.tap
-            .withUnretained(self)
-            .subscribe(onNext: { viewModel, _ in
-                viewModel.modalDismiss()
-            })
+        output.enableWeekendNotifications
+            .drive(self.rx.weekendSwitchSet)
             .disposed(by: self.bag)
     }
     
@@ -168,6 +173,13 @@ extension Reactive where Base: SettingNotiModalVC {
                         data: item, isRemove: item.stationName == "역 선택")
                 }
             }
+        }
+    }
+    
+    var weekendSwitchSet: Binder<Bool> {
+        return Binder(base) { base, isOn in
+            base.settingNotiStationView.includeWeekendSwitch.isOn = isOn
+            base.settingNotiStationView.weekendTitleSet(isOn: isOn)
         }
     }
 }

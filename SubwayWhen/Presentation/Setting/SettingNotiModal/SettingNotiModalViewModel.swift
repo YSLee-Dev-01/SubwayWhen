@@ -30,12 +30,13 @@ class SettingNotiModalViewModel {
         let stationTapAction: PublishSubject<Bool>
         let okBtnTap: Observable<Void>
         let groupTimeGoBtnTap: Observable<Void>
+        let isWeekendNoficationEnabled: Observable<Bool>
     }
     
     struct Output {
         let authSuccess: Driver<Bool>
         let notiStationList: Driver<[NotificationManagerRequestData]>
-        
+        let enableWeekendNotifications: Driver<Bool>
     }
     
     func transform(input: Input) -> Output {
@@ -100,15 +101,18 @@ class SettingNotiModalViewModel {
             .disposed(by: self.bag)
         
         okBtnTap
+            .withLatestFrom(input.isWeekendNoficationEnabled)
+            .subscribe(onNext: { isOn in
+                FixInfo.saveSetting.isWeekendNotificationEnabled = isOn
+            })
+            .disposed(by: self.bag)
+        
+        okBtnTap
             .withUnretained(self)
-            .subscribe(onNext: { viewModel, data in
-                viewModel.notiManager.notiAllRemove()
-                
+            .subscribe(onNext: { viewModel, _ in
                 // 0.5 초 이후 (삭제 이후)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                    data.forEach{
-                        viewModel.notiManager.notiScheduleAdd(data: $0)
-                    }
+                    viewModel.notiManager.notiTimeChange()
                 }
             })
             .disposed(by: self.bag)
@@ -116,7 +120,8 @@ class SettingNotiModalViewModel {
         return Output(
             authSuccess: self.auth
                 .asDriver(onErrorDriveWith: .empty()),
-            notiStationList: total.asDriver(onErrorDriveWith: .empty())
+            notiStationList: total.asDriver(onErrorDriveWith: .empty()),
+            enableWeekendNotifications: .just(FixInfo.saveSetting.isWeekendNotificationEnabled)
         )
     }
     

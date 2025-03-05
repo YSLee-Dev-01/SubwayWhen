@@ -27,7 +27,7 @@ class SettingNotiCoordinator: Coordinator {
         let viewModel = SettingNotiModalViewModel(model: model, notiManager: nonimanager)
         viewModel.delegate = self
         let modal = SettingNotiModalVC(
-            modalHeight: 400,
+            modalHeight: 470,
             btnTitle: "저장",
             mainTitle: "출퇴근 알림",
             subTitle: "출퇴근 시간에 맞게 정해놓은 지하철역으로 알림을 주는 기능에요.",
