@@ -29,7 +29,7 @@ class NotificationManager: NotificationManagerProtocol {
         return auth
     }
     
-    func notiScheduleAdd(data: NotificationManagerRequestData) {
+    func notiScheduleAdd(data: NotificationManagerRequestData, includeWeekends: Bool) {
         // 기본 값인 경우 무시
         guard data.id != "" else {return}
         
@@ -45,18 +45,20 @@ class NotificationManager: NotificationManagerProtocol {
         content.badge = 1
         content.sound = .default
         
-        let trigger = UNCalendarNotificationTrigger(
-            dateMatching: self.createDateComponents(hour: time),
-            repeats: true
-        )
-        
-        let request = UNNotificationRequest(
-            identifier: data.id,
-            content: content,
-            trigger: trigger
-        )
-        
-        UNUserNotificationCenter.current().add(request)
+        for weekday in 2 ... (includeWeekends ? 2 : 6) {
+            let trigger = UNCalendarNotificationTrigger(
+                dateMatching: self.createDateComponents(hour: time, weekday: includeWeekends ? nil : weekday),
+                repeats: true
+            )
+            
+            let request = UNNotificationRequest(
+                identifier: "\(data.id)\(weekday)",
+                content: content,
+                trigger: trigger
+            )
+            
+            UNUserNotificationCenter.current().add(request)
+        }
     }
     
     func notiTapAction(id: String) {
@@ -67,7 +69,11 @@ class NotificationManager: NotificationManagerProtocol {
     }
     
     func notiRemove(id: String) {
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
+        if FixInfo.saveSetting.isWeekendNotificationEnabled {
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(id)\(2)"]) // 주말 포함인 경우 고정
+        } else {
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: (2 ... 6).map {"\(id)\($0)"})
+        }
     }
     
     func notiAllRemove() {
@@ -83,8 +89,8 @@ class NotificationManager: NotificationManagerProtocol {
                 let nilData = NotificationManagerRequestData(id: "", stationName: "", useLine: "", line: "", group: .one)
                 let nilDataTwo = NotificationManagerRequestData(id: "", stationName: "", useLine: "", line: "", group: .two)
                 
-                manager.notiScheduleAdd(data: data.first ?? nilData)
-                manager.notiScheduleAdd(data: data.last ?? nilDataTwo)
+                manager.notiScheduleAdd(data: data.first ?? nilData, includeWeekends: FixInfo.saveSetting.isWeekendNotificationEnabled)
+                manager.notiScheduleAdd(data: data.last ?? nilDataTwo, includeWeekends: FixInfo.saveSetting.isWeekendNotificationEnabled)
             })
             .disposed(by: self.bag)
     }
@@ -103,10 +109,13 @@ class NotificationManager: NotificationManagerProtocol {
 }
 
 private extension NotificationManager {
-    func createDateComponents(hour: Int) -> DateComponents {
+    func createDateComponents(hour: Int, weekday: Int?) -> DateComponents {
         var components = DateComponents()
         components.calendar = Calendar.current
         
+        if let weekday = weekday {
+            components.weekday = weekday
+        }
         components.hour = hour
         components.minute = 0
         
@@ -128,6 +137,5 @@ private extension NotificationManager {
         } else {
             return NotificationManagerRequestData(id: "", stationName: "", useLine: "", line: "", group: group)
         }
-        
     }
 }
