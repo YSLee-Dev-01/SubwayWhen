@@ -740,7 +740,7 @@
 		34A6BF9729B72D6B0059CF1A /* ReportContentsModalColletionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportContentsModalColletionViewCell.swift; sourceTree = "<group>"; };
 		34A6BF9A29B72FEE0059CF1A /* ReportContentsModalCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportContentsModalCellData.swift; sourceTree = "<group>"; };
 		34A906DB2A4AAB41002C7655 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		34A906DF2A4C3177002C7655 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		34A906DF2A4C3177002C7655 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; tabWidth = 3; };
 		34A906E32A4C322A002C7655 /* NotificationManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManagerProtocol.swift; sourceTree = "<group>"; };
 		34A906E72A4D9C7A002C7655 /* SettingNotiModalExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNotiModalExplanationView.swift; sourceTree = "<group>"; };
 		34AB13362ACFB04F008D04B0 /* TutorialViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModelTests.swift; sourceTree = "<group>"; };
