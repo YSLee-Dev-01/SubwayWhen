@@ -143,7 +143,7 @@ extension SettingTableViewCell{
         
         self.textField.text = defaultValue
         
-        self.tfToolBar.setItems([self.doneBarBtn], animated: true)
+        self.tfToolBar.setItems([UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), self.doneBarBtn], animated: true)
         self.textField.inputAccessoryView = self.tfToolBar
         
         self.textField.backgroundColor = .clear
