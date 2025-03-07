@@ -62,7 +62,10 @@ class NotificationManager: NotificationManagerProtocol {
     }
     
     func notiTapAction(id: String) {
-        for item in FixInfo.saveStation where item.id == id {
+        var weekendRemoveId = id
+        weekendRemoveId.removeLast()
+        
+        for item in FixInfo.saveStation where item.id == weekendRemoveId {
             self.notiOpen.onNext(item)
             break
         }
