@@ -173,8 +173,8 @@ final class MainModelTests: XCTestCase {
         let requestType = cellData.type
         let dummyType = MainTableViewCellType.schedule
         
-        let requestLineNumber = cellData.lineNumber
-        let dummyLineNumber = mainCellDummyData.lineNumber
+        let requestLineNumber = cellData.subwayLineData
+        let dummyLineNumber = mainCellDummyData.subwayLineData
         
         // THEN
         expect(requestStationName).to(

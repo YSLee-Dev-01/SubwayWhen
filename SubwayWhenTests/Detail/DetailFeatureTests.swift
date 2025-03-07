@@ -40,10 +40,10 @@ final class DetailFeatureTests: XCTestCase {
             $0.nowScheduleLoading = true
         }
         
-        await testStore.receive(.arrivalDataRequestSuccess(totalArrivalDummyData.filter {$0.upDown == detailSendModelDummyData.upDown && $0.subWayId == detailSendModelDummyData.lineCode})) {
+        await testStore.receive(.arrivalDataRequestSuccess(totalArrivalDummyData.filter {$0.upDown == detailSendModelDummyData.upDown && $0.subwayLineData.lineCode == detailSendModelDummyData.lineCode})) {
             // THEN
             $0.nowArrivalLoading = false
-            $0.nowArrivalData = totalArrivalDummyData.filter {$0.upDown == detailSendModelDummyData.upDown && $0.subWayId == detailSendModelDummyData.lineCode}
+            $0.nowArrivalData = totalArrivalDummyData.filter {$0.upDown == detailSendModelDummyData.upDown && $0.subwayLineData.lineCode  == detailSendModelDummyData.lineCode}
         }
         
         await testStore.receive(.timerSettingRequest) {

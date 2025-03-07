@@ -62,7 +62,7 @@ final class TotalLoadModelTests: XCTestCase {
         let requestType = arrayData.first?.0.type
         let dummyType = MainTableViewCellType.real
         
-        let requestLine = arrayData.first?.0.lineNumber
+        let requestLine = arrayData.first?.0.subwayLineData.rawValue
         let dummyLine = "03호선"
         
         let requestCode = arrayData.first?.0.code
