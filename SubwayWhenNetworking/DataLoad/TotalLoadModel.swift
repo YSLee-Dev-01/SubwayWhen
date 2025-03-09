@@ -55,7 +55,7 @@ class TotalLoadModel : TotalLoadProtocol {
                         backId = x.backStationId
                         nextId = x.nextStationId
                         
-                        return (.init(upDown: station.updnLine, arrivalTime: x.arrivalTime, previousStation: x.previousStation ?? "", subPrevious: x.subPrevious, code: code, subWayId: station.lineCode, stationName: station.stationName, lastStation: "\(x.lastStation)행", lineNumber: station.line, isFast: x.isFast ?? "", useLine: station.useLine, group: station.group.rawValue, id: station.id, stationCode: station.stationCode, exceptionLastStation: station.exceptionLastStation, type: .real, backStationId: x.backStationId, nextStationId: x.nextStationId,  korailCode: station.korailCode, stateMSG: x.useState), saveStation.offset)
+                        return (.init(upDown: station.updnLine, arrivalTime: x.arrivalTime, previousStation: x.previousStation ?? "", subPrevious: x.subPrevious, code: code, stationName: station.stationName, lastStation: "\(x.lastStation)행", isFast: x.isFast ?? "",  group: station.group.rawValue, id: station.id, stationCode: station.stationCode, exceptionLastStation: station.exceptionLastStation, type: .real, backStationId: x.backStationId, nextStationId: x.nextStationId,  korailCode: station.korailCode, stateMSG: x.useState, subwayLineData: .init(subwayId: station.lineCode)), saveStation.offset)
                     }else if station.lineCode == x.subWayId && station.updnLine == x.upDown && spaceRemoveStationName == x.stationName{
                         backId = x.backStationId
                         nextId = x.nextStationId
@@ -64,9 +64,9 @@ class TotalLoadModel : TotalLoadProtocol {
                 
                 if station.lineCode != ""{
                     let exceptionLastStation = station.exceptionLastStation == "" ? "" : "\(station.exceptionLastStation)행 제외"
-                    return (.init(upDown: station.updnLine, arrivalTime: "", previousStation: "", subPrevious: "", code: "현재 실시간 열차 데이터가 없어요.", subWayId: station.lineCode, stationName: station.stationName, lastStation: "\(exceptionLastStation)", lineNumber: station.line, isFast: "", useLine: station.useLine, group: station.group.rawValue, id: station.id, stationCode: station.stationCode, exceptionLastStation: station.exceptionLastStation, type: .real, backStationId: backId, nextStationId: nextId, korailCode: station.korailCode, stateMSG: "현재 실시간 열차 데이터가 없어요."), saveStation.offset)
+                    return (.init(upDown: station.updnLine, arrivalTime: "", previousStation: "", subPrevious: "", code: "현재 실시간 열차 데이터가 없어요.", stationName: station.stationName, lastStation: "\(exceptionLastStation)", isFast: "", group: station.group.rawValue, id: station.id, stationCode: station.stationCode, exceptionLastStation: station.exceptionLastStation, type: .real, backStationId: backId, nextStationId: nextId, korailCode: station.korailCode, stateMSG: "현재 실시간 열차 데이터가 없어요.", subwayLineData: .init(subwayId: station.lineCode)), saveStation.offset)
                 }else{
-                    return (.init(upDown: "", arrivalTime: "", previousStation: "", subPrevious: "", code: "지원하지 않는 호선이에요.", subWayId: station.lineCode, stationName: station.stationName, lastStation: "", lineNumber: station.line, isFast: "", useLine: station.useLine, group: station.group.rawValue, id: station.id, stationCode: station.stationCode, exceptionLastStation: station.exceptionLastStation, type: .real, backStationId: "", nextStationId: "",  korailCode: station.korailCode, stateMSG: "지원하지 않는 호선이에요."), saveStation.offset)
+                    return (.init(upDown: "", arrivalTime: "", previousStation: "", subPrevious: "", code: "지원하지 않는 호선이에요.", stationName: station.stationName, lastStation: "", isFast: "",  group: station.group.rawValue, id: station.id, stationCode: station.stationCode, exceptionLastStation: station.exceptionLastStation, type: .real, backStationId: "", nextStationId: "",  korailCode: station.korailCode, stateMSG: "지원하지 않는 호선이에요.", subwayLineData: .not), saveStation.offset)
                 }
             }
             .asObservable()

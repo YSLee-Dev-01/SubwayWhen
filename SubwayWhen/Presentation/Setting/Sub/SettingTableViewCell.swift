@@ -38,6 +38,7 @@ class SettingTableViewCell : TableViewCellCustom{
     }
     
     var index : IndexPath = .init(row: 0, section: 0)
+    private let toggleSwitchSubject : PublishSubject<Bool> = .init()
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -87,7 +88,7 @@ extension SettingTableViewCell{
             .bind(to: cellModel.tfValue)
             .disposed(by: self.bag)
         
-        self.onoffSwitch.rx.isOn
+        Observable.merge(self.toggleSwitchSubject.asObservable(), self.onoffSwitch.rx.isOn.asObservable())
             .bind(to: cellModel.switchValue)
             .disposed(by: self.bag)
         
@@ -97,8 +98,10 @@ extension SettingTableViewCell{
         
         Observable<Void>.merge(
             self.textField.rx.controlEvent(.editingDidEnd).asObservable(),
-            self.onoffSwitch.rx.isOn.map{_ in Void()}.skip(1)
+            self.onoffSwitch.rx.isOn.map{_ in Void()}.skip(1),
+            self.toggleSwitchSubject.map { _ in Void()}
         )
+        .delay(.milliseconds(150), scheduler: MainScheduler.asyncInstance)
         .map{[weak self] _ in
             self?.index ?? IndexPath(row: 9, section: 9)
         }
@@ -133,6 +136,11 @@ extension SettingTableViewCell{
             .disposed(by: self.bag)
     }
     
+    func toggleSwitchValueSet(isOn: Bool) {
+        toggleSwitchSubject.onNext(isOn)
+        onoffSwitch.setOn(isOn, animated: true)
+    }
+    
     private func tfSet(defaultValue : String){
         self.mainBG.addSubview(self.textField)
         self.textField.snp.makeConstraints{
@@ -143,7 +151,7 @@ extension SettingTableViewCell{
         
         self.textField.text = defaultValue
         
-        self.tfToolBar.setItems([self.doneBarBtn], animated: true)
+        self.tfToolBar.setItems([UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), self.doneBarBtn], animated: true)
         self.textField.inputAccessoryView = self.tfToolBar
         
         self.textField.backgroundColor = .clear

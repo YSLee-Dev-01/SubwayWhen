@@ -80,6 +80,12 @@ extension SettingVC{
         viewModel.keyboardClose
             .drive(self.rx.keyboardClose)
             .disposed(by: self.bag)
+        
+        self.tableView.rx.modelSelected(SettingTableViewCellData.self)
+            .withLatestFrom( self.tableView.rx.itemSelected) {($0, $1)}
+            .asDriver(onErrorDriveWith: .empty())
+            .drive(self.rx.cellTappedAction)
+            .disposed(by: self.bag)
     }
 }
 
@@ -87,6 +93,17 @@ extension Reactive where Base : SettingVC{
     var keyboardClose : Binder<Void>{
         return Binder(base){ base, _ in
             base.view.endEditing(true)
+        }
+    }
+    
+    var cellTappedAction: Binder<(SettingTableViewCellData, IndexPath)> {
+        return Binder(base) { base, data in
+            guard data.0.inputType != .NewVC,  let cell = base.tableView.cellForRow(at: data.1) as? SettingTableViewCell else {return}
+            if data.0.inputType == .Switch {
+                cell.toggleSwitchValueSet(isOn: !cell.onoffSwitch.isOn)
+            } else if data.0.inputType == .TextField {
+                cell.textField.becomeFirstResponder()
+            }
         }
     }
 }

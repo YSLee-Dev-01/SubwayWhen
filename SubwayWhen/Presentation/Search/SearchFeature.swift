@@ -355,7 +355,7 @@ struct SearchFeature: Reducer {
                     return .none
                 } else if state.isAutoDelegateAction == .plusModal {
                     let comparisonData = state.nowUpLiveData?.code == "" ? state.nowDownLiveData : state.nowUpLiveData
-                    guard let index = result.firstIndex(where: {$0.line.lineCode == comparisonData?.subWayId})
+                    guard let index = result.firstIndex(where: {$0.line.lineCode == comparisonData?.subwayLineData.lineCode})
                     else {
                         state.dialogState = self.errorPopup(msg: "오류가 발생했어요.\n나중에 다시 시도해주세요.")
                         state.isAutoDelegateAction = nil
@@ -393,7 +393,7 @@ struct SearchFeature: Reducer {
             case .disposableDetailPushRequest:
                 guard  case let .disposableDetail(isUp) = state.isAutoDelegateAction,
                       let data = isUp ? state.nowUpLiveData : state.nowDownLiveData,
-                      let searchIndex = state.nowStationSearchList.firstIndex(where: {$0.line.lineCode == data.subWayId})
+                       let searchIndex = state.nowStationSearchList.firstIndex(where: {$0.line.lineCode == data.subwayLineData.lineCode})
                 else {
                     state.dialogState = self.errorPopup(msg: "오류가 발생했어요.\n나중에 다시 시도해주세요.")
                     state.isAutoDelegateAction = nil

@@ -50,6 +50,7 @@ extension MainTableViewHeaderBtn{
     private func attribute(title : String, img : String){
         self.tintColor = .gray
         self.btnLabel.text = title
+        self.btnImg.isUserInteractionEnabled = false
     }
     
     func iconAnimationPlay(){

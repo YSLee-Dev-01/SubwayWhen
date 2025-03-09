@@ -25,7 +25,7 @@ struct Provider: AppIntentTimelineProvider {
     private var saveStation: [SaveStation] {
         guard let data = UserDefaults.shared.data(forKey: "saveStation") ,
               let list = try? PropertyListDecoder().decode([SaveStation].self, from: data) else {return []}
-        return  list.filter {$0.allowScheduleLoad}
+        return  list.filter {$0.subwayLineData.allowScheduleLoad}
     }
     
     func placeholder(in context: Context) -> SimpleEntry {
@@ -133,12 +133,12 @@ struct SubwayWhenHomeWidgetEntryView : View {
         
             VStack(alignment: .leading) {
                 HStack(alignment: .center) {
-                    Text(entry.nowWidgetShowStation.id == "NOSTATION" ? "" : seletedStation.useLine)
+                    Text(entry.nowWidgetShowStation.id == "NOSTATION" ? "" : seletedStation.subwayLineData.useLine)
                         .foregroundColor(.white)
                         .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                         .background {
                             Circle()
-                                .fill(Color(seletedStation.useLine))
+                                .fill(Color(seletedStation.subwayLineData.rawValue))
                                 .frame(width: 50, height: 50)
                         }
                         .frame(width: 50, height: 50)
@@ -177,7 +177,7 @@ struct SubwayWhenHomeWidgetEntryView : View {
                 } else  if widgetFamily == .systemSmall {
                     VStack(spacing: 10) {
                         ForEach(result, id: \.startTime) {
-                            SubwayWhenHomeWidgetSubView(time: $0.useArrTime, lastStation: $0.lastStation, lineColor: seletedStation.useLine, isFast: $0.isFast)
+                            SubwayWhenHomeWidgetSubView(time: $0.useArrTime, lastStation: $0.lastStation,isFast: $0.isFast)
                                 .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                         }
                     }
@@ -186,14 +186,14 @@ struct SubwayWhenHomeWidgetEntryView : View {
                     HStack {
                         VStack(spacing: 10) {
                             ForEach(result.enumerated().filter {$0.offset % 2 == 0}.map {$0.element}, id: \.startTime) {
-                                SubwayWhenHomeWidgetSubView(time: $0.useArrTime, lastStation: $0.lastStation, lineColor: seletedStation.useLine, isFast: $0.isFast)
+                                SubwayWhenHomeWidgetSubView(time: $0.useArrTime, lastStation: $0.lastStation, isFast: $0.isFast)
                                     .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                             }
                         }
                         .padding(.trailing, 2.5)
                         VStack(spacing: 10) {
                             ForEach(result.enumerated().filter {$0.offset % 2 == 1}.map {$0.element}, id: \.startTime) {
-                                SubwayWhenHomeWidgetSubView(time: $0.useArrTime, lastStation: $0.lastStation, lineColor: seletedStation.useLine, isFast: $0.isFast)
+                                SubwayWhenHomeWidgetSubView(time: $0.useArrTime, lastStation: $0.lastStation, isFast: $0.isFast)
                                     .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                             }
                         }
@@ -210,7 +210,6 @@ struct SubwayWhenHomeWidgetSubView : View {
     
     let time: String
     let lastStation: String
-    let lineColor: String
     let isFast: String
     
     var body: some View {

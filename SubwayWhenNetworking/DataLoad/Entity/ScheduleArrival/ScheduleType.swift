@@ -13,12 +13,12 @@ enum ScheduleType: Equatable{
     case Shinbundang
     case Unowned
     
-    static func lineNumberScheduleType(line: String) -> ScheduleType {
-        if line == "신분당선" {
+    static func lineNumberScheduleType(_ line: SubwayLineData) -> ScheduleType {
+        if line == .shinbundang {
             return .Shinbundang
-        } else if  line == "공항철도" || line == "우이신설경전철" || line == "" || line == "경강선" || line == "서해선" || line == "GTX-A" {
+        } else if  line == .airport || line == .ui || line == .not || line == .gyeonggang || line == .seohae || line == .gtxA || line == .sillim {
             return .Unowned
-        } else if line == "경의선" || line == "경춘선" || line == "수인분당선" {
+        } else if line == .gyeongui || line == .gyeongchun || line ==  .suinbundang  {
             return .Korail
         } else {
             return .Seoul

@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 class SettingNotiModalExplanationView : UIView{
-    let titleLabel = UILabel().then{
+    private let titleLabel = UILabel().then{
         $0.text = "특정 그룹 시간이 0시로 설정되어 있으면 알림이 울리지 않아요."
         $0.font = .boldSystemFont(ofSize: ViewStyle.FontSize.smallSize)
         $0.textColor = .white

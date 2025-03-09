@@ -39,7 +39,8 @@ let stationNameSearcDummyhData = try! JSONDecoder().decode(SearchStaion.self, fr
 let vicinityStationsDummyData = try! JSONDecoder().decode(VicinityStationsData.self, from: vicinityData)
 
 let totalArrivalDummyData = arrivalDummyData.realtimeArrivalList.map {TotalRealtimeStationArrival(realTimeStationArrival: $0, backStationName: "", nextStationName: "", nowStateMSG: $0.useState)}
-let mainCellDummyData = MainTableViewCellData(upDown: "상행", arrivalTime: "100분뒤", previousStation: "", subPrevious: "", code: "1", subWayId: "1003", stationName: "교대", lastStation: "", lineNumber: "1003", isFast: "", useLine: "", group: "", id: "-", stationCode: "340", exceptionLastStation: "", type: .real, backStationId: "1003000339", nextStationId: "1003000341", korailCode: "",  stateMSG: "도착")
+let subwayLineData = SubwayLineData(rawValue: "03호선")!
+let mainCellDummyData =  MainTableViewCellData(upDown: "상행", arrivalTime: "100분뒤", previousStation: "", subPrevious: "", code: "1",  stationName: "교대", lastStation: "",  isFast: "", group: "", id: "-", stationCode: "340", exceptionLastStation: "", type: .real, backStationId: "1003000339", nextStationId: "1003000341", korailCode: "",  stateMSG: "도착", subwayLineData: subwayLineData)
 
 let detailSendModelDummyData = DetailSendModel(upDown: "상행", stationName: "교대", lineNumber: "03호선", stationCode: "340", lineCode: "1003", exceptionLastStation: "", korailCode: "")
 

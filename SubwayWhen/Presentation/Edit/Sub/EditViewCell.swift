@@ -67,6 +67,6 @@ extension EditViewCell{
         self.line.backgroundColor = UIColor(named: data.line)
         self.stationName.text = data.stationName
         self.upDown.text = data.updnLine
-        self.line.text = data.useLine
+        self.line.text = data.subwayLineData.useLine
     }
 }

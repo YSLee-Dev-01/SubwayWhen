@@ -119,7 +119,7 @@ class SearchFeatureTests : XCTestCase {
     
     func testLocationDataTapped() async {
         // GIVEN
-        self.testTotalDependency.realtimeStationArrival = totalArrivalDummyData.filter {$0.subWayId == "1003"}
+        self.testTotalDependency.realtimeStationArrival = totalArrivalDummyData.filter {$0.subwayLineData.lineCode == "1003"}
         let testStore = await self.createStore()
         
         // WHEN
@@ -133,10 +133,10 @@ class SearchFeatureTests : XCTestCase {
         await testStore.receive(.liveDataRequest) { // 실시간 데이터 요청
             $0.nowLiveDataLoading = [true, true] // 상하행 로드 중
         }
-        await testStore.receive(.liveDataResult(totalArrivalDummyData.filter{$0.upDown == "상행" && $0.subWayId == "1003"} )) {
+        await testStore.receive(.liveDataResult(totalArrivalDummyData.filter{$0.upDown == "상행" && $0.subwayLineData.lineCode == "1003"} )) {
             $0.nowLiveDataLoading = [false, true] // 상행 로드 완료, 하행 로드 중
         }
-        await testStore.receive(.liveDataResult(totalArrivalDummyData.filter{$0.upDown == "하행" && $0.subWayId == "1003"} )) {
+        await testStore.receive(.liveDataResult(totalArrivalDummyData.filter{$0.upDown == "하행" && $0.subwayLineData.lineCode == "1003"} )) {
             $0.nowLiveDataLoading = [false, false] // 상행 로드 완료, 하행 로드 완료
         }
     }
@@ -224,7 +224,7 @@ class SearchFeatureTests : XCTestCase {
         // WHEN
         await testStore.send(.locationToVicinityStationResult(vicinityTransformData)) // 가장 가까운 지하철 정보 주입
         await testStore.send(.locationStationTapped(0))// 0번째 (교대) 선택
-        await testStore.send(.liveDataResult(totalArrivalDummyData.filter{$0.upDown == "상행" && $0.subWayId == "1003"} )) // 실시간 정보 주입
+        await testStore.send(.liveDataResult(totalArrivalDummyData.filter{$0.upDown == "상행" && $0.subwayLineData.lineCode == "1003"} )) // 실시간 정보 주입
         await testStore.send(.disposableDetailBtnTapped) { // 일회성 보기 클릭
             // THEN
             XCTAssertNotNil($0.dialogState) // 팝업 표출 (상행/하행)
@@ -253,7 +253,7 @@ class SearchFeatureTests : XCTestCase {
         // WHEN
         await testStore.send(.locationToVicinityStationResult(vicinityTransformData)) // 가장 가까운 지하철 정보 주입
         await testStore.send(.locationStationTapped(0))// 0번째 (교대) 선택
-        await testStore.send(.liveDataResult(totalArrivalDummyData.filter{$0.upDown == "상행" && $0.subWayId == "1003"} )) // 실시간 정보 주입
+        await testStore.send(.liveDataResult(totalArrivalDummyData.filter{$0.upDown == "상행" && $0.subwayLineData.lineCode == "1003"} )) // 실시간 정보 주입
         await testStore.send(.stationAddBtnTapped) { // 지하철역 추가 모달 버튼 클릭
             // THEN
             $0.testIsAutoDelegateAction = .plusModal // 검색을 요청하기 때문에 mode, loading도 true
@@ -278,7 +278,7 @@ class SearchFeatureTests : XCTestCase {
         // WHEN
         await testStore.send(.locationToVicinityStationResult(vicinityTransformData)) // 가장 가까운 지하철 정보 주입
         await testStore.send(.locationStationTapped(0))// 0번째 (교대) 선택
-        await testStore.send(.liveDataResult(totalArrivalDummyData.filter{$0.upDown == "상행" && $0.subWayId == "1003"} )) // 실시간 정보 주입
+        await testStore.send(.liveDataResult(totalArrivalDummyData.filter{$0.upDown == "상행" && $0.subwayLineData.lineCode == "1003"} )) // 실시간 정보 주입
         await testStore.send(.stationAddBtnTapped) { // 지하철역 추가 모달 버튼 클릭
             // THEN
             $0.testIsAutoDelegateAction = .plusModal // 검색을 요청하기 때문에 mode, loading도 true

@@ -13,7 +13,7 @@ protocol NotificationManagerProtocol {
     var notiOpen : BehaviorSubject<SaveStation?>{get}
     
     func authCheck() -> Observable<Bool>
-    func notiScheduleAdd(data: NotificationManagerRequestData)
+    func notiScheduleAdd(data: NotificationManagerRequestData, includeWeekends: Bool)
     func notiTapAction(id: String)
     func notiRemove(id: String)
     func alertIDListLoad() -> Observable<[NotificationManagerRequestData]>
