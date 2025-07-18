@@ -31,18 +31,20 @@ struct ReportFirstQuestionView: View {
                     
                     if self.store.selectedLine == nil {
                         LazyVGrid(columns: [
-                            GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5),  GridItem(.flexible(), spacing: 5)
-                        ]) {
+                            GridItem(.flexible(), spacing: 0), GridItem(.flexible(), spacing: 0),  GridItem(.flexible(), spacing: 0)
+                        ], spacing: 7) {
                             ForEach(self.store.reportableLines, id: \.rawValue) { data in
                                 HStack {
                                     AnimationButtonInSUI(bgColor: .clear, tappedBGColor: Color.gray.opacity(0.01), btnPadding: 0, buttonView: {
                                         RoundedRectangle(cornerRadius: 20)
                                             .fill(Color(data.rawValue))
-                                            .padding(.init(top: 5, leading: 5, bottom: 5, trailing: 5))
+                                            .padding(.init(top: 5, leading: 0, bottom: 5, trailing: 5))
                                             .frame(height: 30)
+                                            .layoutPriority(0)
                                         
                                         Text(data.useLine)
                                             .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
+                                            .layoutPriority(1)
                                     }, tappedAction: {
                                         self.store.send(.reportLineSelected(data))
                                     })
