@@ -424,6 +424,8 @@
 		FF6CB2132D1111AA00DF562B /* SubwayWhenCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1D4A9D2C9D32A100AFD709 /* SubwayWhenCommon.framework */; };
 		FF6CB2142D1111AA00DF562B /* SubwayWhenCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF1D4A9D2C9D32A100AFD709 /* SubwayWhenCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF6CB2192D12991200DF562B /* TestLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6CB2182D12991200DF562B /* TestLocationManager.swift */; };
+		FF7837E32E29CF5B004E6BFF /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7837E22E29CF5B004E6BFF /* ReportView.swift */; };
+		FF7837E52E29D0B5004E6BFF /* ReportFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7837E42E29D0B5004E6BFF /* ReportFeature.swift */; };
 		FF7A71312C7C5B160080B72B /* MainStyleViewInSUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A71302C7C5B160080B72B /* MainStyleViewInSUI.swift */; };
 		FF7A71332C7D51360080B72B /* DetailArrivalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A71322C7D51360080B72B /* DetailArrivalView.swift */; };
 		FF7ECAC52C7BF62B00D4643A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF7ECAC42C7BF62B00D4643A /* GoogleService-Info.plist */; };
@@ -901,6 +903,8 @@
 		FF68CFC82CA1343A0054BF69 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		FF68CFC92CA27A630054BF69 /* SearchCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		FF6CB2182D12991200DF562B /* TestLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLocationManager.swift; sourceTree = "<group>"; };
+		FF7837E22E29CF5B004E6BFF /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		FF7837E42E29D0B5004E6BFF /* ReportFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFeature.swift; sourceTree = "<group>"; };
 		FF7A71302C7C5B160080B72B /* MainStyleViewInSUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStyleViewInSUI.swift; sourceTree = "<group>"; };
 		FF7A71322C7D51360080B72B /* DetailArrivalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArrivalView.swift; sourceTree = "<group>"; };
 		FF7ECAC42C7BF62B00D4643A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -1232,6 +1236,8 @@
 		349B516429A4630D00A53879 /* Report */ = {
 			isa = PBXGroup;
 			children = (
+				FF7837E22E29CF5B004E6BFF /* ReportView.swift */,
+				FF7837E42E29D0B5004E6BFF /* ReportFeature.swift */,
 				349B516229A4630300A53879 /* ReportVC.swift */,
 				349B516529A4631B00A53879 /* ReportViewModel.swift */,
 				34324CAD29D15740008AE274 /* ReportModel.swift */,
@@ -3120,6 +3126,7 @@
 				B6438D3F2B667CB10099BFEF /* MainDelegate.swift in Sources */,
 				349B516629A4631B00A53879 /* ReportViewModel.swift in Sources */,
 				34A906E02A4C3178002C7655 /* NotificationManager.swift in Sources */,
+				FF7837E52E29D0B5004E6BFF /* ReportFeature.swift in Sources */,
 				34A32E7129B82B3D00AA1C67 /* ReportContentsModalTFViewModel.swift in Sources */,
 				34A0504729B58546007F97AD /* ReportTableViewDefaultLineView.swift in Sources */,
 				349FF28C299DEE00007A98F4 /* SaveSetting.swift in Sources */,
@@ -3322,6 +3329,7 @@
 				34A0AA5729A87A0D00A865A4 /* SettingContentsModalModel.swift in Sources */,
 				3455CF9F2A53DB26001ADE61 /* ModalCoordinator.swift in Sources */,
 				349E2F5729BDC44D00C54EE9 /* DetailResultScheduleCoordinator.swift in Sources */,
+				FF7837E32E29CF5B004E6BFF /* ReportView.swift in Sources */,
 				B6B225782B8B04AB00F6D669 /* SettingTrainIconModalSubViewModel.swift in Sources */,
 				B6438D412B667CB10099BFEF /* MainTableView.swift in Sources */,
 				349CEFAB2990FE1B00CC69E5 /* DetailResultScheduleViewCell.swift in Sources */,
