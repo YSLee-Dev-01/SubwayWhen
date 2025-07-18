@@ -29,11 +29,11 @@ struct ReportFirstQuestionView: View {
                     }
                     .padding(.bottom, 10)
                     
-                    if store.selectedLine == nil {
+                    if self.store.selectedLine == nil {
                         LazyVGrid(columns: [
                             GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5),  GridItem(.flexible(), spacing: 5)
                         ]) {
-                            ForEach(store.reportableLines, id: \.rawValue) { data in
+                            ForEach(self.store.reportableLines, id: \.rawValue) { data in
                                 HStack {
                                     AnimationButtonInSUI(bgColor: .clear, tappedBGColor: Color.gray.opacity(0.01), btnPadding: 0, buttonView: {
                                         RoundedRectangle(cornerRadius: 20)
@@ -44,7 +44,7 @@ struct ReportFirstQuestionView: View {
                                         Text(data.useLine)
                                             .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                                     }, tappedAction: {
-                                        store.send(.reportLineSelected(data))
+                                        self.store.send(.reportLineSelected(data))
                                     })
                                 }
                             }
@@ -53,16 +53,16 @@ struct ReportFirstQuestionView: View {
                         HStack  {
                             Circle()
                                 .frame(width: 50, height: 50)
-                                .foregroundColor(store.selectedLine == nil ? .gray : .init(uiColor: UIColor(named: store.selectedLine!.rawValue) ?? .gray))
+                                .foregroundColor(self.store.selectedLine == nil ? .gray : .init(uiColor: UIColor(named: self.store.selectedLine!.rawValue) ?? .gray))
                                 .overlay {
-                                    Text(store.selectedLine!.useLine)
+                                    Text(self.store.selectedLine!.useLine)
                                         .foregroundStyle(.white)
                                         .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                                 }
                             
                             Spacer()
                             
-                            Text(store.selectedLine!.useLine)
+                            Text(self.store.selectedLine!.useLine)
                                 .foregroundStyle(.gray)
                                 .font(.system(size: ViewStyle.FontSize.mediumSize, weight: .semibold))
                         }
