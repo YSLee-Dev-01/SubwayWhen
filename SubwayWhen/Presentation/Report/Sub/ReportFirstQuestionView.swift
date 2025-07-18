@@ -31,22 +31,22 @@ struct ReportFirstQuestionView: View {
                     
                     if store.selectedLine == nil {
                         LazyVGrid(columns: [
-                            GridItem(.flexible(), spacing: 10), GridItem(.flexible(), spacing: 10),  GridItem(.flexible(), spacing: 10)
+                            GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5),  GridItem(.flexible(), spacing: 5)
                         ]) {
                             ForEach(store.reportableLines, id: \.rawValue) { data in
-                                Text(data.useLine)
-                                    .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
-                                    .foregroundStyle(.white)
-                                    .padding(.init(top: 5, leading: 15, bottom: 5, trailing: 15))
-                                    .background {
-                                        Circle()
+                                HStack {
+                                    AnimationButtonInSUI(bgColor: .clear, tappedBGColor: Color.gray.opacity(0.01), btnPadding: 0, buttonView: {
+                                        RoundedRectangle(cornerRadius: 20)
                                             .fill(Color(data.rawValue))
-                                            .frame(width: 50, height: 50)
-                                    }
-                                    .frame(height: 60)
-                                    .onTapGesture {
+                                            .padding(.init(top: 5, leading: 5, bottom: 5, trailing: 5))
+                                            .frame(height: 30)
+                                        
+                                        Text(data.useLine)
+                                            .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
+                                    }, tappedAction: {
                                         store.send(.reportLineSelected(data))
-                                    }
+                                    })
+                                }
                             }
                         }
                     } else {

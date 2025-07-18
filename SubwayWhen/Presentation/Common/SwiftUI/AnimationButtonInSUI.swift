@@ -17,6 +17,7 @@ struct AnimationButtonInSUI<Contents>: View where Contents: View {
     var bgColor: Color = Color("MainColor")
     var tappedBGColor: Color = Color("ButtonTappedColor")
     var buttonViewAlignment: alignment = .center
+    var btnPadding = 10.0
     @ViewBuilder let buttonView: () -> Contents
     let tappedAction: () -> Void
     
@@ -42,7 +43,7 @@ struct AnimationButtonInSUI<Contents>: View where Contents: View {
             .contentShape(Rectangle())
         })
         .buttonStyle(.plain)
-        .padding(.vertical, 10)
+        .padding(.vertical, btnPadding)
         .onLongPressGesture(
             pressing: { isPressing in
                 self.isTapped = isPressing
