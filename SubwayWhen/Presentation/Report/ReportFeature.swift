@@ -12,10 +12,13 @@ import ComposableArchitecture
 struct ReportFeature: Reducer {
     @ObservableState
     struct State: Equatable {
+        let reportableLines = SubwayLineData.allCases.filter {$0.allowReport}
+        var selectedLine: SubwayLineData?
     }
 
     enum Action: BindableAction, Equatable {
         case binding(BindingAction<State>)
+        case reportLineSelected(SubwayLineData)
     }
     
     var body: some Reducer<State, Action> {
@@ -23,7 +26,11 @@ struct ReportFeature: Reducer {
         
         Reduce { state, action in
             switch action {
-            default: .none
+            case .reportLineSelected(let selectedLine):
+                state.selectedLine = selectedLine
+                return .none
+                
+            default: return .none
             }
         }
     }

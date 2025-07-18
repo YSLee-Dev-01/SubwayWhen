@@ -23,8 +23,9 @@ struct ReportView: View {
             },
             backBtnIcon: "arrow.left"
         ) {
-            Text("ReportView")
+            ReportFirstQuestionView(store: $store)
         }
+        .animation(.smooth(duration: 0.3), value: store.selectedLine)
     }
 }
 
