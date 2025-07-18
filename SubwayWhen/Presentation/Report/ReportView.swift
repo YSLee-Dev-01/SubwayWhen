@@ -9,11 +9,25 @@ import SwiftUI
 import ComposableArchitecture
 
 struct ReportView: View {
+    @State private var store:  StoreOf<ReportFeature>
+    
+    init(store: StoreOf<ReportFeature>) {
+        self.store = store
+    }
+    
     var body: some View {
-        Text("ReportView")
+        NavigationBarScrollViewInSUI(
+            title: Strings.Report.title,
+            backBtnTapped: {
+                
+            },
+            backBtnIcon: "arrow.left"
+        ) {
+            Text("ReportView")
+        }
     }
 }
 
 #Preview {
-    ReportView()
+    ReportView(store: .init(initialState: .init(), reducer: {ReportFeature()}))
 }
