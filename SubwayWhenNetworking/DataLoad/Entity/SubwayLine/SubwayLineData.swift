@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SubwayLineData : String, Decodable, Equatable {
+enum SubwayLineData : String, Decodable, Equatable, CaseIterable {
     case one = "01호선"
     case two = "02호선"
     case three = "03호선"
@@ -164,6 +164,6 @@ enum SubwayLineData : String, Decodable, Equatable {
     }
     
     var allowReport: Bool {
-        return !(self == .ui || self == .gtxA || self == .seohae || self == .sillim)
+        return !(self == .ui || self == .gtxA || self == .seohae || self == .sillim || self == .gimpo || self == .yongin || self == .uijeingbu || self == .incheon1 || self == .incheon2)
     }
 }
