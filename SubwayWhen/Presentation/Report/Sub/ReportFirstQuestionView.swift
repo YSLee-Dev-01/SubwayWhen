@@ -29,7 +29,7 @@ struct ReportFirstQuestionView: View {
                     }
                     .padding(.bottom, 10)
                     
-                    if self.store.insertingData == nil {
+                    if self.store.insertingData.selectedLine == .not {
                         LazyVGrid(columns: [
                             GridItem(.flexible(), spacing: 0), GridItem(.flexible(), spacing: 0),  GridItem(.flexible(), spacing: 0)
                         ], spacing: 7) {
@@ -55,16 +55,16 @@ struct ReportFirstQuestionView: View {
                         HStack  {
                             Circle()
                                 .frame(width: 50, height: 50)
-                                .foregroundColor(self.store.insertingData == nil ? .gray : .init(uiColor: UIColor(named: self.store.insertingData!.selectedLine.rawValue) ?? .gray))
+                                .foregroundColor(self.store.insertingData.selectedLine == .not ? .gray : .init(uiColor: UIColor(named: self.store.insertingData.selectedLine.rawValue) ?? .gray))
                                 .overlay {
-                                    Text(self.store.insertingData!.selectedLine.useLine)
+                                    Text(self.store.insertingData.selectedLine.useLine)
                                         .foregroundStyle(.white)
                                         .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                                 }
                             
                             Spacer()
                             
-                            Text(self.store.insertingData!.selectedLine.useLine)
+                            Text(self.store.insertingData.selectedLine.useLine)
                                 .foregroundStyle(.gray)
                                 .font(.system(size: ViewStyle.FontSize.mediumSize, weight: .semibold))
                         }

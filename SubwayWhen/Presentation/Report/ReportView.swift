@@ -29,6 +29,13 @@ struct ReportView: View {
                         .transition(.offset(x: 0, y : -20).combined(with: .opacity))
                 }
             }
+            
+            if store.reportStep >= 2 {
+                Group {
+                    ReportSecondQuestionView(store: self.$store)
+                        .transition(.offset(x: 0, y : -20).combined(with: .opacity))
+                }
+            }
         }
         .animation(.smooth(duration: 0.3), value: self.store.reportStep)
         .animation(.smooth(duration: 0.3), value: self.store.insertingData)
