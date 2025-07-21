@@ -8,8 +8,13 @@
 import SwiftUI
 import ComposableArchitecture
 
+enum FocusType: Hashable {
+    case destination, nowStation
+}
+
 struct ReportSecondQuestionView: View {
     @Binding var store: StoreOf<ReportFeature>
+    @FocusState var focusField: FocusType?
     
     var body: some View {
         VStack(spacing: 10) {
@@ -23,10 +28,24 @@ struct ReportSecondQuestionView: View {
             
             VStack(spacing: 15) {
                 MainStyleViewInSUI {
-                    TextField(text: self.$store.insertingData.brand) {
+                    TextField(text: self.$store.insertingData.destination) {
                         Text(Strings.Report.twoStepQuestion1)
                             .font(.system(size: ViewStyle.FontSize.mediumSize, weight: .semibold))
                     }
+                    .onSubmit {
+                        if self.store.insertingData.destination.isEmpty {return}
+                        
+                        if self.store.insertingData.nowStation.isEmpty {
+                            self.focusField = .nowStation
+                        } else {
+                            self.focusField = nil
+                            
+                            if !self.store.insertingData.brand.isEmpty || !self.store.insertingData.selectedLine.hasTwoOperators {
+                                self.store.send(.twoStepCompleted)
+                            }
+                        }
+                    }
+                    .focused(self.$focusField, equals: .destination)
                     .multilineTextAlignment(.trailing)
                     .frame(height: 60)
                     .padding(.horizontal, 10)
@@ -36,6 +55,20 @@ struct ReportSecondQuestionView: View {
                             Text(Strings.Report.twoStepQuestion2)
                                 .font(.system(size: ViewStyle.FontSize.mediumSize, weight: .semibold))
                         }
+                        .onSubmit {
+                            if self.store.insertingData.nowStation.isEmpty {return}
+                            
+                            if self.store.insertingData.destination.isEmpty {
+                                self.focusField = .destination
+                            } else {
+                                self.focusField = nil
+                                
+                                if !self.store.insertingData.brand.isEmpty || !self.store.insertingData.selectedLine.hasTwoOperators {
+                                    self.store.send(.twoStepCompleted)
+                                }
+                            }
+                        }
+                        .focused(self.$focusField, equals: .nowStation)
                         .multilineTextAlignment(.trailing)
                         .frame(height: 60)
                         .padding(.horizontal, 10)
@@ -43,7 +76,7 @@ struct ReportSecondQuestionView: View {
                     
                     if self.store.insertingData.selectedLine.hasTwoOperators {
                         MainStyleViewInSUI {
-                            VStack(spacing: 10) {
+                            VStack(spacing: 15) {
                                 ExpandedViewInSUI(alignment: .leading) {
                                     Text(
                                         self.store.insertingData.selectedLine ==  .one ?
@@ -57,15 +90,15 @@ struct ReportSecondQuestionView: View {
                                 
                                 HStack {
                                     Button {
-                                        
+                                        self.store.send(.brandBtnTapped(true))
                                     } label: {
                                         Text("네")
                                             .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                                             .foregroundStyle(.white)
-                                            .frame(maxWidth: .infinity)
-                                            .frame(height: 30)
+                                            .frame(maxWidth: (self.store.insertingData.brand.isEmpty || self.store.insertingData.brand == "Y") ? .infinity : 75)
+                                            .frame(height: 35)
                                             .background {
-                                                RoundedRectangle(cornerRadius: 10)
+                                                RoundedRectangle(cornerRadius: 15)
                                                     .fill(Color.red)
                                             }
                                     }
@@ -74,15 +107,15 @@ struct ReportSecondQuestionView: View {
                                         .frame(width: 15)
 
                                     Button {
-                                        
+                                        self.store.send(.brandBtnTapped(false))
                                     } label: {
                                         Text("아니오")
                                             .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                                             .foregroundStyle(.white)
-                                            .frame(maxWidth: .infinity)
-                                            .frame(height: 30)
+                                            .frame(maxWidth: (self.store.insertingData.brand.isEmpty || self.store.insertingData.brand == "N") ? .infinity : 75)
+                                            .frame(height: 35)
                                             .background {
-                                                RoundedRectangle(cornerRadius: 10)
+                                                RoundedRectangle(cornerRadius: 15)
                                                     .fill(Color.blue)
                                             }
                                     }
@@ -93,6 +126,9 @@ struct ReportSecondQuestionView: View {
                     }
                 }
             }
+        }
+        .onAppear {
+            self.focusField = .destination
         }
     }
 }

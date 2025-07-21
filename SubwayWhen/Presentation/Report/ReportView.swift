@@ -38,6 +38,10 @@ struct ReportView: View {
                 }
                 .padding(.bottom, 20)
             }
+            
+            if store.reportStep >= 3 {
+                Text("Three Step")
+            }
         }
         .animation(.smooth(duration: 0.3), value: self.store.reportStep)
         .animation(.smooth(duration: 0.3), value: self.store.insertingData)

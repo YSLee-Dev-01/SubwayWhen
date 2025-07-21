@@ -22,6 +22,8 @@ struct ReportFeature: Reducer {
         case binding(BindingAction<State>)
         case reportSteopChanged(Int)
         case reportLineSelected(SubwayLineData)
+        case brandBtnTapped(Bool)
+        case twoStepCompleted
     }
     
     var body: some Reducer<State, Action> {
@@ -43,6 +45,18 @@ struct ReportFeature: Reducer {
             case .reportSteopChanged(let step):
                 state.reportStep = step
                 return .none
+                
+            case .brandBtnTapped(let isYBtn):
+                state.insertingData.brand = isYBtn ? "Y" : "N"
+                
+                if !state.insertingData.destination.isEmpty && !state.insertingData.nowStation.isEmpty {
+                    return .send(.twoStepCompleted)
+                } else {
+                    return .none
+                }
+                
+            case .twoStepCompleted:
+                return reportStepChange(3)
                 
             default: return .none
             }
