@@ -31,10 +31,7 @@ struct ReportFeature: Reducer {
             switch action {
             case .onAppear:
                 if state.reportStep == 0 {
-                    return .run { send in
-                        try? await Task.sleep(for: .milliseconds(100))
-                        await send(.reportSteopChanged(1))
-                    }
+                    return reportStepChange(1)
                 } else {
                     return .none
                 }
@@ -45,10 +42,17 @@ struct ReportFeature: Reducer {
                 
             case .reportSteopChanged(let step):
                 state.reportStep = step
-                return .none
+                return reportStepChange(2)
                 
             default: return .none
             }
+        }
+    }
+    
+    private func reportStepChange(_ step: Int) -> Effect<Action> {
+        return .run { send in
+            try? await Task.sleep(for: .milliseconds(100))
+            await send(.reportSteopChanged(step))
         }
     }
 }
