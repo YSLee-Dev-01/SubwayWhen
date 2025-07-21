@@ -36,10 +36,10 @@ extension Strings.Report {
     static let twoStepQuestion2 = "현재 역을 입력해주세요. (역)"
     /// 현재 역이 청량리 ~ 서울역 안에 있나요?
     static let twoStepQuestion3_1 = "현재 역이 청량리 ~ 서울역 안에 있나요?"
-    /// 현재 역이 지축 ~ 대화 안에 있나요?
-    static let twoStepQuestion3_2 = "현재 역이 지축 ~ 대화 안에 있나요?"
-    /// 현재 역이 오이도 ~ 선바위 안에 있나요?
-    static let twoStepQuestion3_3 = "현재 역이 오이도 ~ 선바위 안에 있나요?"
+    /// 현재 역이 대화 ~ 지축 안에 있나요?
+    static let twoStepQuestion3_2 = "현재 역이 대화 ~ 지축 안에 있나요?"
+    /// 현재 역이 선바위 ~ 오이도 안에 있나요?
+    static let twoStepQuestion3_3 = "현재 역이 선바위 ~ 오이도 안에 있나요?"
     
     /// 상세 정보
     static let threeStepTitle = "상세 정보"

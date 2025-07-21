@@ -166,4 +166,8 @@ enum SubwayLineData : String, Decodable, Equatable, CaseIterable {
     var allowReport: Bool {
         return !(self == .ui || self == .gtxA || self == .seohae || self == .sillim || self == .gimpo || self == .yongin || self == .uijeingbu || self == .incheon1 || self == .incheon2 || self == .not)
     }
+    
+    var hasTwoOperators: Bool {
+        return self == .one || self == .three || self == .four
+    }
 }

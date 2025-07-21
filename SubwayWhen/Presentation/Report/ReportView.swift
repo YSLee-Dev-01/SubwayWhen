@@ -28,6 +28,7 @@ struct ReportView: View {
                     ReportFirstQuestionView(store: self.$store)
                         .transition(.offset(x: 0, y : -20).combined(with: .opacity))
                 }
+                .padding(.bottom, 20)
             }
             
             if store.reportStep >= 2 {
@@ -35,6 +36,7 @@ struct ReportView: View {
                     ReportSecondQuestionView(store: self.$store)
                         .transition(.offset(x: 0, y : -20).combined(with: .opacity))
                 }
+                .padding(.bottom, 20)
             }
         }
         .animation(.smooth(duration: 0.3), value: self.store.reportStep)
