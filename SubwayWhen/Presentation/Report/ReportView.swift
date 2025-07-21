@@ -49,6 +49,7 @@ struct ReportView: View {
         }
         .animation(.smooth(duration: 0.3), value: self.store.reportStep)
         .animation(.smooth(duration: 0.3), value: self.store.insertingData)
+        .confirmationDialog(self.$store.scope(state: \.dialogState, action: \.dialogAction))
         .onAppear {
             self.store.send(.onAppear)
         }

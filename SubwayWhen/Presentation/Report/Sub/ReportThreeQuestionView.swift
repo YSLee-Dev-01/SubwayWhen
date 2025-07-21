@@ -27,7 +27,9 @@ struct ReportThreeQuestionView: View {
                         .font(.system(size: ViewStyle.FontSize.mediumSize, weight: .semibold))
                 }
                 .onSubmit {
-                    
+                    if self.store.insertingData.trainCar.isEmpty {return}
+                    self.isFocusField = false
+                    self.store.send(.threeStepCompleted)
                 }
                 .focused(self.$isFocusField, equals: true)
                 .multilineTextAlignment(.trailing)
@@ -37,7 +39,7 @@ struct ReportThreeQuestionView: View {
             
             MainStyleViewInSUI {
                 Button {
-                    
+                    self.store.send(.canNotThreeStepBtnTapped)
                 } label: {
                     ExpandedViewInSUI(alignment: .center) {
                         Text(Strings.Report.canNotThreeStep)
@@ -47,6 +49,9 @@ struct ReportThreeQuestionView: View {
                     .frame(height: 40)
                 }
             }
+        }
+        .onAppear {
+            self.isFocusField = true
         }
     }
 }

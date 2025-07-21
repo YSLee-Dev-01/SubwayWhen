@@ -15,6 +15,8 @@ struct ReportFeature: Reducer {
         let reportableLines = SubwayLineData.allCases.filter {$0.allowReport}
         var reportStep = 0
         var insertingData = ReportMSGData()
+        
+        @Presents  var dialogState: ConfirmationDialogState<Action.DialogAction>?
     }
 
     enum Action: BindableAction, Equatable {
@@ -24,6 +26,13 @@ struct ReportFeature: Reducer {
         case reportLineSelected(SubwayLineData)
         case brandBtnTapped(Bool)
         case twoStepCompleted
+        case canNotThreeStepBtnTapped
+        case threeStepCompleted
+        case dialogAction(PresentationAction<DialogAction>)
+        
+        enum DialogAction: Equatable {
+            case okBtnTapped
+        }
     }
     
     var body: some Reducer<State, Action> {
@@ -57,6 +66,34 @@ struct ReportFeature: Reducer {
                 
             case .twoStepCompleted:
                 return reportStepChange(3)
+                
+            case .canNotThreeStepBtnTapped:
+                state.dialogState = .init(title: {
+                    TextState("")
+                }, actions: {
+                    ButtonState(role: .cancel) {
+                        TextState(Strings.Report.threeStepPassAlertNo)
+                    }
+                    
+                    ButtonState( action: .okBtnTapped) {
+                        TextState(Strings.Report.threeStepPassAlertYes)
+                    }
+                }, message: {
+                    TextState(Strings.Report.threeStepPassAlert)
+                })
+                return .none
+                
+            case .dialogAction(let action):
+                switch action {
+                case .presented(let okBtnAction):
+                    if case .okBtnTapped = okBtnAction {
+                        state.dialogState = nil
+                        return .send(.threeStepCompleted)
+                    }
+                default: break
+                }
+                state.dialogState = nil
+                return .none
                 
             default: return .none
             }

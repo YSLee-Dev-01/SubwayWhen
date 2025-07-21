@@ -51,4 +51,11 @@ extension Strings.Report {
     static let threeStepQuestion1 = "고유(열차)번호를 입력해주세요."
     /// 고유번호를 확인할 수 없어요.
     static let canNotThreeStep = "고유번호를 확인할 수 없어요."
+    
+    /// 고유번호가 없으면 민원 처리가 원활하지 않을 수 있어요.
+    static let threeStepPassAlert = "고유번호가 없으면 민원 처리가 원활하지 않을 수 있어요."
+    /// 입력하기
+    static let threeStepPassAlertNo = "입력하기"
+    /// 입력하지 않고 진행하기
+    static let threeStepPassAlertYes = "입력하지 않고 진행하기"
 }
