@@ -17,6 +17,10 @@ extension Strings.Common {
     static let up = "상행"
     /// 하행
     static let down = "하행"
+    /// 네
+    static let yes = "네"
+    /// 아니오
+    static let no = "아니오"
 }
 
 extension Strings.Report {
@@ -45,4 +49,6 @@ extension Strings.Report {
     static let threeStepTitle = "상세 정보"
     /// 고유(열차)번호를 입력해주세요.
     static let threeStepQuestion1 = "고유(열차)번호를 입력해주세요."
+    /// 고유번호를 확인할 수 없어요.
+    static let canNotThreeStep = "고유번호를 확인할 수 없어요."
 }

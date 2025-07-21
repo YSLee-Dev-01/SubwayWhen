@@ -12,14 +12,13 @@ struct ReportFirstQuestionView: View {
     @Binding var store: StoreOf<ReportFeature>
     
     var body: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: 15) {
             ExpandedViewInSUI(alignment: .leading) {
                 Text(Strings.Report.oneStepTitle)
                     .foregroundColor(.gray)
                     .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
             }
             .padding(.top, 15)
-            .padding(.bottom, 5)
             
             MainStyleViewInSUI {
                 VStack(spacing: 10) {
@@ -55,7 +54,7 @@ struct ReportFirstQuestionView: View {
                         HStack  {
                             Circle()
                                 .frame(width: 50, height: 50)
-                                .foregroundColor(self.store.insertingData.selectedLine == .not ? .gray : .init(uiColor: UIColor(named: self.store.insertingData.selectedLine.rawValue) ?? .gray))
+                                .foregroundColor(.init(uiColor: UIColor(named: self.store.insertingData.selectedLine.rawValue) ?? .gray))
                                 .overlay {
                                     Text(self.store.insertingData.selectedLine.useLine)
                                         .foregroundStyle(.white)

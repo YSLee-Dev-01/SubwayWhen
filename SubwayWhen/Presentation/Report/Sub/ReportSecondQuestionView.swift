@@ -17,14 +17,13 @@ struct ReportSecondQuestionView: View {
     @FocusState var focusField: FocusType?
     
     var body: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: 15) {
             ExpandedViewInSUI(alignment: .leading) {
                 Text(Strings.Report.twoStepTitle)
                     .foregroundColor(.gray)
                     .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
             }
             .padding(.top, 15)
-            .padding(.bottom, 5)
             
             VStack(spacing: 15) {
                 MainStyleViewInSUI {
@@ -92,7 +91,7 @@ struct ReportSecondQuestionView: View {
                                     Button {
                                         self.store.send(.brandBtnTapped(true))
                                     } label: {
-                                        Text("네")
+                                        Text(Strings.Common.yes)
                                             .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                                             .foregroundStyle(.white)
                                             .frame(maxWidth: (self.store.insertingData.brand.isEmpty || self.store.insertingData.brand == "Y") ? .infinity : 75)
@@ -109,7 +108,7 @@ struct ReportSecondQuestionView: View {
                                     Button {
                                         self.store.send(.brandBtnTapped(false))
                                     } label: {
-                                        Text("아니오")
+                                        Text(Strings.Common.no)
                                             .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                                             .foregroundStyle(.white)
                                             .frame(maxWidth: (self.store.insertingData.brand.isEmpty || self.store.insertingData.brand == "N") ? .infinity : 75)
