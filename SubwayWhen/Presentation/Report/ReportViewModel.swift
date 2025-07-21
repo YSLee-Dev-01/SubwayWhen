@@ -264,7 +264,7 @@ class ReportViewModel : ReportViewModelProtocol{
                 }
             }
             
-            return ReportMSGData(line: line, nowStation: station, destination: de, trainCar: train, contants: "", brand: brand)
+            return ReportMSGData(selectedLine: .not, nowStation: station, destination: de, trainCar: train, contants: "", brand: brand)
         }
         .bind(to: self.msgData)
         .disposed(by: self.bag)

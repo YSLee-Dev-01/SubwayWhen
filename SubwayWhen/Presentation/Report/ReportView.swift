@@ -31,7 +31,7 @@ struct ReportView: View {
             }
         }
         .animation(.smooth(duration: 0.3), value: self.store.reportStep)
-        .animation(.smooth(duration: 0.3), value: self.store.selectedLine)
+        .animation(.smooth(duration: 0.3), value: self.store.insertingData)
         .onAppear {
             self.store.send(.onAppear)
         }

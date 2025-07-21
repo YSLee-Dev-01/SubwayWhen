@@ -13,8 +13,8 @@ struct ReportFeature: Reducer {
     @ObservableState
     struct State: Equatable {
         let reportableLines = SubwayLineData.allCases.filter {$0.allowReport}
-        var selectedLine: SubwayLineData?
         var reportStep = 0
+        var insertingData: ReportMSGData?
     }
 
     enum Action: BindableAction, Equatable {
@@ -40,7 +40,7 @@ struct ReportFeature: Reducer {
                 }
                 
             case .reportLineSelected(let selectedLine):
-                state.selectedLine = selectedLine
+                state.insertingData = .init(selectedLine: selectedLine)
                 return .none
                 
             case .reportSteopChanged(let step):
