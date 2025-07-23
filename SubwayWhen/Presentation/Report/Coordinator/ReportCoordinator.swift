@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SwiftUI
+import ComposableArchitecture
 
 class ReportCoordinator : Coordinator{
     var childCoordinator: [Coordinator] = []
@@ -19,20 +21,22 @@ class ReportCoordinator : Coordinator{
     }
     
     func start() {
-        let reportVC = ReportVC(viewModel: ReportViewModel(defaultLine: self.seletedLine))
+        let reportView = ReportView(store: .init(initialState: .init(), reducer: {
+            var reducer = ReportFeature()
+            reducer.delegate = self
+            return reducer
+        }))
+        
+        let reportVC = UIHostingController(rootView: reportView)
         reportVC.hidesBottomBarWhenPushed = true
-        reportVC.delegate = self
         navigation.pushViewController(reportVC, animated: true)
     }
 }
 
 extension ReportCoordinator : ReportVCDelegate {
-    func disappear() {
-        self.delegate?.disappear(reportCoordinator: self)
-    }
-    
     func pop() {
         self.delegate?.pop()
+        self.delegate?.disappear(reportCoordinator: self)
     }
     
     func moveToReportCheck(data: ReportMSGData) {

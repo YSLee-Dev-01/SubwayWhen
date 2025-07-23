@@ -34,7 +34,7 @@ class ReportVC : TableVCCustom{
     
     override func viewDidDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)
-        self.delegate?.disappear()
+        //self.delegate?.disappear()
     }
     
     deinit{

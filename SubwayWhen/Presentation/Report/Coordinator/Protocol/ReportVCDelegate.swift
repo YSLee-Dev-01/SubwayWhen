@@ -9,6 +9,5 @@ import Foundation
 
 protocol ReportVCDelegate: AnyObject {
     func pop()
-    func disappear()
     func moveToReportCheck(data: ReportMSGData)
 }

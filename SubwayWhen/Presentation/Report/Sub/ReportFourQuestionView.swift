@@ -57,6 +57,7 @@ struct ReportFourQuestionView: View {
                         Text(Strings.Report.fourStepOptionTitle7)
                             .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                     }
+                    .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                     .onSubmit {
                         self.isFocusField = false
                         self.store.send(.fourStepCompleted(nil))

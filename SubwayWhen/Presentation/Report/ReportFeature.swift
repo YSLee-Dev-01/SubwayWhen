@@ -123,7 +123,7 @@ struct ReportFeature: Reducer {
     
     private func reportStepChange(_ step: Int) -> Effect<Action> {
         return .run { send in
-            try? await Task.sleep(for: .milliseconds(100))
+            try? await Task.sleep(for: .milliseconds(300))
             await send(.reportSteopChanged(step))
         }
     }
