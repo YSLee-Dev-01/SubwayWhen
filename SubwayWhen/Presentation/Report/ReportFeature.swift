@@ -21,6 +21,7 @@ struct ReportFeature: Reducer {
 
     enum Action: BindableAction, Equatable {
         case onAppear
+        case backBtnTapped
         case binding(BindingAction<State>)
         case reportSteopChanged(Int)
         case reportLineSelected(SubwayLineData)
@@ -35,6 +36,8 @@ struct ReportFeature: Reducer {
         }
     }
     
+    weak var delegate : ReportVCDelegate?
+    
     var body: some Reducer<State, Action> {
         BindingReducer()
         
@@ -42,14 +45,18 @@ struct ReportFeature: Reducer {
             switch action {
             case .onAppear:
                 if state.reportStep == 0 {
-                    return reportStepChange(1)
+                    return self.reportStepChange(1)
                 } else {
                     return .none
                 }
                 
+            case .backBtnTapped:
+                self.delegate?.pop()
+                return .none
+                
             case .reportLineSelected(let selectedLine):
                 state.insertingData = .init(selectedLine: selectedLine)
-                return reportStepChange(2)
+                return self.reportStepChange(2)
                 
             case .reportSteopChanged(let step):
                 state.reportStep = step
@@ -65,7 +72,7 @@ struct ReportFeature: Reducer {
                 }
                 
             case .twoStepCompleted:
-                return reportStepChange(3)
+                return self.reportStepChange(3)
                 
             case .canNotThreeStepBtnTapped:
                 state.dialogState = .init(title: {
