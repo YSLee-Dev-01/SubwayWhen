@@ -46,6 +46,14 @@ struct ReportView: View {
                 }
                 .padding(.bottom, 20)
             }
+            
+            if store.reportStep >= 4 {
+                Group {
+                    ReportFourQuestionView(store: self.$store)
+                        .transition(.offset(x: 0, y : -20).combined(with: .opacity))
+                }
+                .padding(.bottom, 20)
+            }
         }
         .animation(.smooth(duration: 0.3), value: self.store.reportStep)
         .animation(.smooth(duration: 0.3), value: self.store.insertingData)

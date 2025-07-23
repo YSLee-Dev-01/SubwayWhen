@@ -25,11 +25,14 @@ struct ReportFeature: Reducer {
         case backBtnTapped
         case binding(BindingAction<State>)
         case reportSteopChanged(Int)
-        case reportLineSelected(SubwayLineData)
         case brandBtnTapped(Bool)
-        case twoStepCompleted
         case canNotThreeStepBtnTapped
+        
+        case reportLineSelected(SubwayLineData)
+        case twoStepCompleted
         case threeStepCompleted
+        case fourStepCompleted(String?)
+        
         case dialogAction(PresentationAction<DialogAction>)
         
         enum DialogAction: Equatable {
@@ -101,6 +104,15 @@ struct ReportFeature: Reducer {
                 default: break
                 }
                 state.dialogState = nil
+                return .none
+                
+            case .threeStepCompleted:
+                return self.reportStepChange(4)
+                
+            case .fourStepCompleted(let content):
+                if let content = content {
+                    state.insertingData.contants = content
+                }
                 return .none
                 
             default: return .none
