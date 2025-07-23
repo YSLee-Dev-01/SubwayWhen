@@ -34,9 +34,12 @@ class ReportCoordinator : Coordinator{
 }
 
 extension ReportCoordinator : ReportVCDelegate {
+    func disappear() {
+        self.delegate?.disappear(reportCoordinator: self)
+    }
+    
     func pop() {
         self.delegate?.pop()
-        self.delegate?.disappear(reportCoordinator: self)
     }
     
     func moveToReportCheck(data: ReportMSGData) {

@@ -22,6 +22,7 @@ struct ReportFeature: Reducer {
 
     enum Action: BindableAction, Equatable {
         case onAppear
+        case onDisappear
         case backBtnTapped
         case binding(BindingAction<State>)
         case reportSteopChanged(Int)
@@ -53,6 +54,10 @@ struct ReportFeature: Reducer {
                 } else {
                     return .none
                 }
+            
+            case .onDisappear:
+                self.delegate?.disappear()
+                return .none
                 
             case .backBtnTapped:
                 self.delegate?.pop()
