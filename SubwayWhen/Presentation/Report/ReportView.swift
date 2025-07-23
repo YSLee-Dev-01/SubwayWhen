@@ -49,27 +49,30 @@ struct ReportView: View {
                             .transition(.offset(x: 0, y : -20).combined(with: .opacity))
                     }
                 }
-            }
-            .onChange(of: self.store.reportStep, initial: false) { _, step  in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                    withAnimation(.easeInOut(duration: 0.3)) {
-                        switch step {
-                        case 3:
-                            proxy.scrollTo(threeStep, anchor: .center)
-                        case 4:
-                            proxy.scrollTo(fourStep, anchor: .center)
-                        default:
-                            break
+                .onChange(of: self.store.reportStep, initial: false) { _, step  in
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            switch step {
+                            case 3:
+                                proxy.scrollTo(threeStep, anchor: .center)
+                            case 4:
+                                proxy.scrollTo(fourStep, anchor: .center)
+                            default:
+                                break
+                            }
                         }
                     }
                 }
+                .animation(.smooth(duration: 0.3), value: self.store.reportStep)
+                .animation(.smooth(duration: 0.3), value: self.store.insertingData)
             }
-            .animation(.smooth(duration: 0.3), value: self.store.reportStep)
-            .animation(.smooth(duration: 0.3), value: self.store.insertingData)
         }
         .confirmationDialog(self.$store.scope(state: \.dialogState, action: \.dialogAction))
         .onAppear {
             self.store.send(.onAppear)
+        }
+        .onDisappear {
+            self.store.send(.onDisappear)
         }
     }
 }
