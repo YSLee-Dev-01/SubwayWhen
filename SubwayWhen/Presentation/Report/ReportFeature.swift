@@ -113,6 +113,7 @@ struct ReportFeature: Reducer {
                 if let content = content {
                     state.insertingData.contants = content
                 }
+                self.delegate?.moveToReportCheck(data: state.insertingData)
                 return .none
                 
             default: return .none

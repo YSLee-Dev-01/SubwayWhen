@@ -32,9 +32,12 @@ class ReportCheckModalViewModel : ReportCheckModalViewModelProtocol{
     let bag = DisposeBag()
     
     init(
-        model : ReportCheckModalModel = .init()
+        model : ReportCheckModalModel = .init(),
+        data: ReportMSGData,
+        dismissHandler: (() -> ())?
     ){
         self.model = model
+        self.msgData.onNext(data)
         
         self.msg = self.createMSG
             .asDriver(onErrorDriveWith: .empty())
@@ -66,6 +69,12 @@ class ReportCheckModalViewModel : ReportCheckModalViewModelProtocol{
             }
             .bind(to: self.matchingNumber)
             .disposed(by: self.bag)
+        
+        self.msgSeedDismiss
+            .subscribe(onNext: { _ in
+                dismissHandler?()
+            })
+            .disposed(by: bag)
     }
     
     deinit{

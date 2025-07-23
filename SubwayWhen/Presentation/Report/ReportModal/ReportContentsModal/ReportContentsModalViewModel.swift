@@ -31,7 +31,7 @@ class ReportContentsModalViewModel : ReportContentsModalViewModelProtocol{
     init(
         tfViewModel : ReportContentsModalTFViewModel = .init(),
         model : ReportContentsModalModel = .init(),
-        checkModel : ReportCheckModalViewModel = .init()
+        checkModel : ReportCheckModalViewModel = .init(data: .init(), dismissHandler: nil)
     ){
         self.tfViewModel = tfViewModel
         self.model = model

@@ -26,12 +26,20 @@ class ReportCoordinator : Coordinator{
     }
 }
 
-extension ReportCoordinator : ReportVCDelegate{
+extension ReportCoordinator : ReportVCDelegate {
     func disappear() {
         self.delegate?.disappear(reportCoordinator: self)
     }
     
     func pop() {
         self.delegate?.pop()
+    }
+    
+    func moveToReportCheck(data: ReportMSGData) {
+        let check = ReportCheckModalVC(modalHeight: 520, viewModel: .init(data: data, dismissHandler: { [weak self] in
+            self?.delegate?.pop()
+        }))
+        check.modalPresentationStyle = .overFullScreen
+        self.navigation.present(check, animated: false)
     }
 }

@@ -22,7 +22,7 @@ struct ReportView: View {
             NavigationBarScrollViewInSUI(
                 title: Strings.Report.title,
                 backBtnTapped: {
-                    
+                    self.store.send(.backBtnTapped)
                 },
                 backBtnIcon: "arrow.left"
             ) {
