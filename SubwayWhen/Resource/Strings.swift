@@ -58,4 +58,37 @@ extension Strings.Report {
     static let threeStepPassAlertNo = "입력하기"
     /// 입력하지 않고 진행하기
     static let threeStepPassAlertYes = "입력하지 않고 진행하기"
+    
+    /// 민원 정보
+    static let fourStepTitle = "민원 정보"
+    /// 민원내용을 선택하거나 입력해주세요.
+    static let fourStepQuestion = "민원내용을 선택하거나 입력해주세요."
+    
+    /// 차내 더움
+    static let fourStepOptionTitle1 = "차내 더움"
+    /// 차내 추움
+    static let fourStepOptionTitle2 = "차내 추움"
+    /// 폭력 사건
+    static let fourStepOptionTitle3 = "차내 잡상인"
+    /// 차내 전도
+    static let fourStepOptionTitle4 = "차내 전도"
+    /// 차내 취객
+    static let fourStepOptionTitle5 = "차내 취객"
+    /// 지연 심각
+    static let fourStepOptionTitle6 = "지연 심각"
+    /// 내용 직접 입력
+    static let fourStepOptionTitle7 = "내용 직접 입력"
+    
+    /// 차내가 덥습니다. 에어컨 조절 부탁드립니다.
+    static let fourStepOptionSub1 = "차내가 덥습니다. 에어컨 조절 부탁드립니다."
+    /// 차내가 춥습니다. 난방 조절 부탁드립니다.
+    static let fourStepOptionSub2 = "차내가 춥습니다. 난방 조절 부탁드립니다."
+    /// 차내에서 잡상인이 물건을 팔고 있습니다.
+    static let fourStepOptionSub3 = "차내에서 잡상인이 물건을 팔고 있습니다."
+    /// 차내에서 전도를 하는 사람이 있습니다.
+    static let fourStepOptionSub4 = "차내에서 전도를 하는 사람이 있습니다."
+    /// 차내에 취객이 있어 고성방가를 하고 있습니다.
+    static let fourStepOptionSub5 = "차내에 취객이 있어 고성방가를 하고 있습니다."
+    /// 열차 지연이 심각합니다. 정시운행 부탁드립니다.
+    static let fourStepOptionSub6 = "열차 지연이 심각합니다. 정시운행 부탁드립니다."
 }

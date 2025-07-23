@@ -13,6 +13,7 @@ struct ReportFeature: Reducer {
     @ObservableState
     struct State: Equatable {
         let reportableLines = SubwayLineData.allCases.filter {$0.allowReport}
+        let reportContetns = ReportContentData.defaultDataList
         var reportStep = 0
         var insertingData = ReportMSGData()
         
