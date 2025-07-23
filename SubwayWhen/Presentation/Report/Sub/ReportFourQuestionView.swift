@@ -11,6 +11,7 @@ import ComposableArchitecture
 struct ReportFourQuestionView: View {
     @Binding var store: StoreOf<ReportFeature>
     @FocusState var isFocusField: Bool
+    @State private var userReportContent = ""
     
     var body: some View {
         VStack(spacing: 15) {
@@ -53,14 +54,14 @@ struct ReportFourQuestionView: View {
                         }
                     }
                     
-                    TextField(text: self.$store.insertingData.contants) {
+                    TextField(text: self.$userReportContent) {
                         Text(Strings.Report.fourStepOptionTitle7)
                             .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                     }
                     .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                     .onSubmit {
                         self.isFocusField = false
-                        self.store.send(.fourStepCompleted(nil))
+                        self.store.send(.fourStepCompleted(self.userReportContent))
                     }
                     .focused(self.$isFocusField, equals: true)
                     .frame(height: 40)

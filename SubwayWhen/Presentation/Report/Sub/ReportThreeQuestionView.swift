@@ -40,6 +40,7 @@ struct ReportThreeQuestionView: View {
             MainStyleViewInSUI {
                 Button {
                     self.store.send(.canNotThreeStepBtnTapped)
+                    self.isFocusField = false
                 } label: {
                     ExpandedViewInSUI(alignment: .center) {
                         Text(Strings.Report.canNotThreeStep)

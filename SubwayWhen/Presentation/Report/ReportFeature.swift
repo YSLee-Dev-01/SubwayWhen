@@ -31,7 +31,7 @@ struct ReportFeature: Reducer {
         case reportLineSelected(SubwayLineData)
         case twoStepCompleted
         case threeStepCompleted
-        case fourStepCompleted(String?)
+        case fourStepCompleted(String)
         
         case dialogAction(PresentationAction<DialogAction>)
         
@@ -110,9 +110,7 @@ struct ReportFeature: Reducer {
                 return self.reportStepChange(4)
                 
             case .fourStepCompleted(let content):
-                if let content = content {
-                    state.insertingData.contants = content
-                }
+                state.insertingData.contants = content
                 self.delegate?.moveToReportCheck(data: state.insertingData)
                 return .none
                 
