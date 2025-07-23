@@ -34,13 +34,15 @@ struct ReportSecondQuestionView: View {
                     .onSubmit {
                         if self.store.insertingData.destination.isEmpty {return}
                         
-                        if self.store.insertingData.nowStation.isEmpty {
-                            self.focusField = .nowStation
-                        } else {
-                            self.focusField = nil
-                            
-                            if !self.store.insertingData.brand.isEmpty || !self.store.insertingData.selectedLine.hasTwoOperators {
-                                self.store.send(.twoStepCompleted)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            if self.store.insertingData.nowStation.isEmpty {
+                                self.focusField = .nowStation
+                            } else {
+                                self.focusField = nil
+                                
+                                if !self.store.insertingData.brand.isEmpty || !self.store.insertingData.selectedLine.hasTwoOperators {
+                                    self.store.send(.twoStepCompleted)
+                                }
                             }
                         }
                     }
@@ -57,13 +59,15 @@ struct ReportSecondQuestionView: View {
                         .onSubmit {
                             if self.store.insertingData.nowStation.isEmpty {return}
                             
-                            if self.store.insertingData.destination.isEmpty {
-                                self.focusField = .destination
-                            } else {
-                                self.focusField = nil
-                                
-                                if !self.store.insertingData.brand.isEmpty || !self.store.insertingData.selectedLine.hasTwoOperators {
-                                    self.store.send(.twoStepCompleted)
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                if self.store.insertingData.destination.isEmpty {
+                                    self.focusField = .destination
+                                } else {
+                                    self.focusField = nil
+                                    
+                                    if !self.store.insertingData.brand.isEmpty || !self.store.insertingData.selectedLine.hasTwoOperators {
+                                        self.store.send(.twoStepCompleted)
+                                    }
                                 }
                             }
                         }

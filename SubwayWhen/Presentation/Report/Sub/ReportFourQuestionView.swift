@@ -48,7 +48,10 @@ struct ReportFourQuestionView: View {
                                 }
                                 .padding(5)
                             }, tappedAction: {
-                                self.store.send(.fourStepCompleted(data.message))
+                                self.isFocusField = false
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                    self.store.send(.fourStepCompleted(data.message))
+                                }
                             })
                             .padding(.bottom, 5)
                         }
@@ -61,7 +64,9 @@ struct ReportFourQuestionView: View {
                     .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                     .onSubmit {
                         self.isFocusField = false
-                        self.store.send(.fourStepCompleted(self.userReportContent))
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            self.store.send(.fourStepCompleted(self.userReportContent))
+                        }
                     }
                     .focused(self.$isFocusField, equals: true)
                     .frame(height: 40)

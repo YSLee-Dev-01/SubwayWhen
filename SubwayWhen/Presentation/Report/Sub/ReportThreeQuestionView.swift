@@ -29,7 +29,9 @@ struct ReportThreeQuestionView: View {
                 .onSubmit {
                     if self.store.insertingData.trainCar.isEmpty {return}
                     self.isFocusField = false
-                    self.store.send(.threeStepCompleted)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        self.store.send(.threeStepCompleted)
+                    }
                 }
                 .focused(self.$isFocusField, equals: true)
                 .multilineTextAlignment(.trailing)
