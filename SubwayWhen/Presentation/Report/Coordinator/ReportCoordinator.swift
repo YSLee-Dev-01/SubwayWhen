@@ -41,7 +41,7 @@ extension ReportCoordinator : ReportVCDelegate {
     
     func moveToReportCheck(data: ReportMSGData) {
         let check = ReportCheckModalVC(modalHeight: 520, viewModel: .init(data: data, dismissHandler: { [weak self] in
-            self?.delegate?.pop()
+            self?.pop()
         }))
         check.modalPresentationStyle = .overFullScreen
         self.navigation.present(check, animated: false)
