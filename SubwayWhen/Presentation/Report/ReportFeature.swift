@@ -76,7 +76,11 @@ struct ReportFeature: Reducer {
                 }
                 
             case .twoStepCompleted:
-                return self.reportStepChange(3)
+                if state.reportStep == 2 {
+                    return self.reportStepChange(3)
+                } else {
+                    return .none
+                }
                 
             case .canNotThreeStepBtnTapped:
                 state.dialogState = .init(title: {
@@ -121,7 +125,7 @@ struct ReportFeature: Reducer {
     
     private func reportStepChange(_ step: Int) -> Effect<Action> {
         return .run { send in
-            try? await Task.sleep(for: .milliseconds(300))
+            try? await Task.sleep(for: .milliseconds(250))
             await send(.reportSteopChanged(step))
         }
     }
