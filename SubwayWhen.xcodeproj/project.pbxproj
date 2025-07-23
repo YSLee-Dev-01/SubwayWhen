@@ -422,6 +422,7 @@
 		FF3A5EB42D02C31A00BC7716 /* ExpandedViewInSUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3A5EB32D02C31A00BC7716 /* ExpandedViewInSUI.swift */; };
 		FF5F010C2E2DC01100486A0B /* ReportSecondQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5F010B2E2DC01100486A0B /* ReportSecondQuestionView.swift */; };
 		FF5F010E2E2E10B600486A0B /* ReportThreeQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5F010D2E2E10B600486A0B /* ReportThreeQuestionView.swift */; };
+		FF5F01122E305E8A00486A0B /* ReportFourQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5F01112E305E8A00486A0B /* ReportFourQuestionView.swift */; };
 		FF68CFCA2CA27A630054BF69 /* SearchCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF68CFC92CA27A630054BF69 /* SearchCoordinatorDelegate.swift */; };
 		FF6CB2132D1111AA00DF562B /* SubwayWhenCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1D4A9D2C9D32A100AFD709 /* SubwayWhenCommon.framework */; };
 		FF6CB2142D1111AA00DF562B /* SubwayWhenCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF1D4A9D2C9D32A100AFD709 /* SubwayWhenCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -906,6 +907,7 @@
 		FF3A5EB32D02C31A00BC7716 /* ExpandedViewInSUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedViewInSUI.swift; sourceTree = "<group>"; };
 		FF5F010B2E2DC01100486A0B /* ReportSecondQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSecondQuestionView.swift; sourceTree = "<group>"; };
 		FF5F010D2E2E10B600486A0B /* ReportThreeQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportThreeQuestionView.swift; sourceTree = "<group>"; };
+		FF5F01112E305E8A00486A0B /* ReportFourQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFourQuestionView.swift; sourceTree = "<group>"; };
 		FF68CFC82CA1343A0054BF69 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		FF68CFC92CA27A630054BF69 /* SearchCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		FF6CB2182D12991200DF562B /* TestLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLocationManager.swift; sourceTree = "<group>"; };
@@ -1275,6 +1277,7 @@
 				FF7837E82E29E16D004E6BFF /* ReportFirstQuestionView.swift */,
 				FF5F010B2E2DC01100486A0B /* ReportSecondQuestionView.swift */,
 				FF5F010D2E2E10B600486A0B /* ReportThreeQuestionView.swift */,
+				FF5F01112E305E8A00486A0B /* ReportFourQuestionView.swift */,
 				349B517329A46C8C00A53879 /* ReportTableViewLine */,
 				349B517B29A4A4D600A53879 /* ReportTableViewTextField */,
 				349B517829A4A34200A53879 /* ReportTableViewTwoBtn */,
@@ -3178,6 +3181,7 @@
 				349F15D7299B6FD100007420 /* DetailResultScheduleTopViewModel.swift in Sources */,
 				B68FB34C2B75F1CA0075339F /* SettingTrainIconCoordinator.swift in Sources */,
 				34A36BE0295028A700FB0DDB /* EditViewModel.swift in Sources */,
+				FF5F01122E305E8A00486A0B /* ReportFourQuestionView.swift in Sources */,
 				349FF29A299E2C5B007A98F4 /* SettingTableViewCellModel.swift in Sources */,
 				349CEFB02991E18300CC69E5 /* DetailResultScheduleViewSectionData.swift in Sources */,
 				349FF28E299DFD2B007A98F4 /* SettingTableViewCell.swift in Sources */,
