@@ -108,6 +108,7 @@ struct ReportFeature: Reducer {
                 case .presented(let okBtnAction):
                     if case .okBtnTapped = okBtnAction {
                         state.dialogState = nil
+                        state.insertingData.trainCar = ""
                         return .send(.threeStepCompleted)
                     }
                 default: break
