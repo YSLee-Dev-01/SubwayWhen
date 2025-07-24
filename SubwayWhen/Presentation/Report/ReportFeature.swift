@@ -15,9 +15,17 @@ struct ReportFeature: Reducer {
         let reportableLines = SubwayLineData.allCases.filter {$0.allowReport}
         let reportContetns = ReportContentData.defaultDataList
         var reportStep = 0
-        var insertingData = ReportMSGData()
+        var insertingData: ReportMSGData
         
         @Presents  var dialogState: ConfirmationDialogState<Action.DialogAction>?
+        
+        init() {
+            self.insertingData = ReportMSGData()
+        }
+        
+        init(selectedLine: SubwayLineData?) {
+            self.insertingData = ReportMSGData(selectedLine: selectedLine == nil ? .not : selectedLine!)
+        }
     }
 
     enum Action: BindableAction, Equatable {
@@ -50,7 +58,7 @@ struct ReportFeature: Reducer {
             switch action {
             case .onAppear:
                 if state.reportStep == 0 {
-                    return self.reportStepChange(1)
+                    return state.insertingData.selectedLine == .not ? self.reportStepChange(1) : self.reportStepChange(2)
                 } else {
                     return .none
                 }

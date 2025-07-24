@@ -21,7 +21,7 @@ class ReportCoordinator : Coordinator{
     }
     
     func start() {
-        let reportView = ReportView(store: .init(initialState: .init(), reducer: {
+        let reportView = ReportView(store: .init(initialState: .init(selectedLine: seletedLine), reducer: {
             var reducer = ReportFeature()
             reducer.delegate = self
             return reducer
