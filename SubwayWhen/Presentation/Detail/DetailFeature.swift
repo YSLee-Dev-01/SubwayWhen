@@ -40,7 +40,7 @@ struct DetailFeature: Reducer {
         case exceptionLastStationBtnTapped
         case refreshBtnTapped
         case scheduleMoreBtnTapped
-        case reportBtnTapped(ReportBrandData)
+        case reportBtnTapped(SubwayLineData)
         case arrivalDataRequestSuccess([TotalRealtimeStationArrival])
         case scheduleDataRequestSuccess([ResultSchdule])
         case scheduleDataSort

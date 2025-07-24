@@ -14,7 +14,7 @@ class ReportCoordinator : Coordinator{
     var navigation : UINavigationController
     
     var delegate : ReportCoordinatorDelegate?
-    var seletedLine: ReportBrandData? = nil
+    var seletedLine: SubwayLineData? = nil
     
     init(navigation : UINavigationController){
         self.navigation = navigation

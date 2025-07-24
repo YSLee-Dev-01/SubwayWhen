@@ -82,7 +82,7 @@ extension SearchCoordinator: ModalCoordinatorProtocol {
 }
 
 extension SearchCoordinator: DetailCoordinatorDelegate {
-    func reportBtnTap(reportLine: ReportBrandData) {
+    func reportBtnTap(reportLine: SubwayLineData) {
         self.pop()
         self.delegate?.tempDetailViewToReportBtnTap(reportLine: reportLine)
     }

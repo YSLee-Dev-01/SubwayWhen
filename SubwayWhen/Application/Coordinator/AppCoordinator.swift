@@ -143,7 +143,7 @@ extension AppCoordinator: TutorialVCCoordinatorProtocol {
 }
 
 extension AppCoordinator: SearchCoordinatorDelegate {
-    func tempDetailViewToReportBtnTap(reportLine: ReportBrandData) {
+    func tempDetailViewToReportBtnTap(reportLine: SubwayLineData) {
         guard let mainC = self.childCoordinator.first as? MainCoordinator else {return}
         
         self.tabbar.selectedIndex = 0

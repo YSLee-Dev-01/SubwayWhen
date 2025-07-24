@@ -9,7 +9,7 @@ import Foundation
 
 protocol DetailVCDelegate: AnyObject {
     func scheduleTap(schduleResultData : ([ResultSchdule], DetailSendModel))
-    func reportBtnTap(reportLine: ReportBrandData)
+    func reportBtnTap(reportLine: SubwayLineData)
     func pop()
     func disappear()
 }

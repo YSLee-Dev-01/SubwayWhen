@@ -8,7 +8,6 @@
 import Foundation
 
 struct ReportMSGData : Equatable{
-    var line : ReportBrandData // 제거 예정
     var selectedLine: SubwayLineData
     var nowStation : String
     var destination : String
@@ -16,8 +15,7 @@ struct ReportMSGData : Equatable{
     var contants : String
     var brand : String
     
-    init(line: ReportBrandData = .not, selectedLine: SubwayLineData = .not, nowStation: String = "", destination: String = "", trainCar: String = "", contants: String = "", brand: String = "") {
-        self.line = line
+    init(selectedLine: SubwayLineData = .not, nowStation: String = "", destination: String = "", trainCar: String = "", contants: String = "", brand: String = "") {
         self.selectedLine = selectedLine
         self.selectedLine = selectedLine
         self.nowStation = nowStation

@@ -99,7 +99,7 @@ extension MainCoordinator : EditCoordinatorDelegate{
 }
 
 extension MainCoordinator : DetailCoordinatorDelegate{
-    func reportBtnTap(reportLine: ReportBrandData) {
+    func reportBtnTap(reportLine: SubwayLineData) {
         self.pushTap(action: .Report(reportLine))
     }
     

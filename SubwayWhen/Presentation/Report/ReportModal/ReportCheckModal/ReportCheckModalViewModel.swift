@@ -54,7 +54,7 @@ class ReportCheckModalViewModel : ReportCheckModalViewModelProtocol{
         
         // 구글 애널리틱스
         self.msgData
-            .filter{$0.line != .not}
+            .filter{$0.selectedLine != .not}
             .bind(onNext: {
                 Analytics.logEvent("ReportVC_Send", parameters: [
                     "Line" : $0.selectedLine.rawValue
