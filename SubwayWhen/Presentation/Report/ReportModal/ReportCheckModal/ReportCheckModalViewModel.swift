@@ -57,7 +57,7 @@ class ReportCheckModalViewModel : ReportCheckModalViewModelProtocol{
             .filter{$0.line != .not}
             .bind(onNext: {
                 Analytics.logEvent("ReportVC_Send", parameters: [
-                    "Line" : $0.line.rawValue
+                    "Line" : $0.selectedLine.rawValue
                 ])
             })
             .disposed(by: self.bag)

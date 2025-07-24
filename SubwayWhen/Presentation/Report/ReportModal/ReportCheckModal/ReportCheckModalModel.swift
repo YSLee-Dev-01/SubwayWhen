@@ -10,7 +10,7 @@ import Foundation
 class ReportCheckModalModel : ReportCheckModalModelProtocol{
     func createMsg(data : ReportMSGData) -> String{
                        """
-                    \(data.line.rawValue) \(data.destination)행 \(data.trainCar.isEmpty ? "" : "\(data.trainCar)")
+                    \(data.selectedLine.rawValue) \(data.destination)행 \(data.trainCar.isEmpty ? "" : "\(data.trainCar)")
                     현재 \(data.nowStation)역
                     \(data.contants)
                     """
