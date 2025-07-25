@@ -39,10 +39,6 @@ struct ReportSecondQuestionView: View {
                                 self.focusField = .nowStation
                             } else {
                                 self.focusField = nil
-                                
-                                if !self.store.insertingData.brand.isEmpty || !self.store.insertingData.selectedLine.hasTwoOperators {
-                                    self.store.send(.twoStepCompleted)
-                                }
                             }
                         }
                     }
@@ -64,10 +60,6 @@ struct ReportSecondQuestionView: View {
                                     self.focusField = .destination
                                 } else {
                                     self.focusField = nil
-                                    
-                                    if !self.store.insertingData.brand.isEmpty || !self.store.insertingData.selectedLine.hasTwoOperators {
-                                        self.store.send(.twoStepCompleted)
-                                    }
                                 }
                             }
                         }
@@ -125,6 +117,14 @@ struct ReportSecondQuestionView: View {
                                 }
                             }
                             .padding(15)
+                        }
+                    }
+                }
+                .onChange(of: self.focusField) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        if !self.store.insertingData.destination.isEmpty && !self.store.insertingData.nowStation.isEmpty &&
+                            !self.store.insertingData.selectedLine.hasTwoOperators {
+                            self.store.send(.twoStepCompleted)
                         }
                     }
                 }

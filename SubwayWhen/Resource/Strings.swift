@@ -21,6 +21,10 @@ extension Strings.Common {
     static let yes = "네"
     /// 아니오
     static let no = "아니오"
+    /// 취소
+    static let cancel = "취소"
+    /// 확인
+    static let check = "확인"
 }
 
 extension Strings.Report {
@@ -91,4 +95,7 @@ extension Strings.Report {
     static let fourStepOptionSub5 = "차내에 취객이 있어 고성방가를 하고 있습니다."
     /// 열차 지연이 심각합니다. 정시운행 부탁드립니다.
     static let fourStepOptionSub6 = "열차 지연이 심각합니다. 정시운행 부탁드립니다."
+    
+    /// 입력되지 않은 값이 있어 민원을 접수할 수 없어요.\n열차 고유번호를 제외한 모든 질문에는 값이 입력되어 있어야 해요.
+    static let cannotReportAlertTitle = "입력되지 않은 값이 있어 민원을 접수할 수 없어요.\n열차 고유번호를 제외한 모든 질문에는 값이 입력되어 있어야 해요."
 }

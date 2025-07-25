@@ -45,6 +45,7 @@ struct ReportFeature: Reducer {
         case dialogAction(PresentationAction<DialogAction>)
         
         enum DialogAction: Equatable {
+            case notInsertBtnTapped
             case okBtnTapped
         }
     }
@@ -103,7 +104,7 @@ struct ReportFeature: Reducer {
                         TextState(Strings.Report.threeStepPassAlertNo)
                     }
                     
-                    ButtonState( action: .okBtnTapped) {
+                    ButtonState( action: .notInsertBtnTapped) {
                         TextState(Strings.Report.threeStepPassAlertYes)
                     }
                 }, message: {
@@ -114,10 +115,14 @@ struct ReportFeature: Reducer {
             case .dialogAction(let action):
                 switch action {
                 case .presented(let okBtnAction):
-                    if case .okBtnTapped = okBtnAction {
+                    switch okBtnAction {
+                    case .notInsertBtnTapped:
                         state.dialogState = nil
                         state.insertingData.trainCar = ""
                         return .send(.threeStepCompleted)
+                        
+                    case .okBtnTapped:
+                        return .none
                     }
                 default: break
                 }
@@ -129,7 +134,25 @@ struct ReportFeature: Reducer {
                 
             case .fourStepCompleted(let content):
                 state.insertingData.contants = content
-                self.delegate?.moveToReportCheck(data: state.insertingData)
+                
+                if state.insertingData.destination.isEmpty || state.insertingData.contants.isEmpty || state.insertingData.nowStation.isEmpty {
+                    state.dialogState = .init(title: {
+                        TextState("")
+                    }, actions: {
+                        ButtonState(role: .cancel) {
+                            TextState(Strings.Common.cancel)
+                        }
+                        
+                        ButtonState( action: .okBtnTapped) {
+                            TextState(Strings.Common.check)
+                        }
+                    }, message: {
+                        TextState(Strings.Report.cannotReportAlertTitle)
+                    })
+                } else {
+                    self.delegate?.moveToReportCheck(data: state.insertingData)
+                }
+                
                 return .none
                 
             default: return .none
