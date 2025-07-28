@@ -8,13 +8,9 @@
 import SwiftUI
 import ComposableArchitecture
 
-enum FocusType: Hashable {
-    case destination, nowStation
-}
-
 struct ReportSecondQuestionView: View {
     @Binding var store: StoreOf<ReportFeature>
-    @FocusState var focusField: FocusType?
+    @FocusState.Binding var focusField: ReportFocusType?
     
     var body: some View {
         VStack(spacing: 15) {
@@ -137,5 +133,7 @@ struct ReportSecondQuestionView: View {
 }
 
 #Preview {
-    ReportSecondQuestionView(store: .constant(.init(initialState: .init(), reducer: {ReportFeature()})))
+    @FocusState var focusField: ReportFocusType?
+    
+    ReportSecondQuestionView(store: .constant(.init(initialState: .init(), reducer: {ReportFeature()})), focusField: $focusField)
 }

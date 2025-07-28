@@ -8,10 +8,16 @@
 import SwiftUI
 import ComposableArchitecture
 
+enum ReportFocusType: Hashable {
+    case destination, nowStation, trainCar, contants
+}
+
 struct ReportView: View {
     @State private var store:  StoreOf<ReportFeature>
     @Namespace private var threeStep
     @Namespace private var fourStep
+    
+    @FocusState private var focusField: ReportFocusType?
     
     init(store: StoreOf<ReportFeature>) {
         self.store = store
@@ -33,18 +39,18 @@ struct ReportView: View {
                     }
                     
                     if store.reportStep >= 2 {
-                        ReportSecondQuestionView(store: self.$store)
+                        ReportSecondQuestionView(store: self.$store, focusField: self.$focusField)
                             .transition(.offset(x: 0, y : -20).combined(with: .opacity))
                     }
                     
                     if store.reportStep >= 3 {
-                        ReportThreeQuestionView(store: self.$store)
+                        ReportThreeQuestionView(store: self.$store, focusField: self.$focusField)
                             .id(threeStep)
                             .transition(.offset(x: 0, y : -20).combined(with: .opacity))
                     }
                     
                     if store.reportStep >= 4 {
-                        ReportFourQuestionView(store: self.$store)
+                        ReportFourQuestionView(store: self.$store, focusField: self.$focusField)
                             .id(fourStep)
                             .transition(.offset(x: 0, y : -20).combined(with: .opacity))
                     }

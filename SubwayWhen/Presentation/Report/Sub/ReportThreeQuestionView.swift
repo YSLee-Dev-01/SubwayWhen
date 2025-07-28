@@ -10,7 +10,7 @@ import ComposableArchitecture
 
 struct ReportThreeQuestionView: View {
     @Binding var store: StoreOf<ReportFeature>
-    @FocusState var isFocusField: Bool
+    @FocusState.Binding var focusField: ReportFocusType?
     
     var body: some View {
         VStack(spacing: 15) {
@@ -28,12 +28,12 @@ struct ReportThreeQuestionView: View {
                 }
                 .onSubmit {
                     if self.store.insertingData.trainCar.isEmpty {return}
-                    self.isFocusField = false
+                    self.focusField = nil
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                         self.store.send(.threeStepCompleted)
                     }
                 }
-                .focused(self.$isFocusField, equals: true)
+                .focused(self.$focusField, equals: .trainCar)
                 .multilineTextAlignment(.trailing)
                 .frame(height: 60)
                 .padding(.horizontal, 10)
@@ -42,7 +42,7 @@ struct ReportThreeQuestionView: View {
             MainStyleViewInSUI {
                 Button {
                     self.store.send(.canNotThreeStepBtnTapped)
-                    self.isFocusField = false
+                    self.focusField = nil
                 } label: {
                     ExpandedViewInSUI(alignment: .center) {
                         Text(Strings.Report.canNotThreeStep)
@@ -54,11 +54,13 @@ struct ReportThreeQuestionView: View {
             }
         }
         .onAppear {
-            self.isFocusField = true
+            self.focusField = .trainCar
         }
     }
 }
 
 #Preview {
-    ReportThreeQuestionView(store: .constant(.init(initialState: .init(), reducer: {ReportFeature()})))
+    @FocusState var focusField: ReportFocusType?
+    
+    ReportThreeQuestionView(store: .constant(.init(initialState: .init(), reducer: {ReportFeature()})), focusField: $focusField)
 }

@@ -10,7 +10,7 @@ import ComposableArchitecture
 
 struct ReportFourQuestionView: View {
     @Binding var store: StoreOf<ReportFeature>
-    @FocusState var isFocusField: Bool
+    @FocusState.Binding var focusField: ReportFocusType?
     @State private var userReportContent = ""
     
     var body: some View {
@@ -48,7 +48,7 @@ struct ReportFourQuestionView: View {
                                 }
                                 .padding(5)
                             }, tappedAction: {
-                                self.isFocusField = false
+                                self.focusField = nil
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                                     self.store.send(.fourStepCompleted(data.message))
                                 }
@@ -63,12 +63,12 @@ struct ReportFourQuestionView: View {
                     }
                     .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                     .onSubmit {
-                        self.isFocusField = false
+                        self.focusField = nil
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                             self.store.send(.fourStepCompleted(self.userReportContent))
                         }
                     }
-                    .focused(self.$isFocusField, equals: true)
+                    .focused(self.$focusField, equals: .contants)
                     .frame(height: 40)
                     .padding(.horizontal, 10)
                     .background {
@@ -84,5 +84,7 @@ struct ReportFourQuestionView: View {
 }
 
 #Preview {
-    ReportFourQuestionView(store: .constant(.init(initialState: .init(), reducer: {ReportFeature()})))
+    @FocusState var focusField: ReportFocusType?
+    
+    ReportFourQuestionView(store: .constant(.init(initialState: .init(), reducer: {ReportFeature()})), focusField: $focusField)
 }
