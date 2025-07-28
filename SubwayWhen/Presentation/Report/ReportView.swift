@@ -63,8 +63,8 @@ struct ReportView: View {
                         }
                     }
                 }
-                .animation(.smooth(duration: 0.3), value: self.store.reportStep)
-                .animation(.smooth(duration: 0.3), value: self.store.insertingData)
+                .animation(.smooth(duration: 0.25), value: self.store.reportStep)
+                .animation(.smooth(duration: 0.25), value: self.store.insertingData)
             }
         }
         .confirmationDialog(self.$store.scope(state: \.dialogState, action: \.dialogAction))
