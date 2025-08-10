@@ -56,8 +56,8 @@ extension Strings.Report {
     /// 고유번호를 확인할 수 없어요.
     static let canNotThreeStep = "고유번호를 확인할 수 없어요."
     
-    /// 고유번호가 없으면 민원 처리가 원활하지 않을 수 있어요.
-    static let threeStepPassAlert = "고유번호가 없으면 민원 처리가 원활하지 않을 수 있어요."
+    /// 고유번호가 없으면 민원 처리가 원활하지 않을 수 있어요.\n고유번호는 각 객차 끝 부분에 숫자로 적혀있어요.
+    static let threeStepPassAlert = "고유번호가 없으면 민원 처리가 원활하지 않을 수 있어요.\n고유번호는 각 객차 끝 부분에 숫자로 적혀있어요."
     /// 입력하기
     static let threeStepPassAlertNo = "입력하기"
     /// 입력하지 않고 진행하기
@@ -96,6 +96,6 @@ extension Strings.Report {
     /// 열차 지연이 심각합니다. 정시운행 부탁드립니다.
     static let fourStepOptionSub6 = "열차 지연이 심각합니다. 정시운행 부탁드립니다."
     
-    /// 입력되지 않은 값이 있어 민원을 접수할 수 없어요.\n열차 고유번호를 제외한 모든 질문에는 값이 입력되어 있어야 해요.
-    static let cannotReportAlertTitle = "입력되지 않은 값이 있어 민원을 접수할 수 없어요.\n열차 고유번호를 제외한 모든 질문에는 값이 입력되어 있어야 해요."
+    /// 입력되지 않은 값이 있어 민원을 접수할 수 없어요.\n열차 고유번호를 제외한 모든 질문에는 답변을 해주세요.
+    static let cannotReportAlertTitle = "입력되지 않은 값이 있어 민원을 접수할 수 없어요.\n열차 고유번호를 제외한 모든 질문에는 답변을 해주세요."
 }
