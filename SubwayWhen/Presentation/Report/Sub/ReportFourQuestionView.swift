@@ -49,7 +49,7 @@ struct ReportFourQuestionView: View {
                                 .padding(5)
                             }, tappedAction: {
                                 self.focusField = nil
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                                     self.store.send(.fourStepCompleted(data.message))
                                 }
                             })
@@ -63,7 +63,7 @@ struct ReportFourQuestionView: View {
                     .font(.system(size: ViewStyle.FontSize.smallSize))
                     .onSubmit {
                         self.focusField = nil
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                             self.store.send(.fourStepCompleted(self.userReportContent))
                         }
                     }
