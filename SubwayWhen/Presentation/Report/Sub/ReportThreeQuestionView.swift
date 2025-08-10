@@ -24,8 +24,8 @@ struct ReportThreeQuestionView: View {
             MainStyleViewInSUI {
                 TextField(text: self.$store.insertingData.trainCar) {
                     Text(Strings.Report.threeStepQuestion1)
-                        .font(.system(size: ViewStyle.FontSize.mediumSize, weight: .semibold))
                 }
+                .font(.system(size: ViewStyle.FontSize.mediumSize, weight: .semibold))
                 .onSubmit {
                     if self.store.insertingData.trainCar.isEmpty {return}
                     self.focusField = nil

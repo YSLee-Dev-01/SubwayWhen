@@ -25,8 +25,8 @@ struct ReportSecondQuestionView: View {
                 MainStyleViewInSUI {
                     TextField(text: self.$store.insertingData.destination) {
                         Text(Strings.Report.twoStepQuestion1)
-                            .font(.system(size: ViewStyle.FontSize.mediumSize, weight: .semibold))
                     }
+                    .font(.system(size: ViewStyle.FontSize.mediumSize, weight: .semibold))
                     .onSubmit {
                         if self.store.insertingData.destination.isEmpty {return}
                         
@@ -46,8 +46,8 @@ struct ReportSecondQuestionView: View {
                     MainStyleViewInSUI {
                         TextField(text: self.$store.insertingData.nowStation) {
                             Text(Strings.Report.twoStepQuestion2)
-                                .font(.system(size: ViewStyle.FontSize.mediumSize, weight: .semibold))
                         }
+                        .font(.system(size: ViewStyle.FontSize.mediumSize, weight: .semibold))
                         .onSubmit {
                             if self.store.insertingData.nowStation.isEmpty {return}
                             

@@ -59,9 +59,8 @@ struct ReportFourQuestionView: View {
                     
                     TextField(text: self.$userReportContent) {
                         Text(Strings.Report.fourStepOptionTitle7)
-                            .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                     }
-                    .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
+                    .font(.system(size: ViewStyle.FontSize.smallSize))
                     .onSubmit {
                         self.focusField = nil
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
