@@ -273,6 +273,14 @@ struct SearchVicinityView: View {
                                             .onTapGesture {
                                                 self.store.send(.stationAddBtnTapped)
                                             }
+                                        
+                                        Image(systemName: "exclamationmark.circle")
+                                            .resizable()
+                                            .frame(width: 22, height: 22)
+                                            .foregroundColor(.init(uiColor: .gray))
+                                            .onTapGesture {
+                                                self.store.send(.reportBtnTapped)
+                                            }
                                     }
                                     .padding(EdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10))
                                 }

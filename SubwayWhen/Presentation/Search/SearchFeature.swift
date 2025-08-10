@@ -85,6 +85,7 @@ struct SearchFeature: Reducer {
         case stationTapped(SearchFeatureStationTapSendModel)
         case disposableDetailPushRequest
         case stationAddBtnTapped
+        case reportBtnTapped
         
         enum DialogAction: Equatable {
             case cancelBtnTapped
