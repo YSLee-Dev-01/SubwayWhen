@@ -262,13 +262,10 @@ struct SearchFeature: Reducer {
                 return .none
                 
             case .disposableDetailBtnTapped:
-                let tappedData = state.nowVicinityStationList[state.nowTappedStationIndex!]
-                guard let line = SubwayLineData(rawValue: tappedData.lineColorName),
-                      (state.nowUpLiveData?.code != "" || state.nowDownLiveData?.code != "")
-                else {
-                    state.dialogState =  self.errorPopup(msg: "실시간 데이터가 확인되지 않았어요.\n새로고침 버튼을 통해 실시간 데이터를 확인해주세요.")
+                guard let line = getTappedLineOrShowError(&state) else {
                     return .none
                 }
+                
                 state.dialogState = .init(title: {
                     TextState("")
                 }, actions: {
@@ -418,6 +415,14 @@ struct SearchFeature: Reducer {
                 state.nowSearchLoading = true
                 return .send(.stationSearchRequest)
                 
+            case .reportBtnTapped:
+                guard let line = getTappedLineOrShowError(&state) else {
+                    return .none
+                }
+                delegate?.reportPush(reportLine: line)
+                
+                return .none
+                
             default: return .none
             }
         }
@@ -435,6 +440,17 @@ private extension SearchFeature {
         }, message: {
             TextState(msg)
         })
+    }
+    
+    func getTappedLineOrShowError(_ state: inout State) -> SubwayLineData? {
+        let tappedData = state.nowVicinityStationList[state.nowTappedStationIndex!]
+        guard let line = SubwayLineData(rawValue: tappedData.lineColorName),
+              (state.nowUpLiveData?.code != "" || state.nowDownLiveData?.code != "")
+        else {
+            state.dialogState =  self.errorPopup(msg: "실시간 데이터가 확인되지 않았어요.\n새로고침 버튼을 통해 실시간 데이터를 확인해주세요.")
+            return nil
+        }
+        return line
     }
 }
 

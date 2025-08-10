@@ -37,6 +37,10 @@ class SearchCoordinator : Coordinator{
 }
 
 extension SearchCoordinator: SearchVCActionProtocol {
+    func reportPush(reportLine: SubwayLineData) {
+        self.reportBtnTap(reportLine: reportLine)
+    }
+    
     func locationPresent(data: [VicinityTransformData]) {
         let locationCoordinator = LocationModalCoordinator(navigation: self.navigation, vicinityList: data)
         locationCoordinator.delegate = self

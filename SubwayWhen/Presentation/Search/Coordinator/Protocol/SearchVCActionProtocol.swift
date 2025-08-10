@@ -11,4 +11,5 @@ protocol SearchVCActionProtocol: AnyObject {
     func modalPresent(data: searchStationInfo)
     func locationPresent(data: [VicinityTransformData])
     func disposableDetailPush(data: DetailSendModel)
+    func reportPush(reportLine: SubwayLineData)
 }
