@@ -49,7 +49,7 @@ struct ReportThreeQuestionView: View {
                             .foregroundStyle(.red)
                             .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                     }
-                    .frame(height: 40)
+                    .frame(height: 45)
                 }
             }
         }
