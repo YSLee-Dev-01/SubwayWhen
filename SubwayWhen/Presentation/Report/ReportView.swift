@@ -35,24 +35,24 @@ struct ReportView: View {
                 VStack(spacing: 20) {
                     if store.reportStep >= 1 {
                         ReportFirstQuestionView(store: self.$store)
-                            .transition(.offset(x: 0, y : -20).combined(with: .opacity))
+                            .transition(.offset(x: 0, y : -25).combined(with: .opacity))
                     }
                     
                     if store.reportStep >= 2 {
                         ReportSecondQuestionView(store: self.$store, focusField: self.$focusField)
-                            .transition(.offset(x: 0, y : -20).combined(with: .opacity))
+                            .transition(.offset(x: 0, y : -25).combined(with: .opacity))
                     }
                     
                     if store.reportStep >= 3 {
                         ReportThreeQuestionView(store: self.$store, focusField: self.$focusField)
                             .id(threeStep)
-                            .transition(.offset(x: 0, y : -20).combined(with: .opacity))
+                            .transition(.offset(x: 0, y : -25).combined(with: .opacity))
                     }
                     
                     if store.reportStep >= 4 {
                         ReportFourQuestionView(store: self.$store, focusField: self.$focusField)
                             .id(fourStep)
-                            .transition(.offset(x: 0, y : -20).combined(with: .opacity))
+                            .transition(.offset(x: 0, y : -25).combined(with: .opacity))
                     }
                 }
                 .onChange(of: self.store.reportStep, initial: false) { _, step  in
