@@ -118,8 +118,10 @@ struct ReportSecondQuestionView: View {
                 }
                 .onChange(of: self.focusField) {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                        if !self.store.insertingData.destination.isEmpty && !self.store.insertingData.nowStation.isEmpty &&
-                            !self.store.insertingData.selectedLine.hasTwoOperators {
+                        if !self.store.insertingData.destination.isEmpty &&
+                            !self.store.insertingData.nowStation.isEmpty &&
+                            (self.store.insertingData.selectedLine.hasTwoOperators && !self.store.insertingData.brand.isEmpty ||
+                             !self.store.insertingData.selectedLine.hasTwoOperators) {
                             self.store.send(.twoStepCompleted)
                         }
                     }
