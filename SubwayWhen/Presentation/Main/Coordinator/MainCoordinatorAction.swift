@@ -8,6 +8,6 @@
 import Foundation
 
 enum MainCoordinatorAction {
-    case Report(SubwayLineData?)
+    case Report(SubwayLineData?, String?)
     case Edit
 }

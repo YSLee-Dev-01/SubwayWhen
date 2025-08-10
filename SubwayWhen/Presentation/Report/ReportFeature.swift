@@ -23,8 +23,8 @@ struct ReportFeature: Reducer {
             self.insertingData = ReportMSGData()
         }
         
-        init(selectedLine: SubwayLineData?) {
-            self.insertingData = ReportMSGData(selectedLine: selectedLine == nil ? .not : selectedLine!)
+        init(selectedLine: SubwayLineData?, stationName: String?) {
+            self.insertingData = ReportMSGData(selectedLine: selectedLine == nil ? .not : selectedLine!, nowStation: stationName ?? "")
         }
     }
 

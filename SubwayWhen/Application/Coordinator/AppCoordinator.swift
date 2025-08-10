@@ -143,10 +143,10 @@ extension AppCoordinator: TutorialVCCoordinatorProtocol {
 }
 
 extension AppCoordinator: SearchCoordinatorDelegate {
-    func tempDetailViewToReportBtnTap(reportLine: SubwayLineData) {
+    func tempDetailViewToReportBtnTap(reportLine: SubwayLineData, stationName: String) {
         guard let mainC = self.childCoordinator.first as? MainCoordinator else {return}
         
         self.tabbar.selectedIndex = 0
-        mainC.pushTap(action: .Report(reportLine))
+        mainC.pushTap(action: .Report(reportLine, stationName))
     }
 }

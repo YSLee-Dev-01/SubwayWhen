@@ -237,7 +237,7 @@ struct DetailFeature: Reducer {
                 return .none
                 
             case .reportBtnTapped(let data):
-                self.coordinatorDelegate?.reportBtnTap(reportLine: data)
+                self.coordinatorDelegate?.reportBtnTap(reportLine: data, stationName: state.sendedLoadModel.stationName)
                 return .none
                 
             case .viewDisappear:

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol SearchCoordinatorDelegate: AnyObject {
-    func tempDetailViewToReportBtnTap(reportLine: SubwayLineData)
+    func tempDetailViewToReportBtnTap(reportLine: SubwayLineData, stationName: String)
 }

@@ -419,7 +419,7 @@ struct SearchFeature: Reducer {
                 guard let line = getTappedLineOrShowError(&state) else {
                     return .none
                 }
-                delegate?.reportPush(reportLine: line)
+                delegate?.reportPush(reportLine: line, stationName: state.nowVicinityStationList[state.nowTappedStationIndex!].name)
                 
                 return .none
                 

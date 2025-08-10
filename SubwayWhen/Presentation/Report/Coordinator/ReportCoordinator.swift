@@ -14,14 +14,17 @@ class ReportCoordinator : Coordinator{
     var navigation : UINavigationController
     
     var delegate : ReportCoordinatorDelegate?
-    var seletedLine: SubwayLineData? = nil
+    private var seletedLine: SubwayLineData? = nil
+    private var stationName: String? = nil
     
-    init(navigation : UINavigationController){
+    init(navigation : UINavigationController, initValue: (SubwayLineData?, String?)? = nil){
         self.navigation = navigation
+        self.seletedLine = initValue?.0
+        self.stationName = initValue?.1
     }
     
     func start() {
-        let reportView = ReportView(store: .init(initialState: .init(selectedLine: seletedLine), reducer: {
+        let reportView = ReportView(store: .init(initialState: .init(selectedLine: self.seletedLine, stationName: self.stationName), reducer: {
             var reducer = ReportFeature()
             reducer.delegate = self
             return reducer
