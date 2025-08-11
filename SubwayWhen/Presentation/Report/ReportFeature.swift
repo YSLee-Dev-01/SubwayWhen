@@ -13,7 +13,7 @@ struct ReportFeature: Reducer {
     @ObservableState
     struct State: Equatable {
         let reportableLines = SubwayLineData.allCases.filter {$0.allowReport}
-        let reportContetns = ReportContentData.defaultDataList
+        let reportContents = ReportContentData.defaultDataList
         var reportStep = 0
         var insertingData: ReportMSGData
         
@@ -33,7 +33,7 @@ struct ReportFeature: Reducer {
         case onDisappear
         case backBtnTapped
         case binding(BindingAction<State>)
-        case reportSteopChanged(Int)
+        case reportStepChanged(Int)
         case brandBtnTapped(Bool)
         case canNotThreeStepBtnTapped
         
@@ -76,7 +76,7 @@ struct ReportFeature: Reducer {
                 state.insertingData = .init(selectedLine: selectedLine)
                 return self.reportStepChange(2)
                 
-            case .reportSteopChanged(let step):
+            case .reportStepChanged(let step):
                 state.reportStep = step
                 return .none
                 
@@ -163,7 +163,7 @@ struct ReportFeature: Reducer {
     private func reportStepChange(_ step: Int) -> Effect<Action> {
         return .run { send in
             try? await Task.sleep(for: .milliseconds(250))
-            await send(.reportSteopChanged(step))
+            await send(.reportStepChanged(step))
         }
     }
 }

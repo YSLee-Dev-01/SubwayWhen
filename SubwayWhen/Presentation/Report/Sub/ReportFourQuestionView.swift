@@ -33,7 +33,7 @@ struct ReportFourQuestionView: View {
                     LazyVGrid(
                         columns: [GridItem(.flexible(), spacing: 10), GridItem(.flexible(), spacing: 10), GridItem(.flexible(), spacing: 10)]
                     ) {
-                        ForEach(self.store.reportContetns, id: \.title) { data in
+                        ForEach(self.store.reportContents, id: \.title) { data in
                             AnimationButtonInSUI(bgColor: Color.gray.opacity(0.1), buttonView: {
                                 VStack(spacing: 10) {
                                     Image(systemName: data.iconName)
