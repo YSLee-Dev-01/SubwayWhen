@@ -46,12 +46,9 @@
 		349894AD29CD994800768B88 /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349894AC29CD994800768B88 /* BundleExtension.swift */; };
 		349974F229C82A5B005FCF06 /* StationArrivalRequestErrorDummy.json in Resources */ = {isa = PBXBuildFile; fileRef = 349974F129C82A5A005FCF06 /* StationArrivalRequestErrorDummy.json */; };
 		3499DE9129D17B9C00A6E8C1 /* EditViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3499DE9029D17B9C00A6E8C1 /* EditViewModelTests.swift */; };
-		3499DE9829D17BE600A6E8C1 /* ReportModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3499DE9729D17BE600A6E8C1 /* ReportModelTests.swift */; };
-		3499DE9A29D1955900A6E8C1 /* ReportViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3499DE9929D1955900A6E8C1 /* ReportViewModelTests.swift */; };
 		3499DEA429D1B53D00A6E8C1 /* ReportCheckModalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3499DEA329D1B53D00A6E8C1 /* ReportCheckModalModel.swift */; };
 		3499DEA629D1B5F300A6E8C1 /* ReportCheckModalModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3499DEA529D1B5F300A6E8C1 /* ReportCheckModalModelProtocol.swift */; };
 		3499DEAA29D1BCE700A6E8C1 /* ReportCheckModalViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3499DEA929D1BCE700A6E8C1 /* ReportCheckModalViewModelProtocol.swift */; };
-		3499DEAC29D1BEBB00A6E8C1 /* ReportContentsModalModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3499DEAB29D1BEBB00A6E8C1 /* ReportContentsModalModelTests.swift */; };
 		3499DEAE29D1C07300A6E8C1 /* ReportCheckModalModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3499DEAD29D1C07300A6E8C1 /* ReportCheckModalModelTests.swift */; };
 		349B515F29A452EC00A53879 /* DetailStationIdList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 349B515E29A452EC00A53879 /* DetailStationIdList.plist */; };
 		349B516129A4616700A53879 /* DetailStationId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349B516029A4616700A53879 /* DetailStationId.swift */; };
@@ -580,12 +577,9 @@
 		349894AC29CD994800768B88 /* BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = "<group>"; };
 		349974F129C82A5A005FCF06 /* StationArrivalRequestErrorDummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StationArrivalRequestErrorDummy.json; sourceTree = "<group>"; };
 		3499DE9029D17B9C00A6E8C1 /* EditViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewModelTests.swift; sourceTree = "<group>"; };
-		3499DE9729D17BE600A6E8C1 /* ReportModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModelTests.swift; sourceTree = "<group>"; };
-		3499DE9929D1955900A6E8C1 /* ReportViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewModelTests.swift; sourceTree = "<group>"; };
 		3499DEA329D1B53D00A6E8C1 /* ReportCheckModalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCheckModalModel.swift; sourceTree = "<group>"; };
 		3499DEA529D1B5F300A6E8C1 /* ReportCheckModalModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCheckModalModelProtocol.swift; sourceTree = "<group>"; };
 		3499DEA929D1BCE700A6E8C1 /* ReportCheckModalViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCheckModalViewModelProtocol.swift; sourceTree = "<group>"; };
-		3499DEAB29D1BEBB00A6E8C1 /* ReportContentsModalModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportContentsModalModelTests.swift; sourceTree = "<group>"; };
 		3499DEAD29D1C07300A6E8C1 /* ReportCheckModalModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCheckModalModelTests.swift; sourceTree = "<group>"; };
 		349B515E29A452EC00A53879 /* DetailStationIdList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DetailStationIdList.plist; sourceTree = "<group>"; };
 		349B516029A4616700A53879 /* DetailStationId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailStationId.swift; sourceTree = "<group>"; };
@@ -1122,9 +1116,6 @@
 		3499DE9429D17BCA00A6E8C1 /* Report */ = {
 			isa = PBXGroup;
 			children = (
-				3499DE9729D17BE600A6E8C1 /* ReportModelTests.swift */,
-				3499DE9929D1955900A6E8C1 /* ReportViewModelTests.swift */,
-				3499DEAB29D1BEBB00A6E8C1 /* ReportContentsModalModelTests.swift */,
 				3499DEAD29D1C07300A6E8C1 /* ReportCheckModalModelTests.swift */,
 			);
 			name = Report;
@@ -2878,16 +2869,13 @@
 				34BA0B2E29C039010044E2C2 /* TotalLoadModelTests.swift in Sources */,
 				3497DC9329D2F53900D2ABB9 /* ModalModelTests.swift in Sources */,
 				34C655752A5CF8210039C16B /* SettingNotiSelectModalModelTests.swift in Sources */,
-				3499DE9829D17BE600A6E8C1 /* ReportModelTests.swift in Sources */,
 				34AB13372ACFB04F008D04B0 /* TutorialViewModelTests.swift in Sources */,
-				3499DEAC29D1BEBB00A6E8C1 /* ReportContentsModalModelTests.swift in Sources */,
 				34B3105029B0DAE500EA3A19 /* MockURLSession.swift in Sources */,
 				34D7F50829D062B300A0B3DE /* EditModelTests.swift in Sources */,
 				34A3038629AF362700948EDD /* DummyLoad.swift in Sources */,
 				3497DCC729D446A700D2ABB9 /* SettingViewModelTests.swift in Sources */,
 				349D789529CC67FD00CA1B52 /* DetailFeatureTests.swift in Sources */,
 				3499DE9129D17B9C00A6E8C1 /* EditViewModelTests.swift in Sources */,
-				3499DE9A29D1955900A6E8C1 /* ReportViewModelTests.swift in Sources */,
 				3499DEAE29D1C07300A6E8C1 /* ReportCheckModalModelTests.swift in Sources */,
 				34A221BB29C9B64C003F035D /* MainViewModelTests.swift in Sources */,
 				34A3038A29AF36FA00948EDD /* NetworkMangerTests.swift in Sources */,

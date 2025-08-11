@@ -19,7 +19,7 @@ final class ReportCheckModalModelTests: XCTestCase {
     
     override func setUp() {
         self.model = ReportCheckModalModel()
-        self.msgData = ReportMSGData(line: .one, nowStation: "시청", destination: "인천", trainCar: "1-4", contants: "너무 더워요.", brand: "Y")
+        self.msgData = ReportMSGData(selectedLine: .one, nowStation: "시청", destination: "인천", trainCar: "1-4", contants: "너무 더워요.", brand: "Y")
     }
     
     func testCreateMsg(){
@@ -29,7 +29,7 @@ final class ReportCheckModalModelTests: XCTestCase {
         // WHEN
         let requestData = data
         let dummyData =  """
-                    \(self.msgData.line.rawValue) \(self.msgData.destination)행 \(self.msgData.trainCar)
+                    \(self.msgData.selectedLine.rawValue) \(self.msgData.destination)행 \(self.msgData.trainCar)
                     현재 \(self.msgData.nowStation)역
                     \(self.msgData.contants)
                     """
@@ -43,9 +43,9 @@ final class ReportCheckModalModelTests: XCTestCase {
     
     func testNumberMatching(){
         // GIVEN
-        let threeMSGData = ReportMSGData(line: .three, nowStation: "", destination: "", trainCar: "", contants: "", brand: "Y")
-        let sevenMSGData = ReportMSGData(line: .seven, nowStation: "", destination: "", trainCar: "", contants: "", brand: "N")
-        let gyeonguiMSGData = ReportMSGData(line: .gyeongui, nowStation: "", destination: "", trainCar: "", contants: "", brand: "N")
+        let threeMSGData = ReportMSGData(selectedLine: .three, nowStation: "", destination: "", trainCar: "", contants: "", brand: "Y")
+        let sevenMSGData = ReportMSGData(selectedLine: .seven, nowStation: "", destination: "", trainCar: "", contants: "", brand: "N")
+        let gyeonguiMSGData = ReportMSGData(selectedLine: .gyeongui, nowStation: "", destination: "", trainCar: "", contants: "", brand: "N")
         
         let oneData = self.model.numberMatching(data: self.msgData)
         let threeData = self.model.numberMatching(data: threeMSGData)
@@ -89,7 +89,7 @@ final class ReportCheckModalModelTests: XCTestCase {
     
     func testNumberMatchingError(){
         // GIVEN
-        let msgData = ReportMSGData(line: .not, nowStation: "", destination: "", trainCar: "", contants: "", brand: "N")
+        let msgData = ReportMSGData(selectedLine: .not, nowStation: "", destination: "", trainCar: "", contants: "", brand: "N")
         let data = self.model.numberMatching(data: msgData)
         
         // WHEN
