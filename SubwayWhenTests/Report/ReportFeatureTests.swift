@@ -16,6 +16,7 @@ final class ReportFeatureTests: XCTestCase {
     private let defaultTestStationName: String = "고속터미널"
     private let defaultTestDestination = "대화행"
     private let defaultTestCarNumber = "1234"
+    private let defaultTestMessage = "차내가 덥습니다."
     
     func testViewInitWithNoValue() async throws {
         // GIVEN
@@ -164,6 +165,58 @@ final class ReportFeatureTests: XCTestCase {
         // THEN -> 입력하지 않기를 누른 경우 3 step을 마무리함
         await testStore.receive(.threeStepCompleted) { state in
             state.reportStep = 4
+        }
+    }
+    
+    private func testFourStepCompletion() async throws {
+        // GIVEN
+        let testStore = await self.createStore()
+        
+        // WHEN
+        await testStore.send(.onAppear)
+        await testStore.send(.reportLineSelected(self.defaultTestLine)) // 2 step
+        await testStore.send(.binding(.set(\.insertingData.destination, self.defaultTestDestination)))
+        await testStore.send(.binding(.set(\.insertingData.nowStation, self.defaultTestStationName)))
+        await testStore.send(.brandBtnTapped(false)) // 3 step
+        await testStore.send(.binding(.set(\.insertingData.trainCar, self.defaultTestCarNumber)))
+        await testStore.send(.threeStepCompleted) // 4 step
+        
+        await testStore.send(.fourStepCompleted(self.defaultTestMessage)) { state in
+            // THEN -> 값을 입력/누른 경우 바로 바인딩 되어야 함
+            state.reportStep = 4
+            state.insertingData.contants = self.defaultTestMessage
+            state.insertingData = .init(selectedLine: self.defaultTestLine, nowStation: self.defaultTestStationName, destination: self.defaultTestDestination, trainCar: self.defaultTestCarNumber, contants: self.defaultTestMessage, brand: "N")
+        }
+    }
+    
+    private func testFourStepNoInserted() async throws {
+        // GIVEN
+        let testStore = await self.createStore()
+        
+        // WHEN
+        await testStore.send(.onAppear)
+        await testStore.send(.reportLineSelected(self.defaultTestLine)) // 2 step
+        await testStore.send(.binding(.set(\.insertingData.destination, self.defaultTestDestination)))
+        await testStore.send(.binding(.set(\.insertingData.nowStation, self.defaultTestStationName)))
+        await testStore.send(.brandBtnTapped(false)) // 3 step
+        await testStore.send(.binding(.set(\.insertingData.trainCar, self.defaultTestCarNumber)))
+        await testStore.send(.threeStepCompleted) // 4 step
+        
+        // step이 넘어간 이후로 값 제거
+        await testStore.send(.binding(.set(\.insertingData.nowStation, "")))
+        
+        await testStore.send(.fourStepCompleted(self.defaultTestMessage)) { state in
+            // THEN -> trainCar 제외 값이 입력되지 않은 경우 팝업이 떠야함
+            XCTAssertNotNil(state.dialogState)
+        }
+        
+        await testStore.send(.dialogAction(.presented(.okBtnTapped)))
+        await testStore.send(.binding(.set(\.insertingData.nowStation, self.defaultTestStationName)))
+        
+        await testStore.send(.fourStepCompleted(self.defaultTestMessage)) { state in
+            // THEN
+            state.reportStep = 4
+            state.insertingData = .init(selectedLine: self.defaultTestLine, nowStation: self.defaultTestStationName, destination: self.defaultTestDestination, trainCar: "", contants: self.defaultTestMessage, brand: "N")
         }
     }
 }
