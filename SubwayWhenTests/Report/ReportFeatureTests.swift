@@ -15,6 +15,7 @@ final class ReportFeatureTests: XCTestCase {
     private let defaultTestLine: SubwayLineData = .three
     private let defaultTestStationName: String = "고속터미널"
     private let defaultTestDestination = "대화행"
+    private let defaultTestCarNumber = "1234"
     
     func testViewInitWithNoValue() async throws {
         // GIVEN
@@ -121,6 +122,49 @@ final class ReportFeatureTests: XCTestCase {
         // THEN -> brand를 먼저 입력한 경우, 키보드에서 enter 버튼을 누르지 않는 이상
         // 완료 이벤트가 발생하지 않음
         await testStore.finish()
+    }
+    
+    private func testThreeStepCompletion() async throws {
+        // GIVEN
+        let testStore = await self.createStore()
+        
+        // WHEN
+        await testStore.send(.onAppear)
+        await testStore.send(.reportLineSelected(self.defaultTestLine))
+        await testStore.send(.twoStepCompleted) { state in
+            // THEN -> 2 step이 완료된 경우 3 step으로 변경되어야 함
+            state.reportStep = 3
+        }
+        
+        await testStore.send(.binding(.set(\.insertingData.trainCar, self.defaultTestCarNumber))) { state in
+            // THEN -> 값을 입력한 경우 바로 바인딩 되어야 함
+            state.insertingData.trainCar = self.defaultTestCarNumber
+        }
+        
+        // THEN -> 키보드에서 enter 버튼을 누르지 않는 이상 완료 이벤트가 발생하지 않음
+        await testStore.finish()
+    }
+    
+    private func testThreeStepNoNumberInserted() async throws {
+        // GIVEN
+        let testStore = await self.createStore()
+        
+        // WHEN
+        await testStore.send(.onAppear)
+        await testStore.send(.reportLineSelected(self.defaultTestLine))
+        await testStore.send(.twoStepCompleted)
+        
+        await testStore.send(.canNotThreeStepBtnTapped) { state in
+            // THEN -> 확인할 수 없다는 버튼을 누른 경우 팝업창이 떠야함
+            XCTAssertNotNil(state.dialogState)
+        }
+        
+        await testStore.send(.dialogAction(.presented(.notInsertBtnTapped)))
+        
+        // THEN -> 입력하지 않기를 누른 경우 3 step을 마무리함
+        await testStore.receive(.threeStepCompleted) { state in
+            state.reportStep = 4
+        }
     }
 }
 
