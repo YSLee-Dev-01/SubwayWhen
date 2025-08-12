@@ -14,6 +14,7 @@ final class ReportFeatureTests: XCTestCase {
     
     private let defaultTestLine: SubwayLineData = .three
     private let defaultTestStationName: String = "고속터미널"
+    private let defaultTestDestination = "대화행"
     
     func testViewInitWithNoValue() async throws {
         // GIVEN
@@ -47,6 +48,79 @@ final class ReportFeatureTests: XCTestCase {
         await testStore.receive(.reportStepChanged(2)) { state in
             state.reportStep = 2
         }
+    }
+    
+    func testReportLineSelected() async throws {
+        // GIVEN
+        let testStore = await self.createStore()
+        
+        // WHEN
+        await testStore.send(.onAppear)
+        
+        // THEN -> 선택에 따른 값 변화
+        await testStore.send(.reportLineSelected(self.defaultTestLine)) { state in
+            state.insertingData = .init(selectedLine: self.defaultTestLine)
+        }
+        
+        // THEN -> 노선을 선택한 경우 step 변경
+        await testStore.receive(.reportStepChanged(2)) { state in
+            state.reportStep = 2
+        }
+    }
+    
+    func testTwoStepCompletionBrandSelectedLast() async throws  {
+        // GIVEN
+        let testStore = await self.createStore()
+        
+        // WHEN
+        await testStore.send(.onAppear)
+        await testStore.send(.reportLineSelected(self.defaultTestLine))
+        
+        await testStore.send(.binding(.set(\.insertingData.nowStation, self.defaultTestStationName))) { state in
+            // THEN -> 값을 입력한 경우 바로 바인딩 되어야 함
+            state.insertingData.nowStation = self.defaultTestStationName
+        }
+        
+        await testStore.send(.binding(.set(\.insertingData.destination, self.defaultTestDestination))) { state in
+            // THEN
+            state.insertingData.destination = self.defaultTestDestination
+        }
+        
+        await testStore.send(.brandBtnTapped(false)) {state in
+            // THEN
+            state.insertingData.brand = "N"
+        }
+        
+        // THEN -> brand가 입력된 경우 값을 판단해서 두번째 질문을 마무리 함
+        await testStore.receive(.twoStepCompleted)
+    }
+    
+    func testTwoStepCompletionBrandSelectedFirst() async throws  {
+        // GIVEN
+        let testStore = await self.createStore()
+        
+        // WHEN
+        await testStore.send(.onAppear)
+        await testStore.send(.reportLineSelected(self.defaultTestLine))
+        
+        await testStore.send(.brandBtnTapped(false)) {state in
+            // THEN -> 현재역, 행선지 보다 brand를 먼저 입력 시
+            state.insertingData.brand = "N"
+        }
+        
+        await testStore.send(.binding(.set(\.insertingData.destination, self.defaultTestDestination))) { state in
+            // THEN -> 값을 입력한 경우 바로 바인딩 되어야 함
+            state.insertingData.destination = self.defaultTestDestination
+        }
+        
+        await testStore.send(.binding(.set(\.insertingData.nowStation, self.defaultTestStationName))) { state in
+            // THEN
+            state.insertingData.nowStation = self.defaultTestStationName
+        }
+        
+        // THEN -> brand를 먼저 입력한 경우, 키보드에서 enter 버튼을 누르지 않는 이상
+        // 완료 이벤트가 발생하지 않음
+        await testStore.finish()
     }
 }
 
