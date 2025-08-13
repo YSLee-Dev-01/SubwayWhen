@@ -40,7 +40,7 @@ struct DetailFeature: Reducer {
         case exceptionLastStationBtnTapped
         case refreshBtnTapped
         case scheduleMoreBtnTapped
-        case reportBtnTapped(ReportBrandData)
+        case reportBtnTapped(SubwayLineData)
         case arrivalDataRequestSuccess([TotalRealtimeStationArrival])
         case scheduleDataRequestSuccess([ResultSchdule])
         case scheduleDataSort
@@ -237,7 +237,7 @@ struct DetailFeature: Reducer {
                 return .none
                 
             case .reportBtnTapped(let data):
-                self.coordinatorDelegate?.reportBtnTap(reportLine: data)
+                self.coordinatorDelegate?.reportBtnTap(reportLine: data, stationName: state.sendedLoadModel.stationName)
                 return .none
                 
             case .viewDisappear:

@@ -14,7 +14,7 @@ import FirebaseAnalytics
 
 class ReportCheckModalViewModel : ReportCheckModalViewModelProtocol{
     // INPUT
-    let msgData = BehaviorSubject<ReportMSGData>(value: .init(line: .not, nowStation: "", destination: "", trainCar: "", contants: "", brand: ""))
+    let msgData = BehaviorSubject<ReportMSGData>(value: .init(selectedLine: .not, nowStation: "", destination: "", trainCar: "", contants: "", brand: ""))
     let okBtnClick = PublishRelay<String>()
     let msgSeedDismiss = PublishRelay<Void>()
     
@@ -32,9 +32,12 @@ class ReportCheckModalViewModel : ReportCheckModalViewModelProtocol{
     let bag = DisposeBag()
     
     init(
-        model : ReportCheckModalModel = .init()
+        model : ReportCheckModalModel = .init(),
+        data: ReportMSGData,
+        dismissHandler: (() -> ())?
     ){
         self.model = model
+        self.msgData.onNext(data)
         
         self.msg = self.createMSG
             .asDriver(onErrorDriveWith: .empty())
@@ -51,10 +54,10 @@ class ReportCheckModalViewModel : ReportCheckModalViewModelProtocol{
         
         // 구글 애널리틱스
         self.msgData
-            .filter{$0.line != .not}
+            .filter{$0.selectedLine != .not}
             .bind(onNext: {
                 Analytics.logEvent("ReportVC_Send", parameters: [
-                    "Line" : $0.line.rawValue
+                    "Line" : $0.selectedLine.rawValue
                 ])
             })
             .disposed(by: self.bag)
@@ -66,6 +69,12 @@ class ReportCheckModalViewModel : ReportCheckModalViewModelProtocol{
             }
             .bind(to: self.matchingNumber)
             .disposed(by: self.bag)
+        
+        self.msgSeedDismiss
+            .subscribe(onNext: { _ in
+                dismissHandler?()
+            })
+            .disposed(by: bag)
     }
     
     deinit{

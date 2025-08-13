@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "그림5.png",
+      "filename" : "그림5_20250812.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "그림5 3.png",
+      "filename" : "Tutorial_Five 3.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "그림5 1.png",
+      "filename" : "그림5_20250812 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,12 +28,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "그림5 4.png",
+      "filename" : "Tutorial_Five 4.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "그림5 2.png",
+      "filename" : "그림5_20250812 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -44,7 +44,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "그림5 5.png",
+      "filename" : "Tutorial_Five 5.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

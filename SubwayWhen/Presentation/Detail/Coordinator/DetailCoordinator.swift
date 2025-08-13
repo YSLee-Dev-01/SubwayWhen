@@ -74,9 +74,9 @@ extension DetailCoordinator : DetailVCDelegate{
         self.delegate?.pop()
     }
     
-    func reportBtnTap(reportLine: ReportBrandData) {
+    func reportBtnTap(reportLine: SubwayLineData, stationName: String) {
         self.pop()
-        self.delegate?.reportBtnTap(reportLine: reportLine)
+        self.delegate?.reportBtnTap(reportLine: reportLine, stationName: stationName)
     }
 }
 

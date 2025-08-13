@@ -102,7 +102,7 @@ struct DetailView: View {
                         self.store.send(.scheduleMoreBtnTapped)
                     }
                     
-                    if let lineBarnd = ReportBrandData(rawValue: self.store.sendedLoadModel.lineNumber) {
+                    if let lineBarnd =  SubwayLineData(rawValue: self.store.sendedLoadModel.lineNumber), lineBarnd.allowReport {
                         VStack(spacing: 0) {
                             HStack {
                                 Text("기타")
