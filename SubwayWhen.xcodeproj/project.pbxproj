@@ -418,6 +418,8 @@
 		FFC07F6B2D34D63D0001B1CD /* SearchQueryRecommendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC07F692D34D63D0001B1CD /* SearchQueryRecommendData.swift */; };
 		FFC07F6C2D34D63D0001B1CD /* SearchQueryRecommendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC07F692D34D63D0001B1CD /* SearchQueryRecommendData.swift */; };
 		FFC07F6D2D34D63D0001B1CD /* SearchQueryRecommendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC07F692D34D63D0001B1CD /* SearchQueryRecommendData.swift */; };
+		FFC40B312E792CD200E5A41C /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC40B302E792CD200E5A41C /* SettingView.swift */; };
+		FFC40B332E792CDD00E5A41C /* SettingFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC40B322E792CDD00E5A41C /* SettingFeature.swift */; };
 		FFE826202D06B1300070BFED /* DetailStationId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349B516029A4616700A53879 /* DetailStationId.swift */; };
 		FFE826212D06B1300070BFED /* DetailStationId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349B516029A4616700A53879 /* DetailStationId.swift */; };
 		FFE826222D06B1370070BFED /* DetailStationIdList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 349B515E29A452EC00A53879 /* DetailStationIdList.plist */; };
@@ -863,6 +865,8 @@
 		FFABBB012C92A5C300CCC692 /* CoreDataScheduleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataScheduleManager.swift; sourceTree = "<group>"; };
 		FFC07F672D349B4E0001B1CD /* SearchQueryRecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchQueryRecommendView.swift; sourceTree = "<group>"; };
 		FFC07F692D34D63D0001B1CD /* SearchQueryRecommendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchQueryRecommendData.swift; sourceTree = "<group>"; };
+		FFC40B302E792CD200E5A41C /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		FFC40B322E792CDD00E5A41C /* SettingFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingFeature.swift; sourceTree = "<group>"; };
 		FFE826242D06B8910070BFED /* TotalRealtimeStationArrival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalRealtimeStationArrival.swift; sourceTree = "<group>"; };
 		FFE826282D081DE60070BFED /* SearchStationResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStationResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1442,6 +1446,8 @@
 		349FF288299DBCA0007A98F4 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				FFC40B302E792CD200E5A41C /* SettingView.swift */,
+				FFC40B322E792CDD00E5A41C /* SettingFeature.swift */,
 				349FF286299DBC95007A98F4 /* SettingVC.swift */,
 				349FF289299DEDE1007A98F4 /* SettingViewModel.swift */,
 				3497DCAC29D3040E00D2ABB9 /* SettingModel.swift */,
@@ -2743,9 +2749,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SubwayWhen/Pods-SubwayWhen-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SubwayWhen/Pods-SubwayWhen-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2826,9 +2836,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SubwayWhenTests/Pods-SubwayWhenTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SubwayWhenTests/Pods-SubwayWhenTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2909,6 +2923,7 @@
 				34EEDC602A41B4A8006A1364 /* SettingVCAction.swift in Sources */,
 				FF36A37A2C8062A800387A3D /* TotalLoadTCADependencyProtocol.swift in Sources */,
 				34D9EA122A5662290080AD17 /* LocationModalCell.swift in Sources */,
+				FFC40B312E792CD200E5A41C /* SettingView.swift in Sources */,
 				FF0365392D001FEC00EF325D /* VicinityTransformData.swift in Sources */,
 				34A58AE32AC3BAFC00C8A563 /* TutorialCollectionViewCellModelProtocol.swift in Sources */,
 				B68302BE2AC0501000E010B7 /* TutorialCellData.swift in Sources */,
@@ -2983,6 +2998,7 @@
 				349B518529A4BF6000A53879 /* ReportCheckModalViewModel.swift in Sources */,
 				3455CFA22A53DC79001ADE61 /* ModalVCActionProtocol.swift in Sources */,
 				FF1D4AB62C9D34F700AFD709 /* Dependency+.swift in Sources */,
+				FFC40B332E792CDD00E5A41C /* SettingFeature.swift in Sources */,
 				3496559729A7780200530EB6 /* SettingContentsModalViewModel.swift in Sources */,
 				B6438D4B2B667CB10099BFEF /* MainModelProtocol.swift in Sources */,
 				34A36BDE2950289900FB0DDB /* EditVC.swift in Sources */,
