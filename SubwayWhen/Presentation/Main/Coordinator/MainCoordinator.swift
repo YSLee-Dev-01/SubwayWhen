@@ -26,8 +26,11 @@ class MainCoordinator : Coordinator{
         
         let main = MainVC(viewModel: viewModel)
         main.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house"), tag: 0)
-        main.extendedLayoutIncludesOpaqueBars = true
-        main.edgesForExtendedLayout = .all
+        
+        if #available(iOS 26.0, *) {
+            main.extendedLayoutIncludesOpaqueBars = true
+            main.edgesForExtendedLayout = .all
+        }
    
         self.navigation.setViewControllers([main], animated: true)
     }

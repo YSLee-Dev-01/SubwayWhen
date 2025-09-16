@@ -26,8 +26,11 @@ class SettingCoordinator : Coordinator {
         viewModel.delegate = self
         let settingVC = SettingVC(viewModel: viewModel)
         settingVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "gearshape"), tag: 2)
-        settingVC.extendedLayoutIncludesOpaqueBars = true
-        settingVC.edgesForExtendedLayout = .all
+        
+        if #available(iOS 26.0, *) {
+            settingVC.extendedLayoutIncludesOpaqueBars = true
+            settingVC.edgesForExtendedLayout = .all
+        }
         
         self.naviagation.pushViewController(settingVC, animated: true)
     }

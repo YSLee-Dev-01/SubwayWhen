@@ -59,6 +59,13 @@ class AppCoordinator : Coordinator{
     func setTabbarController() -> UITabBarController{
         let tabbarC = self.tabbar
         let tabBar = tabbarC.tabBar
+        
+        if #available(iOS 26.0, *) {
+        } else {
+            UITabBar.appearance().shadowImage = UIImage()
+            UITabBar.appearance().backgroundImage = UIImage()
+            tabbarC.tabBar.backgroundColor = .systemBackground
+        }
 
         tabBar.itemWidth = 50.0
         tabBar.itemPositioning = .centered
