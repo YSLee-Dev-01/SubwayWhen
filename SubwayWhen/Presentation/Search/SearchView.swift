@@ -104,6 +104,7 @@ struct SearchView: View {
             .animation(.smooth(duration: 0.3), value: self.store.nowVicinityStationList.isEmpty)
             .animation(.smooth(duration: 0.3), value: self.store.isSearchMode)
             .padding(.top, 12.5)
+            .ignoresSafeArea(.container, edges: .all)
             .onAppear {
                 self.store.send(.onAppear)
             }

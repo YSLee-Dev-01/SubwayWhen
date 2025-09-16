@@ -57,14 +57,12 @@ class AppCoordinator : Coordinator{
     }
     
     func setTabbarController() -> UITabBarController{
-        UITabBar.appearance().shadowImage = UIImage()
-        UITabBar.appearance().backgroundImage = UIImage()
-        
         let tabbarC = self.tabbar
-        tabbarC.tabBar.itemWidth = 50.0
-        tabbarC.tabBar.itemPositioning = .centered
-        tabbarC.tabBar.backgroundColor = .systemBackground
-        tabbarC.tabBar.tintColor = UIColor(named: "AppIconColor")
+        let tabBar = tabbarC.tabBar
+
+        tabBar.itemWidth = 50.0
+        tabBar.itemPositioning = .centered
+        tabBar.tintColor = UIColor(named: "AppIconColor")
         
         let mainC = MainCoordinator()
         mainC.delegate = self
