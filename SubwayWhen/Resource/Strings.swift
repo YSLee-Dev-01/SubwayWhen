@@ -10,6 +10,7 @@ import Foundation
 struct Strings {
     struct Common{}
     struct Report {}
+    struct Setting {}
 }
 
 extension Strings.Common {
@@ -98,4 +99,36 @@ extension Strings.Report {
     
     /// 입력되지 않은 값이 있어 민원을 접수할 수 없어요.\n열차 고유번호를 제외한 모든 질문에는 답변을 해주세요.
     static let cannotReportAlertTitle = "입력되지 않은 값이 있어 민원을 접수할 수 없어요.\n열차 고유번호를 제외한 모든 질문에는 답변을 해주세요."
+}
+
+extension Strings.Setting {
+    /// 출근시간
+    static let workTime = "출근시간"
+    /// 퇴근시간
+    static let leaveTime = "퇴근시간"
+    
+    /// 홈화면 / 검색화면
+    static let homeAndSearchScreen = "홈화면 / 검색화면"
+    /// 혼잡도 이모지
+    static let trafficLightEmoji = "혼잡도 이모지"
+    /// 출퇴근 알림
+    static let workAlarm = "출퇴근 알림"
+    /// 중복 저장 방지
+    static let duplicatePrevention = "중복 저장 방지"
+    
+    /// 상세화면
+    static let detailScreen = "상세화면"
+    /// 자동 새로 고침
+    static let autoRefresh = "자동 새로 고침"
+    /// 시간표 자동 정렬
+    static let autoSortTimeTable = "시간표 자동 정렬"
+    /// LiveActivity
+    static let liveActivity = "LiveActivity"
+    /// 열차 아이콘
+    static let trainIcon = "열차 아이콘"
+    
+    /// 오픈 라이선스
+    static let openLicense = "오픈 라이선스"
+    /// 기타
+    static let other = "기타"
 }
