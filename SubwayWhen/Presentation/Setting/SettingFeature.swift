@@ -17,6 +17,7 @@ struct SettingFeature {
     
     enum Action: Equatable {
         case timeViewTapped(TimeType)
+        case timeSaveBtnTapped(Int)
     }
     
     enum TimeType: Equatable {
@@ -28,6 +29,15 @@ struct SettingFeature {
             switch action {
             case .timeViewTapped(let type):
                 state.selectedTimeViewType = type
+                return .none
+                
+            case .timeSaveBtnTapped(let time):
+                if state.selectedTimeViewType == .work {
+                    FixInfo.saveSetting.mainGroupOneTime = time
+                } else {
+                    FixInfo.saveSetting.mainGroupTwoTime = time
+                }
+                state.selectedTimeViewType = nil
                 return .none
                 
             default: return .none

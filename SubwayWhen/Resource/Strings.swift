@@ -26,6 +26,10 @@ extension Strings.Common {
     static let cancel = "취소"
     /// 확인
     static let check = "확인"
+    /// 저장하기
+    static let save = "저장하기"
+    /// 시
+    static let hour = "시"
 }
 
 extension Strings.Report {
