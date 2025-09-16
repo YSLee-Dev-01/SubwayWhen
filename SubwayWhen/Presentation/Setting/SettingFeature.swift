@@ -12,16 +12,24 @@ import ComposableArchitecture
 struct SettingFeature {
     @ObservableState
     struct State: Equatable {
-        
+        var selectedTimeViewType: TimeType? = nil
     }
     
     enum Action: Equatable {
-        
+        case timeViewTapped(TimeType)
+    }
+    
+    enum TimeType: Equatable {
+        case work, leave
     }
     
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
+            case .timeViewTapped(let type):
+                state.selectedTimeViewType = type
+                return .none
+                
             default: return .none
             }
         }

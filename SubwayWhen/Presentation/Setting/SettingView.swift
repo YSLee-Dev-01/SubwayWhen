@@ -16,7 +16,12 @@ struct SettingView: View {
     }
     
     var body: some View {
-        Text("SettingView")
+        NavigationBarScrollViewInSUI(title: Strings.Setting.setting) {
+            VStack(spacing: ViewStyle.padding.mainStyleViewTB) {
+                SettingTimeView(store: self.store)
+            }
+            .padding(.top, 12.5)
+        }
     }
 }
 

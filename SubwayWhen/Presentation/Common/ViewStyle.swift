@@ -16,6 +16,7 @@ enum ViewStyle{
         static let largeSize : CGFloat = 17
         static let mainTitleMediumSize : CGFloat = 21
         static let mainTitleSize : CGFloat = 23
+        static let bigTitleSize: CGFloat = 27
     }
     
     enum Layer{

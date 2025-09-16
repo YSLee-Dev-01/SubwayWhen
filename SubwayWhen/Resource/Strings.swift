@@ -102,10 +102,13 @@ extension Strings.Report {
 }
 
 extension Strings.Setting {
-    /// 출근시간
-    static let workTime = "출근시간"
-    /// 퇴근시간
-    static let leaveTime = "퇴근시간"
+    /// 설정
+    static let setting = "설정"
+    
+    /// 출근알림
+    static let workTime = "출근알림"
+    /// 퇴근알림
+    static let leaveTime = "퇴근알림"
     
     /// 홈화면 / 검색화면
     static let homeAndSearchScreen = "홈화면 / 검색화면"
