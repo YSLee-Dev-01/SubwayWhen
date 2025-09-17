@@ -22,7 +22,8 @@ struct SettingToggleView: View {
                 Toggle(isOn: self.$toggleValue) {}
                     .tint(Color("AppIconColor"))
             }
-            .padding(10)
+            .padding(.horizontal , 10)
+            .frame(height: 45)
         }, tappedAction: {
             self.toggleValue.toggle()
         })
