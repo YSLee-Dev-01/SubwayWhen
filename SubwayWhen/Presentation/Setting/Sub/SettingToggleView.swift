@@ -1,5 +1,5 @@
 //
-//  SettingToggle.swift
+//  SettingToggleView.swift
 //  SubwayWhen
 //
 //  Created by 이윤수 on 9/17/25.
@@ -7,12 +7,29 @@
 
 import SwiftUI
 
-struct SettingToggle: View {
+struct SettingToggleView: View {
+    let title: String
+    @Binding var toggleValue: Bool
+    
     var body: some View {
-        Text("1")
+        AnimationButtonInSUI(buttonView: {
+            HStack {
+                Text(title)
+                    .font(.system(size: ViewStyle.FontSize.mediumSize))
+                
+                Spacer()
+                
+                Toggle(isOn: self.$toggleValue) {}
+                    .tint(Color("AppIconColor"))
+            }
+            .padding(10)
+        }, tappedAction: {
+            self.toggleValue.toggle()
+        })
     }
 }
 
 #Preview {
-    SettingToggle()
+    @Previewable @State var previewToggle = false
+    SettingToggleView(title: "테스트", toggleValue: $previewToggle)
 }

@@ -30,9 +30,11 @@ struct SettingView: View {
                         ForEach(data.cellList, id: \.title) { cell in
                             switch cell.type {
                             case .newVC: Text("newVC")
-                            case .toggle: Text("toggle")
-                            case .time: SettingTimeView(store: self.store)
-                            case .textField: Text("textField")
+                            case .toggle(let keyPath):
+                                SettingToggleView(title: cell.title, toggleValue: bindingForSetting(keyPath))
+                            case .time:
+                                SettingTimeView(store: self.store)
+                            case .textField(let keyPath): Text("textField")
                             }
                         }
                     }
@@ -40,6 +42,19 @@ struct SettingView: View {
             }
             .padding(.top, 12.5)
         }
+    }
+}
+
+fileprivate extension SettingView {
+    private func bindingForSetting<T>(_ keyPath: WritableKeyPath<SaveSetting, T>) -> Binding<T> {
+        Binding(
+            get: { FixInfo.saveSetting[keyPath: keyPath] },
+            set: { newValue in
+                var setting = FixInfo.saveSetting
+                setting[keyPath: keyPath] = newValue
+                FixInfo.saveSetting = setting
+            }
+        )
     }
 }
 
