@@ -17,8 +17,26 @@ struct SettingView: View {
     
     var body: some View {
         NavigationBarScrollViewInSUI(title: Strings.Setting.setting) {
-            VStack(spacing: ViewStyle.padding.mainStyleViewTB) {
-                SettingTimeView(store: self.store)
+            LazyVStack(spacing: ViewStyle.padding.mainStyleViewTB) {
+                ForEach(self.store.settingSections, id: \.title) { data in
+                    ExpandedViewInSUI(alignment: .leading) {
+                        Text(data.title)
+                            .foregroundColor(.gray)
+                            .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
+                    }
+                    .padding(.vertical, 15)
+                    
+                    LazyVStack(spacing: 10) {
+                        ForEach(data.cellList, id: \.title) { cell in
+                            switch cell.type {
+                            case .newVC: Text("newVC")
+                            case .toggle: Text("toggle")
+                            case .time: SettingTimeView(store: self.store)
+                            case .textField: Text("textField")
+                            }
+                        }
+                    }
+                }
             }
             .padding(.top, 12.5)
         }

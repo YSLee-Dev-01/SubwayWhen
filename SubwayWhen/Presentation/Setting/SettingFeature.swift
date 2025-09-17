@@ -12,6 +12,23 @@ import ComposableArchitecture
 struct SettingFeature {
     @ObservableState
     struct State: Equatable {
+        let settingSections: [SettingViewSection] = [
+            .init(title: Strings.Setting.homeAndSearchScreen, cellList: [
+                SettingViewCell(title: "", type: .time),
+                SettingViewCell(title: Strings.Setting.workAlarm, type: .newVC),
+                SettingViewCell(title: Strings.Setting.trafficLightEmoji, type: .textField),
+                SettingViewCell(title: Strings.Setting.duplicatePrevention, type: .toggle)
+            ]),
+            .init(title: Strings.Setting.detailScreen, cellList: [
+                SettingViewCell(title: Strings.Setting.autoRefresh, type: .toggle),
+                SettingViewCell(title: Strings.Setting.autoSortTimeTable, type: .toggle),
+                SettingViewCell(title: Strings.Setting.liveActivity, type: .toggle)
+            ]),
+            .init(title: Strings.Setting.other, cellList: [
+                SettingViewCell(title: Strings.Setting.openLicense, type: .newVC),
+                SettingViewCell(title: Strings.Setting.other, type: .newVC)
+            ])
+        ]
         var selectedTimeViewType: TimeType? = nil
     }
     

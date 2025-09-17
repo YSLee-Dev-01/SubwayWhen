@@ -109,17 +109,17 @@ extension Strings.Setting {
     /// 설정
     static let setting = "설정"
     
-    /// 출근알림
-    static let workTime = "출근알림"
-    /// 퇴근알림
-    static let leaveTime = "퇴근알림"
+    /// 출근
+    static let workTime = "출근"
+    /// 퇴근
+    static let leaveTime = "퇴근"
     
     /// 홈화면 / 검색화면
     static let homeAndSearchScreen = "홈화면 / 검색화면"
     /// 혼잡도 이모지
     static let trafficLightEmoji = "혼잡도 이모지"
-    /// 출퇴근 알림
-    static let workAlarm = "출퇴근 알림"
+    /// 출퇴근 지하철역
+    static let workAlarm = "출퇴근 지하철역"
     /// 중복 저장 방지
     static let duplicatePrevention = "중복 저장 방지"
     
