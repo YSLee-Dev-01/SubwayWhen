@@ -23,6 +23,9 @@ struct SettingTextFieldView: View {
                 TextField(text: self.$textFieldValue) {
                     Text(Strings.Setting.emojiLimit)
                 }
+                .onChange(of: self.textFieldValue, initial: false) {_, data in
+                    self.textFieldValue = String(data.suffix(1))
+                }
                 .focused(self.$focusField)
                 .multilineTextAlignment(.trailing)
                 .font(.system(size: ViewStyle.FontSize.mediumSize))
