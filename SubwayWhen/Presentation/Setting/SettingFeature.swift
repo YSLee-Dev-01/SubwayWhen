@@ -16,15 +16,15 @@ struct SettingFeature {
             .init(title: Strings.Setting.homeScreen, cellList: [
                 SettingViewCell(title: "", type: .time),
                 SettingViewCell(title: Strings.Setting.workAlarm, type: .newVC),
-                SettingViewCell(title: Strings.Setting.trafficLightEmoji, type: .textField)
+                SettingViewCell(title: Strings.Setting.trafficLightEmoji, type: .textField(\.mainCongestionLabel))
             ]),
             .init(title: Strings.Setting.detailScreen, cellList: [
-                SettingViewCell(title: Strings.Setting.autoRefresh, type: .toggle),
-                SettingViewCell(title: Strings.Setting.autoSortTimeTable, type: .toggle),
-                SettingViewCell(title: Strings.Setting.liveActivity, type: .toggle)
+                SettingViewCell(title: Strings.Setting.autoRefresh, type: .toggle(\.detailAutoReload)),
+                SettingViewCell(title: Strings.Setting.autoSortTimeTable, type: .toggle(\.detailScheduleAutoTime)),
+                SettingViewCell(title: Strings.Setting.liveActivity, type: .toggle(\.liveActivity))
             ]),
             .init(title: Strings.Setting.searchScreen, cellList: [
-                SettingViewCell(title: Strings.Setting.duplicatePrevention, type: .toggle)
+                SettingViewCell(title: Strings.Setting.duplicatePrevention, type: .toggle(\.searchOverlapAlert))
             ]),
             .init(title: Strings.Setting.other, cellList: [
                 SettingViewCell(title: Strings.Setting.openLicense, type: .newVC),

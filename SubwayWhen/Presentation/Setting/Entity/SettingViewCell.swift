@@ -9,7 +9,9 @@ import Foundation
 
 struct SettingViewCell: Equatable {
     enum CellType: Equatable {
-        case newVC, toggle, time, textField
+        case newVC, time
+        case toggle(WritableKeyPath<SaveSetting, Bool>)
+        case textField(WritableKeyPath<SaveSetting, String>)
     }
     
     let title: String
