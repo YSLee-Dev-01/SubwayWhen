@@ -29,7 +29,6 @@ struct SettingView: View {
                     LazyVStack(spacing: 10) {
                         ForEach(data.cellList, id: \.title) { cell in
                             switch cell.type {
-                            case .newVC: Text("newVC")
                             case .toggle(let keyPath):
                                 SettingToggleView(title: cell.title, toggleValue: bindingForSetting(keyPath))
                             case .time(let work, let leave):
@@ -39,6 +38,10 @@ struct SettingView: View {
                                     store: self.store
                                 )
                             case .textField(let keyPath): Text("textField")
+                            case .navigation(let type):
+                                SettingArrowView(title: cell.title) {
+                                    self.store.send(.navigationTapped(type))
+                                }
                             }
                         }
                     }
