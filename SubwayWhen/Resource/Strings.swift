@@ -120,6 +120,8 @@ extension Strings.Setting {
     static let trafficLightEmoji = "혼잡도 이모지"
     /// 출퇴근 지하철역
     static let workAlarm = "출퇴근 지하철역"
+    /// 한 글자만 입력할 수 있어요.
+    static let emojiLimit = "한 글자만 입력할 수 있어요."
     
     /// 검색화면
     static let searchScreen = "검색화면"

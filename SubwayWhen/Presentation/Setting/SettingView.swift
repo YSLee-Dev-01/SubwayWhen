@@ -32,12 +32,17 @@ struct SettingView: View {
                             case .toggle(let keyPath):
                                 SettingToggleView(
                                     title: cell.title,
-                                    toggleValue: bindingForSetting(keyPath)
+                                    toggleValue: self.bindingForSetting(keyPath)
                                 )
+                                
                             case .time:
                                 SettingTimeView(store: self.store)
                                 
-                            case .textField(let keyPath): Text("textField")
+                            case .textField(let keyPath):
+                                SettingTextFieldView(
+                                    title: cell.title,
+                                    textFieldValue: self.bindingForSetting(keyPath)
+                                )
                                 
                             case .navigation(let type):
                                 SettingArrowView(title: cell.title) {

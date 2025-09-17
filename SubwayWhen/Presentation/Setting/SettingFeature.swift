@@ -72,6 +72,12 @@ struct SettingFeature {
                 FixInfo.saveSetting = setting
                 return .none
                 
+            case .textFieldChanged(let keyPath, let value):
+                var setting = FixInfo.saveSetting
+                setting[keyPath: keyPath] = value
+                FixInfo.saveSetting = setting
+                return .none
+                
             default: return .none
             }
         }
