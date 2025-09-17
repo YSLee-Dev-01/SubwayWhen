@@ -12,7 +12,7 @@ struct SettingViewCell: Equatable {
         case time(Int, Int)
         case toggle(WritableKeyPath<SaveSetting, Bool>)
         case textField(WritableKeyPath<SaveSetting, String>)
-        case newVC
+        case navigation(SettingNewVCType)
     }
     
     let title: String

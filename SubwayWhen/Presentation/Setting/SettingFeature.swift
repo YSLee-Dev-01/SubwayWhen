@@ -15,20 +15,21 @@ struct SettingFeature {
         var settingSections: [SettingViewSection] = [
             .init(title: Strings.Setting.homeScreen, cellList: [
                 SettingViewCell(title: "", type: .time(FixInfo.saveSetting.mainGroupOneTime, FixInfo.saveSetting.mainGroupTwoTime)),
-                SettingViewCell(title: Strings.Setting.workAlarm, type: .newVC),
+                SettingViewCell(title: Strings.Setting.workAlarm, type: .navigation(.notiModal)),
                 SettingViewCell(title: Strings.Setting.trafficLightEmoji, type: .textField(\.mainCongestionLabel))
             ]),
             .init(title: Strings.Setting.detailScreen, cellList: [
                 SettingViewCell(title: Strings.Setting.autoRefresh, type: .toggle(\.detailAutoReload)),
                 SettingViewCell(title: Strings.Setting.autoSortTimeTable, type: .toggle(\.detailScheduleAutoTime)),
-                SettingViewCell(title: Strings.Setting.liveActivity, type: .toggle(\.liveActivity))
+                SettingViewCell(title: Strings.Setting.liveActivity, type: .toggle(\.liveActivity)),
+                SettingViewCell(title: Strings.Setting.trainIcon, type: .navigation(.trainIcon))
             ]),
             .init(title: Strings.Setting.searchScreen, cellList: [
                 SettingViewCell(title: Strings.Setting.duplicatePrevention, type: .toggle(\.searchOverlapAlert))
             ]),
             .init(title: Strings.Setting.other, cellList: [
-                SettingViewCell(title: Strings.Setting.openLicense, type: .newVC),
-                SettingViewCell(title: Strings.Setting.other, type: .newVC)
+                SettingViewCell(title: Strings.Setting.openLicense, type: .navigation(.licenseModal)),
+                SettingViewCell(title: Strings.Setting.other, type: .navigation(.contentsModal))
             ])
         ]
         var selectedTimeViewType: TimeType? = nil
@@ -37,6 +38,7 @@ struct SettingFeature {
     enum Action: Equatable {
         case timeViewTapped(TimeType)
         case timeSaveBtnTapped(Int)
+        case navigationTapped(SettingNewVCType)
     }
     
     enum TimeType: Equatable {
