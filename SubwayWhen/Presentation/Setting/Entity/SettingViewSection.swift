@@ -9,5 +9,5 @@ import Foundation
 
 struct SettingViewSection: Equatable {
     let title: String
-    let cellList: [SettingViewCell]
+    var cellList: [SettingViewCell]
 }

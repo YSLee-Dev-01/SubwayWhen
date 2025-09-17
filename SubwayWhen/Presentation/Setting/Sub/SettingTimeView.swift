@@ -10,23 +10,29 @@ import ComposableArchitecture
 
 struct SettingTimeView: View {
     private var store: StoreOf<SettingFeature>
+    var workTime: Int
+    var leaveTime: Int
+    
     @State fileprivate var stepperValue = 0
     
-    init(store: StoreOf<SettingFeature>) {
+    init(workTime: Int, leaveTime: Int, store: StoreOf<SettingFeature>) {
         self.store = store
+        self.workTime = workTime
+        self.leaveTime = leaveTime
+        self.stepperValue = stepperValue
     }
     
     var body: some View {
         VStack(spacing: 0) {
             HStack(spacing: 15) {
                 AnimationButtonInSUI(bgColor: Color("MainColor"), btnPadding: 15, buttonView: {
-                    self.timeViewCreate(type: .work, text: "\(self.store.selectedTimeViewType == .work ? self.stepperValue : FixInfo.saveSetting.mainGroupOneTime)")
+                    self.timeViewCreate(type: .work, text: "\(self.store.selectedTimeViewType == .work ? self.stepperValue : self.workTime)")
                 }, tappedAction: {
                     self.store.send(.timeViewTapped(.work))
                 })
                 
                 AnimationButtonInSUI(bgColor: Color("MainColor"),  btnPadding: 15, buttonView: {
-                    self.timeViewCreate(type: .leave, text: "\(self.store.selectedTimeViewType == .leave ? self.stepperValue : FixInfo.saveSetting.mainGroupTwoTime)")
+                    self.timeViewCreate(type: .leave, text: "\(self.store.selectedTimeViewType == .leave ? self.stepperValue : self.leaveTime)")
                 }, tappedAction: {
                     self.store.send(.timeViewTapped(.leave))
                 })
@@ -49,15 +55,15 @@ struct SettingTimeView: View {
         .onChange(of: self.store.selectedTimeViewType, initial: false) { _, type in
             guard let type = type else {return}
             self.stepperValue = type == .work  ?
-                FixInfo.saveSetting.mainGroupOneTime :
-                FixInfo.saveSetting.mainGroupTwoTime
+                self.workTime :
+                self.leaveTime
         }
         .animation(.smooth(duration: 0.25), value: self.store.selectedTimeViewType)
     }
 }
 
 #Preview {
-    SettingTimeView(store: .init(initialState: .init(), reducer: {SettingFeature()}))
+    SettingTimeView(workTime: 6, leaveTime: 17, store: .init(initialState: .init(), reducer: {SettingFeature()}))
 }
 
 private extension SettingTimeView {

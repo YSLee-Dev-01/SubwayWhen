@@ -32,8 +32,12 @@ struct SettingView: View {
                             case .newVC: Text("newVC")
                             case .toggle(let keyPath):
                                 SettingToggleView(title: cell.title, toggleValue: bindingForSetting(keyPath))
-                            case .time:
-                                SettingTimeView(store: self.store)
+                            case .time(let work, let leave):
+                                SettingTimeView(
+                                    workTime: work,
+                                    leaveTime: leave,
+                                    store: self.store
+                                )
                             case .textField(let keyPath): Text("textField")
                             }
                         }

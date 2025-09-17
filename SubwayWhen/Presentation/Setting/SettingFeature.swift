@@ -12,9 +12,9 @@ import ComposableArchitecture
 struct SettingFeature {
     @ObservableState
     struct State: Equatable {
-        let settingSections: [SettingViewSection] = [
+        var settingSections: [SettingViewSection] = [
             .init(title: Strings.Setting.homeScreen, cellList: [
-                SettingViewCell(title: "", type: .time),
+                SettingViewCell(title: "", type: .time(FixInfo.saveSetting.mainGroupOneTime, FixInfo.saveSetting.mainGroupTwoTime)),
                 SettingViewCell(title: Strings.Setting.workAlarm, type: .newVC),
                 SettingViewCell(title: Strings.Setting.trafficLightEmoji, type: .textField(\.mainCongestionLabel))
             ]),
@@ -56,6 +56,8 @@ struct SettingFeature {
                 } else {
                     FixInfo.saveSetting.mainGroupTwoTime = time
                 }
+                // 명시적으로 값 업데이트
+                state.settingSections[0].cellList[0] = SettingViewCell(title: "", type: .time(FixInfo.saveSetting.mainGroupOneTime, FixInfo.saveSetting.mainGroupTwoTime))
                 state.selectedTimeViewType = nil
                 return .none
                 
