@@ -49,6 +49,8 @@ struct SettingFeature {
         case work, leave
     }
     
+    weak var delegate: SettingVCAction?
+    
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
@@ -90,7 +92,20 @@ struct SettingFeature {
                 state.savedSettings = FixInfo.saveSetting
                 return .none
                 
-            default: return .none
+            case .navigationTapped(let type):
+                switch type {
+                case .groupModal:
+                    break // 제거 예정
+                case .notiModal:
+                    self.delegate?.notiModal()
+                case .licenseModal:
+                    self.delegate?.licenseModal()
+                case .trainIcon:
+                    self.delegate?.trainIconModal()
+                case .contentsModal:
+                    self.delegate?.contentsModal()
+                }
+                return .none
             }
         }
     }
