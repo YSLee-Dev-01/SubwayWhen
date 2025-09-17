@@ -30,14 +30,15 @@ struct SettingView: View {
                         ForEach(data.cellList, id: \.title) { cell in
                             switch cell.type {
                             case .toggle(let keyPath):
-                                SettingToggleView(title: cell.title, toggleValue: bindingForSetting(keyPath))
-                            case .time(let work, let leave):
-                                SettingTimeView(
-                                    workTime: work,
-                                    leaveTime: leave,
-                                    store: self.store
+                                SettingToggleView(
+                                    title: cell.title,
+                                    toggleValue: bindingForSetting(keyPath)
                                 )
+                            case .time:
+                                SettingTimeView(store: self.store)
+                                
                             case .textField(let keyPath): Text("textField")
+                                
                             case .navigation(let type):
                                 SettingArrowView(title: cell.title) {
                                     self.store.send(.navigationTapped(type))
@@ -55,11 +56,15 @@ struct SettingView: View {
 fileprivate extension SettingView {
     private func bindingForSetting<T>(_ keyPath: WritableKeyPath<SaveSetting, T>) -> Binding<T> {
         Binding(
-            get: { FixInfo.saveSetting[keyPath: keyPath] },
+            get: { store.savedSettings[keyPath: keyPath] },
             set: { newValue in
-                var setting = FixInfo.saveSetting
-                setting[keyPath: keyPath] = newValue
-                FixInfo.saveSetting = setting
+                if let boolValue = newValue as? Bool,
+                   let boolKeyPath = keyPath as? WritableKeyPath<SaveSetting, Bool> {
+                    store.send(.toggleChanged(boolKeyPath, boolValue))
+                } else if let stringValue = newValue as? String,
+                          let stringKeyPath =  keyPath as? WritableKeyPath<SaveSetting, String> {
+                    store.send(.textFieldChanged(stringKeyPath, stringValue))
+                }
             }
         )
     }

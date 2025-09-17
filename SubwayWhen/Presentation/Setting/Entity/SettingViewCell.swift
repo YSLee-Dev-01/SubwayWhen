@@ -9,7 +9,7 @@ import Foundation
 
 struct SettingViewCell: Equatable {
     enum CellType: Equatable {
-        case time(Int, Int)
+        case time
         case toggle(WritableKeyPath<SaveSetting, Bool>)
         case textField(WritableKeyPath<SaveSetting, String>)
         case navigation(SettingNewVCType)

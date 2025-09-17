@@ -14,7 +14,7 @@ struct SettingFeature {
     struct State: Equatable {
         var settingSections: [SettingViewSection] = [
             .init(title: Strings.Setting.homeScreen, cellList: [
-                SettingViewCell(title: "", type: .time(FixInfo.saveSetting.mainGroupOneTime, FixInfo.saveSetting.mainGroupTwoTime)),
+                SettingViewCell(title: "", type: .time),
                 SettingViewCell(title: Strings.Setting.workAlarm, type: .navigation(.notiModal)),
                 SettingViewCell(title: Strings.Setting.trafficLightEmoji, type: .textField(\.mainCongestionLabel))
             ]),
@@ -32,6 +32,9 @@ struct SettingFeature {
                 SettingViewCell(title: Strings.Setting.other, type: .navigation(.contentsModal))
             ])
         ]
+        var savedSettings: SaveSetting {
+            FixInfo.saveSetting
+        }
         var selectedTimeViewType: TimeType? = nil
     }
     
@@ -39,6 +42,8 @@ struct SettingFeature {
         case timeViewTapped(TimeType)
         case timeSaveBtnTapped(Int)
         case navigationTapped(SettingNewVCType)
+        case toggleChanged(WritableKeyPath<SaveSetting, Bool>, Bool)
+        case textFieldChanged(WritableKeyPath<SaveSetting, String>, String)
     }
     
     enum TimeType: Equatable {
@@ -58,9 +63,13 @@ struct SettingFeature {
                 } else {
                     FixInfo.saveSetting.mainGroupTwoTime = time
                 }
-                // 명시적으로 값 업데이트
-                state.settingSections[0].cellList[0] = SettingViewCell(title: "", type: .time(FixInfo.saveSetting.mainGroupOneTime, FixInfo.saveSetting.mainGroupTwoTime))
                 state.selectedTimeViewType = nil
+                return .none
+                
+            case .toggleChanged(let keyPath, let value):
+                var setting = FixInfo.saveSetting
+                setting[keyPath: keyPath] = value
+                FixInfo.saveSetting = setting
                 return .none
                 
             default: return .none

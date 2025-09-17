@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SaveSetting : Codable{
+struct SaveSetting : Codable, Equatable {
     var mainCongestionLabel: String
     var mainGroupOneTime: Int
     var mainGroupTwoTime: Int
