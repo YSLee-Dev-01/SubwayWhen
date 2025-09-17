@@ -32,9 +32,7 @@ struct SettingFeature {
                 SettingViewCell(title: Strings.Setting.other, type: .navigation(.contentsModal))
             ])
         ]
-        var savedSettings: SaveSetting {
-            FixInfo.saveSetting
-        }
+        var savedSettings: SaveSetting = FixInfo.saveSetting
         var selectedTimeViewType: TimeType? = nil
     }
     
@@ -44,6 +42,7 @@ struct SettingFeature {
         case navigationTapped(SettingNewVCType)
         case toggleChanged(WritableKeyPath<SaveSetting, Bool>, Bool)
         case textFieldChanged(WritableKeyPath<SaveSetting, String>, String)
+        case updateSavedSettings
     }
     
     enum TimeType: Equatable {
@@ -64,18 +63,31 @@ struct SettingFeature {
                     FixInfo.saveSetting.mainGroupTwoTime = time
                 }
                 state.selectedTimeViewType = nil
-                return .none
+                return .send(.updateSavedSettings)
                 
             case .toggleChanged(let keyPath, let value):
                 var setting = FixInfo.saveSetting
                 setting[keyPath: keyPath] = value
+                
+                if (keyPath == \SaveSetting.detailScheduleAutoTime && !value) ||
+                    (keyPath == \SaveSetting.detailAutoReload && !value){
+                    setting.liveActivity = false
+                } else if keyPath == \SaveSetting.liveActivity && value {
+                    setting.detailScheduleAutoTime = true
+                    setting.detailAutoReload = true
+                }
+                
                 FixInfo.saveSetting = setting
-                return .none
+                return .send(.updateSavedSettings)
                 
             case .textFieldChanged(let keyPath, let value):
                 var setting = FixInfo.saveSetting
                 setting[keyPath: keyPath] = value
                 FixInfo.saveSetting = setting
+                return .send(.updateSavedSettings)
+                
+            case .updateSavedSettings:
+                state.savedSettings = FixInfo.saveSetting
                 return .none
                 
             default: return .none
