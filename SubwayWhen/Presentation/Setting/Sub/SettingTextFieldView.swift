@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingTextFieldView: View {
     let title: String
     @Binding var textFieldValue: String
+    @FocusState.Binding var focusField: Bool
     
     var body: some View {
         MainStyleViewInSUI {
@@ -22,6 +23,7 @@ struct SettingTextFieldView: View {
                 TextField(text: self.$textFieldValue) {
                     Text(Strings.Setting.emojiLimit)
                 }
+                .focused(self.$focusField)
                 .multilineTextAlignment(.trailing)
                 .font(.system(size: ViewStyle.FontSize.mediumSize))
                 .frame(height: 45)
@@ -34,5 +36,6 @@ struct SettingTextFieldView: View {
 
 #Preview {
     @Previewable @State var previewText = ""
-    SettingTextFieldView(title: "테스트", textFieldValue: $previewText)
+    @Previewable @FocusState var previewFocus: Bool
+    SettingTextFieldView(title: "테스트", textFieldValue: $previewText, focusField: $previewFocus)
 }

@@ -10,6 +10,7 @@ import ComposableArchitecture
 
 struct SettingView: View {
     @State private var store: StoreOf<SettingFeature>
+    @FocusState private var focusField: Bool
     
     init(store: StoreOf<SettingFeature>) {
         self.store = store
@@ -41,7 +42,8 @@ struct SettingView: View {
                             case .textField(let keyPath):
                                 SettingTextFieldView(
                                     title: cell.title,
-                                    textFieldValue: self.bindingForSetting(keyPath)
+                                    textFieldValue: self.bindingForSetting(keyPath),
+                                    focusField: self.$focusField
                                 )
                                 
                             case .navigation(let type):
@@ -53,7 +55,11 @@ struct SettingView: View {
                     }
                 }
             }
+            .onTapGesture {
+                self.focusField = false
+            }
             .padding(.top, 12.5)
+            .ignoresSafeArea(.container, edges: .all)
         }
     }
 }
