@@ -29,7 +29,6 @@ class SettingNotiModalViewModel {
         let dismissAction: PublishSubject<Void>
         let stationTapAction: PublishSubject<Bool>
         let okBtnTap: Observable<Void>
-        let groupTimeGoBtnTap: Observable<Void>
         let isWeekendNoficationEnabled: Observable<Bool>
     }
     
@@ -54,14 +53,6 @@ class SettingNotiModalViewModel {
             .withUnretained(self)
             .subscribe(onNext: { viewModel, _ in
                 viewModel.delegate?.dismiss()
-            })
-            .disposed(by: self.bag)
-        
-        input.groupTimeGoBtnTap
-            .withUnretained(self)
-            .delay(.milliseconds(250), scheduler: MainScheduler.asyncInstance)
-            .subscribe(onNext: { viewModel, _ in
-                viewModel.delegate?.groupTimeGoBtnTap()
             })
             .disposed(by: self.bag)
         

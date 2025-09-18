@@ -99,20 +99,12 @@ extension SettingNotiModalVC {
             .bind(to: self.stationTap)
             .disposed(by: self.bag)
         
-        self.settingNotiExplanationView.goBtn.rx.tap
-            .withUnretained(self)
-            .subscribe(onNext: { viewModel, _ in
-                viewModel.modalDismiss()
-            })
-            .disposed(by: self.bag)
-        
         let input = SettingNotiModalViewModel
             .Input(
                 didDisappearAction: self.didDisappearAction,
                 dismissAction: self.dismissAction,
                 stationTapAction: self.stationTap,
                 okBtnTap: self.okBtn!.rx.tap.asObservable(),
-                groupTimeGoBtnTap: self.settingNotiExplanationView.goBtn.rx.tap.asObservable(),
                 isWeekendNoficationEnabled: self.settingNotiStationView.includeWeekendSwitch.rx.isOn.asObservable()
             )
         let output =  self.viewModel.transform(input: input)

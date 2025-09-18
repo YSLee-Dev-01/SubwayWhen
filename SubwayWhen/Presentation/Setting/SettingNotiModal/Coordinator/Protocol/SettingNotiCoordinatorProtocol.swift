@@ -10,5 +10,4 @@ import Foundation
 protocol SettingNotiCoordinatorProtocol: AnyObject {
     func didDisappear(coordinator: Coordinator)
     func dismiss()
-    func groupTimeGoBtnTap()
 }
