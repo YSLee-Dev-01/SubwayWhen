@@ -134,8 +134,8 @@ extension Strings.Setting {
     static let autoRefresh = "자동 새로 고침"
     /// 시간표 자동 정렬
     static let autoSortTimeTable = "시간표 자동 정렬"
-    /// LiveActivity
-    static let liveActivity = "LiveActivity"
+    /// Live Activity
+    static let liveActivity = "Live Activity"
     /// 열차 아이콘
     static let trainIcon = "열차 아이콘"
     
