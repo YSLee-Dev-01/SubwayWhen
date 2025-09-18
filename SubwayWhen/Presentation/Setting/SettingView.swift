@@ -18,14 +18,14 @@ struct SettingView: View {
     
     var body: some View {
         NavigationBarScrollViewInSUI(title: Strings.Setting.setting) {
-            LazyVStack(spacing: ViewStyle.padding.mainStyleViewTB) {
+            LazyVStack(spacing: 15) {
                 ForEach(self.store.settingSections, id: \.title) { data in
                     ExpandedViewInSUI(alignment: .leading) {
                         Text(data.title)
                             .foregroundColor(.gray)
                             .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                     }
-                    .padding(.vertical, 15)
+                    .padding(.top, 7.5)
                     
                     LazyVStack(spacing: 10) {
                         ForEach(data.cellList, id: \.title) { cell in
@@ -55,11 +55,12 @@ struct SettingView: View {
                     }
                 }
             }
+            .padding(.top, 12.5)
+            .ignoresSafeArea(.container, edges: .all)
+            .animation(.smooth(duration: 0.25), value: self.store.selectedTimeViewType)
             .onTapGesture {
                 self.focusField = false
             }
-            .padding(.top, 12.5)
-            .ignoresSafeArea(.container, edges: .all)
         }
     }
 }

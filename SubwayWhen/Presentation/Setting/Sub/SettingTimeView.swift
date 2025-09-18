@@ -22,12 +22,14 @@ struct SettingTimeView: View {
                 AnimationButtonInSUI(bgColor: Color("MainColor"), btnPadding: 15, buttonView: {
                     self.timeViewCreate(type: .work, text: "\(self.store.selectedTimeViewType == .work ? self.stepperValue : self.store.savedSettings.mainGroupOneTime)")
                 }, tappedAction: {
+                    self.stepperValue = self.store.savedSettings.mainGroupOneTime
                     self.store.send(.timeViewTapped(.work))
                 })
                 
                 AnimationButtonInSUI(bgColor: Color("MainColor"),  btnPadding: 15, buttonView: {
                     self.timeViewCreate(type: .leave, text: "\(self.store.selectedTimeViewType == .leave ? self.stepperValue : self.store.savedSettings.mainGroupTwoTime)")
                 }, tappedAction: {
+                    self.stepperValue = self.store.savedSettings.mainGroupTwoTime
                     self.store.send(.timeViewTapped(.leave))
                 })
             }
@@ -46,13 +48,6 @@ struct SettingTimeView: View {
                 }
             }
         }
-        .onChange(of: self.store.selectedTimeViewType, initial: false) { _, type in
-            guard let type = type else {return}
-            self.stepperValue = type == .work  ?
-                self.store.savedSettings.mainGroupOneTime :
-                self.store.savedSettings.mainGroupTwoTime
-        }
-        .animation(.smooth(duration: 0.25), value: self.store.selectedTimeViewType)
     }
 }
 
@@ -74,6 +69,7 @@ private extension SettingTimeView {
                 .foregroundStyle(Color(uiColor: UIColor.label))
         }
         .padding(.horizontal, 10)
+        .padding(.bottom, 5)
         .frame(maxWidth: .infinity)
     }
     
