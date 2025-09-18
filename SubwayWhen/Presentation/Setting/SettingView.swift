@@ -48,7 +48,6 @@ struct SettingView: View {
                                 
                             case .navigation(let type):
                                 SettingArrowView(title: cell.title) {
-                                    self.focusField = false
                                     self.store.send(.navigationTapped(type))
                                 }
                             }
