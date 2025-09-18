@@ -48,6 +48,7 @@ struct SettingView: View {
                                 
                             case .navigation(let type):
                                 SettingArrowView(title: cell.title) {
+                                    self.focusField = false
                                     self.store.send(.navigationTapped(type))
                                 }
                             }
@@ -57,10 +58,10 @@ struct SettingView: View {
             }
             .padding(.top, 12.5)
             .ignoresSafeArea(.container, edges: .all)
-            .animation(.smooth(duration: 0.25), value: self.store.selectedTimeViewType)
-            .onTapGesture {
-                self.focusField = false
-            }
+        }
+        .animation(.smooth(duration: 0.25), value: self.store.selectedTimeViewType)
+        .onTapGesture {
+            self.focusField = false
         }
     }
 }
