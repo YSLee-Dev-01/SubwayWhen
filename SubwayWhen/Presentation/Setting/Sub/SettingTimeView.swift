@@ -56,8 +56,9 @@ struct SettingTimeView: View {
 }
 
 private extension SettingTimeView {
+    @ViewBuilder
     func timeViewCreate(type: SettingFeature.TimeType, text: String) -> some View {
-        return VStack(spacing: 15) {
+        VStack(spacing: 15) {
             ExpandedViewInSUI(alignment: .leading) {
                 Text(type == .work ? Strings.Setting.workTime : Strings.Setting.leaveTime)
                     .font(.system(size: ViewStyle.FontSize.mediumSize, weight: .medium))
@@ -86,6 +87,8 @@ private extension SettingTimeView {
                 stepperView
             }
         }
+        .id(type)
+        .transition(.offset(x: type == .work ? -10 : 10, y : 0).combined(with: .opacity))
     }
     
     private var stepperView: some View {
