@@ -56,20 +56,6 @@ extension SettingCoordinator: SettingVCAction {
         self.childCoordinator.append(trainIconCoordinator)
     }
     
-    func groupModal() {
-        let viewModel = SettingGroupModalViewModel()
-        let modal = SettingGroupModalVC(
-            modalHeight: 405,
-            btnTitle: "저장",
-            mainTitle: "특정 그룹 시간",
-            subTitle: "정해진 시간에 맞게 출,퇴근 그룹을 자동으로 변경해주는 기능이에요.",
-            viewModel: viewModel
-        )
-        modal.modalPresentationStyle = .overFullScreen
-        
-        self.navigation.present(modal, animated: false)
-    }
-    
     func notiModal() {
         let notiCoordinator = SettingNotiCoordinator(rootVC: self.navigation)
         notiCoordinator.start()
@@ -106,11 +92,6 @@ extension SettingCoordinator: SettingVCAction {
 }
 
 extension SettingCoordinator: SettingNotiCoordinatorProtocol, SettingTrainIconCoordinatorProtocol {
-    func groupTimeGoBtnTap() {
-        self.navigation.dismiss(animated: false)
-        self.groupModal()
-    }
-    
     func didDisappear(coordinator: Coordinator) {
         self.childCoordinator = self.childCoordinator.filter{
             $0 !== coordinator

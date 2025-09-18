@@ -94,8 +94,6 @@ struct SettingFeature {
                 
             case .navigationTapped(let type):
                 switch type {
-                case .groupModal:
-                    break // 제거 예정
                 case .notiModal:
                     self.delegate?.notiModal()
                 case .licenseModal:
