@@ -86,11 +86,11 @@ class AppCoordinator : Coordinator{
         searchC.start()
         
         let settingC = SettingCoordinator()
-        self.childCoordinator.append(searchC)
+        self.childCoordinator.append(settingC)
         
         settingC.start()
         
-        tabbarC.viewControllers = [mainC.navigation, searchC.navigation, settingC.naviagation]
+        tabbarC.viewControllers = [mainC.navigation, searchC.navigation, settingC.navigation]
         
         return tabbarC
     }

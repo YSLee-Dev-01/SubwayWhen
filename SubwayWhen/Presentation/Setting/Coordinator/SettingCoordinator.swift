@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SwiftUI
+import ComposableArchitecture
 
 import AcknowList
  
@@ -15,31 +17,39 @@ class SettingCoordinator : Coordinator {
             print(self.childCoordinator)
         }
     }
-    var naviagation : UINavigationController
+    var navigation : UINavigationController
+    
+    fileprivate var store: StoreOf<SettingFeature>?
     
     init(){
-        self.naviagation = .init()
+        self.navigation = .init()
     }
     
     func start() {
-        let viewModel = SettingViewModel()
-        viewModel.delegate = self
-        let settingVC = SettingVC(viewModel: viewModel)
-        settingVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "gearshape"), tag: 2)
+        self.store = StoreOf<SettingFeature>(initialState: .init(), reducer: {
+            var reducer = SettingFeature()
+            reducer.delegate = self
+                   return reducer
+        })
+        
+        guard let store = self.store else { return }
+        let view = SettingView(store: store)
+        let vc = UIHostingController(rootView: view)
+        vc.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "gearshape"), tag: 2)
         
         if #available(iOS 26.0, *) {
-            settingVC.extendedLayoutIncludesOpaqueBars = true
-            settingVC.edgesForExtendedLayout = .all
+            vc.extendedLayoutIncludesOpaqueBars = true
+            vc.edgesForExtendedLayout = .all
         }
         
-        self.naviagation.pushViewController(settingVC, animated: true)
+        self.navigation.setNavigationBarHidden(true, animated: false)
+        self.navigation.pushViewController(vc, animated: true)
     }
-    
 }
 
 extension SettingCoordinator: SettingVCAction {
     func trainIconModal() {
-        let trainIconCoordinator = SettingTrainIconModalCoordinator(navigation: self.naviagation)
+        let trainIconCoordinator = SettingTrainIconModalCoordinator(navigation: self.navigation)
         trainIconCoordinator.start()
         trainIconCoordinator.delegate = self
         
@@ -57,11 +67,11 @@ extension SettingCoordinator: SettingVCAction {
         )
         modal.modalPresentationStyle = .overFullScreen
         
-        self.naviagation.present(modal, animated: false)
+        self.navigation.present(modal, animated: false)
     }
     
     func notiModal() {
-        let notiCoordinator = SettingNotiCoordinator(rootVC: self.naviagation)
+        let notiCoordinator = SettingNotiCoordinator(rootVC: self.navigation)
         notiCoordinator.start()
         notiCoordinator.delegate = self
         
@@ -79,7 +89,7 @@ extension SettingCoordinator: SettingVCAction {
         )
         modal.modalPresentationStyle = .overFullScreen
         
-        self.naviagation.present(modal, animated: false)
+        self.navigation.present(modal, animated: false)
     }
     
     func licenseModal() {
@@ -91,13 +101,13 @@ extension SettingCoordinator: SettingVCAction {
         // v1.5추가 (SPM으로 추가한 TCA)
         vc.acknowledgements.append(.init(title: "swift-composable-architecture", repository: URL(string: "https://github.com/pointfreeco/swift-composable-architecture")))
        
-        self.naviagation.present(UINavigationController(rootViewController: vc), animated: true)
+        self.navigation.present(UINavigationController(rootViewController: vc), animated: true)
     }
 }
 
 extension SettingCoordinator: SettingNotiCoordinatorProtocol, SettingTrainIconCoordinatorProtocol {
     func groupTimeGoBtnTap() {
-        self.naviagation.dismiss(animated: false)
+        self.navigation.dismiss(animated: false)
         self.groupModal()
     }
     
@@ -108,6 +118,6 @@ extension SettingCoordinator: SettingNotiCoordinatorProtocol, SettingTrainIconCo
     }
     
     func dismiss() {
-        self.naviagation.dismiss(animated: true)
+        self.navigation.dismiss(animated: true)
     }
 }
