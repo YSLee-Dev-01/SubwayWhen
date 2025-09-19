@@ -112,6 +112,11 @@ struct SettingFeature {
                 var setting = FixInfo.saveSetting
                 setting[keyPath: keyPath] = value.isEmpty ? "☹️" : value
                 FixInfo.saveSetting = setting
+                
+                Analytics.logEvent("SettingVC_MainCongestionIcon", parameters: [
+                    "Icon" : value.isEmpty ? "☹️" : value
+                ])
+                
                 return .send(.updateSavedSettings)
                 
             case .updateSavedSettings:
