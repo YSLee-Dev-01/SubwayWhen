@@ -127,6 +127,7 @@ struct SimpleEntry: TimelineEntry {
 struct SubwayWhenHomeWidgetEntryView : View {
     var entry: Provider.Entry
     @Environment(\.widgetFamily) private var widgetFamily
+    @Environment(\.widgetRenderingMode) private var widgetRenderingMode
 
     var body: some View {
         let seletedStation = entry.nowWidgetShowStation
@@ -138,7 +139,11 @@ struct SubwayWhenHomeWidgetEntryView : View {
                         .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                         .background {
                             Circle()
-                                .fill(Color(seletedStation.subwayLineData.rawValue))
+                                .fill(widgetRenderingMode == .fullColor ? Color(seletedStation.subwayLineData.rawValue) : Color.clear)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 25)
+                                        .stroke(Color.white, lineWidth: widgetRenderingMode == .fullColor ? 0 : 1)
+                                )
                                 .frame(width: 50, height: 50)
                         }
                         .frame(width: 50, height: 50)
@@ -177,7 +182,7 @@ struct SubwayWhenHomeWidgetEntryView : View {
                 } else  if widgetFamily == .systemSmall {
                     VStack(spacing: 10) {
                         ForEach(result, id: \.startTime) {
-                            SubwayWhenHomeWidgetSubView(time: $0.useArrTime, lastStation: $0.lastStation,isFast: $0.isFast)
+                            SubwayWhenHomeWidgetSubView(time: $0.useArrTime, lastStation: $0.lastStation,isFast: $0.isFast, hasBackgroundColor: widgetRenderingMode == .fullColor)
                                 .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                         }
                     }
@@ -186,14 +191,14 @@ struct SubwayWhenHomeWidgetEntryView : View {
                     HStack {
                         VStack(spacing: 10) {
                             ForEach(result.enumerated().filter {$0.offset % 2 == 0}.map {$0.element}, id: \.startTime) {
-                                SubwayWhenHomeWidgetSubView(time: $0.useArrTime, lastStation: $0.lastStation, isFast: $0.isFast)
+                                SubwayWhenHomeWidgetSubView(time: $0.useArrTime, lastStation: $0.lastStation, isFast: $0.isFast, hasBackgroundColor: widgetRenderingMode == .fullColor)
                                     .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                             }
                         }
                         .padding(.trailing, 2.5)
                         VStack(spacing: 10) {
                             ForEach(result.enumerated().filter {$0.offset % 2 == 1}.map {$0.element}, id: \.startTime) {
-                                SubwayWhenHomeWidgetSubView(time: $0.useArrTime, lastStation: $0.lastStation, isFast: $0.isFast)
+                                SubwayWhenHomeWidgetSubView(time: $0.useArrTime, lastStation: $0.lastStation, isFast: $0.isFast, hasBackgroundColor: widgetRenderingMode == .fullColor)
                                     .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
                             }
                         }
@@ -211,10 +216,11 @@ struct SubwayWhenHomeWidgetSubView : View {
     let time: String
     let lastStation: String
     let isFast: String
+    let hasBackgroundColor: Bool
     
     var body: some View {
         HStack(spacing: 2) {
-            Text("⏱️ " + "\((widgetFamily != .systemSmall && isFast == "급행") ? "(급)" : "" )" + lastStation + "행" )
+            Text("\(hasBackgroundColor ? "⏱️" : "") " + "\((widgetFamily != .systemSmall && isFast == "급행") ? "(급)" : "" )" + lastStation + "행" )
                 .foregroundStyle((widgetFamily == .systemSmall && isFast == "급행") ? Color(uiColor: .systemRed) : Color(uiColor: .label))
                 .padding(.leading, 5)
                 .font(.system(size: ViewStyle.FontSize.smallSize, weight: .semibold))
@@ -232,7 +238,8 @@ struct SubwayWhenHomeWidgetSubView : View {
         .padding(.vertical, 8)
         .background {
             RoundedRectangle(cornerRadius: 10)
-                .fill(Color("MainColor"))
+                .fill(hasBackgroundColor ? Color("MainColor") : .clear)
+                .stroke(Color.white, lineWidth: hasBackgroundColor ? 0 : 1)
         }
     }
 }
