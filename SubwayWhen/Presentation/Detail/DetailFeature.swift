@@ -30,6 +30,7 @@ struct DetailFeature: Reducer {
         var nowTimer: Int?
         var nowScheduleLoading: Bool = false
         var nowIsLiveActivity = false
+        var lastRefreshTime: Date = .now
         @Presents var dialogState: ConfirmationDialogState<Action.DialogAction>?
     }
     
@@ -158,7 +159,12 @@ struct DetailFeature: Reducer {
                 return .none
                 
             case .refreshBtnTapped:
-                if state.nowArrivalLoading {return .none}
+                let now = Date()
+                if state.nowArrivalLoading ||
+                    now.timeIntervalSince(state.lastRefreshTime) < 1.2 {
+                    return .none
+                }
+                state.lastRefreshTime = now
                 state.nowTimer = nil
                 
                 if !((state.nowScheduleData.first?.type ?? .Unowned) == .Unowned) && state.nowScheduleData.count <= 1 { // 서울, 코레일 라인이면서, 정보없음 하나만 있는 경우 (정렬 데이터가 아닐때)
