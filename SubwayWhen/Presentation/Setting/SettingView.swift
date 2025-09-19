@@ -59,8 +59,12 @@ struct SettingView: View {
             .ignoresSafeArea(.container, edges: .all)
         }
         .animation(.smooth(duration: 0.25), value: self.store.selectedTimeViewType)
+        .animation(.smooth(duration: 0.25), value: self.store.savedSettings)
         .onTapGesture {
             self.focusField = false
+        }
+        .onAppear {
+            self.store.send(.onAppear)
         }
         .onDisappear {
             self.store.send(.viewDisappear)

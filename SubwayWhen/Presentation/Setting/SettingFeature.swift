@@ -34,9 +34,17 @@ struct SettingFeature {
         ]
         var savedSettings: SaveSetting = FixInfo.saveSetting
         var selectedTimeViewType: TimeType? = nil
+        
+        func hasAlert(type: TimeType) -> Bool {
+            switch type {
+            case .work: return  !savedSettings.alertGroupOneID.isEmpty
+            case .leave: return  !savedSettings.alertGroupTwoID.isEmpty
+            }
+        }
     }
     
     enum Action: Equatable {
+        case onAppear
         case viewDisappear
         case timeViewTapped(TimeType)
         case timeSaveBtnTapped(Int)
@@ -55,6 +63,9 @@ struct SettingFeature {
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
+            case .onAppear:
+                return .send(.updateSavedSettings)
+                
             case .viewDisappear:
                 state.selectedTimeViewType = nil
                 return .none

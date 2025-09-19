@@ -100,5 +100,8 @@ extension SettingCoordinator: SettingNotiCoordinatorProtocol, SettingTrainIconCo
     
     func dismiss() {
         self.navigation.dismiss(animated: true)
+        
+        guard let store = self.store else { return }
+        store.send(.updateSavedSettings)
     }
 }

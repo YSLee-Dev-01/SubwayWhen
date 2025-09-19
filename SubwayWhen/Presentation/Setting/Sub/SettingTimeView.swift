@@ -65,9 +65,17 @@ private extension SettingTimeView {
                     .foregroundStyle(Color(uiColor: UIColor.label.withAlphaComponent(0.7)))
             }
             
-            Text(text == "0" ? "-" : "\(text)\(Strings.Common.hour)")
-                .font(.system(size: ViewStyle.FontSize.bigTitleSize, weight: .bold))
-                .foregroundStyle(Color(uiColor: UIColor.label))
+            HStack {
+                Text(text == "0" ? "-" : "\(text)\(Strings.Common.hour)")
+                    .font(.system(size: ViewStyle.FontSize.bigTitleSize, weight: .bold))
+                    .foregroundStyle(Color(uiColor: UIColor.label))
+                
+                if self.store.state.hasAlert(type: type) {
+                    Circle()
+                        .fill(Color("AppIconColor"))
+                        .frame(width: 8, height: 8)
+                }
+            }
         }
         .padding(.horizontal, 10)
         .padding(.bottom, 5)
