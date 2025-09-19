@@ -7,9 +7,12 @@
 
 import Foundation
 import ComposableArchitecture
+import FirebaseAnalytics
 
 @Reducer
 struct SettingFeature {
+    @Dependency(\.notificationManager) private var notificationManager
+    
     @ObservableState
     struct State: Equatable {
         var settingSections: [SettingViewSection] = [
@@ -81,10 +84,17 @@ struct SettingFeature {
                     FixInfo.saveSetting.mainGroupTwoTime = time
                 }
                 state.selectedTimeViewType = nil
+                
+                notificationManager.notiTimeChange()
+                Analytics.logEvent("SettingVC_Group_Save", parameters: [
+                    "Group_One" : FixInfo.saveSetting.mainGroupOneTime,
+                    "Group_Two" : FixInfo.saveSetting.mainGroupTwoTime
+                ])
+                
                 return .send(.updateSavedSettings)
                 
             case .toggleChanged(let keyPath, let value):
-                var setting = FixInfo.saveSetting
+                var setting = FixInfo.saveSetting 
                 setting[keyPath: keyPath] = value
                 
                 if (keyPath == \SaveSetting.detailScheduleAutoTime && !value) ||
