@@ -18,6 +18,7 @@ struct DetailArrivalView: View {
     @State private var refreshBtnTapAnimation = false
     @State private var defaultStationWidth = 0.0
     @State private var firstArrivalCode: String = "-"
+    @State private var isTrainIconShow = false
     
     private let screenWidthSize = UIScreen.main.bounds.width -  40
     
@@ -119,7 +120,7 @@ struct DetailArrivalView: View {
                                     .offset(x: 15)
                             }
                             .offset(x: self.trainPostion, y: -15)
-                            .opacity(self.nowLoading ? 0 : self.nowAnimationPlaying ? 0 : 1)
+                            .opacity(self.isTrainIconShow ? 1 : 0)
                             .animation(.easeInOut(duration: 0.4), value: self.trainPostion)
                     }
                 }
@@ -180,7 +181,7 @@ struct DetailArrivalView: View {
                             )
                             let offset = data.0 == 0 ? -(self.screenWidthSize - (self.screenWidthSize / 2) + 35)  / 2 + 50
                             : (self.screenWidthSize - (self.screenWidthSize / 2) + 35)  / 2 - 50
-                               
+                            
                             VStack(alignment: .center, spacing: 0) {
                                 HStack {
                                     Text(text)
@@ -216,6 +217,8 @@ struct DetailArrivalView: View {
             }
         }
         .onChange(of: self.nowLoading) {
+            self.isTrainIconShow = false
+            
             if self.arrivalDataList.first?.previousStation == self.backStationName && self.arrivalDataList.first?.code == "99" {
                 self.firstArrivalCode = "4" // 간헐적으로 API에서 코드(Code)를 잘못 방출하는 경우가 있음
             } else {
@@ -228,25 +231,27 @@ struct DetailArrivalView: View {
                     self.backStationPostion = (-100, 0)
                 }
             } else {
-                self.trainPostion  = 0
+                self.trainPostion = 0
                 
-                withAnimation(.easeInOut(duration: 0)) {
-                    if self.firstArrivalCode == "99" {
-                        self.borderPostion = 35
-                        self.borderSize = 1.2
-                    } else {
-                        self.borderPostion = 12
-                    }
-                    let oppositionCode = (self.firstArrivalCode == "99" || Int(self.firstArrivalCode) == nil) ? "0" : "99"
-                    self.nextStationPostion = self.stationPositionMoveAndAlphaValue(code: oppositionCode, type: .next)
-                    self.backStationPostion = self.stationPositionMoveAndAlphaValue(code: oppositionCode, type: .back)
-                   
-                    self.nowAnimationPlaying = true
-                    self.nowAnimationHalfPlaying = true
-                } completion: {
+                if self.firstArrivalCode == "99" {
+                    self.borderPostion = 35
+                    self.borderSize = 1.2
+                } else {
+                    self.borderPostion = 12
+                }
+                
+                let oppositionCode = (self.firstArrivalCode == "99" || Int(self.firstArrivalCode) == nil) ? "0" : "99"
+                self.nextStationPostion = self.stationPositionMoveAndAlphaValue(code: oppositionCode, type: .next)
+                self.backStationPostion = self.stationPositionMoveAndAlphaValue(code: oppositionCode, type: .back)
+                
+                self.nowAnimationPlaying = true
+                self.nowAnimationHalfPlaying = true
+                
+                DispatchQueue.main.async {
                     withAnimation(.spring(response: 0.5, dampingFraction: 0.7, blendDuration: 0).delay(0.4)) {
                         self.nowAnimationHalfPlaying = false
                     }
+                    
                     withAnimation(.easeInOut(duration: 0.7)) {
                         self.backStationPostion = self.stationPositionMoveAndAlphaValue(code: self.firstArrivalCode, type: .back)
                         self.nextStationPostion = self.stationPositionMoveAndAlphaValue(code: self.firstArrivalCode, type: .next)
@@ -258,14 +263,16 @@ struct DetailArrivalView: View {
                             self.borderSize = 1.0
                             self.borderPostion = 0
                         }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.69) {
-                            self.nowAnimationPlaying = false
-                            self.borderSize = 1.0
-                            self.borderPostion = 0
-                            
-                            if let code = Int(self.firstArrivalCode) {
-                                self.trainPostion =  self.trainIconMoveValue(code: code)
-                            }
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                        self.nowAnimationPlaying = false
+                        self.borderSize = 1.0
+                        self.borderPostion = 0
+                        
+                        if let code = Int(self.firstArrivalCode) {
+                            self.isTrainIconShow = true
+                            self.trainPostion = self.trainIconMoveValue(code: code)
                         }
                     }
                 }
