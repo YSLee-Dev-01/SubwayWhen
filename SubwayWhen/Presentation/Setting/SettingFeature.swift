@@ -100,7 +100,7 @@ struct SettingFeature {
                 
             case .textFieldChanged(let keyPath, let value):
                 var setting = FixInfo.saveSetting
-                setting[keyPath: keyPath] = value
+                setting[keyPath: keyPath] = value.isEmpty ? "☹️" : value
                 FixInfo.saveSetting = setting
                 return .send(.updateSavedSettings)
                 
