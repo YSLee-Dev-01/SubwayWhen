@@ -71,9 +71,16 @@ private extension SettingTimeView {
                     .foregroundStyle(Color(uiColor: UIColor.label))
                 
                 if self.store.state.hasAlert(type: type) {
-                    Circle()
-                        .fill(Color("AppIconColor"))
-                        .frame(width: 8, height: 8)
+                    if text == "0" {
+                        Image(systemName: "exclamationmark.circle")
+                            .resizable()
+                            .frame(width: 15, height: 15)
+                            .foregroundStyle(Color.red)
+                    } else {
+                        Circle()
+                            .fill(Color("AppIconColor"))
+                            .frame(width: 8, height: 8)
+                    }
                 }
             }
         }
