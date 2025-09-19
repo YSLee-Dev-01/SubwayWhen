@@ -37,6 +37,7 @@ struct SettingFeature {
     }
     
     enum Action: Equatable {
+        case viewDisappear
         case timeViewTapped(TimeType)
         case timeSaveBtnTapped(Int)
         case navigationTapped(SettingNewVCType)
@@ -54,6 +55,10 @@ struct SettingFeature {
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
+            case .viewDisappear:
+                state.selectedTimeViewType = nil
+                return .none
+                
             case .timeViewTapped(let type):
                 state.selectedTimeViewType = type
                 return .none

@@ -62,6 +62,9 @@ struct SettingView: View {
         .onTapGesture {
             self.focusField = false
         }
+        .onDisappear {
+            self.store.send(.viewDisappear)
+        }
     }
 }
 
