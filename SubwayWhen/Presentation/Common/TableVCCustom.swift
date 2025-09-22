@@ -56,6 +56,10 @@ extension TableVCCustom{
         self.titleView.mainTitleLabel.text = self.viewTitle
         
         self.topView.subTitleLabel.text = self.viewTitle
+        
+        if #available(iOS 26.0, *) {
+            self.tableView.contentInset.bottom = 20
+        }
     }
     
     private func layout(){
@@ -72,7 +76,7 @@ extension TableVCCustom{
             $0.top.equalTo(self.topView.snp.bottom)
             
             if #available(iOS 26.0, *) {
-                $0.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-20)
+                $0.bottom.equalToSuperview()
             } else {
                 $0.bottom.equalTo(self.view.safeAreaLayoutGuide)
             }
