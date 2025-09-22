@@ -72,7 +72,7 @@ extension TableVCCustom{
             $0.top.equalTo(self.topView.snp.bottom)
             
             if #available(iOS 26.0, *) {
-                $0.bottom.equalToSuperview().offset(ViewStyle.padding.mainStyleViewTB)
+                $0.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-20)
             } else {
                 $0.bottom.equalTo(self.view.safeAreaLayoutGuide)
             }

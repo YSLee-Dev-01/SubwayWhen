@@ -56,6 +56,7 @@ struct SettingView: View {
                 }
             }
             .padding(.top, 12.5)
+            .padding(.bottom, 20)
             .ignoresSafeArea(.container, edges: .all)
         }
         .animation(.smooth(duration: 0.25), value: self.store.selectedTimeViewType)
