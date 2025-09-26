@@ -96,7 +96,9 @@ final class DetailFeatureTests: XCTestCase {
         
         // WHEN
         await testStore.send(.viewInitialized)
-        try await Task.sleep(for: .milliseconds(350)) // 값 세팅 대기
+        
+        /// v1.7부터 타임 제한 추가됨에 따라 테스트 케이스 변경
+        try await Task.sleep(for: .milliseconds(1300))
         
         await testStore.send(.refreshBtnTapped) {
             // THEN

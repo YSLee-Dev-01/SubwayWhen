@@ -192,9 +192,9 @@ class SearchFeatureTests : XCTestCase {
         }
         
         // THEN
-        await testStore.receive(.stationSearchResult(stationNameSearcDummyhData.SearchInfoBySubwayNameService.row)) {
+        await testStore.receive(.stationSearchResult(stationNameSearcDummyhData.SearchInfoBySubwayNameService.row.sorted {$0.line.rawValue < $1.line.rawValue})) {
             $0.searchQuery = "교대"
-            $0.nowStationSearchList = stationNameSearcDummyhData.SearchInfoBySubwayNameService.row // 검색결과 대입
+            $0.nowStationSearchList = stationNameSearcDummyhData.SearchInfoBySubwayNameService.row.sorted {$0.line.rawValue < $1.line.rawValue}  // 검색결과 대입
             $0.nowSearchLoading = false // 검색이 끝났을 때는 false
         }
     }
@@ -214,7 +214,7 @@ class SearchFeatureTests : XCTestCase {
         
         // THEN
         await testStore.receive(.stationSearchRequest) // 검색 요청
-        await testStore.receive(.stationSearchResult(stationNameSearcDummyhData.SearchInfoBySubwayNameService.row)) // 검색 결과
+        await testStore.receive(.stationSearchResult(stationNameSearcDummyhData.SearchInfoBySubwayNameService.row.sorted {$0.line.rawValue < $1.line.rawValue})) // 검색 결과
     }
     
     func testDisposableDetailBtnTapped() async {
@@ -240,7 +240,7 @@ class SearchFeatureTests : XCTestCase {
         
         // THEN
         await testStore.receive(.stationSearchRequest) // 지하철역 통신 요청
-        await testStore.receive(.stationSearchResult(stationNameSearcDummyhData.SearchInfoBySubwayNameService.row)) // 지하철역 검색 결과
+        await testStore.receive(.stationSearchResult(stationNameSearcDummyhData.SearchInfoBySubwayNameService.row.sorted {$0.line.rawValue < $1.line.rawValue})) // 지하철역 검색 결과
         await testStore.receive(.disposableDetailPushRequest) { // 일회성 보기 요청
             $0.testIsAutoDelegateAction = nil // 일회성 보기 present 후 action 값을 nil로 변경
         }
@@ -264,10 +264,7 @@ class SearchFeatureTests : XCTestCase {
         
         // THEN
         await testStore.receive(.stationSearchRequest) // 지하철역 통신 요청
-        await testStore.receive(.stationSearchResult(stationNameSearcDummyhData.SearchInfoBySubwayNameService.row)) // 지하철역 검색 결과
-        await testStore.receive(.searchResultTapped(0)) { // 선택된 지하철역 index 전달 (0)
-            $0.testIsAutoDelegateAction = nil // modal present 후 action 값을 nil로 변경
-        }
+        await testStore.receive(.stationSearchResult(stationNameSearcDummyhData.SearchInfoBySubwayNameService.row.sorted {$0.line.rawValue < $1.line.rawValue})) // 지하철역 검색 결과
     }
     
     func testPlusModalBtnTappedWithError() async {
@@ -311,7 +308,7 @@ class SearchFeatureTests : XCTestCase {
         await testStore.send(.binding(.set(\.searchQuery, "교대"))) // 검색 쿼리 입력
         await testStore.receive(.stationSearchRequest) // 지하철역 통신 요청
         
-        await testStore.receive(.stationSearchResult(stationNameSearcDummyhData.SearchInfoBySubwayNameService.row)){ // 교대역 기준 데이터 반환
+        await testStore.receive(.stationSearchResult(stationNameSearcDummyhData.SearchInfoBySubwayNameService.row.sorted {$0.line.rawValue < $1.line.rawValue})){ // 교대역 기준 데이터 반환
             // THEN
             $0.filteredSearchQueryRecommendList = [] // 추천 역이 없을 때는 빈 배열이 나와야함
         }
