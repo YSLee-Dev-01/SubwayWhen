@@ -11,11 +11,15 @@ import ComposableArchitecture
 
 @testable import SubwayWhen
 
-class SettingFeatureTests: XCTest {
+class SettingFeatureTests: XCTestCase {
     
     override func setUp()  {
+        FixInfo.saveSetting.detailAutoReload = false
+        FixInfo.saveSetting.detailScheduleAutoTime = false
+        FixInfo.saveSetting.liveActivity = false
         FixInfo.saveSetting.mainGroupOneTime = 0
         FixInfo.saveSetting.mainGroupTwoTime = 0
+        FixInfo.saveSetting.mainCongestionLabel = "0"
     }
     
     func testSettingInit() async throws {
@@ -54,7 +58,7 @@ class SettingFeatureTests: XCTest {
         // GIVEN
         let testStore = await self.createStore()
         
-        // THEN
+        // WHEN
         await testStore.send(.timeViewTapped(.work)) { state in
             // THEN - 타입이 출근으로 변경되어야 함
             state.selectedTimeViewType = .work
@@ -74,6 +78,55 @@ class SettingFeatureTests: XCTest {
         await testStore.receive(.updateSavedSettings) { state in
             // THEN - 퇴근시간의 시간이 21시로 업데이트 되어야 함
             state.savedSettings.mainGroupTwoTime = 21
+        }
+    }
+    
+    func testToggleChanged() async throws {
+        // GIVEN
+        let testStore = await self.createStore()
+        
+        // WHEN
+        await testStore.send(.toggleChanged(\.detailAutoReload, true)) { state in
+            //THEN - 이벤트가 발생하여도 FixInfo 먼저 업데이트 후 다음 이벤트를 통해 State를 업데이트
+            state.savedSettings.detailAutoReload = false
+        }
+        
+        await testStore.receive(.updateSavedSettings) { state in
+            // THEN - detailAutoReload가 true로 변경되어 있어야 함
+            state.savedSettings.detailAutoReload = true
+            state.savedSettings.liveActivity = false
+            state.savedSettings.detailScheduleAutoTime = false
+        }
+        
+        await testStore.send(.toggleChanged(\.liveActivity, true))
+        await testStore.receive(.updateSavedSettings) { state in
+            // THEN - liveActivity가 활성화 된 경우 detailScheduleAutoTime, detailAutoReload도 true로 변경되어야 함
+            state.savedSettings.detailAutoReload = true
+            state.savedSettings.liveActivity = true
+            state.savedSettings.detailScheduleAutoTime = true
+        }
+    }
+    
+    func testTextField() async throws {
+        // GIVEN
+        let testStore = await self.createStore()
+        
+        // WHEN
+        await testStore.send(.textFieldChanged(\.mainCongestionLabel, "1")) { state in
+            // THEN - 이벤트가 발생하여도 FinInfo 먼저 업데이트 후 다음 이벤트를 통해 State를 업데이트
+            state.savedSettings.mainCongestionLabel = "0"
+        }
+        
+        await testStore.receive(.updateSavedSettings) { state in
+            // THEN - mainCongestionLabel이 1로 변경되어 있어야 함
+            state.savedSettings.mainCongestionLabel = "1"
+        }
+        
+        // 아무것도 입력하지 않았을 때
+        await testStore.send(.textFieldChanged(\.mainCongestionLabel, ""))
+        await testStore.receive(.updateSavedSettings) { state in
+            // THEN - mainCongestionLabel이 기본 이모티콘으로 변경되어 있어야 함
+            state.savedSettings.mainCongestionLabel = "☹️"
         }
     }
 }
