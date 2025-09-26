@@ -114,8 +114,8 @@ extension Strings.Setting {
     /// 퇴근
     static let leaveTime = "퇴근"
     
-    /// 홈화면
-    static let homeScreen = "홈화면"
+    /// 홈 화면
+    static let homeScreen = "홈 화면"
     /// 혼잡도 이모지
     static let trafficLightEmoji = "혼잡도 이모지"
     /// 출퇴근 지하철역
@@ -123,13 +123,13 @@ extension Strings.Setting {
     /// 한 글자만 입력할 수 있어요.
     static let emojiLimit = "한 글자만 입력할 수 있어요."
     
-    /// 검색화면
-    static let searchScreen = "검색화면"
+    /// 검색 화면
+    static let searchScreen = "검색 화면"
     /// 중복 저장 방지
     static let duplicatePrevention = "중복 저장 방지"
     
-    /// 상세화면
-    static let detailScreen = "상세화면"
+    /// 상세 화면
+    static let detailScreen = "상세 화면"
     /// 자동 새로 고침
     static let autoRefresh = "자동 새로 고침"
     /// 시간표 자동 정렬
