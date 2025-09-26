@@ -125,14 +125,17 @@ final class ReportFeatureTests: XCTestCase {
         await testStore.finish()
     }
     
-    private func testThreeStepCompletion() async throws {
+    func testThreeStepCompletion() async throws {
         // GIVEN
         let testStore = await self.createStore()
         
         // WHEN
         await testStore.send(.onAppear)
         await testStore.send(.reportLineSelected(self.defaultTestLine))
-        await testStore.send(.twoStepCompleted) { state in
+        try? await Task.sleep(for: .milliseconds(300)) // Step 변경시간 고려
+        
+        await testStore.send(.twoStepCompleted)
+        await testStore.receive(\.reportStepChanged) { state in
             // THEN -> 2 step이 완료된 경우 3 step으로 변경되어야 함
             state.reportStep = 3
         }
@@ -146,14 +149,17 @@ final class ReportFeatureTests: XCTestCase {
         await testStore.finish()
     }
     
-    private func testThreeStepNoNumberInserted() async throws {
+    func testThreeStepNoNumberInserted() async throws {
         // GIVEN
         let testStore = await self.createStore()
         
         // WHEN
         await testStore.send(.onAppear)
         await testStore.send(.reportLineSelected(self.defaultTestLine))
+        try? await Task.sleep(for: .milliseconds(300)) // Step 변경시간 고려
+        
         await testStore.send(.twoStepCompleted)
+        try? await Task.sleep(for: .milliseconds(300)) // Step 변경시간 고려
         
         await testStore.send(.canNotThreeStepBtnTapped) { state in
             // THEN -> 확인할 수 없다는 버튼을 누른 경우 팝업창이 떠야함
@@ -163,23 +169,29 @@ final class ReportFeatureTests: XCTestCase {
         await testStore.send(.dialogAction(.presented(.notInsertBtnTapped)))
         
         // THEN -> 입력하지 않기를 누른 경우 3 step을 마무리함
-        await testStore.receive(.threeStepCompleted) { state in
+        await testStore.receive(.threeStepCompleted)
+        await testStore.receive(\.reportStepChanged) { state in
             state.reportStep = 4
         }
     }
     
-    private func testFourStepCompletion() async throws {
+    func testFourStepCompletion() async throws {
         // GIVEN
         let testStore = await self.createStore()
         
         // WHEN
         await testStore.send(.onAppear)
         await testStore.send(.reportLineSelected(self.defaultTestLine)) // 2 step
+        try? await Task.sleep(for: .milliseconds(300)) // Step 변경시간 고려
+        
         await testStore.send(.binding(.set(\.insertingData.destination, self.defaultTestDestination)))
         await testStore.send(.binding(.set(\.insertingData.nowStation, self.defaultTestStationName)))
         await testStore.send(.brandBtnTapped(false)) // 3 step
+        try? await Task.sleep(for: .milliseconds(300)) // Step 변경시간 고려
+        
         await testStore.send(.binding(.set(\.insertingData.trainCar, self.defaultTestCarNumber)))
         await testStore.send(.threeStepCompleted) // 4 step
+        try? await Task.sleep(for: .milliseconds(300)) // Step 변경시간 고려
         
         await testStore.send(.fourStepCompleted(self.defaultTestMessage)) { state in
             // THEN -> 값을 입력/누른 경우 바로 바인딩 되어야 함
@@ -189,18 +201,23 @@ final class ReportFeatureTests: XCTestCase {
         }
     }
     
-    private func testFourStepNoInserted() async throws {
+    func testFourStepNoInserted() async throws {
         // GIVEN
         let testStore = await self.createStore()
         
         // WHEN
         await testStore.send(.onAppear)
         await testStore.send(.reportLineSelected(self.defaultTestLine)) // 2 step
+        try? await Task.sleep(for: .milliseconds(300)) // Step 변경시간 고려
+        
         await testStore.send(.binding(.set(\.insertingData.destination, self.defaultTestDestination)))
         await testStore.send(.binding(.set(\.insertingData.nowStation, self.defaultTestStationName)))
         await testStore.send(.brandBtnTapped(false)) // 3 step
+        try? await Task.sleep(for: .milliseconds(300)) // Step 변경시간 고려
+        
         await testStore.send(.binding(.set(\.insertingData.trainCar, self.defaultTestCarNumber)))
         await testStore.send(.threeStepCompleted) // 4 step
+        try? await Task.sleep(for: .milliseconds(300)) // Step 변경시간 고려
         
         // step이 넘어간 이후로 값 제거
         await testStore.send(.binding(.set(\.insertingData.nowStation, "")))
@@ -216,7 +233,7 @@ final class ReportFeatureTests: XCTestCase {
         await testStore.send(.fourStepCompleted(self.defaultTestMessage)) { state in
             // THEN
             state.reportStep = 4
-            state.insertingData = .init(selectedLine: self.defaultTestLine, nowStation: self.defaultTestStationName, destination: self.defaultTestDestination, trainCar: "", contants: self.defaultTestMessage, brand: "N")
+            state.insertingData = .init(selectedLine: self.defaultTestLine, nowStation: self.defaultTestStationName, destination: self.defaultTestDestination, trainCar: self.defaultTestCarNumber, contants: self.defaultTestMessage, brand: "N")
         }
     }
 }
