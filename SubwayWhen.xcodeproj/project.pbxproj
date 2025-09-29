@@ -373,6 +373,7 @@
 		FF5F01142E3061EA00486A0B /* ReportContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5F01132E3061EA00486A0B /* ReportContentData.swift */; };
 		FF6790E72E49AF8A00E9DB60 /* ReportFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6790E62E49AF8A00E9DB60 /* ReportFeatureTests.swift */; };
 		FF68CFCA2CA27A630054BF69 /* SearchCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF68CFC92CA27A630054BF69 /* SearchCoordinatorDelegate.swift */; };
+		FF6B35FA2E8A47B000814E32 /* UIDevice+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6B35F92E8A47B000814E32 /* UIDevice+.swift */; };
 		FF6CB2132D1111AA00DF562B /* SubwayWhenCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1D4A9D2C9D32A100AFD709 /* SubwayWhenCommon.framework */; };
 		FF6CB2142D1111AA00DF562B /* SubwayWhenCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF1D4A9D2C9D32A100AFD709 /* SubwayWhenCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF6CB2192D12991200DF562B /* TestLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6CB2182D12991200DF562B /* TestLocationManager.swift */; };
@@ -818,6 +819,7 @@
 		FF6790E62E49AF8A00E9DB60 /* ReportFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFeatureTests.swift; sourceTree = "<group>"; };
 		FF68CFC82CA1343A0054BF69 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		FF68CFC92CA27A630054BF69 /* SearchCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinatorDelegate.swift; sourceTree = "<group>"; };
+		FF6B35F92E8A47B000814E32 /* UIDevice+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+.swift"; sourceTree = "<group>"; };
 		FF6CB2182D12991200DF562B /* TestLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLocationManager.swift; sourceTree = "<group>"; };
 		FF7837E22E29CF5B004E6BFF /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		FF7837E42E29D0B5004E6BFF /* ReportFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFeature.swift; sourceTree = "<group>"; };
@@ -1940,6 +1942,7 @@
 				34F5F0EC2962DCE80010A21D /* TopView.swift */,
 				34F5F0FC29641AC10010A21D /* TitleView.swift */,
 				FA9AA9B12BD639F300906A5B /* UIApplication+.swift */,
+				FF6B35F92E8A47B000814E32 /* UIDevice+.swift */,
 			);
 			path = Sub;
 			sourceTree = "<group>";
@@ -2906,6 +2909,7 @@
 				FF7ECACF2C7C041B00D4643A /* DetailView.swift in Sources */,
 				FF36A36C2C80387D00387A3D /* DetailScheduleView.swift in Sources */,
 				B6438D462B667CB10099BFEF /* MainTableViewHeaderBtn.swift in Sources */,
+				FF6B35FA2E8A47B000814E32 /* UIDevice+.swift in Sources */,
 				34A221B329C98A47003F035D /* NoNetworkView.swift in Sources */,
 				B6438D4F2B667CB10099BFEF /* MainVC.swift in Sources */,
 				34A58ADF2AC3BAEE00C8A563 /* TutorialCollectionCell.swift in Sources */,

@@ -49,7 +49,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        self.deepLinkMove(url: URLContexts.first?.url)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.deepLinkMove(url: URLContexts.first?.url)
+        }
     }
 }
 
