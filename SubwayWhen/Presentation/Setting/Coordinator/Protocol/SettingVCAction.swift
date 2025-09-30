@@ -8,7 +8,6 @@
 import Foundation
 
 protocol SettingVCAction: AnyObject {
-    func groupModal()
     func notiModal()
     func contentsModal()
     func licenseModal()

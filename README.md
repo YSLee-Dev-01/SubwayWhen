@@ -1,21 +1,22 @@
+<img src="https://user-images.githubusercontent.com/94354145/228749712-667ce825-2134-4a94-ab3b-2887843f9fa8.png" height="150"/>
+
 # 지하철 민실씨 (SubwayWhen)
 
-<img src="https://user-images.githubusercontent.com/94354145/228749712-667ce825-2134-4a94-ab3b-2887843f9fa8.png" height="150" />
+지하철 민원 접수부터 실시간 도착 정보, 시간표 정보까지 **'한눈에, 빠르고 편하게'** 확인할 수 있는 앱입니다.
 
-> 지하철 민원 & 실시간 위치 & 시간표를 한눈에 보여주는 '지하철 민실씨'<br/>
-> V1.0 개발기간: 2022.11.29 ~ 2023.03.30<br/>
-> V1.1 개발기간: 2023.04.18 ~ 2023.05.25<br/>
-> v1.2 개발기간: 2023.06.20 ~ 2023.07.12<br/>
-> v1.3 개발기간: 2023.09.18 ~ 2023.10.11<br/>
-> v1.3.1 개발기간: 2024.01.09 ~ 2024.03.07<br/>
-> v1.4 개발기간: 2024.03.28 ~ 2024.04.30<br/>
-> v1.5 개발기간: 2024.08.26 ~ 2024.09.30<br/>
-> v1.6 개발기간: 2024.11.26 ~ 2024.12.25<br/>
-> v1.6.1 개발기간: 2025.01.09 ~ 2025.01.16<br/>
-> v1.6.2 개발기간: 2025.02.26 ~ 2025.03.07<br/>
-> v1.6.3 개발기간: 2025.07.17 ~ 2025.08.13<br/>
+[![App Store](https://img.shields.io/badge/App%20Store-Download-0066cc?style=for-the-badge&logo=apple&logoColor=white)](https://apps.apple.com/us/app/지하철-민실씨/id6446166573)
 
-## 📋 지하철 민실씨 소개, 기능
+### 📆 개발 기간
+
+`v1.6.2` 2025.02.26 ~ 2025.03.07  
+`v1.6.3` 2025.07.17 ~ 2025.08.13  
+`v1.7` 2025.09.16 ~ 2025.09.29
+
+<sub>ℹ️ [이전 버전 개발 기간 보기](https://carnelian-gateway-8a5.notion.site/465f44b6767546789c458d3ddfed0579)</sub>
+
+<br/>
+
+## 📋 주요 기능
 <div align=left>
 <img src="https://github.com/YSLee-Dev/SubwayWhen/assets/94354145/ed1d2dfc-9a21-4923-b312-e726387b206b.png" height="350" />
 <img src="https://github.com/YSLee-Dev/SubwayWhen/assets/94354145/c25f2cc5-0530-40c1-859a-848626946f6a.png" height="350" />
@@ -26,12 +27,11 @@
 <img src="https://github.com/YSLee-Dev/SubwayWhen/assets/94354145/ed1d2dfc-9a21-4923-b312-e726387b206b.png" height="350" />
 <img src="https://github.com/user-attachments/assets/fb758b6d-804c-4028-8b5f-c885c8d96fb9" height="350" />
 <img src="https://github.com/user-attachments/assets/f715b21d-5d7a-492d-8571-eae6b68763e9" height="350" />
-<img src="https://github.com/YSLee-Dev/SubwayWhen/assets/94354145/3c80ea6a-348c-41dc-8131-fe99a3cd30c8.png" height="350" />
+<img src="https://github.com/user-attachments/assets/bd3ff7c1-5759-4058-8107-d619ebf78441" height="350" />
 </div>
 
 <br/>
 
-> 지하철 민실씨는 지하철 민원 접수부터 실시간 도착 정보, 시간표 정보까지 '한눈에, 빠르고 편하게' 확인할 수 있는 앱입니다.
 -	민원 호선을 선택 후 간단한 정보만 입력하면 민원을 편하게 접수할 수 있습니다.
 -	지하철역을 검색 후 저장하면, 내가 원하는 역만 보거나 중간 종착 열차를 빼고 볼 수 있습니다.
 -	실시간 도착 정보와 시간표 정보를 비교하여 사용자의 판단을 돕습니다.
@@ -42,12 +42,7 @@
 
 <br/>
 
-## 🗓️ 지하철 민실씨의 스토리보드
-- 민실씨의 스토리보드는 <a href = "https://carnelian-gateway-8a5.notion.site/465f44b6767546789c458d3ddfed0579">노션에서 관리</a>하고 있습니다.
-
-<br/>
-
-## 🛠 지하철 민실씨에 사용된 라이브러리 / 프레임워크
+## 🛠 사용된 라이브러리 / 프레임워크
 - UIKit, SwiftUI, WidgetKit, ActivityKit
 - RxSwift, RxCocoa, RxDataSources, RxOptional, RxAlamofire, TCA(ComposableArchitecture)
 - Alamofire, Then, SnapKit, lottie-ios, AcknowList, Firebase/Analytics, Firebase/Database
@@ -55,10 +50,10 @@
 
 <br/>
 
-## 💡 지하철 민실씨에 사용된 아키텍쳐
+## 💡 사용된 아키텍쳐
 ### ✅ MVVM-C + input/output 패턴 (일부 미적용)
 ### 🔄 TCA(ComposableArchitecture) (일부 적용)
-<img src="https://github.com/user-attachments/assets/fa06018d-1076-49ff-9fdd-4a16250b74e8" height="400" />
+<img src="https://github.com/user-attachments/assets/2da1b100-168b-4621-9740-199c4874d8a7" height="400" />
 
 > MVVM 
 - View(VC)는 View를 그리는데 집중하고, ViewModel과 Model가 데이터 처리를 하도록 분리하였습니다.
@@ -95,5 +90,7 @@
 ``` 
 <br/>
 
-## 🔗 지하철 민실씨 다운로드 링크
-- https://apps.apple.com/us/app/지하철-민실씨/id6446166573
+## 🗓️ 스토리보드
+- 민실씨의 스토리보드는 <a href = "https://carnelian-gateway-8a5.notion.site/465f44b6767546789c458d3ddfed0579">노션에서 관리</a>하고 있습니다.
+
+<br/>

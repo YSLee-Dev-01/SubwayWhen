@@ -18,4 +18,9 @@ extension DependencyValues {
         get{self[LocationManagerTCADependencyKey.self]}
         set{self[LocationManagerTCADependencyKey.self] = newValue}
     }
+    
+    var notificationManager: NotificationManagerProtocol {
+        get{self[NotificationTCADependencyKey.self]}
+        set{self[NotificationTCADependencyKey.self] = newValue}
+    }
 }

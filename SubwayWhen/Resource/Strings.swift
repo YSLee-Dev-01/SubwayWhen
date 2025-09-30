@@ -10,6 +10,7 @@ import Foundation
 struct Strings {
     struct Common{}
     struct Report {}
+    struct Setting {}
 }
 
 extension Strings.Common {
@@ -25,6 +26,10 @@ extension Strings.Common {
     static let cancel = "취소"
     /// 확인
     static let check = "확인"
+    /// 저장하기
+    static let save = "저장하기"
+    /// 시
+    static let hour = "시"
 }
 
 extension Strings.Report {
@@ -98,4 +103,44 @@ extension Strings.Report {
     
     /// 입력되지 않은 값이 있어 민원을 접수할 수 없어요.\n열차 고유번호를 제외한 모든 질문에는 답변을 해주세요.
     static let cannotReportAlertTitle = "입력되지 않은 값이 있어 민원을 접수할 수 없어요.\n열차 고유번호를 제외한 모든 질문에는 답변을 해주세요."
+}
+
+extension Strings.Setting {
+    /// 설정
+    static let setting = "설정"
+    
+    /// 출근
+    static let workTime = "출근"
+    /// 퇴근
+    static let leaveTime = "퇴근"
+    
+    /// 홈 화면
+    static let homeScreen = "홈 화면"
+    /// 혼잡도 이모지
+    static let trafficLightEmoji = "혼잡도 이모지"
+    /// 출퇴근 지하철역
+    static let workAlarm = "출퇴근 지하철역"
+    /// 한 글자만 입력할 수 있어요.
+    static let emojiLimit = "한 글자만 입력할 수 있어요."
+    
+    /// 검색 화면
+    static let searchScreen = "검색 화면"
+    /// 중복 저장 방지
+    static let duplicatePrevention = "중복 저장 방지"
+    
+    /// 상세 화면
+    static let detailScreen = "상세 화면"
+    /// 자동 새로 고침
+    static let autoRefresh = "자동 새로 고침"
+    /// 시간표 자동 정렬
+    static let autoSortTimeTable = "시간표 자동 정렬"
+    /// Live Activity
+    static let liveActivity = "Live Activity"
+    /// 열차 아이콘
+    static let trainIcon = "열차 아이콘"
+    
+    /// 오픈 라이선스
+    static let openLicense = "오픈 라이선스"
+    /// 기타
+    static let other = "기타"
 }

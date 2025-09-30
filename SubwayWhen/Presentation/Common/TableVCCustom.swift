@@ -56,6 +56,10 @@ extension TableVCCustom{
         self.titleView.mainTitleLabel.text = self.viewTitle
         
         self.topView.subTitleLabel.text = self.viewTitle
+        
+        if #available(iOS 26.0, *) {
+            self.tableView.contentInset.bottom = 20
+        }
     }
     
     private func layout(){
@@ -68,8 +72,14 @@ extension TableVCCustom{
         
         self.view.addSubview(self.tableView)
         self.tableView.snp.makeConstraints{
-            $0.leading.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
             $0.top.equalTo(self.topView.snp.bottom)
+            
+            if #available(iOS 26.0, *) {
+                $0.bottom.equalToSuperview()
+            } else {
+                $0.bottom.equalTo(self.view.safeAreaLayoutGuide)
+            }
         }
     }
     

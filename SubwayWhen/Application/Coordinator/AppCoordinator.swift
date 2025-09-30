@@ -57,14 +57,19 @@ class AppCoordinator : Coordinator{
     }
     
     func setTabbarController() -> UITabBarController{
-        UITabBar.appearance().shadowImage = UIImage()
-        UITabBar.appearance().backgroundImage = UIImage()
-        
         let tabbarC = self.tabbar
-        tabbarC.tabBar.itemWidth = 50.0
-        tabbarC.tabBar.itemPositioning = .centered
-        tabbarC.tabBar.backgroundColor = .systemBackground
-        tabbarC.tabBar.tintColor = UIColor(named: "AppIconColor")
+        let tabBar = tabbarC.tabBar
+        
+        if #available(iOS 26.0, *) {
+        } else {
+            UITabBar.appearance().shadowImage = UIImage()
+            UITabBar.appearance().backgroundImage = UIImage()
+            tabbarC.tabBar.backgroundColor = .systemBackground
+        }
+
+        tabBar.itemWidth = 50.0
+        tabBar.itemPositioning = .centered
+        tabBar.tintColor = UIColor(named: "AppIconColor")
         
         let mainC = MainCoordinator()
         mainC.delegate = self
@@ -81,11 +86,11 @@ class AppCoordinator : Coordinator{
         searchC.start()
         
         let settingC = SettingCoordinator()
-        self.childCoordinator.append(searchC)
+        self.childCoordinator.append(settingC)
         
         settingC.start()
         
-        tabbarC.viewControllers = [mainC.navigation, searchC.navigation, settingC.naviagation]
+        tabbarC.viewControllers = [mainC.navigation, searchC.navigation, settingC.navigation]
         
         return tabbarC
     }

@@ -15,6 +15,7 @@ class MainCoordinator : Coordinator{
     }
     var navigation : UINavigationController
     var delegate : MainCoordinatorDelegate?
+    private var nowNotiTapped = false
     
     init(){
         self.navigation = UINavigationController()
@@ -26,23 +27,38 @@ class MainCoordinator : Coordinator{
         
         let main = MainVC(viewModel: viewModel)
         main.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house"), tag: 0)
+        
+        if #available(iOS 26.0, *) {
+            main.extendedLayoutIncludesOpaqueBars = true
+            main.edgesForExtendedLayout = .all
+        }
    
         self.navigation.setViewControllers([main], animated: true)
     }
     
     func notiTap(saveStation: SaveStation) {
+        if self.nowNotiTapped {return}
+        self.nowNotiTapped = true
+        
+        let isPushed = self.navigation.viewControllers.count != 1
         self.navigation.popToRootViewController(animated: true)
-        self.navigation.dismiss(animated: true)
+        self.navigation.dismiss(animated: false)
         
-        let data = MainTableViewCellData(upDown: saveStation.updnLine, arrivalTime: "", previousStation: "", subPrevious: "", code: "", stationName: saveStation.stationName, lastStation: "",  isFast: "",  group: saveStation.group.rawValue, id: saveStation.id, stationCode: saveStation.stationCode, exceptionLastStation: saveStation.exceptionLastStation, type: .real, backStationId: "",  nextStationId: "", korailCode: saveStation.korailCode, stateMSG: "", subwayLineData: .init(subwayId: saveStation.lineCode))
-        
-        let detailSendModel = DetailSendModel(upDown: data.upDown, stationName: data.stationName, lineNumber: data.subwayLineData.rawValue, stationCode: data.stationCode, lineCode: data.subwayLineData.lineCode, exceptionLastStation: data.exceptionLastStation, korailCode: data.korailCode)
-        
-        let detail = DetailCoordinator(navigation: self.navigation, data: detailSendModel, isDisposable: false)
-        self.childCoordinator.append(detail)
-        detail.delegate = self
-        
-        detail.start()
+        DispatchQueue.main.asyncAfter(deadline: .now() + (isPushed && UIDevice.isiOS26OrLater ? 0.2 : 0)) {
+            let data = MainTableViewCellData(upDown: saveStation.updnLine, arrivalTime: "", previousStation: "", subPrevious: "", code: "", stationName: saveStation.stationName, lastStation: "",  isFast: "",  group: saveStation.group.rawValue, id: saveStation.id, stationCode: saveStation.stationCode, exceptionLastStation: saveStation.exceptionLastStation, type: .real, backStationId: "",  nextStationId: "", korailCode: saveStation.korailCode, stateMSG: "", subwayLineData: .init(subwayId: saveStation.lineCode))
+            
+            let detailSendModel = DetailSendModel(upDown: data.upDown, stationName: data.stationName, lineNumber: data.subwayLineData.rawValue, stationCode: data.stationCode, lineCode: data.subwayLineData.lineCode, exceptionLastStation: data.exceptionLastStation, korailCode: data.korailCode)
+            
+            let detail = DetailCoordinator(navigation: self.navigation, data: detailSendModel, isDisposable: false)
+            self.childCoordinator.append(detail)
+            detail.delegate = self
+            
+            detail.start()
+        }
+       
+        DispatchQueue.main.asyncAfter(deadline: .now() + (isPushed && UIDevice.isiOS26OrLater ? 0.2 : 0) + 0.2) {
+            self.nowNotiTapped = false
+        }
     }
 }
 

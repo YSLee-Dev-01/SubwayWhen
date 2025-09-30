@@ -46,10 +46,6 @@ class SettingNotiCoordinator: Coordinator {
 }
 
 extension SettingNotiCoordinator: SettingNotiModalVCAction {
-    func groupTimeGoBtnTap() {
-        self.delegate?.groupTimeGoBtnTap()
-    }
-    
     func stationTap(type: SaveStationGroup, id: String) {
         guard let naviagation = self.naviagation else {return}
         

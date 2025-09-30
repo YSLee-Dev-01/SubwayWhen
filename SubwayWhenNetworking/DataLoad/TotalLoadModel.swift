@@ -308,7 +308,7 @@ class TotalLoadModel : TotalLoadProtocol {
                 .take(1)
                 .map{ data -> [searchStationInfo] in
                     guard case .success(let value) = data else {return []}
-                    return value.SearchInfoBySubwayNameService.row
+                    return value.SearchInfoBySubwayNameService.row.sorted {$0.line.rawValue < $1.line.rawValue}
                 }
                 .subscribe(onNext: {
                     continuation.resume(returning: $0)

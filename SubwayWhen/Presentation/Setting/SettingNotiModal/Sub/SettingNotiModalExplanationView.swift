@@ -12,16 +12,10 @@ import Then
 
 class SettingNotiModalExplanationView : UIView{
     private let titleLabel = UILabel().then{
-        $0.text = "특정 그룹 시간이 0시로 설정되어 있으면 알림이 울리지 않아요."
+        $0.text = "출근/퇴근 시간이 0시로 설정되어 있으면 알림이 울리지 않아요."
         $0.font = .boldSystemFont(ofSize: ViewStyle.FontSize.smallSize)
         $0.textColor = .white
         $0.adjustsFontSizeToFitWidth = true
-    }
-    
-    let goBtn = ModalSubCustomButton().then{
-        $0.setTitle("수정하기", for: .normal)
-        $0.titleLabel?.font = .boldSystemFont(ofSize: ViewStyle.FontSize.superSmallSize)
-        $0.backgroundColor = .systemRed.withAlphaComponent(0.7)
     }
     
     override init(frame: CGRect) {
@@ -42,25 +36,16 @@ class SettingNotiModalExplanationView : UIView{
 
 extension SettingNotiModalExplanationView{
     private func layout(){
-        self.addSubview(self.goBtn)
-        self.goBtn.snp.makeConstraints{
-            $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().inset(12.5)
-            $0.width.equalTo(60)
-            $0.height.equalTo(30)
-        }
-        
         self.addSubview(self.titleLabel)
         self.titleLabel.snp.makeConstraints{
             $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().inset(12.5)
-            $0.trailing.equalTo(self.goBtn.snp.leading).inset(-12.5)
+            $0.leading.trailing.equalToSuperview().inset(12.5)
         }
     }
     
     private func attribute(){
         self.layer.cornerRadius = ViewStyle.Layer.radius
-        self.backgroundColor = UIColor(named: "AppIconColor")?.withAlphaComponent(0.9)
+        self.backgroundColor = UIColor(named: "AppIconColor")?.withAlphaComponent(0.7)
     }
     
     func showAnimation(){

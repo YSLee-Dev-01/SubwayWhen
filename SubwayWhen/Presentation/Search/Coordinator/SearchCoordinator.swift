@@ -31,6 +31,11 @@ class SearchCoordinator : Coordinator{
         let vc = UIHostingController(rootView: searchView)
         vc.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "magnifyingglass"), tag: 1)
         
+        if #available(iOS 26.0, *) {
+            vc.extendedLayoutIncludesOpaqueBars = true
+            vc.edgesForExtendedLayout = .all
+        }
+        
         self.navigation.setNavigationBarHidden(true, animated: false)
         self.navigation.pushViewController(vc, animated: true)
     }

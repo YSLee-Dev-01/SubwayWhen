@@ -579,9 +579,10 @@ final class TotalLoadModelTests: XCTestCase {
             description: "StationName은 검색한 역이 나와야함"
         )
         
-        expect(requestFirstLine).to(
+        /// v1.7에 정렬이 추가됨에 따라 테스트 케이스 변경
+        expect(requestFirstLine).toNot(
             equal(dummyFirstLine),
-            description: "같은 데이터이기 때문에 첫 번째의 라인도 같아야함"
+            description: "같은 데이터여도 내부 정렬이 되기 때문에 Line이 다름 (2, 3 호선 순서)"
         )
     }
     
