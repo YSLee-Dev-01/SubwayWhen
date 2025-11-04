@@ -58,12 +58,11 @@ extension MainTableView {
             .map {_ in .refreshEvent}
             .bind(to: self.mainTableViewAction)
             .disposed(by: self.bag)
-        
     }
     
     @discardableResult
     func setDI(action: PublishRelay<MainViewAction>) -> Self {
-        mainTableViewAction
+        self.mainTableViewAction
             .bind(to: action)
             .disposed(by: self.bag)
         
@@ -91,46 +90,45 @@ extension MainTableView {
     @discardableResult
     func setDI(
         tableViewData: Driver<[MainTableViewSection]>,
-        peopleData: Driver<Int>,
         groupData: Driver<SaveStationGroup>
     ) -> Self {
         let dataSources = RxTableViewSectionedAnimatedDataSource<MainTableViewSection>(animationConfiguration: AnimationConfiguration(insertAnimation: .fade, reloadAnimation: .fade, deleteAnimation: .fade), configureCell: {[weak self] dataSource, tv, index, item in
             guard let self = self else {return UITableViewCell()}
             
             switch index.section{
-            case 0:
-                guard let cell = tv.dequeueReusableCell(withIdentifier: "MainHeader", for: index) as? MainTableViewHeaderCell else {return UITableViewCell()}
-                
-                cell.bind(peopleData: peopleData)
-                
-                cell.reportBtn.rx.tap
-                    .map {_ in .reportBtnTap}
-                    .bind(to: self.mainTableViewAction)
-                    .disposed(by: cell.bag)
-                
-                cell.editBtn.rx.tap
-                    .map {_ in .editBtnTap}
-                    .bind(to: self.mainTableViewAction)
-                    .disposed(by: cell.bag)
-                
-                return cell
-                
-            case 1:
-                guard let cell = tv.dequeueReusableCell(withIdentifier: "MainGroup", for: index) as? MainTableViewGroupCell else {return UITableViewCell()}
-                
-                let group = cell.bind(groupData: groupData)
-                    .share()
-                
-                group
-                    .bind(to: self.rx.willDisplayCellDataRemove)
-                    .disposed(by: cell.bag)
-                
-                group
-                    .map {.groupTap($0)}
-                    .bind(to: self.mainTableViewAction)
-                    .disposed(by: cell.bag)
-                
-                return cell
+//            case 0:
+//                guard let cell = tv.dequeueReusableCell(withIdentifier: "MainHeader", for: index) as? MainTableViewHeaderCell else {return UITableViewCell()}
+//                
+//                cell.bind(peopleData: peopleData)
+//                
+//                cell.reportBtn.rx.tap
+//                    .map {_ in .reportBtnTap}
+//                    .bind(to: self.mainTableViewAction)
+//                    .disposed(by: cell.bag)
+//                
+//                cell.editBtn.rx.tap
+//                    .map {_ in .editBtnTap}
+//                    .bind(to: self.mainTableViewAction)
+//                    .disposed(by: cell.bag)
+//                
+//                return cell
+//                
+//            case 1:
+//                guard let cell = tv.dequeueReusableCell(withIdentifier: "MainGroup", for: index) as? MainTableViewGroupCell else {return UITableViewCell()}
+//                
+//                let group = cell.bind(groupData: groupData)
+//                    .share()
+//                
+//                group
+//                    .bind(to: self.rx.willDisplayCellDataRemove)
+//                    .disposed(by: cell.bag)
+//                
+//                group
+//                    .map {.groupTap($0)}
+//                    .bind(to: self.mainTableViewAction)
+//                    .disposed(by: cell.bag)
+//                
+//                return cell
                 
             default:
                 if item.id == "NoData"{

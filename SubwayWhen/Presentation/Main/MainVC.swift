@@ -70,13 +70,18 @@ extension MainVC{
         )
         
         let output = self.mainViewModel.trasnform(input: input)
-        self.mainTableView.setDI(action: self.mainAction)
+        self.mainTableView
+            .setDI(action: self.mainAction)
             .setDI(importantData: output.importantData)
             .setDI(
                 tableViewData: output.tableViewData,
-                peopleData: output.peopleData,
-                groupData: output.groupData)
+                groupData: output.groupData
+            )
             .setDI(setCellData: output.cellData)
+        
+        self.heaerView
+            .setDI(action: self.mainAction)
+            .setDI(peopleData: output.peopleData)
         
         output.tableViewData
             .map { _ in Void()}
@@ -87,7 +92,6 @@ extension MainVC{
             .drive(self.rx.mainTitleSet)
             .disposed(by: self.bag)
     }
-        
 }
 
 extension Reactive where Base : MainVC {

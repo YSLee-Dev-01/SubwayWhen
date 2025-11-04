@@ -31,7 +31,7 @@ class MainViewModel {
         let mainTitle: Driver<String>
         let importantData: Driver<ImportantData>
         let tableViewData: Driver<[MainTableViewSection]>
-        let peopleData: Driver<Int>
+        let peopleData: Driver<String>
         let groupData: Driver<SaveStationGroup>
         let cellData: Driver<(MainTableViewCellData, Int)>
     }
@@ -85,7 +85,7 @@ class MainViewModel {
     private let nowSaveStationEmptyData = BehaviorRelay<[MainTableViewCellData]>(value: [])
     private let nowGroupData = BehaviorRelay<[MainTableViewCellData]>(value: [])
     private let nowGroupSet = BehaviorRelay<(SaveStationGroup, Bool)>(value: (.one, false))
-    private let nowPeopleData = BehaviorRelay<Int>(value: 0)
+    private let nowPeopleData = BehaviorRelay<String>(value: "🫥🫥🫥🫥🫥🫥🫥🫥🫥🫥")
     private let nowSingleLiveData = BehaviorRelay<(MainTableViewCellData, Int)?>(value: nil)
     
     weak var delegate : MainDelegate?
@@ -137,6 +137,14 @@ private extension MainViewModel {
             
             // 혼잡도 세팅
             self.mainModel.congestionDataLoad()
+                .map { count in
+                    let emoji = count == 0 ? "🫥" : FixInfo.saveSetting.mainCongestionLabel
+                    let filledCount = count == 0 ? 10 : count
+                    let emptyCount = max(0, 10 - filledCount)
+                    
+                    return String(repeating: emoji, count: filledCount)
+                    + String(repeating: "🫥", count: emptyCount)
+                }
                 .bind(to: self.nowPeopleData)
                 .disposed(by: self.bag)
             
