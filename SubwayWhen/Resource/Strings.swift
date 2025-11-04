@@ -147,6 +147,8 @@ extension Strings.Setting {
 }
 
 extension Strings.Main {
+    /// 홈
+    static let title = "홈"
     /// 현재 지하철 예상 혼잡도
     static let currentTraffic = "현재 지하철 예상 혼잡도"
     /// 중요알림

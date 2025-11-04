@@ -16,12 +16,14 @@ class MainVC: TableVCCustom {
     private let bag = DisposeBag()
     
     private let mainTableView = MainTableView()
+    private let heaerView = MainTableHeaderView()
+    
     private let mainViewModel : MainViewModel
     private let mainAction = PublishRelay<MainViewAction>()
     
     init(viewModel: MainViewModel){
         self.mainViewModel = viewModel
-        super.init(title: "홈", titleViewHeight: 62)
+        super.init(title: Strings.Main.title, titleViewHeight: 62, additionalHeaderView: self.heaerView)
         
         self.tableView = self.mainTableView
         self.tableView.delegate = self
