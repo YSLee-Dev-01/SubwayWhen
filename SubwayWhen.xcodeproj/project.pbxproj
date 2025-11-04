@@ -396,6 +396,7 @@
 		FF8CBE232C89391700E6B4D2 /* SinbundangScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8CBE212C8938BF00E6B4D2 /* SinbundangScheduleModel.swift */; };
 		FF8CBE242C89393300E6B4D2 /* SinbundangScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8CBE212C8938BF00E6B4D2 /* SinbundangScheduleModel.swift */; };
 		FF9B1E352E7D29C100FA298B /* NotificationTCADependencyKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B1E342E7D29C100FA298B /* NotificationTCADependencyKey.swift */; };
+		FF9B797A2EB9BBC5009393C7 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B79792EB9BBC5009393C7 /* UIView+.swift */; };
 		FFA67B742D0C017D006EFAB7 /* SearchStaion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C6DB78293627AE00C4ED80 /* SearchStaion.swift */; };
 		FFABBB022C92A5C300CCC692 /* CoreDataScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFABBB012C92A5C300CCC692 /* CoreDataScheduleManager.swift */; };
 		FFABBB1A2C92C34000CCC692 /* CoreDataScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFABBB012C92A5C300CCC692 /* CoreDataScheduleManager.swift */; };
@@ -841,6 +842,7 @@
 		FF8CBE292C8977F700E6B4D2 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/System/iOSSupport/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
 		FF8CBE2B2C89781600E6B4D2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		FF9B1E342E7D29C100FA298B /* NotificationTCADependencyKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTCADependencyKey.swift; sourceTree = "<group>"; };
+		FF9B79792EB9BBC5009393C7 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		FFABBB012C92A5C300CCC692 /* CoreDataScheduleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataScheduleManager.swift; sourceTree = "<group>"; };
 		FFC07F672D349B4E0001B1CD /* SearchQueryRecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchQueryRecommendView.swift; sourceTree = "<group>"; };
 		FFC07F692D34D63D0001B1CD /* SearchQueryRecommendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchQueryRecommendData.swift; sourceTree = "<group>"; };
@@ -1945,6 +1947,7 @@
 				34F5F0FC29641AC10010A21D /* TitleView.swift */,
 				FA9AA9B12BD639F300906A5B /* UIApplication+.swift */,
 				FF6B35F92E8A47B000814E32 /* UIDevice+.swift */,
+				FF9B79792EB9BBC5009393C7 /* UIView+.swift */,
 			);
 			path = Sub;
 			sourceTree = "<group>";
@@ -3029,6 +3032,7 @@
 				FF9B1E352E7D29C100FA298B /* NotificationTCADependencyKey.swift in Sources */,
 				3481C4E129C0693E003F5213 /* KorailTrainNumber.swift in Sources */,
 				3497DC9729D2F9E400D2ABB9 /* DetailResultScheduleViewModelProtocol.swift in Sources */,
+				FF9B797A2EB9BBC5009393C7 /* UIView+.swift in Sources */,
 				34C6DB91293627AF00C4ED80 /* SearchStaion.swift in Sources */,
 				341EEA722ACD56E600E8F1EF /* TutorialVCAction.swift in Sources */,
 				FF8298FF2CFD9C53008ED530 /* SearchView.swift in Sources */,
