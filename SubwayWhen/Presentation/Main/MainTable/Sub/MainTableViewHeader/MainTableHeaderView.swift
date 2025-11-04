@@ -34,6 +34,7 @@ class MainTableHeaderView: UIView {
     
     private let groupView = MainTableHeaderGroupView()
     
+    private let mainTableViewAction = PublishRelay<MainViewAction>()
     private let bag = DisposeBag()
     
     // MARK: - LifeCycle
@@ -42,6 +43,7 @@ class MainTableHeaderView: UIView {
         super.init(frame: CGRect(x: 0, y: 0, width: 100 , height: 300))
         
         self.attribute()
+        self.bind()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { // 레이아웃 오류 방지
             self.layout()
         }
@@ -95,5 +97,42 @@ extension MainTableHeaderView {
             $0.top.equalTo(self.liveStatusLabel.snp.bottom).offset(10)
             $0.leading.trailing.bottom.equalToSuperview()
         }
+    }
+    
+    private func bind() {
+        self.groupView
+            .setDI(action: self.mainTableViewAction)
+        
+        self.reportBtn.rx.tap
+            .map {_ in .reportBtnTap}
+            .bind(to: self.mainTableViewAction)
+            .disposed(by: self.bag)
+        
+        self.editBtn.rx.tap
+            .map {_ in .editBtnTap}
+            .bind(to: self.mainTableViewAction)
+            .disposed(by: self.bag)
+    }
+    
+    @discardableResult
+    func setDI(action: PublishRelay<MainViewAction>) -> Self {
+        self.mainTableViewAction
+            .bind(to: action)
+            .disposed(by: self.bag)
+        
+        return self
+    }
+    
+    @discardableResult
+    func setDI(peopleData: Driver<String>) -> Self {
+        peopleData
+            .do(onNext: { [weak self] _ in
+                self?.editBtn.iconAnimationPlay()
+                self?.reportBtn.iconAnimationPlay()
+            })
+            .drive(self.congestionLabelBG.subTitle.rx.text)
+            .disposed(by: self.bag)
+        
+        return self
     }
 }
