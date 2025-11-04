@@ -11,6 +11,7 @@ struct Strings {
     struct Common{}
     struct Report {}
     struct Setting {}
+    struct Main {}
 }
 
 extension Strings.Common {
@@ -143,4 +144,15 @@ extension Strings.Setting {
     static let openLicense = "오픈 라이선스"
     /// 기타
     static let other = "기타"
+}
+
+extension Strings.Main {
+    /// 현재 지하철 예상 혼잡도
+    static let currentTraffic = "현재 지하철 예상 혼잡도"
+    /// 중요알림
+    static let importantAlarm = "중요알림"
+    /// 편집
+    static let edit = "편집"
+    /// 실시간 현황
+    static let liveStatus = "실시간 현황"
 }
