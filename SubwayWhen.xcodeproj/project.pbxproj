@@ -397,6 +397,7 @@
 		FF8CBE242C89393300E6B4D2 /* SinbundangScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8CBE212C8938BF00E6B4D2 /* SinbundangScheduleModel.swift */; };
 		FF9B1E352E7D29C100FA298B /* NotificationTCADependencyKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B1E342E7D29C100FA298B /* NotificationTCADependencyKey.swift */; };
 		FF9B797A2EB9BBC5009393C7 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B79792EB9BBC5009393C7 /* UIView+.swift */; };
+		FF9B7A2D2EB9C24D009393C7 /* MainTableHeaderGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B7A2C2EB9C24D009393C7 /* MainTableHeaderGroupView.swift */; };
 		FFA67B742D0C017D006EFAB7 /* SearchStaion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C6DB78293627AE00C4ED80 /* SearchStaion.swift */; };
 		FFABBB022C92A5C300CCC692 /* CoreDataScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFABBB012C92A5C300CCC692 /* CoreDataScheduleManager.swift */; };
 		FFABBB1A2C92C34000CCC692 /* CoreDataScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFABBB012C92A5C300CCC692 /* CoreDataScheduleManager.swift */; };
@@ -843,6 +844,7 @@
 		FF8CBE2B2C89781600E6B4D2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		FF9B1E342E7D29C100FA298B /* NotificationTCADependencyKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTCADependencyKey.swift; sourceTree = "<group>"; };
 		FF9B79792EB9BBC5009393C7 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		FF9B7A2C2EB9C24D009393C7 /* MainTableHeaderGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableHeaderGroupView.swift; sourceTree = "<group>"; };
 		FFABBB012C92A5C300CCC692 /* CoreDataScheduleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataScheduleManager.swift; sourceTree = "<group>"; };
 		FFC07F672D349B4E0001B1CD /* SearchQueryRecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchQueryRecommendView.swift; sourceTree = "<group>"; };
 		FFC07F692D34D63D0001B1CD /* SearchQueryRecommendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchQueryRecommendData.swift; sourceTree = "<group>"; };
@@ -2127,6 +2129,7 @@
 				B6438D302B667CB10099BFEF /* Sub */,
 				B6438D332B667CB10099BFEF /* MainTableViewHeaderCell.swift */,
 				FF7D85842EB9B95900B48134 /* MainTableHeaderView.swift */,
+				FF9B7A2C2EB9C24D009393C7 /* MainTableHeaderGroupView.swift */,
 			);
 			path = MainTableViewHeader;
 			sourceTree = "<group>";
@@ -2957,6 +2960,7 @@
 				B6438D442B667CB10099BFEF /* MainTableViewGroupBtn.swift in Sources */,
 				349D788629CC1B8700CA1B52 /* AppDefaultModelProtocol.swift in Sources */,
 				3497DC8829D2DED200D2ABB9 /* ModalModelProtocol.swift in Sources */,
+				FF9B7A2D2EB9C24D009393C7 /* MainTableHeaderGroupView.swift in Sources */,
 				3455CFA42A53DCF6001ADE61 /* ModalCoordinatorProtocol.swift in Sources */,
 				34A303B729AF86FD00948EDD /* ScheduleSearch.swift in Sources */,
 				FF03652F2D00126600EF325D /* LocationManager.swift in Sources */,
