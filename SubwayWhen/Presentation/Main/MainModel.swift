@@ -18,7 +18,7 @@ class MainModel : MainModelProtocol{
     }
     
     func mainTitleLoad() -> Observable<String> {
-        Observable<String>.create{
+        return Observable<String>.create{
             let data = Calendar.current.component(.weekday, from: Date())
             let weekMessages = [
                 Strings.Main.weekendMessages,
@@ -48,47 +48,39 @@ class MainModel : MainModelProtocol{
     
     func congestionDataLoad() -> Observable<Int>{
         // 혼잡도 set
-        Observable.just(1)
-            .map{ _ in
-                let nowHour = Calendar.current.component(.hour, from: Date())
-                let week =  Calendar.current.component(.weekday, from: Date())
-                
-                if week == 1 || week == 7{
-                    if 1...4 ~= nowHour{
-                        return 0
-                    }else{
-                        return 5
-                    }
-                }else{
-                    if 1...4 ~= nowHour {
-                        return 0
-                    }else if 5 == nowHour{
-                        return 3
-                    }else if 6 == nowHour{
-                        return 2
-                    }else if 7 == nowHour{
-                        return 4
-                    }else if 8...9 ~= nowHour{
-                        return 9
-                    }else if 10...11 ~= nowHour{
-                        return 4
-                    }else if 12...14 ~= nowHour{
-                        return 5
-                    }else if 15...16 ~= nowHour{
-                        return 6
-                    }else if 17...18 ~= nowHour{
-                        return 10
-                    }else if 19 == nowHour{
-                        return 7
-                    }else if 20...22 ~= nowHour{
-                        return 5
-                    }else if 23 == nowHour{
-                        return 4
-                    }else {
-                        return 2
-                    }
+        return Observable<Int>.create { observer in
+            let nowHour = Calendar.current.component(.hour, from: Date())
+            let week =  Calendar.current.component(.weekday, from: Date())
+            var congestion = 0
+            
+            if week == 1 || week == 7 {
+                congestion = switch nowHour {
+                case 1...4: 0
+                default: 5
+                }
+            } else {
+                congestion = switch nowHour {
+                case 1...4: 0
+                case 5: 3
+                case 6: 5
+                case 7: 7
+                case 8...9: 10
+                case 10...11: 4
+                case 12...14: 5
+                case 15...16: 6
+                case 17...18: 10
+                case 19: 9
+                case 20...22: 5
+                case 23: 3
+                default: 2
                 }
             }
+            
+            observer.onNext(congestion)
+            observer.onCompleted()
+            
+            return Disposables.create()
+        }
     }
     
     func timeGroup(oneTime : Int, twoTime : Int, nowHour : Int) -> Observable<SaveStationGroup>{
@@ -115,7 +107,7 @@ class MainModel : MainModelProtocol{
     }
     
     func arrivalDataLoad(stations: [SaveStation]) -> Observable<(MainTableViewCellData, Int)>{
-        self.model.totalLiveDataLoad(stations: stations)
+        return self.model.totalLiveDataLoad(stations: stations)
     }
     
     func createMainTableViewSection(_ data: [MainTableViewCellData]) -> [MainTableViewSection]{
@@ -131,17 +123,16 @@ class MainModel : MainModelProtocol{
     }
     
     func mainCellDataToScheduleData(_ item: MainTableViewCellData) -> ScheduleSearch? {
-        if item.type == .real{
-            if item.korailCode == "K4" || item.korailCode == "K1" || item.korailCode == "K2"{
-                return ScheduleSearch(stationCode: item.stationCode, upDown: item.upDown, exceptionLastStation: item.exceptionLastStation, line: item.subwayLineData.rawValue,  korailCode: item.korailCode, stationName: item.stationName)
-            }else if item.korailCode == "UI" || item.korailCode == "D1" || item.korailCode == "A1"{
-                return ScheduleSearch(stationCode: item.stationCode, upDown: item.upDown, exceptionLastStation: item.exceptionLastStation, line: item.subwayLineData.rawValue, korailCode: item.korailCode, stationName: item.stationName)
-            }else{
-                return ScheduleSearch(stationCode: item.stationCode, upDown: item.upDown, exceptionLastStation: item.exceptionLastStation, line: item.subwayLineData.rawValue,  korailCode: item.korailCode, stationName: item.stationName)
-            }
-        }else{
-            return nil
-        }
+        guard item.type == .real else { return nil }
+        
+        return ScheduleSearch(
+            stationCode: item.stationCode,
+            upDown: item.upDown,
+            exceptionLastStation: item.exceptionLastStation,
+            line: item.subwayLineData.rawValue,
+            korailCode: item.korailCode,
+            stationName: item.stationName
+        )
     }
     
     func scheduleLoad(_ data: ScheduleSearch) ->  Observable<[ResultSchdule]>{
@@ -157,15 +148,15 @@ class MainModel : MainModelProtocol{
     }
     
     func scheduleDataToMainTableViewCell(data: ResultSchdule, nowData: MainTableViewCellData) -> MainTableViewCellData{
-        MainTableViewCellData(upDown: nowData.upDown, arrivalTime: data.useArrTime, previousStation: "", subPrevious: "\(data.useTime)", code: "\(data.useArrTime)", stationName: nowData.stationName, lastStation: "\(data.lastStation)\(Strings.Main.bound)", isFast: "\(data.isFast)", group: nowData.group, id: nowData.id, stationCode: nowData.stationCode, exceptionLastStation: nowData.exceptionLastStation, type: .schedule, backStationId: nowData.backStationId, nextStationId: nowData.nextStationId, korailCode: nowData.korailCode, stateMSG: data.useArrTime, subwayLineData: nowData.subwayLineData)
+        return MainTableViewCellData(upDown: nowData.upDown, arrivalTime: data.useArrTime, previousStation: "", subPrevious: "\(data.useTime)", code: "\(data.useArrTime)", stationName: nowData.stationName, lastStation: "\(data.lastStation)\(Strings.Main.bound)", isFast: "\(data.isFast)", group: nowData.group, id: nowData.id, stationCode: nowData.stationCode, exceptionLastStation: nowData.exceptionLastStation, type: .schedule, backStationId: nowData.backStationId, nextStationId: nowData.nextStationId, korailCode: nowData.korailCode, stateMSG: data.useArrTime, subwayLineData: nowData.subwayLineData)
     }
     
     func headerImportantDataLoad() -> Observable<ImportantData> {
-        self.model.importantDataLoad()
+        return self.model.importantDataLoad()
     }
     
     func emptyLiveData(stations: [SaveStation]) -> Observable<[MainTableViewCellData]> {
-        Observable<[MainTableViewCellData]>.create {
+        return Observable<[MainTableViewCellData]>.create {
             $0.onNext(
                 stations.map { station -> MainTableViewCellData in
                         .init(upDown: station.updnLine, arrivalTime: "", previousStation: "", subPrevious: "", code: Strings.Main.dataLoading, stationName: station.stationName, lastStation: "", isFast: "", group: station.group.rawValue, id: station.id, stationCode: station.stationCode, exceptionLastStation: station.exceptionLastStation, type: .loading, backStationId: "", nextStationId: "",  korailCode: station.korailCode, stateMSG: Strings.Main.dataLoading, subwayLineData: .init(subwayId: station.lineCode))
