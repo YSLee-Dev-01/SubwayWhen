@@ -54,7 +54,7 @@ class MainViewModel {
             .disposed(by: self.bag)
         
         return Output(
-            mainTitle: self.mainModel.mainTitleLoad()
+            mainTitle: self.nowMainTitle
                 .asDriver(onErrorDriveWith: .empty()),
             importantData: importantData
                 .asDriver(onErrorDriveWith: .empty()),
@@ -85,6 +85,7 @@ class MainViewModel {
     private let nowGroupSet = BehaviorRelay<SaveStationGroup>(value: .one)
     private let nowPeopleData = BehaviorRelay<String>(value: "🫥🫥🫥🫥🫥🫥🫥🫥🫥🫥")
     private let nowSingleLiveData = BehaviorRelay<(MainTableViewCellData, Int)?>(value: nil)
+    private let nowMainTitle = BehaviorRelay<String>(value: Strings.Main.defaultMessage)
     
     weak var delegate : MainDelegate?
     
@@ -131,6 +132,11 @@ private extension MainViewModel {
                )
            .bind(to: self.nowGroupSet)
            .disposed(by: self.bag)
+            
+            // 메인 타이틀 업데이트
+            self.mainModel.mainTitleLoad()
+                .bind(to: self.nowMainTitle)
+                .disposed(by: self.bag)
             
             // 혼잡도 세팅
             self.mainModel.congestionDataLoad()
