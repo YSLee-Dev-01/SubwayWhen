@@ -129,9 +129,6 @@ class MainModel : MainModelProtocol{
     }
     
     func createMainTableViewSection(_ data: [MainTableViewCellData]) -> [MainTableViewSection]{
-        let header = MainTableViewSection(id : "header", sectionName: "", items: [.init(upDown: "", arrivalTime: "", previousStation: "", subPrevious: "", code: "",  stationName: "header", lastStation: "", isFast: "", group: "", id: "header", stationCode: "", exceptionLastStation: "", type: .real, backStationId: "", nextStationId: "",  korailCode: "", stateMSG: "", subwayLineData: .not)])
-        let group = MainTableViewSection(id : "group", sectionName: "실시간 현황", items: [.init(upDown: "", arrivalTime: "", previousStation: "", subPrevious: "", code: "", stationName: "group", lastStation: "", isFast: "", group: "", id: "group", stationCode: "", exceptionLastStation: "", type: .real, backStationId: "", nextStationId: "", korailCode: "", stateMSG: "", subwayLineData: .not)])
-        
         var groupData = MainTableViewSection(id: "live", sectionName: "", items: [])
         
         if data.isEmpty{
@@ -140,7 +137,7 @@ class MainModel : MainModelProtocol{
             groupData.items = data
         }
         
-        return [header,group,groupData]
+        return [groupData]
     }
     
     func mainCellDataToScheduleData(_ item: MainTableViewCellData) -> ScheduleSearch? {
