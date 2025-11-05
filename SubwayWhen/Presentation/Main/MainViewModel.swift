@@ -65,8 +65,6 @@ class MainViewModel {
             peopleData: self.nowPeopleData
                 .asDriver(),
             groupData: self.nowGroupSet
-                .filter {!$0.1}
-                .map {$0.0}
                 .asDriver(onErrorDriveWith: .empty()),
             cellData: self.nowSingleLiveData
                 .filterNil()
@@ -84,7 +82,7 @@ class MainViewModel {
         // false 로 된 데이터는 MainTableView를 재로딩 하지 않고, 값을 저장하는 용도로만 사용함
     private let nowSaveStationEmptyData = BehaviorRelay<[MainTableViewCellData]>(value: [])
     private let nowGroupData = BehaviorRelay<[MainTableViewCellData]>(value: [])
-    private let nowGroupSet = BehaviorRelay<(SaveStationGroup, Bool)>(value: (.one, false))
+    private let nowGroupSet = BehaviorRelay<SaveStationGroup>(value: .one)
     private let nowPeopleData = BehaviorRelay<String>(value: "🫥🫥🫥🫥🫥🫥🫥🫥🫥🫥")
     private let nowSingleLiveData = BehaviorRelay<(MainTableViewCellData, Int)?>(value: nil)
     
@@ -108,9 +106,9 @@ private extension MainViewModel {
             self.delegate?.pushTap(action: .Report(nil, nil))
             
         case .cellTap(let index):
-            if index.section != 2 {return}
+            if index.section != 0 {return}
             
-            let nowValue = nowTableViewCellData.value.0[2].items
+            let nowValue = nowTableViewCellData.value.0[0].items
             if nowValue.count <= index.row {return}
             let cellData = nowValue[index.row]
             
@@ -131,7 +129,6 @@ private extension MainViewModel {
                twoTime: FixInfo.saveSetting.mainGroupTwoTime,
                nowHour: Calendar.current.component(.hour, from: Date())
                )
-           .map {($0, false)}
            .bind(to: self.nowGroupSet)
            .disposed(by: self.bag)
             
@@ -156,7 +153,7 @@ private extension MainViewModel {
             scheduleBtnAction(index: index)
             
         case .groupTap(let group):
-            self.nowGroupSet.accept((group, true))
+            self.nowGroupSet.accept(group)
             
             // 데이터 로드
             self.tableViewDataSet()
@@ -165,7 +162,7 @@ private extension MainViewModel {
     }
     
     func tableViewDataSet() {
-        let data = self.nowSaveStationEmptyData.value.filter {$0.group == self.nowGroupSet.value.0.rawValue}
+        let data = self.nowSaveStationEmptyData.value.filter {$0.group == self.nowGroupSet.value.rawValue}
         self.nowGroupData.accept(data)
         
         self.nowGroupData
@@ -179,15 +176,15 @@ private extension MainViewModel {
     
     func stationLiveDataLoad() {
         let liveData = self.mainModel.arrivalDataLoad(
-            stations: FixInfo.saveStation.filter {$0.group ==  self.nowGroupSet.value.0}
+            stations: FixInfo.saveStation.filter {$0.group ==  self.nowGroupSet.value}
         )
             .withUnretained(self)
             .filter { viewModel, data in
                 let nowSecionData = viewModel.nowTableViewCellData.value.0
                 
-                guard data.0.group == viewModel.nowGroupSet.value.0.rawValue,
-                   nowSecionData[2].items.count > data.1,
-                   nowSecionData[2].items[data.1].id == data.0.id
+                guard data.0.group == viewModel.nowGroupSet.value.rawValue,
+                   nowSecionData[0].items.count > data.1,
+                   nowSecionData[0].items[data.1].id == data.0.id
                 else {return false}
                 
                 return true
@@ -203,7 +200,7 @@ private extension MainViewModel {
             .map { viewModel, data -> ([MainTableViewSection], Bool)? in
                 var nowSecionData = viewModel.nowTableViewCellData.value.0
                 
-                nowSecionData[2].items[data.1] = data.0
+                nowSecionData[0].items[data.1] = data.0
                 return (nowSecionData, false)
             }
             .filterNil()
@@ -213,7 +210,7 @@ private extension MainViewModel {
     
     func scheduleBtnAction(index: IndexPath) {
         // 시간표 버튼 클릭
-        let clickCellRow = self.nowTableViewCellData.value.0[2].items[index.row]
+        let clickCellRow = self.nowTableViewCellData.value.0[0].items[index.row]
         var nowSecionData = self.nowTableViewCellData.value.0
         
         // 구글 애널리틱스
@@ -231,9 +228,9 @@ private extension MainViewModel {
                 guard let scheduleData = scheduleData.first else {return nil}
                 let newData = viewModel.mainModel.scheduleDataToMainTableViewCell(data: scheduleData, nowData: clickCellRow)
                 
-                guard newData.group == viewModel.nowGroupSet.value.0.rawValue,
-                      nowSecionData[2].items.count > index.row,
-                      nowSecionData[2].items[index.row].id == newData.id
+                guard newData.group == viewModel.nowGroupSet.value.rawValue,
+                      nowSecionData[0].items.count > index.row,
+                      nowSecionData[0].items[index.row].id == newData.id
                 else {return nil}
                 
                 return (newData, index.row)
@@ -248,7 +245,7 @@ private extension MainViewModel {
         scheduleData
             .withUnretained(self)
             .map { viewModel, data -> ([MainTableViewSection], Bool)? in
-                nowSecionData[2].items[data.1] = data.0
+                nowSecionData[0].items[data.1] = data.0
                 return (nowSecionData, false)
             }
             .filterNil()

@@ -88,10 +88,17 @@ extension MainTableView {
     }
     
     @discardableResult
-    func setDI(
-        tableViewData: Driver<[MainTableViewSection]>,
-        groupData: Driver<SaveStationGroup>
-    ) -> Self {
+    func setDI(selectedGroup: Driver<SaveStationGroup>) -> Self {
+        selectedGroup
+            .asObservable()
+            .bind(to: self.rx.willDisplayCellDataRemove)
+            .disposed(by: self.bag)
+        
+        return self
+    }
+    
+    @discardableResult
+    func setDI( tableViewData: Driver<[MainTableViewSection]>) -> Self {
         let dataSources = RxTableViewSectionedAnimatedDataSource<MainTableViewSection>(animationConfiguration: AnimationConfiguration(insertAnimation: .fade, reloadAnimation: .fade, deleteAnimation: .fade), configureCell: {[weak self] dataSource, tv, index, item in
             guard let self = self else {return UITableViewCell()}
             
@@ -198,7 +205,7 @@ extension Reactive where Base: MainTableView {
             
             base.willDisplayCellData[data.1] = data.0
             
-            guard let cell = base.cellForRow(at: IndexPath(row: data.1, section: 2)) as? MainTableViewCell else {return}
+            guard let cell = base.cellForRow(at: IndexPath(row: data.1, section: 0)) as? MainTableViewCell else {return}
             cell.cellSet(data: data.0)
         }
     }

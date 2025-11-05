@@ -73,15 +73,14 @@ extension MainVC{
         self.mainTableView
             .setDI(action: self.mainAction)
             .setDI(importantData: output.importantData)
-            .setDI(
-                tableViewData: output.tableViewData,
-                groupData: output.groupData
-            )
+            .setDI(tableViewData: output.tableViewData)
             .setDI(setCellData: output.cellData)
+            .setDI(selectedGroup: output.groupData)
         
         self.heaerView
             .setDI(action: self.mainAction)
             .setDI(peopleData: output.peopleData)
+            .setDI(selectedGroup: output.groupData)
         
         output.tableViewData
             .map { _ in Void()}

@@ -79,10 +79,6 @@ extension MainTableHeaderGroupView {
             self.groupOne.rx.tap.map { _ in SaveStationGroup.one},
             self.groupTwo.rx.tap.map { _ in SaveStationGroup.two}
         )
-        .do(onNext: {[weak self] group in
-            self?.updateGroupSelection(group)
-            self?.btnClickSizeChange(group: group == .two)
-        })
         .map {.groupTap($0)}
         .bind(to: self.mainTableViewAction)
         .disposed(by: self.bag)
@@ -122,6 +118,18 @@ extension MainTableHeaderGroupView {
     func setDI(action: PublishRelay<MainViewAction>) -> Self {
         self.mainTableViewAction
             .bind(to: action)
+            .disposed(by: self.bag)
+        
+        return self
+    }
+    
+    @discardableResult
+    func setDI(selectedGroup: Driver<SaveStationGroup>) -> Self {
+        selectedGroup
+            .drive(onNext: { [weak self] group in
+                self?.updateGroupSelection(group)
+                self?.btnClickSizeChange(group: group == .two)
+            })
             .disposed(by: self.bag)
         
         return self

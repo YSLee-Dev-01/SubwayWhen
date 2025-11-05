@@ -135,4 +135,12 @@ extension MainTableHeaderView {
         
         return self
     }
+    
+    @discardableResult
+    func setDI(selectedGroup: Driver<SaveStationGroup>) -> Self {
+        self.groupView
+            .setDI(selectedGroup: selectedGroup)
+        
+        return self
+    }
 }
