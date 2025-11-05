@@ -14,14 +14,20 @@ import RxCocoa
 import RxDataSources
 
 class MainTableView: UITableView {
+    
+    // MARK: - Properties
+    
     private lazy var refresh = UIRefreshControl().then{
         $0.backgroundColor = .systemBackground
-        $0.attributedTitle = NSAttributedString("🔄 당겨서 새로고침")
+        $0.attributedTitle = NSAttributedString(string: Strings.Main.refresh)
     }
     
     fileprivate var willDisplayCellData = [Int: MainTableViewCellData]()
-    private let bag = DisposeBag()
+    
     private let mainTableViewAction = PublishRelay<MainViewAction>()
+    private let bag = DisposeBag()
+    
+    // MARK: - LifeCycle
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -34,6 +40,8 @@ class MainTableView: UITableView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+// MARK: - Methods
 
 extension MainTableView {
     private func attribute(){
@@ -102,48 +110,14 @@ extension MainTableView {
         let dataSources = RxTableViewSectionedAnimatedDataSource<MainTableViewSection>(animationConfiguration: AnimationConfiguration(insertAnimation: .fade, reloadAnimation: .fade, deleteAnimation: .fade), configureCell: {[weak self] dataSource, tv, index, item in
             guard let self = self else {return UITableViewCell()}
             
-            switch index.section{
-//            case 0:
-//                guard let cell = tv.dequeueReusableCell(withIdentifier: "MainHeader", for: index) as? MainTableViewHeaderCell else {return UITableViewCell()}
-//                
-//                cell.bind(peopleData: peopleData)
-//                
-//                cell.reportBtn.rx.tap
-//                    .map {_ in .reportBtnTap}
-//                    .bind(to: self.mainTableViewAction)
-//                    .disposed(by: cell.bag)
-//                
-//                cell.editBtn.rx.tap
-//                    .map {_ in .editBtnTap}
-//                    .bind(to: self.mainTableViewAction)
-//                    .disposed(by: cell.bag)
-//                
-//                return cell
-//                
-//            case 1:
-//                guard let cell = tv.dequeueReusableCell(withIdentifier: "MainGroup", for: index) as? MainTableViewGroupCell else {return UITableViewCell()}
-//                
-//                let group = cell.bind(groupData: groupData)
-//                    .share()
-//                
-//                group
-//                    .bind(to: self.rx.willDisplayCellDataRemove)
-//                    .disposed(by: cell.bag)
-//                
-//                group
-//                    .map {.groupTap($0)}
-//                    .bind(to: self.mainTableViewAction)
-//                    .disposed(by: cell.bag)
-//                
-//                return cell
-                
-            default:
-                if item.id == "NoData"{
+            switch index.section {
+            case 0:
+                if item.id == "NoData" {
                     guard let cell = tv.dequeueReusableCell(withIdentifier: "MainDefault", for: index) as? MainTableViewDefaultCell else {return UITableViewCell()}
                     
                     cell.animationPlay()
                     return cell
-                }else{
+                } else {
                     guard let cell = tv.dequeueReusableCell(withIdentifier: "MainCell", for: index) as? MainTableViewCell else {return UITableViewCell()}
                     
                     if item.type == .loading,
@@ -162,12 +136,10 @@ extension MainTableView {
 
                     return cell
                 }
+                
+            default: return UITableViewCell()
             }
         })
-        
-        dataSources.titleForHeaderInSection = {dataSource, index in
-            dataSource[index].sectionName
-        }
         
         tableViewData
             .drive(self.rx.items(dataSource: dataSources))
@@ -184,6 +156,8 @@ extension MainTableView {
         return self
     }
 }
+
+// MARK: - extension Reactive
 
 extension Reactive where Base: MainTableView {
     var importantTransform: Binder<ImportantData> {

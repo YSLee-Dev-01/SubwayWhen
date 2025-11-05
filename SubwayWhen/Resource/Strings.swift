@@ -157,4 +157,6 @@ extension Strings.Main {
     static let edit = "편집"
     /// 실시간 현황
     static let liveStatus = "실시간 현황"
+    /// 🔄 당겨서 새로고침
+    static let refresh = "🔄 당겨서 새로고침"
 }
