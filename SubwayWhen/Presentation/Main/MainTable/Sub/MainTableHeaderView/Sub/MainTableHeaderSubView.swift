@@ -11,7 +11,10 @@ import SnapKit
 import Then
 
 class MainTableHeaderSubView: MainStyleUIView {
-    let mainTitle = UILabel().then{
+    
+    // MARK: - Properties
+    
+    private let mainTitle = UILabel().then{
         $0.font = .boldSystemFont(ofSize: ViewStyle.FontSize.mediumSize)
         $0.textAlignment = .left
         $0.textColor = .label
@@ -24,10 +27,13 @@ class MainTableHeaderSubView: MainStyleUIView {
         $0.adjustsFontSizeToFitWidth = true
     }
     
-    init(title: String, subTitle: String){
+    // MARK: - LifeCycle
+    
+    init(title: String, subTitle: String, isImportantMode: Bool = false){
         super.init(frame: .zero)
+        
+        self.attribute(title: title, subTitle: subTitle, isImportantMode: isImportantMode)
         self.layout()
-        self.attribute(title: title, subTitle: subTitle)
     }
     
     required init?(coder: NSCoder) {
@@ -35,13 +41,21 @@ class MainTableHeaderSubView: MainStyleUIView {
     }
 }
 
+// MARK: - Methods
+
 extension MainTableHeaderSubView {
-    private func layout() {
-        [self.mainTitle, self.subTitle]
-            .forEach{
-                self.addSubview($0)
-            }
+    private func attribute(title: String, subTitle: String, isImportantMode: Bool) {
+        self.mainTitle.text = title
+        self.subTitle.text = subTitle
         
+        if isImportantMode {
+            self.layer.borderWidth = 1
+            self.layer.borderColor = UIColor.systemRed.cgColor
+        }
+    }
+    
+    private func layout() {
+        self.addSubviews(self.mainTitle, self.subTitle)
         self.mainTitle.snp.makeConstraints{
             $0.leading.trailing.equalToSuperview().inset(15)
             $0.bottom.equalTo(self.snp.centerY).offset(-5)
@@ -50,31 +64,5 @@ extension MainTableHeaderSubView {
             $0.leading.trailing.equalToSuperview().inset(15)
             $0.top.equalTo(self.snp.centerY)
         }
-    }
-    
-    private func attribute(title: String, subTitle: String) {
-        self.mainTitle.text = title
-        self.subTitle.text = subTitle
-    }
-    
-    func smallSizeTransform(title : String) {
-        self.mainTitle.snp.remakeConstraints {
-            $0.leading.equalToSuperview().inset(15)
-            $0.width.equalTo(80)
-            $0.centerY.equalToSuperview()
-        }
-        self.subTitle.snp.remakeConstraints {
-            $0.leading.equalTo(self.mainTitle.snp.trailing).offset(8)
-            $0.trailing.equalToSuperview().inset(15)
-            $0.centerY.equalToSuperview()
-        }
-        
-        UIView.animate(withDuration: 0.25) {
-            self.mainTitle.font = .boldSystemFont(ofSize: ViewStyle.FontSize.largeSize)
-            self.subTitle.font = .boldSystemFont(ofSize: ViewStyle.FontSize.largeSize)
-            self.layoutIfNeeded()
-            self.mainTitle.text = title
-        }
-        
     }
 }
