@@ -19,9 +19,7 @@ class MainTableHeaderView: UIView {
         title: Strings.Main.currentTraffic, subTitle: "🫥🫥🫥🫥🫥🫥🫥🫥🫥🫥"
     )
     
-    private let importantLabelBG = MainTableHeaderSubView (
-        title: Strings.Main.importantAlarm, subTitle: Strings.Main.importantAlarm
-    )
+    private var importantLabelBG: MainTableHeaderSubView?
     
     private let reportBtn = MainTableHeaderViewBtn(title: Strings.Report.title, img: "Report")
     private let editBtn = MainTableHeaderViewBtn(title: Strings.Main.edit, img: "List")
@@ -114,6 +112,28 @@ extension MainTableHeaderView {
             .disposed(by: self.bag)
     }
     
+    private func setupImportantView(title: String, subTitle: String) {
+        self.importantLabelBG = .init(title: title, subTitle: subTitle, isImportantMode: true)
+        guard let importantLabelBG = self.importantLabelBG else {return}
+        
+        self.addSubview(importantLabelBG)
+        importantLabelBG.snp.remakeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(ViewStyle.padding.mainStyleViewLR)
+            $0.height.equalTo(90)
+        }
+        
+        self.congestionLabelBG.snp.remakeConstraints{
+            $0.top.equalTo(importantLabelBG.snp.bottom).offset(10)
+            $0.leading.trailing.equalToSuperview().inset(ViewStyle.padding.mainStyleViewLR)
+            $0.height.equalTo(90)
+        }
+        
+        UIView.animate(withDuration: 0.25) {
+            self.layoutIfNeeded()
+        }
+    }
+    
     @discardableResult
     func setDI(action: PublishRelay<MainViewAction>) -> Self {
         self.mainTableViewAction
@@ -140,6 +160,18 @@ extension MainTableHeaderView {
     func setDI(selectedGroup: Driver<SaveStationGroup>) -> Self {
         self.groupView
             .setDI(selectedGroup: selectedGroup)
+        
+        return self
+    }
+    
+    @discardableResult
+    func setDI(importantData: Driver<ImportantData>) -> Self {
+        importantData
+            .asObservable()
+            .subscribe(onNext: { [weak self] data in
+                self?.setupImportantView(title: data.title, subTitle: data.contents)
+            })
+            .disposed(by: self.bag)
         
         return self
     }

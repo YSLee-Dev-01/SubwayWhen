@@ -72,13 +72,13 @@ extension MainVC{
         let output = self.mainViewModel.trasnform(input: input)
         self.mainTableView
             .setDI(action: self.mainAction)
-            .setDI(importantData: output.importantData)
             .setDI(tableViewData: output.tableViewData)
             .setDI(setCellData: output.cellData)
             .setDI(selectedGroup: output.groupData)
         
         self.heaerView
             .setDI(action: self.mainAction)
+            .setDI(importantData: output.importantData)
             .setDI(peopleData: output.peopleData)
             .setDI(selectedGroup: output.groupData)
         
@@ -89,6 +89,10 @@ extension MainVC{
         
         output.mainTitle
             .drive(self.rx.mainTitleSet)
+            .disposed(by: self.bag)
+        
+        output.importantData
+            .drive(self.rx.importantTransform)
             .disposed(by: self.bag)
     }
 }
@@ -103,6 +107,14 @@ extension Reactive where Base : MainVC {
     var mainTitleSet : Binder<String>{
         return Binder(base){base, data in
             base.titleView.mainTitleLabel.text = data
+        }
+    }
+    
+    var importantTransform: Binder<ImportantData> {
+        return Binder(base) { base, data in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                base.updateTableHeaderViewHeight()
+            }
         }
     }
 }

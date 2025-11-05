@@ -76,15 +76,6 @@ extension MainTableView {
     }
     
     @discardableResult
-    func setDI(importantData: Driver<ImportantData>) -> Self {
-        importantData
-            .drive(self.rx.importantTransform)
-            .disposed(by: self.bag)
-        
-        return self
-    }
-    
-    @discardableResult
     func setDI(setCellData: Driver<(MainTableViewCellData, Int)>) -> Self {
         setCellData
             .drive(self.rx.cellDataUpdate)
@@ -158,12 +149,6 @@ extension MainTableView {
 // MARK: - extension Reactive
 
 extension Reactive where Base: MainTableView {
-    var importantTransform: Binder<ImportantData> {
-        return Binder(base) { base, data in
-            base.reloadData()
-        }
-    }
-    
     var cellDataUpdate: Binder<(MainTableViewCellData, Int)> {
         return Binder(base) { base, data in
             if data.0.id == "NoData" {
