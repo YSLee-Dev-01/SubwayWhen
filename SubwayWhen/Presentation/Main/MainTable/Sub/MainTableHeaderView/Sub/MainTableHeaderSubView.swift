@@ -74,7 +74,7 @@ extension MainTableHeaderSubView {
         
         self.mainTitle.snp.makeConstraints{
             $0.leading.equalToSuperview().inset(15)
-            $0.bottom.equalTo(self.snp.centerY).offset(isImportantMode ? 0 : -5)
+            $0.bottom.equalTo(self.snp.centerY).offset(-5)
             
             if isImportantMode {
                 $0.trailing.equalTo(self.arrowView.snp.leading).offset(-5)

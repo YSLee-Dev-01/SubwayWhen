@@ -25,7 +25,7 @@ class MainTableHeaderView: UIView {
     private let editBtn = MainTableHeaderViewBtn(title: Strings.Main.edit, img: "List")
     
     private let liveStatusLabel = UILabel().then {
-        $0.font = .boldSystemFont(ofSize: ViewStyle.FontSize.largeSize)
+        $0.font = .boldSystemFont(ofSize: ViewStyle.FontSize.smallSize)
         $0.textColor = UIColor.gray
         $0.text = Strings.Main.liveStatus
     }
@@ -38,7 +38,7 @@ class MainTableHeaderView: UIView {
     // MARK: - LifeCycle
     
     init() {
-        super.init(frame: CGRect(x: 0, y: 0, width: 100 , height: 300))
+        super.init(frame: CGRect(x: 0, y: 0, width: 100 , height: 310))
         
         self.attribute()
         self.bind()
@@ -67,7 +67,7 @@ extension MainTableHeaderView {
             self.liveStatusLabel, self.groupView
         )
         self.congestionLabelBG.snp.makeConstraints{
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().offset(10)
             $0.leading.trailing.equalToSuperview().inset(ViewStyle.padding.mainStyleViewLR)
             $0.height.equalTo(90)
         }
@@ -118,7 +118,7 @@ extension MainTableHeaderView {
         
         self.addSubview(importantLabelBG)
         importantLabelBG.snp.remakeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().offset(10)
             $0.leading.trailing.equalToSuperview().inset(ViewStyle.padding.mainStyleViewLR)
             $0.height.equalTo(90)
         }
