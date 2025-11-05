@@ -23,10 +23,13 @@ class TableVCCustom : UIViewController{
     }
     
     let additionalHeaderView: UIView?
+    
+    let titleViewHeight: CGFloat
     var viewTitle : String
    
     init(title : String, titleViewHeight : CGFloat, additionalHeaderView: UIView? = nil){
         self.viewTitle = title
+        self.titleViewHeight = titleViewHeight
         self.additionalHeaderView = additionalHeaderView
         self.titleView = TitleView(frame: CGRect(x: 0, y: 0, width: 100 , height: titleViewHeight))
         
@@ -47,8 +50,8 @@ class TableVCCustom : UIViewController{
     }
 }
 
-private extension TableVCCustom{
-    func attribute(title : String){
+extension TableVCCustom{
+    private func attribute(title : String){
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
         
@@ -69,7 +72,7 @@ private extension TableVCCustom{
         }
     }
     
-    func layout(){
+    private func layout(){
         self.view.addSubview(self.topView)
         self.topView.snp.makeConstraints{
             $0.leading.trailing.equalToSuperview()
@@ -90,7 +93,7 @@ private extension TableVCCustom{
         }
     }
     
-    func makeComposedHeaderView(_ additionalView: UIView) -> UIView {
+    private func makeComposedHeaderView(_ additionalView: UIView) -> UIView {
         let view = UIView(
             frame: .init(
                 origin: .zero,
@@ -101,6 +104,7 @@ private extension TableVCCustom{
         view.addSubviews(self.titleView, additionalView)
         self.titleView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
+            $0.height.equalTo(self.titleViewHeight)
         }
         
         additionalView.snp.makeConstraints {
@@ -108,6 +112,26 @@ private extension TableVCCustom{
             $0.leading.trailing.bottom.equalToSuperview()
         }
         return view
+    }
+    
+    /// 테이블뷰 헤더의 height를 업데이트 할 때 사용해요.
+    func updateTableHeaderViewHeight() {
+        guard let headerView = self.tableView.tableHeaderView else {return}
+        headerView.layoutIfNeeded()
+        
+        let size = headerView.systemLayoutSizeFitting(
+            .init(width: self.tableView.bounds.width, height: 0),
+            withHorizontalFittingPriority: .required,
+            verticalFittingPriority: .fittingSizeLevel
+        )
+        
+        var frame = headerView.frame
+        frame.size.height = size.height
+        headerView.frame = frame
+        
+        self.tableView.beginUpdates()
+        self.tableView.tableHeaderView = headerView
+        self.tableView.endUpdates()
     }
 }
 
