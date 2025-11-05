@@ -200,11 +200,9 @@
 		B6438D412B667CB10099BFEF /* MainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D252B667CB10099BFEF /* MainTableView.swift */; };
 		B6438D422B667CB10099BFEF /* MainTableViewDefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D282B667CB10099BFEF /* MainTableViewDefaultCell.swift */; };
 		B6438D432B667CB10099BFEF /* MainTableViewArrivalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D2A2B667CB10099BFEF /* MainTableViewArrivalCell.swift */; };
-		B6438D442B667CB10099BFEF /* MainTableViewGroupBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D2D2B667CB10099BFEF /* MainTableViewGroupBtn.swift */; };
-		B6438D452B667CB10099BFEF /* MainTableViewGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D2E2B667CB10099BFEF /* MainTableViewGroupCell.swift */; };
-		B6438D462B667CB10099BFEF /* MainTableViewHeaderBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D312B667CB10099BFEF /* MainTableViewHeaderBtn.swift */; };
-		B6438D472B667CB10099BFEF /* MainTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D322B667CB10099BFEF /* MainTableViewHeaderView.swift */; };
-		B6438D482B667CB10099BFEF /* MainTableViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D332B667CB10099BFEF /* MainTableViewHeaderCell.swift */; };
+		B6438D442B667CB10099BFEF /* MainTableHeaderGroupBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D2D2B667CB10099BFEF /* MainTableHeaderGroupBtn.swift */; };
+		B6438D462B667CB10099BFEF /* MainTableHeaderViewBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D312B667CB10099BFEF /* MainTableHeaderViewBtn.swift */; };
+		B6438D472B667CB10099BFEF /* MainTableHeaderSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D322B667CB10099BFEF /* MainTableHeaderSubView.swift */; };
 		B6438D492B667CB10099BFEF /* MainTableViewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D352B667CB10099BFEF /* MainTableViewCellData.swift */; };
 		B6438D4A2B667CB10099BFEF /* MainTableViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D362B667CB10099BFEF /* MainTableViewSection.swift */; };
 		B6438D4B2B667CB10099BFEF /* MainModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D382B667CB10099BFEF /* MainModelProtocol.swift */; };
@@ -736,11 +734,9 @@
 		B6438D252B667CB10099BFEF /* MainTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableView.swift; sourceTree = "<group>"; };
 		B6438D282B667CB10099BFEF /* MainTableViewDefaultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewDefaultCell.swift; sourceTree = "<group>"; };
 		B6438D2A2B667CB10099BFEF /* MainTableViewArrivalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewArrivalCell.swift; sourceTree = "<group>"; };
-		B6438D2D2B667CB10099BFEF /* MainTableViewGroupBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewGroupBtn.swift; sourceTree = "<group>"; };
-		B6438D2E2B667CB10099BFEF /* MainTableViewGroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewGroupCell.swift; sourceTree = "<group>"; };
-		B6438D312B667CB10099BFEF /* MainTableViewHeaderBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewHeaderBtn.swift; sourceTree = "<group>"; };
-		B6438D322B667CB10099BFEF /* MainTableViewHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewHeaderView.swift; sourceTree = "<group>"; };
-		B6438D332B667CB10099BFEF /* MainTableViewHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewHeaderCell.swift; sourceTree = "<group>"; };
+		B6438D2D2B667CB10099BFEF /* MainTableHeaderGroupBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableHeaderGroupBtn.swift; sourceTree = "<group>"; };
+		B6438D312B667CB10099BFEF /* MainTableHeaderViewBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableHeaderViewBtn.swift; sourceTree = "<group>"; };
+		B6438D322B667CB10099BFEF /* MainTableHeaderSubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableHeaderSubView.swift; sourceTree = "<group>"; };
 		B6438D352B667CB10099BFEF /* MainTableViewCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCellData.swift; sourceTree = "<group>"; };
 		B6438D362B667CB10099BFEF /* MainTableViewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewSection.swift; sourceTree = "<group>"; };
 		B6438D382B667CB10099BFEF /* MainModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainModelProtocol.swift; sourceTree = "<group>"; };
@@ -2084,8 +2080,7 @@
 			children = (
 				B6438D272B667CB10099BFEF /* MainTableViewDefault */,
 				B6438D292B667CB10099BFEF /* MainTableViewArrival */,
-				B6438D2B2B667CB10099BFEF /* MainTableViewGroup */,
-				B6438D2F2B667CB10099BFEF /* MainTableViewHeader */,
+				B6438D2F2B667CB10099BFEF /* MainTableHeaderView */,
 			);
 			path = Sub;
 			sourceTree = "<group>";
@@ -2106,39 +2101,22 @@
 			path = MainTableViewArrival;
 			sourceTree = "<group>";
 		};
-		B6438D2B2B667CB10099BFEF /* MainTableViewGroup */ = {
-			isa = PBXGroup;
-			children = (
-				B6438D2C2B667CB10099BFEF /* Sub */,
-				B6438D2E2B667CB10099BFEF /* MainTableViewGroupCell.swift */,
-			);
-			path = MainTableViewGroup;
-			sourceTree = "<group>";
-		};
-		B6438D2C2B667CB10099BFEF /* Sub */ = {
-			isa = PBXGroup;
-			children = (
-				B6438D2D2B667CB10099BFEF /* MainTableViewGroupBtn.swift */,
-			);
-			path = Sub;
-			sourceTree = "<group>";
-		};
-		B6438D2F2B667CB10099BFEF /* MainTableViewHeader */ = {
+		B6438D2F2B667CB10099BFEF /* MainTableHeaderView */ = {
 			isa = PBXGroup;
 			children = (
 				B6438D302B667CB10099BFEF /* Sub */,
-				B6438D332B667CB10099BFEF /* MainTableViewHeaderCell.swift */,
 				FF7D85842EB9B95900B48134 /* MainTableHeaderView.swift */,
 				FF9B7A2C2EB9C24D009393C7 /* MainTableHeaderGroupView.swift */,
 			);
-			path = MainTableViewHeader;
+			path = MainTableHeaderView;
 			sourceTree = "<group>";
 		};
 		B6438D302B667CB10099BFEF /* Sub */ = {
 			isa = PBXGroup;
 			children = (
-				B6438D312B667CB10099BFEF /* MainTableViewHeaderBtn.swift */,
-				B6438D322B667CB10099BFEF /* MainTableViewHeaderView.swift */,
+				B6438D312B667CB10099BFEF /* MainTableHeaderViewBtn.swift */,
+				B6438D322B667CB10099BFEF /* MainTableHeaderSubView.swift */,
+				B6438D2D2B667CB10099BFEF /* MainTableHeaderGroupBtn.swift */,
 			);
 			path = Sub;
 			sourceTree = "<group>";
@@ -2865,7 +2843,6 @@
 				34B3105229B1BEA900EA3A19 /* NetworkManagerProtocol.swift in Sources */,
 				FF8299032CFDAC08008ED530 /* AnimationButtonInSUI.swift in Sources */,
 				B6438D492B667CB10099BFEF /* MainTableViewCellData.swift in Sources */,
-				B6438D452B667CB10099BFEF /* MainTableViewGroupCell.swift in Sources */,
 				34A4F2742A527132002CA564 /* ModalSubCustomButton.swift in Sources */,
 				34A4F2722A5263FB002CA564 /* CollectionViewCellCustom.swift in Sources */,
 				FF7A71332C7D51360080B72B /* DetailArrivalView.swift in Sources */,
@@ -2917,7 +2894,7 @@
 				349E2F4129BDB99600C54EE9 /* EditCoordinator.swift in Sources */,
 				FF7ECACF2C7C041B00D4643A /* DetailView.swift in Sources */,
 				FF36A36C2C80387D00387A3D /* DetailScheduleView.swift in Sources */,
-				B6438D462B667CB10099BFEF /* MainTableViewHeaderBtn.swift in Sources */,
+				B6438D462B667CB10099BFEF /* MainTableHeaderViewBtn.swift in Sources */,
 				FF6B35FA2E8A47B000814E32 /* UIDevice+.swift in Sources */,
 				34A221B329C98A47003F035D /* NoNetworkView.swift in Sources */,
 				B6438D4F2B667CB10099BFEF /* MainVC.swift in Sources */,
@@ -2957,7 +2934,7 @@
 				FF0365322D00129800EF325D /* LocationManagerProtocol.swift in Sources */,
 				34C6DB552936274400C4ED80 /* AppDelegate.swift in Sources */,
 				349B518329A4BEFD00A53879 /* ReportCheckModalVC.swift in Sources */,
-				B6438D442B667CB10099BFEF /* MainTableViewGroupBtn.swift in Sources */,
+				B6438D442B667CB10099BFEF /* MainTableHeaderGroupBtn.swift in Sources */,
 				349D788629CC1B8700CA1B52 /* AppDefaultModelProtocol.swift in Sources */,
 				3497DC8829D2DED200D2ABB9 /* ModalModelProtocol.swift in Sources */,
 				FF9B7A2D2EB9C24D009393C7 /* MainTableHeaderGroupView.swift in Sources */,
@@ -2996,7 +2973,7 @@
 				FF24F7B82C98284B001B0457 /* CoreDataScheduleManagerProtocol.swift in Sources */,
 				34D9E9FA2A54FBB70080AD17 /* LocationModalViewModel.swift in Sources */,
 				34C6DB98293627AF00C4ED80 /* ModalViewModel.swift in Sources */,
-				B6438D472B667CB10099BFEF /* MainTableViewHeaderView.swift in Sources */,
+				B6438D472B667CB10099BFEF /* MainTableHeaderSubView.swift in Sources */,
 				34F5F0FD29641AC10010A21D /* TitleView.swift in Sources */,
 				FF03652C2CFFEDC700EF325D /* SearchFeature.swift in Sources */,
 				349E2F3129BDA39900C54EE9 /* Coordinator.swift in Sources */,
@@ -3078,7 +3055,6 @@
 				B6438D412B667CB10099BFEF /* MainTableView.swift in Sources */,
 				349CEFAB2990FE1B00CC69E5 /* DetailResultScheduleViewCell.swift in Sources */,
 				FF7837E92E29E16D004E6BFF /* ReportFirstQuestionView.swift in Sources */,
-				B6438D482B667CB10099BFEF /* MainTableViewHeaderCell.swift in Sources */,
 				34C1D8382953036400FB6624 /* EditViewCellSection.swift in Sources */,
 				344D6A122ABD8A0F00ECB57D /* TutorialCoordinator.swift in Sources */,
 				3499DEAA29D1BCE700A6E8C1 /* ReportCheckModalViewModelProtocol.swift in Sources */,

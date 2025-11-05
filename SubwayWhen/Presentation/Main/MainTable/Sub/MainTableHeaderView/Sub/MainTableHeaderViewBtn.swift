@@ -1,5 +1,5 @@
 //
-//  MainTableViewHeaderBtn.swift
+//  MainTableHeaderViewBtn.swift
 //  SubwayWhen
 //
 //  Created by 이윤수 on 2023/02/08.
@@ -12,7 +12,7 @@ import SnapKit
 
 import Lottie
 
-class MainTableViewHeaderBtn : ModalCustomButton{
+class MainTableHeaderViewBtn : ModalCustomButton {
     let btnLabel = UILabel().then{
         $0.font = .boldSystemFont(ofSize: ViewStyle.FontSize.largeSize)
     }
@@ -32,7 +32,7 @@ class MainTableViewHeaderBtn : ModalCustomButton{
     }
 }
 
-extension MainTableViewHeaderBtn{
+extension MainTableHeaderViewBtn {
     private func layout(){
         self.addSubview(self.btnLabel)
         self.addSubview(self.btnImg)

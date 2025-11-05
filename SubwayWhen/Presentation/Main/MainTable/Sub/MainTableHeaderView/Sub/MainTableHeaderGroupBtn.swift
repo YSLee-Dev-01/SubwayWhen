@@ -1,5 +1,5 @@
 //
-//  GroupCustomButton.swift
+//  MainTableHeaderGroupBtn.swift
 //  SubwayWhen
 //
 //  Created by 이윤수 on 2022/12/01.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainTableViewGroupBtn : UIButton{
+class MainTableHeaderGroupBtn : UIButton{
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.attribute()
@@ -18,7 +18,7 @@ class MainTableViewGroupBtn : UIButton{
     }
 }
 
-extension MainTableViewGroupBtn {
+extension MainTableHeaderGroupBtn {
     private func attribute(){
         self.layer.cornerRadius = ViewStyle.Layer.radius
         self.layer.masksToBounds = true

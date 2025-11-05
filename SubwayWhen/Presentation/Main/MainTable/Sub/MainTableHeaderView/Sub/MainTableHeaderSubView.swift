@@ -1,5 +1,5 @@
 //
-//  MainTableViewHeaderView.swift
+//  MainTableHeaderSubView.swift
 //  SubwayWhen
 //
 //  Created by 이윤수 on 2023/09/18.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class MainTableViewHeaderView: MainStyleUIView {
+class MainTableHeaderSubView: MainStyleUIView {
     let mainTitle = UILabel().then{
         $0.font = .boldSystemFont(ofSize: ViewStyle.FontSize.mediumSize)
         $0.textAlignment = .left
@@ -35,7 +35,7 @@ class MainTableViewHeaderView: MainStyleUIView {
     }
 }
 
-extension MainTableViewHeaderView {
+extension MainTableHeaderSubView {
     private func layout() {
         [self.mainTitle, self.subTitle]
             .forEach{

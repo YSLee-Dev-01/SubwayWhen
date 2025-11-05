@@ -15,16 +15,16 @@ class MainTableHeaderView: UIView {
     
     // MARK: - Properties
     
-    private let congestionLabelBG = MainTableViewHeaderView(
+    private let congestionLabelBG = MainTableHeaderSubView(
         title: Strings.Main.currentTraffic, subTitle: "🫥🫥🫥🫥🫥🫥🫥🫥🫥🫥"
     )
     
-    private let importantLabelBG = MainTableViewHeaderView (
+    private let importantLabelBG = MainTableHeaderSubView (
         title: Strings.Main.importantAlarm, subTitle: Strings.Main.importantAlarm
     )
     
-    private let reportBtn = MainTableViewHeaderBtn(title: Strings.Report.title, img: "Report")
-    private let editBtn = MainTableViewHeaderBtn(title: Strings.Main.edit, img: "List")
+    private let reportBtn = MainTableHeaderViewBtn(title: Strings.Report.title, img: "Report")
+    private let editBtn = MainTableHeaderViewBtn(title: Strings.Main.edit, img: "List")
     
     private let liveStatusLabel = UILabel().then {
         $0.font = .boldSystemFont(ofSize: ViewStyle.FontSize.largeSize)

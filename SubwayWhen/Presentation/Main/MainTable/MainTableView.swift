@@ -46,8 +46,6 @@ class MainTableView: UITableView {
 extension MainTableView {
     private func attribute(){
         self.register(MainTableViewCell.self, forCellReuseIdentifier: "MainCell")
-        self.register(MainTableViewGroupCell.self, forCellReuseIdentifier: "MainGroup")
-        self.register(MainTableViewHeaderCell.self, forCellReuseIdentifier: "MainHeader")
         self.register(MainTableViewDefaultCell.self, forCellReuseIdentifier: "MainDefault")
         self.dataSource = nil
         self.rowHeight = UITableView.automaticDimension
@@ -162,12 +160,7 @@ extension MainTableView {
 extension Reactive where Base: MainTableView {
     var importantTransform: Binder<ImportantData> {
         return Binder(base) { base, data in
-            guard let cell = base.cellForRow(at: IndexPath(row: 0, section: 0)) as? MainTableViewHeaderCell else {return}
-            
-            UIView.animate(withDuration: 0.5, animations: {
-                cell.isImportant(data: data)
-                base.reloadData()
-            })
+            base.reloadData()
         }
     }
     

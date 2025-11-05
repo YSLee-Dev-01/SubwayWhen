@@ -17,12 +17,12 @@ class MainTableHeaderGroupView: UIView {
     
     private let groupView = MainStyleUIView()
     
-    private let groupOne = MainTableViewGroupBtn().then{
+    private let groupOne = MainTableHeaderGroupBtn().then{
         $0.setTitle(Strings.Setting.workTime, for: .normal)
         $0.seleted()
     }
     
-    private let groupTwo = MainTableViewGroupBtn().then{
+    private let groupTwo = MainTableHeaderGroupBtn().then{
         $0.setTitle(Strings.Setting.leaveTime, for: .normal)
         $0.unSeleted()
     }
