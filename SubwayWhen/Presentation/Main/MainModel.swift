@@ -20,28 +20,26 @@ class MainModel : MainModelProtocol{
     func mainTitleLoad() -> Observable<String> {
         Observable<String>.create{
             let data = Calendar.current.component(.weekday, from: Date())
-            if data == 1 || data == 7{
-                // 주말
-                let weekend = ["행복하고 즐거운 주말\n좋은 하루 보내세요!",
-                               "행복한 일만 가득한 주말\n행복한 주말 보내세요!",
-                ]
-                $0.onNext(weekend.randomElement() ?? "행복하고 즐거운 주말이에요!\n좋은 하루 보내세요!")
-            }else if data == 2{
-                // 월요일
-                $0.onNext("월요일,\n한 주도 화이팅해봐요!")
-            }else if data == 3{
-                // 화요일
-                $0.onNext("화요일,\n평범하지만 행복한 날로 만들어봐요!")
-            }else if data == 4{
-                // 수요일
-                $0.onNext("수요일, \n수많은 즐거움이 가득할거에요!")
-            }else if data == 5{
-                // 목요일
-                $0.onNext("목요일,\n주말까지 단 2일 남았어요!")
-            }else if data == 6{
-                // 금요일
-                $0.onNext("금요일,\n행복한 하루 보내세요!")
+            let weekMessages = [
+                Strings.Main.weekendMessages,
+                Strings.Main.mondayMessages,
+                Strings.Main.tuesdayMessages,
+                Strings.Main.wednesdayMessages,
+                Strings.Main.thursdayMessages,
+                Strings.Main.fridayMessages,
+                Strings.Main.weekendMessages
+            ]
+            
+            let index = data - 1
+            guard weekMessages.indices.contains(index),
+                  let message = weekMessages[index].randomElement()
+            else {
+                $0.onNext(Strings.Main.defaultMessage)
+                $0.onCompleted()
+                return Disposables.create()
             }
+            
+            $0.onNext(message)
             $0.onCompleted()
             
             return Disposables.create()

@@ -159,4 +159,46 @@ extension Strings.Main {
     static let liveStatus = "실시간 현황"
     /// 🔄 당겨서 새로고침
     static let refresh = "🔄 당겨서 새로고침"
+    
+    /// 오늘 하루도\n좋은 하루 보내세요.
+    static let defaultMessage = "오늘 하루도\n좋은 하루 보내세요."
+    
+    /// 주말 멘트
+    static let weekendMessages = [
+        "행복하고 즐거운 주말\n좋은 하루 보내세요!",
+        "행복한 일만 가득한 주말\n행복한 주말 보내세요!",
+        "여유로운 주말\n재충전하는 시간 되세요!"
+    ]
+    
+    /// 월요일 멘트
+    static let mondayMessages = [
+        "월요일,\n한 주도 화이팅해봐요!",
+        "월요일이지만\n좋은 일만 가득하길!",
+        "월요일,\n오늘도 멋진 하루 만들어봐요!"
+    ]
+    
+    /// 화요일 멘트 목록
+    static let tuesdayMessages = [
+        "화요일,\n평범하지만 행복한 날로 만들어봐요!",
+        "화요일,\n어제보다 한 걸음 더!",
+        "화요일,\n오늘도 잘 하고 있어요!",
+    ]
+    
+    /// 수요일 멘트 목록
+    static let wednesdayMessages = [
+        "수요일,\n수많은 즐거움이 가득할거에요!",
+        "수요일,\n벌써 반이나 왔어요!",
+    ]
+    
+    /// 목요일 멘트 목록
+    static let thursdayMessages = [
+        "목요일,\n거의 다 왔어요, 조금만 더!",
+        "목요일,\n내일이면 금요일이에요!",
+    ]
+    
+    /// 금요일 멘트 목록
+    static let fridayMessages = [
+        "금요일,\n행복한 하루 보내세요!",
+        "금요일,\n즐거운 주말이 기다려요!"
+    ]
 }
