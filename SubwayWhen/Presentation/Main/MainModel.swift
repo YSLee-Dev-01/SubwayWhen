@@ -92,34 +92,26 @@ class MainModel : MainModelProtocol{
     }
     
     func timeGroup(oneTime : Int, twoTime : Int, nowHour : Int) -> Observable<SaveStationGroup>{
-        Observable<SaveStationGroup>.just(.one)
-            .map{ _ -> SaveStationGroup? in
-                let groupOne = oneTime
-                let groupTwo = twoTime
-                
-                if oneTime == 0 && twoTime == 0{
-                    return nil
-                }else if groupOne < groupTwo{
-                    if groupTwo <= nowHour{
-                        return .two
-                    }else if groupOne <= nowHour{
-                        return .one
-                    }else {
-                        return nil
-                    }
-                }else if groupOne > groupTwo{
-                    if groupOne <= nowHour{
-                        return .one
-                    }else if groupTwo <= nowHour{
-                        return .two
-                    }else {
-                        return nil
-                    }
-                }else{
-                    return nil
-                }
+        return Observable<SaveStationGroup>.create { observer in
+            guard !(oneTime == 0 && twoTime == 0) else {
+                observer.onCompleted()
+                return Disposables.create()
             }
-            .filterNil()
+            
+            let oneValid = oneTime > 0 && oneTime <= nowHour
+            let twoValid = twoTime > 0 && twoTime <= nowHour
+            
+            if (oneValid && twoValid) {
+                observer.onNext(oneTime >= twoTime ? .one : .two)
+            } else if oneValid {
+                observer.onNext(.one)
+            } else if twoValid {
+                observer.onNext(.two)
+            }
+            
+            observer.onCompleted()
+            return Disposables.create()
+        }
     }
     
     func arrivalDataLoad(stations: [SaveStation]) -> Observable<(MainTableViewCellData, Int)>{
@@ -160,12 +152,12 @@ class MainModel : MainModelProtocol{
         } else if data.lineScheduleType == .Shinbundang {
             return self.model.shinbundangScheduleLoad(scheduleSearch: data, isFirst: true, isNow: true, isWidget: false)
         } else {
-            return .just([.init(startTime: "정보없음", type: .Unowned, isFast: "", startStation: "정보없음", lastStation: "정보없음")])
+            return .just([.init(startTime: Strings.Main.notAvailable, type: .Unowned, isFast: "", startStation: Strings.Main.notAvailable, lastStation: Strings.Main.notAvailable)])
         }
     }
     
     func scheduleDataToMainTableViewCell(data: ResultSchdule, nowData: MainTableViewCellData) -> MainTableViewCellData{
-        MainTableViewCellData(upDown: nowData.upDown, arrivalTime: data.useArrTime, previousStation: "", subPrevious: "\(data.useTime)", code: "\(data.useArrTime)", stationName: nowData.stationName, lastStation: "\(data.lastStation)행", isFast: "\(data.isFast)", group: nowData.group, id: nowData.id, stationCode: nowData.stationCode, exceptionLastStation: nowData.exceptionLastStation, type: .schedule, backStationId: nowData.backStationId, nextStationId: nowData.nextStationId, korailCode: nowData.korailCode, stateMSG: data.useArrTime, subwayLineData: nowData.subwayLineData)
+        MainTableViewCellData(upDown: nowData.upDown, arrivalTime: data.useArrTime, previousStation: "", subPrevious: "\(data.useTime)", code: "\(data.useArrTime)", stationName: nowData.stationName, lastStation: "\(data.lastStation)\(Strings.Main.bound)", isFast: "\(data.isFast)", group: nowData.group, id: nowData.id, stationCode: nowData.stationCode, exceptionLastStation: nowData.exceptionLastStation, type: .schedule, backStationId: nowData.backStationId, nextStationId: nowData.nextStationId, korailCode: nowData.korailCode, stateMSG: data.useArrTime, subwayLineData: nowData.subwayLineData)
     }
     
     func headerImportantDataLoad() -> Observable<ImportantData> {
@@ -176,7 +168,7 @@ class MainModel : MainModelProtocol{
         Observable<[MainTableViewCellData]>.create {
             $0.onNext(
                 stations.map { station -> MainTableViewCellData in
-                        .init(upDown: station.updnLine, arrivalTime: "", previousStation: "", subPrevious: "", code: "데이터를 로드하고 있어요.", stationName: station.stationName, lastStation: "", isFast: "", group: station.group.rawValue, id: station.id, stationCode: station.stationCode, exceptionLastStation: station.exceptionLastStation, type: .loading, backStationId: "", nextStationId: "",  korailCode: station.korailCode, stateMSG: "데이터를 로드하고 있어요.", subwayLineData: .init(subwayId: station.lineCode))
+                        .init(upDown: station.updnLine, arrivalTime: "", previousStation: "", subPrevious: "", code: Strings.Main.dataLoading, stationName: station.stationName, lastStation: "", isFast: "", group: station.group.rawValue, id: station.id, stationCode: station.stationCode, exceptionLastStation: station.exceptionLastStation, type: .loading, backStationId: "", nextStationId: "",  korailCode: station.korailCode, stateMSG: Strings.Main.dataLoading, subwayLineData: .init(subwayId: station.lineCode))
                 }
             )
             

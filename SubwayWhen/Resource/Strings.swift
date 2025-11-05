@@ -201,4 +201,11 @@ extension Strings.Main {
         "금요일,\n행복한 하루 보내세요!",
         "금요일,\n즐거운 주말이 기다려요!"
     ]
+    
+    /// 데이터를 로드하고 있어요.
+    static let dataLoading = "데이터를 로드하고 있어요."
+    /// 행
+    static let bound = "행"
+    /// 정보 없음
+    static let notAvailable = "정보 없음"
 }
