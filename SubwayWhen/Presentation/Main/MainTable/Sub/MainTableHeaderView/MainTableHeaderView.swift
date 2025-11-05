@@ -129,7 +129,7 @@ extension MainTableHeaderView {
             $0.height.equalTo(90)
         }
         
-        UIView.animate(withDuration: 0.25) {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.8) {
             self.layoutIfNeeded()
         }
     }

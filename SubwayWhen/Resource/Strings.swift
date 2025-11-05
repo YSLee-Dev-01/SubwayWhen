@@ -151,8 +151,8 @@ extension Strings.Main {
     static let title = "홈"
     /// 현재 지하철 예상 혼잡도
     static let currentTraffic = "현재 지하철 예상 혼잡도"
-    /// 중요알림
-    static let importantAlarm = "중요알림"
+    /// ⚠️ 중요 알림
+    static let importantAlarm = "⚠️ 중요 알림"
     /// 편집
     static let edit = "편집"
     /// 실시간 현황

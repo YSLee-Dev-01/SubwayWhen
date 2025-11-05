@@ -112,9 +112,7 @@ extension Reactive where Base : MainVC {
     
     var importantTransform: Binder<ImportantData> {
         return Binder(base) { base, data in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                base.updateTableHeaderViewHeight()
-            }
+            base.updateTableHeaderViewHeight()
         }
     }
 }

@@ -27,13 +27,18 @@ class MainTableHeaderSubView: MainStyleUIView {
         $0.adjustsFontSizeToFitWidth = true
     }
     
+    private lazy var arrowView = UIImageView().then {
+        $0.image = UIImage(systemName: "chevron.right")
+        $0.tintColor = .gray
+    }
+    
     // MARK: - LifeCycle
     
     init(title: String, subTitle: String, isImportantMode: Bool = false){
         super.init(frame: .zero)
         
         self.attribute(title: title, subTitle: subTitle, isImportantMode: isImportantMode)
-        self.layout()
+        self.layout(isImportantMode: isImportantMode)
     }
     
     required init?(coder: NSCoder) {
@@ -49,20 +54,44 @@ extension MainTableHeaderSubView {
         self.subTitle.text = subTitle
         
         if isImportantMode {
-            self.layer.borderWidth = 1
-            self.layer.borderColor = UIColor.systemRed.cgColor
+            self.mainTitle.font = .boldSystemFont(ofSize: ViewStyle.FontSize.largeSize)
+            self.subTitle.font = .boldSystemFont(ofSize: ViewStyle.FontSize.mediumSize)
         }
     }
     
-    private func layout() {
+    private func layout(isImportantMode: Bool) {
         self.addSubviews(self.mainTitle, self.subTitle)
-        self.mainTitle.snp.makeConstraints{
-            $0.leading.trailing.equalToSuperview().inset(15)
-            $0.bottom.equalTo(self.snp.centerY).offset(-5)
+        
+        if isImportantMode {
+            self.addSubview(self.arrowView)
+            self.arrowView.snp.makeConstraints {
+                $0.centerY.equalToSuperview()
+                $0.trailing.equalToSuperview().inset(15)
+                $0.width.equalTo(12)
+                $0.height.equalTo(18)
+            }
         }
+        
+        self.mainTitle.snp.makeConstraints{
+            $0.leading.equalToSuperview().inset(15)
+            $0.bottom.equalTo(self.snp.centerY).offset(isImportantMode ? 0 : -5)
+            
+            if isImportantMode {
+                $0.trailing.equalTo(self.arrowView.snp.leading).offset(-5)
+            } else {
+                $0.trailing.equalToSuperview().inset(15)
+            }
+        }
+        
         self.subTitle.snp.makeConstraints{
-            $0.leading.trailing.equalToSuperview().inset(15)
-            $0.top.equalTo(self.snp.centerY)
+            $0.leading.equalToSuperview().inset(15)
+            $0.top.equalTo(self.snp.centerY).offset(isImportantMode ? 5 : 0)
+            
+            if isImportantMode {
+                $0.trailing.equalTo(self.arrowView.snp.leading).offset(-5)
+            } else {
+                $0.trailing.equalToSuperview().inset(15)
+            }
         }
     }
 }
