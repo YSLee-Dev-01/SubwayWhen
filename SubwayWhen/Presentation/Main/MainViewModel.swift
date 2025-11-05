@@ -65,6 +65,7 @@ class MainViewModel {
             peopleData: self.nowPeopleData
                 .asDriver(),
             groupData: self.nowGroupSet
+                .delay(.milliseconds(10), scheduler: MainScheduler.asyncInstance)
                 .asDriver(onErrorDriveWith: .empty()),
             cellData: self.nowSingleLiveData
                 .filterNil()
