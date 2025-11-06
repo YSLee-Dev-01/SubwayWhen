@@ -331,6 +331,12 @@
 		FF1D4AC22C9D3D4B00AFD709 /* TestTotalLoadTCADepdency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1D4A582C9CFFAE00AFD709 /* TestTotalLoadTCADepdency.swift */; };
 		FF1D4AC32C9D3D4B00AFD709 /* TestTotalLoadTCADepdency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1D4A582C9CFFAE00AFD709 /* TestTotalLoadTCADepdency.swift */; };
 		FF1D4AC42C9D3D4C00AFD709 /* TestTotalLoadTCADepdency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1D4A582C9CFFAE00AFD709 /* TestTotalLoadTCADepdency.swift */; };
+		FF20D8722EBC5CDD00B280D9 /* SubwayNoticeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20D8712EBC5CDD00B280D9 /* SubwayNoticeResponse.swift */; };
+		FF20D8732EBC5CDD00B280D9 /* SubwayNoticeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20D8712EBC5CDD00B280D9 /* SubwayNoticeResponse.swift */; };
+		FF20D8742EBC5CDD00B280D9 /* SubwayNoticeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20D8712EBC5CDD00B280D9 /* SubwayNoticeResponse.swift */; };
+		FF20D8772EBC5D6D00B280D9 /* SubwayNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20D8762EBC5D6D00B280D9 /* SubwayNotice.swift */; };
+		FF20D8782EBC5D6D00B280D9 /* SubwayNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20D8762EBC5D6D00B280D9 /* SubwayNotice.swift */; };
+		FF20D8792EBC5D6D00B280D9 /* SubwayNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20D8762EBC5D6D00B280D9 /* SubwayNotice.swift */; };
 		FF24F7512C92C3FD001B0457 /* CoreDataScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFABBB012C92A5C300CCC692 /* CoreDataScheduleManager.swift */; };
 		FF24F7AC2C981E5B001B0457 /* CoreDataScheduleModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF24F7AA2C981E5B001B0457 /* CoreDataScheduleModel.xcdatamodeld */; };
 		FF24F7AD2C981E5B001B0457 /* CoreDataScheduleModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF24F7AA2C981E5B001B0457 /* CoreDataScheduleModel.xcdatamodeld */; };
@@ -798,6 +804,8 @@
 		FF1D4A9F2C9D32A100AFD709 /* SubwayWhenCommonFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubwayWhenCommonFramework.h; sourceTree = "<group>"; };
 		FF1D4AB02C9D346B00AFD709 /* TotalLoadModelDependencyKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalLoadModelDependencyKey.swift; sourceTree = "<group>"; };
 		FF1D4AB42C9D34DF00AFD709 /* Dependency+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dependency+.swift"; sourceTree = "<group>"; };
+		FF20D8712EBC5CDD00B280D9 /* SubwayNoticeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayNoticeResponse.swift; sourceTree = "<group>"; };
+		FF20D8762EBC5D6D00B280D9 /* SubwayNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayNotice.swift; sourceTree = "<group>"; };
 		FF24F7AB2C981E5B001B0457 /* CoreDataScheduleModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataScheduleModel.xcdatamodel; sourceTree = "<group>"; };
 		FF24F7AF2C981F49001B0457 /* ShinbundangLineScheduleModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ShinbundangLineScheduleModel+CoreDataProperties.swift"; path = "/Users/yslee_dev/Desktop/MyProject/SubwayWhen/SubwayWhenNetworking/CoreData/ShinbundangLineScheduleModel+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		FF24F7B02C981F49001B0457 /* ShinbundangLineScheduleModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ShinbundangLineScheduleModel+CoreDataClass.swift"; path = "/Users/yslee_dev/Desktop/MyProject/SubwayWhen/SubwayWhenNetworking/CoreData/ShinbundangLineScheduleModel+CoreDataClass.swift"; sourceTree = "<absolute>"; };
@@ -1510,6 +1518,7 @@
 		34A3039C29AF86FD00948EDD /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				FF20D8752EBC5CE100B280D9 /* SubwayNotice */,
 				FFA67B732D0BFC5C006EFAB7 /* StationSearch */,
 				34F5F11129657B060010A21D /* StationId */,
 				FF03653C2D011CF300EF325D /* SubwayLine */,
@@ -2299,6 +2308,15 @@
 			path = Dependency;
 			sourceTree = "<group>";
 		};
+		FF20D8752EBC5CE100B280D9 /* SubwayNotice */ = {
+			isa = PBXGroup;
+			children = (
+				FF20D8712EBC5CDD00B280D9 /* SubwayNoticeResponse.swift */,
+				FF20D8762EBC5D6D00B280D9 /* SubwayNotice.swift */,
+			);
+			path = SubwayNotice;
+			sourceTree = "<group>";
+		};
 		FF36A3872C8065A800387A3D /* TCADependecy */ = {
 			isa = PBXGroup;
 			children = (
@@ -2949,6 +2967,7 @@
 				34D9E9FC2A54FD810080AD17 /* LocationModalVCActionProtocol.swift in Sources */,
 				349FF29C299F1AF9007A98F4 /* ModalVCCustom.swift in Sources */,
 				34A303B329AF86FD00948EDD /* TotalLoadModel.swift in Sources */,
+				FF20D8722EBC5CDD00B280D9 /* SubwayNoticeResponse.swift in Sources */,
 				FF3A5EB02D01609000BC7716 /* SearchVicinityView.swift in Sources */,
 				FF8CBE232C89391700E6B4D2 /* SinbundangScheduleModel.swift in Sources */,
 				349E2F5529BDC2B600C54EE9 /* SearchCoordinator.swift in Sources */,
@@ -3033,6 +3052,7 @@
 				B6438D4A2B667CB10099BFEF /* MainTableViewSection.swift in Sources */,
 				FFC40B3F2E7A374000E5A41C /* SettingToggleView.swift in Sources */,
 				34D9EA0B2A557E780080AD17 /* VicinityDocumentData.swift in Sources */,
+				FF20D8772EBC5D6D00B280D9 /* SubwayNotice.swift in Sources */,
 				34E47A112A431319006BF6AA /* SettingNotiSelectModalVC.swift in Sources */,
 				34B6ADDE2A49906000D7A6DA /* SettingNotiSelectModalModel.swift in Sources */,
 				FFC40B352E792E8200E5A41C /* SettingTimeView.swift in Sources */,
@@ -3104,6 +3124,7 @@
 				FF24F7AE2C981E5B001B0457 /* CoreDataScheduleModel.xcdatamodeld in Sources */,
 				FA4CB7C62BB687D9003C41F6 /* MainTableViewCellType.swift in Sources */,
 				FFC07F6D2D34D63D0001B1CD /* SearchQueryRecommendData.swift in Sources */,
+				FF20D8782EBC5D6D00B280D9 /* SubwayNotice.swift in Sources */,
 				FA4CB79A2BB684B1003C41F6 /* URLSessionProtocol.swift in Sources */,
 				FA4CB79B2BB684B1003C41F6 /* LoadModelProtocol.swift in Sources */,
 				FA4CB79C2BB684B1003C41F6 /* ResultSchedule.swift in Sources */,
@@ -3114,6 +3135,7 @@
 				FFE826212D06B1300070BFED /* DetailStationId.swift in Sources */,
 				FA4CB7A12BB684B1003C41F6 /* ScheduleStationModel.swift in Sources */,
 				FF03653A2D001FEC00EF325D /* VicinityTransformData.swift in Sources */,
+				FF20D8742EBC5CDD00B280D9 /* SubwayNoticeResponse.swift in Sources */,
 				FA4CB7A22BB684B1003C41F6 /* ImportantData.swift in Sources */,
 				FA4CB7A32BB684B1003C41F6 /* VicinityDocumentData.swift in Sources */,
 				FF24F7B12C981F49001B0457 /* ShinbundangLineScheduleModel+CoreDataClass.swift in Sources */,
@@ -3170,6 +3192,8 @@
 				FA4CB7B72BB684B1003C41F6 /* KorailBody.swift in Sources */,
 				FA4CB7732BB64D7A003C41F6 /* UserDefault+.swift in Sources */,
 				FF03653F2D011CFD00EF325D /* SubwayLineData.swift in Sources */,
+				FF20D8792EBC5D6D00B280D9 /* SubwayNotice.swift in Sources */,
+				FF20D8732EBC5CDD00B280D9 /* SubwayNoticeResponse.swift in Sources */,
 				FF24F7B92C98284B001B0457 /* CoreDataScheduleManagerProtocol.swift in Sources */,
 				FA4CB77A2BB651C9003C41F6 /* SaveStation.swift in Sources */,
 				FA4CB7772BB64FA7003C41F6 /* SaveStationGroup.swift in Sources */,

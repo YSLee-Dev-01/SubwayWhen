@@ -8,5 +8,17 @@
 import Foundation
 
 struct SubwayNoticeResponse: Decodable {
+    let response: ResponseData
     
+    struct ResponseData: Decodable {
+        let body: Body
+    }
+    
+    struct Body: Decodable {
+        let items: Items
+        
+        struct Items: Decodable {
+            let item: [SubwayNotice]
+        }
+    }
 }
