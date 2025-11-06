@@ -129,6 +129,11 @@ extension MainTableHeaderView {
             $0.height.equalTo(90)
         }
         
+        importantLabelBG.rx.viewTap
+            .map {_ in .importantBtnTap}
+            .bind(to: self.mainTableViewAction)
+            .disposed(by: self.bag)
+        
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.8) {
             self.layoutIfNeeded()
         }

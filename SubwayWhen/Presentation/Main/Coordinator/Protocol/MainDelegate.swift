@@ -11,4 +11,5 @@ protocol MainDelegate : AnyObject {
     func pushTap(action : MainCoordinatorAction)
     func pushDetailTap(data : MainTableViewCellData)
     func plusStationTap()
+    func importantTap(data: ImportantData)
 }

@@ -20,6 +20,7 @@ enum MainViewAction {
     case groupTap(SaveStationGroup)
     case reportBtnTap
     case editBtnTap
+    case importantBtnTap
 }
 
 class MainViewModel {
@@ -41,10 +42,11 @@ class MainViewModel {
             .bind(onNext: self.actionProcess)
             .disposed(by: self.bag)
         
-        let importantData = self.mainModel.headerImportantDataLoad()
+        self.mainModel.headerImportantDataLoad()
+            .bind(to: self.nowImportantData)
+            .disposed(by: self.bag)
         
-        importantData
-            .filter {$0.title != ""}
+        self.nowImportantData
             .withUnretained(self)
             .subscribe(onNext: { viewModel, _ in
                 // importantData오면 뷰 자체를 다시 그림
@@ -56,7 +58,8 @@ class MainViewModel {
         return Output(
             mainTitle: self.nowMainTitle
                 .asDriver(onErrorDriveWith: .empty()),
-            importantData: importantData
+            importantData: self.nowImportantData
+                .filterNil()
                 .asDriver(onErrorDriveWith: .empty()),
             tableViewData: self.nowTableViewCellData
                 .filter {$0.1}
@@ -87,6 +90,7 @@ class MainViewModel {
     private let nowPeopleData = BehaviorRelay<String>(value: "🫥🫥🫥🫥🫥🫥🫥🫥🫥🫥")
     private let nowSingleLiveData = BehaviorRelay<(MainTableViewCellData, Int)?>(value: nil)
     private let nowMainTitle = BehaviorRelay<String>(value: Strings.Main.defaultMessage)
+    private let nowImportantData = BehaviorRelay<ImportantData?>(value: nil)
     
     weak var delegate : MainDelegate?
     
@@ -165,6 +169,10 @@ private extension MainViewModel {
             // 데이터 로드
             self.tableViewDataSet()
             self.stationLiveDataLoad()
+            
+        case .importantBtnTap:
+            guard let importantData = self.nowImportantData.value else {return}
+            self.delegate?.importantTap(data: importantData)
         }
     }
     

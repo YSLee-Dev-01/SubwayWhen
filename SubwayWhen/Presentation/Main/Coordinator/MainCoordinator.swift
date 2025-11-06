@@ -62,7 +62,7 @@ class MainCoordinator : Coordinator{
     }
 }
 
-extension MainCoordinator : MainDelegate{
+extension MainCoordinator : MainDelegate {
     func plusStationTap() {
         self.delegate?.stationPlusBtnTap(self)
     }
@@ -94,6 +94,10 @@ extension MainCoordinator : MainDelegate{
         detail.delegate = self
         
         detail.start()
+    }
+    
+    
+    func importantTap(data: ImportantData) {
     }
 }
 
