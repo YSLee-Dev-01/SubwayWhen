@@ -233,6 +233,11 @@ final class LoadModel : LoadModelProtocol{
             .asObservable()
     }
     
+    func subwayNoticeRequest() -> Single<Result<SubwayNoticeResponse, URLError>> {
+        let url = "http://openapi.seoul.go.kr:8088/\(Bundle.main.tokenLoad("SEOUL_TOKEN"))/json/getNtceList/1/5/"
+        return self.networkManager.requestData(url, dataType: SubwayNoticeResponse.self)
+    }
+    
     private func arrivalStationNameChack(stationName: String) -> String {
         // 부역명 필수 지하철역
         switch stationName{
