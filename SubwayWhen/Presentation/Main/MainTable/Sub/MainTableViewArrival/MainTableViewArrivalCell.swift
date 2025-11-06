@@ -12,7 +12,10 @@ import RxCocoa
 import Then
 import SnapKit
 
-class MainTableViewCell : TableViewCellCustom{
+class MainTableViewCell: TableViewCellCustom {
+    
+    // MARK: - Properties
+    
     var type : MainTableViewCellType = .real
     
     var bag = DisposeBag()
@@ -63,6 +66,8 @@ class MainTableViewCell : TableViewCellCustom{
         $0.color = UIColor(named: "AppIconColor")
     }
     
+    // MARK: - LifeCycle
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.layout()
@@ -79,6 +84,8 @@ class MainTableViewCell : TableViewCellCustom{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Methods
     
     func cellSet(data : MainTableViewCellData){
         if data.type == .loading {
@@ -167,12 +174,14 @@ extension MainTableViewCell{
     }
 }
 
+// MARK: - extension Reactive
+
 extension Reactive where Base : MainTableViewCell{
     var loadingLabelShow : Binder<MainTableViewCellType>{
         return Binder(base){base, type in
             if type == .real{
                 base.now.text = "⏱️"
-                base.station.text = "시간표 로드 중"
+                base.station.text = Strings.Main.timetableLoding
                 base.refreshShow()
             }
         }

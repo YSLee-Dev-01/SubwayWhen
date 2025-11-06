@@ -7,7 +7,10 @@
 
 import UIKit
 
-class MainTableHeaderGroupBtn : UIButton{
+class MainTableHeaderGroupBtn: UIButton {
+    
+    // MARK: - LifeCycle
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.attribute()
@@ -18,21 +21,23 @@ class MainTableHeaderGroupBtn : UIButton{
     }
 }
 
+// MARK: - Methods
+
 extension MainTableHeaderGroupBtn {
-    private func attribute(){
+    private func attribute() {
         self.layer.cornerRadius = ViewStyle.Layer.radius
         self.layer.masksToBounds = true
         self.titleLabel?.font = .boldSystemFont(ofSize: ViewStyle.FontSize.mediumSize)
     }
     
-    func seleted(){
+    func seleted() {
         self.setTitleColor(.label, for: .normal)
         self.layer.borderWidth = 1.2
         self.backgroundColor = .systemBackground
         self.layer.borderColor = UIColor(named: "AppIconColor")?.cgColor
     }
     
-    func unSeleted(){
+    func unSeleted() {
         self.setTitleColor(.systemGray, for: .normal)
         self.layer.borderWidth = 0.0
         self.backgroundColor = UIColor(named: "MainColor")

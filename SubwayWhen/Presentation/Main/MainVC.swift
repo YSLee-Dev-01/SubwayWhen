@@ -13,13 +13,18 @@ import RxSwift
 import RxCocoa
 
 class MainVC: TableVCCustom {
-    private let bag = DisposeBag()
+    
+    // MARK: - Properties
     
     private let mainTableView = MainTableView()
     private let heaerView = MainTableHeaderView()
     
     private let mainViewModel : MainViewModel
     private let mainAction = PublishRelay<MainViewAction>()
+    
+    private let bag = DisposeBag()
+    
+    // MARK: - LifeCycle
     
     init(viewModel: MainViewModel){
         self.mainViewModel = viewModel
@@ -45,6 +50,8 @@ class MainVC: TableVCCustom {
         self.mainAction.accept(.refreshEvent)
     }
 }
+
+// MARK: - Methods
  
 extension MainVC{
     private func attibute(){
@@ -96,6 +103,8 @@ extension MainVC{
             .disposed(by: self.bag)
     }
 }
+
+// MARK: - extension Reactive 
 
 extension Reactive where Base : MainVC {
     var mainTitleHidden : Binder<Void>{

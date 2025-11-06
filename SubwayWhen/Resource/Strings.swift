@@ -210,4 +210,9 @@ extension Strings.Main {
     static let bound = "행"
     /// 정보 없음
     static let notAvailable = "정보 없음"
+    
+    /// 버튼을 눌러서 지하철 역을 추가할 수 있어요!
+    static let emptyBtnMessage = "버튼을 눌러서 지하철 역을 추가할 수 있어요!"
+    /// 시간표 로드 중
+    static let timetableLoding = "시간표 로드 중"
 }
