@@ -31,6 +31,8 @@ extension Strings.Common {
     static let save = "저장하기"
     /// 시
     static let hour = "시"
+    /// 닫기
+    static let close = "닫기"
 }
 
 extension Strings.Report {
@@ -151,8 +153,8 @@ extension Strings.Main {
     static let title = "홈"
     /// 현재 지하철 예상 혼잡도
     static let currentTraffic = "현재 지하철 예상 혼잡도"
-    /// ⚠️ 중요 알림
-    static let importantAlarm = "⚠️ 중요 알림"
+    /// 중요 알림
+    static let importantAlarm = "중요 알림"
     /// 편집
     static let edit = "편집"
     /// 실시간 현황

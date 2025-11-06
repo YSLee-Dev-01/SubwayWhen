@@ -112,8 +112,8 @@ extension MainTableHeaderView {
             .disposed(by: self.bag)
     }
     
-    private func setupImportantView(title: String, subTitle: String) {
-        self.importantLabelBG = .init(title: title, subTitle: subTitle, isImportantMode: true)
+    private func setupImportantView(subTitle: String) {
+        self.importantLabelBG = .init(title: Strings.Main.importantAlarm, subTitle: subTitle, isImportantMode: true)
         guard let importantLabelBG = self.importantLabelBG else {return}
         
         self.addSubview(importantLabelBG)
@@ -174,7 +174,7 @@ extension MainTableHeaderView {
         importantData
             .asObservable()
             .subscribe(onNext: { [weak self] data in
-                self?.setupImportantView(title: data.title, subTitle: data.contents)
+                self?.setupImportantView(subTitle: data.contents)
             })
             .disposed(by: self.bag)
         
