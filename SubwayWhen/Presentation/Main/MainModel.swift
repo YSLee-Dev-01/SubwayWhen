@@ -153,6 +153,7 @@ class MainModel : MainModelProtocol{
     
     func headerImportantDataLoad() -> Observable<ImportantData> {
         return self.model.importantDataLoad()
+            .filter {$0.title != ""}
     }
     
     func emptyLiveData(stations: [SaveStation]) -> Observable<[MainTableViewCellData]> {

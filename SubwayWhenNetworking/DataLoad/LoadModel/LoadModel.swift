@@ -148,10 +148,12 @@ final class LoadModel : LoadModelProtocol{
             let search = subwayWhen?["ImportantData"]
             let list = search as? [String]
             
-            if let infoData = list,
-               infoData[0] != "Nil"
-            {
-                importantData.onNext(.init(title: infoData[0], contents: infoData[1]))
+            if let infoData = list {
+                if infoData[0] == "Nil" {
+                    importantData.onNext(.init(title: "", contents: ""))
+                } else {
+                    importantData.onNext(.init(title: infoData[0], contents: infoData[1]))
+                }
             }
             importantData.onCompleted();
         }
