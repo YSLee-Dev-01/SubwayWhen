@@ -47,8 +47,9 @@ class MainViewModel {
             .disposed(by: self.bag)
         
         self.nowImportantData
+            .skip(1)
             .withUnretained(self)
-            .subscribe(onNext: { viewModel, _ in
+            .subscribe(onNext: { viewModel, data in
                 // importantData오면 뷰 자체를 다시 그림
                 viewModel.tableViewDataSet()
                 viewModel.stationLiveDataLoad()

@@ -174,7 +174,7 @@ extension MainTableHeaderView {
         importantData
             .asObservable()
             .subscribe(onNext: { [weak self] data in
-                self?.setupImportantView(subTitle: data.contents)
+                self?.setupImportantView(subTitle: data.title)
             })
             .disposed(by: self.bag)
         
