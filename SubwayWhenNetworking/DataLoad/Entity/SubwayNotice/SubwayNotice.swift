@@ -13,7 +13,6 @@ struct SubwayNotice: Decodable {
     let occurredAt: String
     let lineNames: String?
     let createdDate: String
-    let categoryCode: String
     let isNonstop: String
     let direction: String?
     let exceptionEndedAt: String?
@@ -41,7 +40,6 @@ struct SubwayNotice: Decodable {
         case occurredAt = "noftOcrnDt"
         case lineNames = "lineNmLst"
         case createdDate = "crtrYmd"
-        case categoryCode = "noftSeCd"
         case isNonstop = "nonstopYn"
         case direction = "upbdnbSe"
         case exceptionEndedAt = "xcseSitnEndDt"
