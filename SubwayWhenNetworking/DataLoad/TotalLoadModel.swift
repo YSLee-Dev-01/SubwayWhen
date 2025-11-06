@@ -365,8 +365,34 @@ class TotalLoadModel : TotalLoadProtocol {
         }
     }
     
-    func importantDataLoad() -> RxSwift.Observable<ImportantData> {
-        self.loadModel.importantDataLoad()
+    func importantDataLoad() -> Observable<ImportantData> {
+        let seoulNotice = self.loadModel.subwayNoticeRequest()
+            .map { data -> SubwayNotice? in
+                guard case .success(let value) = data else {return nil}
+                return value.response.body.items.item.first
+            }
+            .map { data in
+                guard let data = data,
+                      data.endDate > .now
+                else {return ImportantData(title: "", contents: "")}
+                
+                return ImportantData(
+                    title: data.title,
+                    contents: data.content +
+                    "\n\n" +
+                    "\(data.lineNames == nil ? "" : "호선: \(data.lineNames!)\n")" +
+                    "\("무정차 통과: \(data.isNonstop == "Y" ? "O" : "X")")\n" +
+                    "\(data.direction == nil ? "" : "상하행: \(data.direction!)")"
+                )
+            }
+            .asObservable()
+        
+        let firebaseNotice = self.loadModel.importantDataLoad()
+        
+        return Observable.zip(seoulNotice, firebaseNotice) { seoul, firebase in
+            // 서울시 데이터를 우선
+            return !seoul.title.isEmpty ? seoul : firebase
+        }
     }
     
     func scheduleDataFetchAsyncData(_ scheduleData: Observable<[ResultSchdule]>) async -> [ResultSchdule] {
