@@ -60,9 +60,19 @@ class MainCoordinator : Coordinator{
             self.nowNotiTapped = false
         }
     }
+    
+    private func detailCoordinatorCreate(data: MainTableViewCellData) -> DetailCoordinator {
+        let detailSendModel = DetailSendModel(upDown: data.upDown, stationName: data.stationName, lineNumber: data.subwayLineData.rawValue, stationCode: data.stationCode, lineCode: data.subwayLineData.lineCode, exceptionLastStation: data.exceptionLastStation, korailCode: data.korailCode)
+        return DetailCoordinator(navigation: self.navigation, data: detailSendModel, isDisposable: false)
+    }
 }
 
 extension MainCoordinator : MainDelegate {
+    func detailLongPress(data: MainTableViewCellData) -> UIViewController? {
+        let detail = self.detailCoordinatorCreate(data: data)
+        return detail.createDetailVC()
+    }
+    
     func plusStationTap() {
         self.delegate?.stationPlusBtnTap(self)
     }
@@ -88,8 +98,7 @@ extension MainCoordinator : MainDelegate {
     }
     
     func pushDetailTap(data: MainTableViewCellData) {
-        let detailSendModel = DetailSendModel(upDown: data.upDown, stationName: data.stationName, lineNumber: data.subwayLineData.rawValue, stationCode: data.stationCode, lineCode: data.subwayLineData.lineCode, exceptionLastStation: data.exceptionLastStation, korailCode: data.korailCode)
-        let detail = DetailCoordinator(navigation: self.navigation, data: detailSendModel, isDisposable: false)
+        let detail = self.detailCoordinatorCreate(data: data)
         self.childCoordinator.append(detail)
         detail.delegate = self
         

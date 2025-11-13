@@ -5,7 +5,7 @@
 //  Created by 이윤수 on 2022/11/30.
 //
 
-import Foundation
+import UIKit
 
 import RxSwift
 import RxCocoa
@@ -103,8 +103,8 @@ class MainViewModel {
     }
 }
 
-private extension MainViewModel {
-    func actionProcess(type: MainViewAction) {
+extension MainViewModel {
+    private func actionProcess(type: MainViewAction) {
         switch type {
         case .editBtnTap:
             self.delegate?.pushTap(action: .Edit)
@@ -177,7 +177,7 @@ private extension MainViewModel {
         }
     }
     
-    func tableViewDataSet() {
+    private func tableViewDataSet() {
         let data = self.nowSaveStationEmptyData.value.filter {$0.group == self.nowGroupSet.value.rawValue}
         self.nowGroupData.accept(data)
         
@@ -190,7 +190,7 @@ private extension MainViewModel {
             .disposed(by: self.bag)
     }
     
-    func stationLiveDataLoad() {
+    private func stationLiveDataLoad() {
         let liveData = self.mainModel.arrivalDataLoad(
             stations: FixInfo.saveStation.filter {$0.group ==  self.nowGroupSet.value}
         )
@@ -224,7 +224,7 @@ private extension MainViewModel {
             .disposed(by: self.bag)
     }
     
-    func scheduleBtnAction(index: IndexPath) {
+    private func scheduleBtnAction(index: IndexPath) {
         // 시간표 버튼 클릭
         let clickCellRow = self.nowTableViewCellData.value.0[0].items[index.row]
         var nowSecionData = self.nowTableViewCellData.value.0
@@ -267,6 +267,10 @@ private extension MainViewModel {
             .filterNil()
             .bind(to: self.nowTableViewCellData)
             .disposed(by: self.bag)
-       
+    }
+    
+    func getDetailVC(at indexPath: IndexPath) -> UIViewController? {
+        let data = self.nowTableViewCellData.value.0[0].items[indexPath.row]
+        return self.delegate?.detailLongPress(data: data)
     }
 }
