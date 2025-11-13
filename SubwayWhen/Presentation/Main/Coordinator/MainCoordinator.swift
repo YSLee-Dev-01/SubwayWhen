@@ -98,13 +98,7 @@ extension MainCoordinator : MainDelegate {
     
     
     func importantTap(data: ImportantData) {
-        let modal = ContentsModalVC(
-            modalHeight: 400,
-            btnTitle: Strings.Common.close,
-            mainTitle: Strings.Main.importantAlarm,
-            subTitle: data.title,
-            contents: data.contents
-        )
+        let modal = PopupModal(modalHeight: 400, popupTitle: Strings.Main.importantAlarm, subTitle: data.title, popupValue: data.contents)
         modal.modalPresentationStyle = .overFullScreen
         
         self.navigation.present(modal, animated: false)

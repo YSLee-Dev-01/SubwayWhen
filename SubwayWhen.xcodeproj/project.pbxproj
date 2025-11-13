@@ -367,7 +367,6 @@
 		FF36A3842C80637400387A3D /* DetailArrivalDataRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF36A3712C805EAF00387A3D /* DetailArrivalDataRequestModel.swift */; };
 		FF36A3852C80644900387A3D /* TotalLoadProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A8CCA29C1E00E0076D7AE /* TotalLoadProtocol.swift */; };
 		FF36A3862C80644C00387A3D /* TotalLoadProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A8CCA29C1E00E0076D7AE /* TotalLoadProtocol.swift */; };
-		FF3737BD2EBC36F50028D69C /* ContentsModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3737BC2EBC36F50028D69C /* ContentsModalVC.swift */; };
 		FF3A5EB02D01609000BC7716 /* SearchVicinityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3A5EAF2D01609000BC7716 /* SearchVicinityView.swift */; };
 		FF3A5EB22D016FDA00BC7716 /* SearchWordRecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3A5EB12D016FDA00BC7716 /* SearchWordRecommendView.swift */; };
 		FF3A5EB42D02C31A00BC7716 /* ExpandedViewInSUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3A5EB32D02C31A00BC7716 /* ExpandedViewInSUI.swift */; };
@@ -816,7 +815,6 @@
 		FF36A3712C805EAF00387A3D /* DetailArrivalDataRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArrivalDataRequestModel.swift; sourceTree = "<group>"; };
 		FF36A3762C80621D00387A3D /* PreviewTotalLoadTCADependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewTotalLoadTCADependency.swift; sourceTree = "<group>"; };
 		FF36A3782C8062A000387A3D /* TotalLoadTCADependencyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalLoadTCADependencyProtocol.swift; sourceTree = "<group>"; };
-		FF3737BC2EBC36F50028D69C /* ContentsModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsModalVC.swift; sourceTree = "<group>"; };
 		FF3A5EAF2D01609000BC7716 /* SearchVicinityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVicinityView.swift; sourceTree = "<group>"; };
 		FF3A5EB12D016FDA00BC7716 /* SearchWordRecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWordRecommendView.swift; sourceTree = "<group>"; };
 		FF3A5EB32D02C31A00BC7716 /* ExpandedViewInSUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedViewInSUI.swift; sourceTree = "<group>"; };
@@ -1964,7 +1962,6 @@
 		34F5F0FB2962E66A0010A21D /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				FF3737BC2EBC36F50028D69C /* ContentsModalVC.swift */,
 				34A4F2712A5263FB002CA564 /* CollectionViewCellCustom.swift */,
 				34A32E7329B88C4F00AA1C67 /* TableViewCellCustom.swift */,
 				349FF29B299F1AF9007A98F4 /* ModalVCCustom.swift */,
@@ -2881,7 +2878,6 @@
 				34B6ADE72A49930200D7A6DA /* SettingNotiSelectModalModelProtocol.swift in Sources */,
 				34A2563829AC57E9008CC885 /* PopupModal.swift in Sources */,
 				34C94B0A2A41BC6E006339FF /* SettingNotiModalViewModel.swift in Sources */,
-				FF3737BD2EBC36F50028D69C /* ContentsModalVC.swift in Sources */,
 				B68FB34A2B75EFF80075339F /* SettingTrainIconModalViewModel.swift in Sources */,
 				34F5F0ED2962DCE80010A21D /* TopView.swift in Sources */,
 				FF1D4AB22C9D346E00AFD709 /* TotalLoadModelDependencyKey.swift in Sources */,
