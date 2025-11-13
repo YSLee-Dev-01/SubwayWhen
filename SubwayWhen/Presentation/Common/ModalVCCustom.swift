@@ -47,7 +47,7 @@ class ModalVCCustom : UIViewController{
     private var moveVelocity : CGPoint = CGPoint(x: 0, y: 0)
     
     init(modalHeight: CGFloat, btnTitle : String, mainTitle : String, subTitle : String){
-        self.modalHeight = modalHeight
+        self.modalHeight = modalHeight - 45 // 레이아웃 변경에 따른 현실화
         self.isBtn = btnTitle != ""
         super.init(nibName: nil, bundle: nil)
         
@@ -101,9 +101,9 @@ extension ModalVCCustom{
         
         self.grayBG.addSubview(self.mainBGContainer)
         self.mainBGContainer.snp.makeConstraints{
-            $0.leading.trailing.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(10)
             $0.height.equalTo(modalHeight)
-            $0.bottom.equalToSuperview().offset(25)
+            $0.bottom.equalToSuperview().offset(-20)
         }
         
         self.mainBGContainer.addSubview(self.handBar)
