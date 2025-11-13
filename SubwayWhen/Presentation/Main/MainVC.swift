@@ -125,3 +125,31 @@ extension Reactive where Base : MainVC {
         }
     }
 }
+
+extension MainVC {
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(
+            identifier: indexPath as NSCopying,
+            previewProvider: { [weak self] in
+                return self?.mainViewModel.getDetailVC(at: indexPath)
+            })
+    }
+    
+    func tableView(_ tableView: UITableView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: any UIContextMenuInteractionCommitAnimating) {
+        guard let indexPath = configuration.identifier as? IndexPath else {return}
+        self.mainAction.accept(.cellTap(indexPath))
+    }
+    
+    func tableView(_ tableView: UITableView, previewForHighlightingContextMenuWithConfiguration configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
+        guard let indexPath = configuration.identifier as? IndexPath,
+              let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCell
+        else {return nil}
+        
+        let parameters = UIPreviewParameters()
+        parameters.backgroundColor = .clear
+        parameters.shadowPath = UIBezierPath()
+        parameters.visiblePath = nil
+        
+        return UITargetedPreview(view: cell, parameters: parameters)
+    }
+}
