@@ -21,6 +21,7 @@ enum MainViewAction {
     case reportBtnTap
     case editBtnTap
     case importantBtnTap
+    case contextMenuReportBtnTap(IndexPath)
 }
 
 class MainViewModel {
@@ -174,6 +175,10 @@ extension MainViewModel {
         case .importantBtnTap:
             guard let importantData = self.nowImportantData.value else {return}
             self.delegate?.importantTap(data: importantData)
+            
+        case .contextMenuReportBtnTap(let indexPath):
+            let data = self.nowTableViewCellData.value.0[0].items[indexPath.row]
+            self.delegate?.pushTap(action: .Report(data.subwayLineData, data.stationName))
         }
     }
     
@@ -272,5 +277,10 @@ extension MainViewModel {
     func getDetailVC(at indexPath: IndexPath) -> UIViewController? {
         let data = self.nowTableViewCellData.value.0[0].items[indexPath.row]
         return self.delegate?.detailLongPress(data: data)
+    }
+    
+    func getAllowReport(at indexPath: IndexPath) -> Bool {
+        let data = self.nowTableViewCellData.value.0[0].items[indexPath.row]
+        return data.subwayLineData.allowReport
     }
 }

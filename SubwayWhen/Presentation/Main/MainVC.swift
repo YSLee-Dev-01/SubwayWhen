@@ -132,6 +132,12 @@ extension MainVC {
             identifier: indexPath as NSCopying,
             previewProvider: { [weak self] in
                 return self?.mainViewModel.getDetailVC(at: indexPath)
+            }, actionProvider: { [weak self] _ in
+                let reportBtn = UIAction(title: Strings.Main.reportIssue, image: UIImage(systemName: "exclamationmark.triangle")) { [weak self] _ in
+                    self?.mainAction.accept(.contextMenuReportBtnTap(indexPath))
+                }
+                
+                return UIMenu(title: "", children: (self?.mainViewModel.getAllowReport(at: indexPath) ?? false) ? [reportBtn] :[])
             })
     }
     
