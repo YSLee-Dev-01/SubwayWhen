@@ -15,9 +15,9 @@ class MainTableViewDefaultCell: TableViewCellCustom {
     
     // MARK: - Properties
     
-    var plusIcon = LottieAnimationView(name: "Plus")
+    private var plusIcon = LottieAnimationView(name: "Plus")
     
-    var titleLabel = UILabel().then {
+    private var titleLabel = UILabel().then {
         $0.font = .boldSystemFont(ofSize: ViewStyle.FontSize.mediumSize)
         $0.textAlignment = .left
         $0.textColor = .label
@@ -52,10 +52,7 @@ extension MainTableViewDefaultCell {
     }
     
     private func layout() {
-        [self.plusIcon, self.titleLabel].forEach {
-            self.mainBG.addSubview($0)
-        }
-        
+        self.mainBG.addSubviews(self.plusIcon, self.titleLabel)
         self.plusIcon.snp.makeConstraints {
             $0.top.bottom.equalToSuperview().inset(7.5)
             $0.leading.equalToSuperview().inset(5)
