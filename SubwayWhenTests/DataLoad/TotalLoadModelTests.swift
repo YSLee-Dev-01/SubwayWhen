@@ -16,9 +16,13 @@ import RxBlocking
 
 final class TotalLoadModelTests: XCTestCase {
     var coreDataManager: CoreDataScheduleManagerProtocol!
+    var mockLoadModel: MockLoadModel!
+    var totalLoadModel: TotalLoadModel!
     
     override func setUp(){
+        self.mockLoadModel = .init()
         self.coreDataManager = CoreDataScheduleManager.shared
+        self.totalLoadModel = .init(loadModel: self.mockLoadModel)
     }
     
     override func tearDown() {
@@ -1227,6 +1231,85 @@ final class TotalLoadModelTests: XCTestCase {
         expect(requestOneTypeCount).to(
             equal(requestTwoTypeCount),
             description: "신분당선 시간표의 모든 데이터의 타입은 신분당선으로 동일해야함"
+        )
+    }
+    
+    func testImportantDataLoad_서울시데이터() {
+        // GIVEN
+        let model = self.createTotalLoadModel(data: subwayNoticeInfiniteData)
+        let data = model.importantDataLoad()
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray()
+        
+        // WHEN
+        let requestTitle = arrayData.first?.title
+        let dummyTitle = subwayNotice.title
+        
+        // TotalModel은 하단에 추가 데이터가 있음 (96자 기준으로 dummy 데이터와 완전동일)
+        let requestContents = String(arrayData.first?.contents.prefix(96) ?? "")
+        let dummyContents = subwayNotice.content
+        
+        // THEN
+        expect(requestTitle).to(
+            equal(dummyTitle),
+            description: "타이틀은 동일해야함"
+        )
+        
+        expect(requestContents).to(
+            equal(dummyContents),
+            description: "컨텐츠 내용은 동일해야함"
+        )
+    }
+    
+    func testImportantDataLoad_서울시데이터_날짜지남() {
+        // GIVEN
+        let model = self.createTotalLoadModel(data: subwayNoticeData)
+        let data = model.importantDataLoad()
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray()
+        
+        // WHEN
+        let requestTitle = arrayData.first?.title
+        let dummyTitle = ""
+        
+        let requestContents = arrayData.first?.contents
+        let dummyContents = ""
+        
+        // THEN
+        expect(requestTitle).to(
+            equal(dummyTitle),
+            description: "타이틀이 없어야함"
+        )
+        
+        expect(requestContents).to(
+            equal(dummyContents),
+            description: "컨텐츠 내용이 없어야함"
+        )
+    }
+    
+    func testImportantDataLoad_firebase데이터() {
+        // GIVEN
+        self.mockLoadModel.setSuccess(importantData)
+        let data = self.totalLoadModel.importantDataLoad()
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray()
+        
+        // WHEN
+        let requestTitle = arrayData.first?.title
+        let dummyTitle = importantData.title
+        
+        let requestContents = arrayData.first?.contents
+        let dummyContents = importantData.contents
+        
+        // THEN
+        expect(requestTitle).to(
+            equal(dummyTitle),
+            description: "타이틀은 동일해야함"
+        )
+        
+        expect(requestContents).to(
+            equal(dummyContents),
+            description: "컨텐츠 내용은 동일해야함"
         )
     }
 }
