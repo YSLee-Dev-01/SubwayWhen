@@ -21,8 +21,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     override func setUp(){
         self.mockLoadModel = .init()
-        self.coreDataManager = CoreDataScheduleManager.shared
         self.totalLoadModel = .init(loadModel: self.mockLoadModel)
+        self.coreDataManager = CoreDataScheduleManager.shared
     }
     
     override func tearDown() {
@@ -39,8 +39,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testTotalLiveDataLoad(){
         // GIVEN
-        let model = self.createTotalLoadModel(data: arrivalData)
-        let data = model.totalLiveDataLoad(stations: [arrivalGyodaeStation3Line])
+        self.mockLoadModel.setSuccess(arrivalDummyData)
+        let data = self.totalLoadModel.totalLiveDataLoad(stations: [arrivalGyodaeStation3Line])
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -82,8 +82,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testTotalLiveDataLoadError(){
         //GIVEN
-        let model = self.createTotalLoadModel(data: arrivalErrorData)
-        let data = model.totalLiveDataLoad(stations: [arrivalGyodaeStation3Line])
+        self.mockLoadModel.setSuccess(arrivalErrorData)
+        let data = self.totalLoadModel.totalLiveDataLoad(stations: [arrivalGyodaeStation3Line])
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -117,8 +117,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSingleLiveDataLoad() {
         // GIVEN
-        let model = self.createTotalLoadModel(data: arrivalData)
-        let data = model.singleLiveDataLoad(requestModel: detailArrivalDataRequestDummyModel)
+        self.mockLoadModel.setSuccess(arrivalDummyData)
+        let data = self.totalLoadModel.singleLiveDataLoad(requestModel: detailArrivalDataRequestDummyModel)
         let blocking = data.toBlocking()
         let requestData = try! blocking.toArray().first
         
@@ -151,8 +151,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSingleLiveDataLoadError() {
         // GIVEN
-        let model = self.createTotalLoadModel(data: arrivalErrorData)
-        let data = model.singleLiveDataLoad(requestModel: detailArrivalDataRequestDummyModel)
+        self.mockLoadModel.setSuccess(arrivalErrorData)
+        let data = self.totalLoadModel.singleLiveDataLoad(requestModel: detailArrivalDataRequestDummyModel)
         let blocking = data.toBlocking()
         let requestData = try! blocking.toArray().first
         
@@ -185,8 +185,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSeoulScheduleLoad_isFirst_isNow(){
         // GIVEN
-        let model = self.createTotalLoadModel(data: seoulStationSchduleData)
-        let data = model.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: true, isNow: true, isWidget: false)
+        self.mockLoadModel.setSuccess(seoulScheduleDummyData)
+        let data = self.totalLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: true, isNow: true, isWidget: false)
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -220,8 +220,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSeoulScheduleLoad_isFirst(){
         // GIVEN
-        let model = self.createTotalLoadModel(data: seoulStationSchduleData)
-        let data = model.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: true, isNow: false, isWidget: false)
+        self.mockLoadModel.setSuccess(seoulScheduleDummyData)
+        let data = self.totalLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: true, isNow: false, isWidget: false)
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -247,8 +247,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSeoulScheduleLoad_isNow(){
         // GIVEN
-        let model = self.createTotalLoadModel(data: seoulStationSchduleData)
-        let data = model.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: true, isWidget: false)
+        self.mockLoadModel.setSuccess(seoulScheduleDummyData)
+        let data = self.totalLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: true, isWidget: false)
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -274,8 +274,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSeoulScheduleLoad(){
         // GIVEN
-        let model = self.createTotalLoadModel(data: seoulStationSchduleData)
-        let data = model.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: false, isWidget: false)
+        self.mockLoadModel.setSuccess(seoulScheduleDummyData)
+        let data = self.totalLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: false, isWidget: false)
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -301,8 +301,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSeoulScheduleLoadServerError(){
         // GIVEN
-        let model = self.createTotalLoadModel(data: arrivalErrorData)
-        let data = model.seoulScheduleLoad(scheduleK215K1Line, isFirst: false, isNow: false, isWidget: false)
+        self.mockLoadModel.setSuccess(arrivalErrorData)
+        let data = self.totalLoadModel.seoulScheduleLoad(scheduleK215K1Line, isFirst: false, isNow: false, isWidget: false)
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -328,8 +328,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSeoulScheduleLoadInputError(){
         // GIVEN
-        let model = self.createTotalLoadModel(data: arrivalErrorData)
-        let data = model.seoulScheduleLoad(
+        self.mockLoadModel.setSuccess(arrivalErrorData)
+        let data = self.totalLoadModel.seoulScheduleLoad(
             .init(stationCode: "0", upDown: "행", exceptionLastStation: "", line: "03호선", korailCode: "", stationName: "")
             , isFirst: false, isNow: false, isWidget: false)
         
