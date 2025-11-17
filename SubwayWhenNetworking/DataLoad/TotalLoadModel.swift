@@ -22,7 +22,7 @@ class TotalLoadModel : TotalLoadProtocol {
         return decodingData
     }
     
-    init(loadModel : LoadModel = .init(), coreDataManager: CoreDataScheduleManager = CoreDataScheduleManager.shared){
+    init(loadModel : LoadModelProtocol = LoadModel(), coreDataManager: CoreDataScheduleManager = CoreDataScheduleManager.shared){
         self.loadModel = loadModel
         self.coreDataManager = coreDataManager
     }
