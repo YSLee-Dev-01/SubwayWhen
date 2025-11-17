@@ -15,31 +15,9 @@ import RxBlocking
 @testable import SubwayWhen
 
 final class TotalLoadModelTests: XCTestCase {
-    var arrivalTotalLoadModel : TotalLoadModel!
-    var arrivalErrorTotalLoadModel : TotalLoadModel!
-    var seoulScheduleLoadModel : TotalLoadModel!
-    var korailScheduleLoadModel : TotalLoadModel!
-    var stationNameSearchModel : TotalLoadModel!
-    var kakaoVicinityStationModel: TotalLoadModel!
     var coreDataManager: CoreDataScheduleManagerProtocol!
     
     override func setUp(){
-        let session = MockURLSession((response: urlResponse!, data: arrivalData))
-        let networkManager = NetworkManager(session: session)
-        let loadModel = LoadModel(networkManager: networkManager)
-        
-        self.arrivalTotalLoadModel = TotalLoadModel(loadModel: loadModel)
-        
-        self.arrivalErrorTotalLoadModel = TotalLoadModel(loadModel: LoadModel(networkManager: NetworkManager(session: MockURLSession(((response: urlResponse!, data: arrivalErrorData))))))
-        self.seoulScheduleLoadModel = TotalLoadModel(loadModel: LoadModel(networkManager: NetworkManager(session: MockURLSession(((response: urlResponse!, data: seoulStationSchduleData))))))
-        self.korailScheduleLoadModel = TotalLoadModel(loadModel: LoadModel(networkManager: NetworkManager(session: MockURLSession(((response: urlResponse!, data: korailStationSchduleData))))))
-        
-        let stationNameMock = MockURLSession((response: urlResponse!, data: stationNameSearchData))
-        self.stationNameSearchModel = TotalLoadModel(loadModel: LoadModel(networkManager: NetworkManager(session: stationNameMock)))
-        
-        let vicinityMock = MockURLSession((response: urlResponse!, data: vicinityData))
-        self.kakaoVicinityStationModel = TotalLoadModel(loadModel: LoadModel(networkManager: NetworkManager(session: vicinityMock)))
-        
         self.coreDataManager = CoreDataScheduleManager.shared
     }
     
@@ -48,9 +26,17 @@ final class TotalLoadModelTests: XCTestCase {
         self.coreDataManager.shinbundangScheduleDataRemove(stationName: scheduleSinsaShinbundagLine.stationName)
     }
     
+    private func createTotalLoadModel(data: Data) -> TotalLoadModel {
+        let session = MockURLSession((response: urlResponse!, data: data))
+        let networkManager = NetworkManager(session: session)
+        let loadModel = LoadModel(networkManager: networkManager)
+        return TotalLoadModel(loadModel: loadModel)
+    }
+    
     func testTotalLiveDataLoad(){
         // GIVEN
-        let data = self.arrivalTotalLoadModel.totalLiveDataLoad(stations: [arrivalGyodaeStation3Line])
+        let model = self.createTotalLoadModel(data: arrivalData)
+        let data = model.totalLiveDataLoad(stations: [arrivalGyodaeStation3Line])
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -92,7 +78,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testTotalLiveDataLoadError(){
         //GIVEN
-        let data = self.arrivalErrorTotalLoadModel.totalLiveDataLoad(stations: [arrivalGyodaeStation3Line])
+        let model = self.createTotalLoadModel(data: arrivalErrorData)
+        let data = model.totalLiveDataLoad(stations: [arrivalGyodaeStation3Line])
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -126,7 +113,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSingleLiveDataLoad() {
         // GIVEN
-        let data = self.arrivalTotalLoadModel.singleLiveDataLoad(requestModel: detailArrivalDataRequestDummyModel)
+        let model = self.createTotalLoadModel(data: arrivalData)
+        let data = model.singleLiveDataLoad(requestModel: detailArrivalDataRequestDummyModel)
         let blocking = data.toBlocking()
         let requestData = try! blocking.toArray().first
         
@@ -159,11 +147,10 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSingleLiveDataLoadError() {
         // GIVEN
-        let data = self.arrivalErrorTotalLoadModel.singleLiveDataLoad(requestModel: detailArrivalDataRequestDummyModel)
+        let model = self.createTotalLoadModel(data: arrivalErrorData)
+        let data = model.singleLiveDataLoad(requestModel: detailArrivalDataRequestDummyModel)
         let blocking = data.toBlocking()
         let requestData = try! blocking.toArray().first
-        
-        let dummyData = arrivalDummyData
         
         // WHEN
         let requestStationName = requestData?.first?.stationName
@@ -194,7 +181,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSeoulScheduleLoad_isFirst_isNow(){
         // GIVEN
-        let data = self.seoulScheduleLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: true, isNow: true, isWidget: false)
+        let model = self.createTotalLoadModel(data: seoulStationSchduleData)
+        let data = model.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: true, isNow: true, isWidget: false)
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -228,7 +216,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSeoulScheduleLoad_isFirst(){
         // GIVEN
-        let data = self.seoulScheduleLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: true, isNow: false, isWidget: false)
+        let model = self.createTotalLoadModel(data: seoulStationSchduleData)
+        let data = model.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: true, isNow: false, isWidget: false)
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -254,7 +243,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSeoulScheduleLoad_isNow(){
         // GIVEN
-        let data = self.seoulScheduleLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: true, isWidget: false)
+        let model = self.createTotalLoadModel(data: seoulStationSchduleData)
+        let data = model.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: true, isWidget: false)
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -280,7 +270,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSeoulScheduleLoad(){
         // GIVEN
-        let data = self.seoulScheduleLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: false, isWidget: false)
+        let model = self.createTotalLoadModel(data: seoulStationSchduleData)
+        let data = model.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: false, isWidget: false)
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -306,7 +297,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSeoulScheduleLoadServerError(){
         // GIVEN
-        let data = self.arrivalErrorTotalLoadModel.seoulScheduleLoad(scheduleK215K1Line, isFirst: false, isNow: false, isWidget: false)
+        let model = self.createTotalLoadModel(data: arrivalErrorData)
+        let data = model.seoulScheduleLoad(scheduleK215K1Line, isFirst: false, isNow: false, isWidget: false)
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -332,7 +324,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSeoulScheduleLoadInputError(){
         // GIVEN
-        let data = self.arrivalErrorTotalLoadModel.seoulScheduleLoad(
+        let model = self.createTotalLoadModel(data: arrivalErrorData)
+        let data = model.seoulScheduleLoad(
             .init(stationCode: "0", upDown: "행", exceptionLastStation: "", line: "03호선", korailCode: "", stationName: "")
             , isFirst: false, isNow: false, isWidget: false)
         
@@ -364,8 +357,9 @@ final class TotalLoadModelTests: XCTestCase {
         let testException = XCTestExpectation(description: "옵저버블 대기")
         
         // GIVEN
+        let model = self.createTotalLoadModel(data: korailStationSchduleData)
         var arrayData : [ResultSchdule] = []
-        let data = self.korailScheduleLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: true, isNow: true, isWidget: false)
+        let data = model.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: true, isNow: true, isWidget: false)
         data
             .subscribe(onNext: {
                 arrayData = $0
@@ -408,8 +402,9 @@ final class TotalLoadModelTests: XCTestCase {
         let testException = XCTestExpectation(description: "옵저버블 대기")
         
         // GIVEN
+        let model = self.createTotalLoadModel(data: korailStationSchduleData)
         var arrayData : [ResultSchdule] = []
-        let data = self.korailScheduleLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: true, isNow: false, isWidget: false)
+        let data = model.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: true, isNow: false, isWidget: false)
         data
             .subscribe(onNext: {
                 arrayData = $0
@@ -445,8 +440,9 @@ final class TotalLoadModelTests: XCTestCase {
         let testException = XCTestExpectation(description: "옵저버블 대기")
         
         // GIVEN
+        let model = self.createTotalLoadModel(data: korailStationSchduleData)
         var arrayData : [ResultSchdule] = []
-        let data = self.korailScheduleLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: true, isWidget: false)
+        let data = model.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: true, isWidget: false)
         data
             .subscribe(onNext: {
                 arrayData = $0
@@ -482,8 +478,9 @@ final class TotalLoadModelTests: XCTestCase {
         let testException = XCTestExpectation(description: "옵저버블 대기")
         
         // GIVEN
+        let model = self.createTotalLoadModel(data: korailStationSchduleData)
         var arrayData : [ResultSchdule] = []
-        let data = self.korailScheduleLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: false, isWidget: false)
+        let data = model.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: false, isWidget: false)
         data
             .subscribe(onNext: {
                 arrayData = $0
@@ -519,8 +516,9 @@ final class TotalLoadModelTests: XCTestCase {
         let testException = XCTestExpectation(description: "옵저버블 대기")
         
         // GIVEN
+        let model = self.createTotalLoadModel(data: korailStationSchduleData)
         var arrayData : [ResultSchdule] = []
-        let data = self.korailScheduleLoadModel.korailSchduleLoad(
+        let data = model.korailSchduleLoad(
             scheduleSearch: .init(
                 stationCode: "0", upDown: "하행", exceptionLastStation: "", line: "", korailCode: "K1", stationName: ""),
             isFirst: false, isNow: false, isWidget: false)
@@ -556,7 +554,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testStationNameSearchResponse() async {
         // GIVEN
-        let data = await self.stationNameSearchModel.stationNameSearchReponse("교대")
+        let model = self.createTotalLoadModel(data: stationNameSearchData)
+        let data = await model.stationNameSearchReponse("교대")
         
         // WHEN
         let requestCount = data.count
@@ -588,7 +587,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testStationNameSearchReponseError() async {
         // GIVEN
-        let data = await self.arrivalErrorTotalLoadModel.stationNameSearchReponse("교대")
+        let model = self.createTotalLoadModel(data: arrivalErrorData)
+        let data = await model.stationNameSearchReponse("교대")
         
         // WHEN
         let requestCount = data.count
@@ -614,7 +614,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testVicinityStationsDataLoad() async {
         // GIVEN
-        let data = await self.kakaoVicinityStationModel.vicinityStationsDataLoad(
+        let model = self.createTotalLoadModel(data: vicinityData)
+        let data = await model.vicinityStationsDataLoad(
             x: 37.49388026940836, y: 127.01360357128935
         )
         let dummyData = vicinityStationsDummyData.documents
@@ -659,7 +660,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testVicinityStationDataLoadError() async {
         // GIVEN
-        let data = await self.arrivalErrorTotalLoadModel.vicinityStationsDataLoad(
+        let model = self.createTotalLoadModel(data: arrivalErrorData)
+        let data = await model.vicinityStationsDataLoad(
             x: 37.49388026940836, y: 127.01360357128935
         )
         
@@ -683,7 +685,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testWidgetSeoulScheduleLoad() {
         // GIVEN
-        let data = self.seoulScheduleLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: true, isWidget: true)
+        let model = self.createTotalLoadModel(data: seoulStationSchduleData)
+        let data = model.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: true, isWidget: true)
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -717,7 +720,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testWidgetSeoulScheduleLoad_ErrorOne() {
         // GIVEN
-        let data = self.arrivalErrorTotalLoadModel.seoulScheduleLoad(
+        let model = self.createTotalLoadModel(data: arrivalErrorData)
+        let data = model.seoulScheduleLoad(
             .init(stationCode: "0", upDown: "행", exceptionLastStation: "", line: "03호선", korailCode: "", stationName: "")
             , isFirst: false, isNow: true, isWidget: true)
         
@@ -758,7 +762,8 @@ final class TotalLoadModelTests: XCTestCase {
         components.minute = 59
         let requestDate = Calendar.current.date(from: components)!
         
-        let data = self.seoulScheduleLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: true, isWidget: true, requestDate: requestDate)
+        let model = self.createTotalLoadModel(data: seoulStationSchduleData)
+        let data = model.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: true, isWidget: true, requestDate: requestDate)
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -795,8 +800,9 @@ final class TotalLoadModelTests: XCTestCase {
         let testException = XCTestExpectation(description: "옵저버블 대기")
         
         // GIVEN
+        let model = self.createTotalLoadModel(data: korailStationSchduleData)
         var arrayData : [ResultSchdule] = []
-        let data = self.korailScheduleLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: true, isWidget: true)
+        let data = model.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: true, isWidget: true)
         data
             .subscribe(onNext: {
                 arrayData = $0
@@ -839,8 +845,9 @@ final class TotalLoadModelTests: XCTestCase {
         let testException = XCTestExpectation(description: "옵저버블 대기")
         
         // GIVEN
+        let model = self.createTotalLoadModel(data: korailStationSchduleData)
         var arrayData : [ResultSchdule] = []
-        let data = self.korailScheduleLoadModel.korailSchduleLoad(
+        let data = model.korailSchduleLoad(
             scheduleSearch: .init(
                 stationCode: "0", upDown: "하행", exceptionLastStation: "", line: "", korailCode: "K1", stationName: ""),
             isFirst: false, isNow: true, isWidget: true)
@@ -887,13 +894,14 @@ final class TotalLoadModelTests: XCTestCase {
         let testException = XCTestExpectation(description: "옵저버블 대기")
         
         // GIVEN
+        let model = self.createTotalLoadModel(data: korailStationSchduleData)
         var components = Calendar.current.dateComponents([.hour, .minute], from: .now)
         components.hour = 23
         components.minute = 59
         let requestDate = Calendar.current.date(from: components)!
         
         var arrayData : [ResultSchdule] = []
-        let data = self.korailScheduleLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: true, isWidget: true, requestDate: requestDate)
+        let data = model.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: true, isWidget: true, requestDate: requestDate)
         data
             .subscribe(onNext: {
                 arrayData = $0
@@ -932,7 +940,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testShinbundangScheduleLoad() {
         // GIVEN
-        let requestObserverableData = self.seoulScheduleLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false, requestDate: .now)
+        let model = self.createTotalLoadModel(data: seoulStationSchduleData)
+        let requestObserverableData = model.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false, requestDate: .now)
         let bag = DisposeBag()
         let testException = XCTestExpectation(description: "옵저버블 대기")
         
@@ -977,7 +986,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testShinbundangScheduleLoad_isFirst_isNow() {
         // GIVEN
-        let requestObserverableData = self.seoulScheduleLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: true, isNow: true, isWidget: false, requestDate: .now)
+        let model = self.createTotalLoadModel(data: seoulStationSchduleData)
+        let requestObserverableData = model.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: true, isNow: true, isWidget: false, requestDate: .now)
         let bag = DisposeBag()
         let testException = XCTestExpectation(description: "옵저버블 대기")
         
@@ -1022,7 +1032,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testShinbundangScheduleLoad_isFirst() {
         // GIVEN
-        let requestObserverableData = self.seoulScheduleLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: true, isNow: false, isWidget: false, requestDate: .now)
+        let model = self.createTotalLoadModel(data: seoulStationSchduleData)
+        let requestObserverableData = model.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: true, isNow: false, isWidget: false, requestDate: .now)
         let bag = DisposeBag()
         let testException = XCTestExpectation(description: "옵저버블 대기")
         
@@ -1067,7 +1078,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testShinbundangScheduleLoad_isNow() {
         // GIVEN
-        let requestObserverableData = self.seoulScheduleLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: true, isWidget: false, requestDate: .now)
+        let model = self.createTotalLoadModel(data: seoulStationSchduleData)
+        let requestObserverableData = model.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: true, isWidget: false, requestDate: .now)
         let bag = DisposeBag()
         let testException = XCTestExpectation(description: "옵저버블 대기")
         
@@ -1112,10 +1124,11 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testShinbundangScheduleLoad_CoreData() { // 브레이크 포인트 추가 이용 테스트
         // GIVEN
+        let model = self.createTotalLoadModel(data: seoulStationSchduleData)
         // 첫 요청이기 때문에 파이어베이스 데이터를 사용하는 데이터
-        let requestObserverableDataOne = self.seoulScheduleLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false, requestDate: .now)
+        let requestObserverableDataOne = model.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false, requestDate: .now)
         // 두 번째 요청이기 때문에 저장된 코어데이터를 사용하는 데이터
-        let requestObserverableDataTwo = self.seoulScheduleLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false, requestDate: .now)
+        let requestObserverableDataTwo = model.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false, requestDate: .now)
         let bag = DisposeBag()
         let testException = XCTestExpectation(description: "옵저버블 대기")
         
@@ -1165,10 +1178,11 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testShinbundangScheduleLoad_Disposable() { // 브레이크 포인트 추가 이용 테스트
         // GIVEN
+        let model = self.createTotalLoadModel(data: seoulStationSchduleData)
         // 첫 요청이기 때문에 파이어베이스 데이터를 사용하는 데이터
-        let requestObserverableDataOne = self.seoulScheduleLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false, isDisposable: true)
+        let requestObserverableDataOne = model.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false, isDisposable: true)
         // 두 번째 요청이여도 isDisposable 상태가 true이기때문에 파어어베이스 데이터를 사용해야함
-        let requestObserverableDataTwo = self.seoulScheduleLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false, isDisposable: true)
+        let requestObserverableDataTwo = model.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false, isDisposable: true)
         let bag = DisposeBag()
         let testException = XCTestExpectation(description: "옵저버블 대기")
         
