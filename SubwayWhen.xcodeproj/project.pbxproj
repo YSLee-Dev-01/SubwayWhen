@@ -384,6 +384,8 @@
 		FF71959F2ECADD6900C3F3C1 /* SubwayNoticeDummy.json in Resources */ = {isa = PBXBuildFile; fileRef = FF71959E2ECADD6900C3F3C1 /* SubwayNoticeDummy.json */; };
 		FF7196522ECAE7CA00C3F3C1 /* SubwayNoticeDummyInfiniteDate.json in Resources */ = {isa = PBXBuildFile; fileRef = FF7196512ECAE7CA00C3F3C1 /* SubwayNoticeDummyInfiniteDate.json */; };
 		FF7196542ECAF1D300C3F3C1 /* MockLoadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7196532ECAF1D300C3F3C1 /* MockLoadModel.swift */; };
+		FF7197092ECB129900C3F3C1 /* KorailTrainNumberDummy.json in Resources */ = {isa = PBXBuildFile; fileRef = FF7197082ECB129900C3F3C1 /* KorailTrainNumberDummy.json */; };
+		FF71970B2ECB13F900C3F3C1 /* DummyKorailTrainValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF71970A2ECB13F900C3F3C1 /* DummyKorailTrainValue.swift */; };
 		FF7837E32E29CF5B004E6BFF /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7837E22E29CF5B004E6BFF /* ReportView.swift */; };
 		FF7837E52E29D0B5004E6BFF /* ReportFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7837E42E29D0B5004E6BFF /* ReportFeature.swift */; };
 		FF7837E72E29D5AA004E6BFF /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7837E62E29D5AA004E6BFF /* Strings.swift */; };
@@ -834,6 +836,8 @@
 		FF71959E2ECADD6900C3F3C1 /* SubwayNoticeDummy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SubwayNoticeDummy.json; sourceTree = "<group>"; };
 		FF7196512ECAE7CA00C3F3C1 /* SubwayNoticeDummyInfiniteDate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SubwayNoticeDummyInfiniteDate.json; sourceTree = "<group>"; };
 		FF7196532ECAF1D300C3F3C1 /* MockLoadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoadModel.swift; sourceTree = "<group>"; };
+		FF7197082ECB129900C3F3C1 /* KorailTrainNumberDummy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = KorailTrainNumberDummy.json; sourceTree = "<group>"; };
+		FF71970A2ECB13F900C3F3C1 /* DummyKorailTrainValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyKorailTrainValue.swift; sourceTree = "<group>"; };
 		FF7837E22E29CF5B004E6BFF /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		FF7837E42E29D0B5004E6BFF /* ReportFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFeature.swift; sourceTree = "<group>"; };
 		FF7837E62E29D5AA004E6BFF /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -1019,6 +1023,7 @@
 			isa = PBXGroup;
 			children = (
 				FF7196512ECAE7CA00C3F3C1 /* SubwayNoticeDummyInfiniteDate.json */,
+				FF7197082ECB129900C3F3C1 /* KorailTrainNumberDummy.json */,
 				34BA0B2A29C01E700044E2C2 /* SeoulStationScheduleDummy.json */,
 				349974F129C82A5A005FCF06 /* StationArrivalRequestErrorDummy.json */,
 				3497DC7829D2907300D2ABB9 /* StationNameSearchDummy.json */,
@@ -1391,6 +1396,7 @@
 			isa = PBXGroup;
 			children = (
 				34A3038529AF362600948EDD /* DummyLoad.swift */,
+				FF71970A2ECB13F900C3F3C1 /* DummyKorailTrainValue.swift */,
 				3481C4E429C1CF05003F5213 /* DummyData */,
 			);
 			path = Dummy;
@@ -2621,6 +2627,7 @@
 				34BA0B2B29C01E700044E2C2 /* SeoulStationScheduleDummy.json in Resources */,
 				349974F229C82A5B005FCF06 /* StationArrivalRequestErrorDummy.json in Resources */,
 				3481C4E329C1C7C2003F5213 /* KorailStationScheduleDummy.json in Resources */,
+				FF7197092ECB129900C3F3C1 /* KorailTrainNumberDummy.json in Resources */,
 				34724DA52A5BAFDC0058DB66 /* KakaoLocationAPIDummy.json in Resources */,
 				3497DC7929D2907300D2ABB9 /* StationNameSearchDummy.json in Resources */,
 				FF7196522ECAE7CA00C3F3C1 /* SubwayNoticeDummyInfiniteDate.json in Resources */,
@@ -2837,6 +2844,7 @@
 				3497DC9129D2EDE200D2ABB9 /* SearchFeatureTests.swift in Sources */,
 				349D789729CC78D400CA1B52 /* DetailResultScheduleModelTests.swift in Sources */,
 				34A221C229CAC1D1003F035D /* MainModelTests.swift in Sources */,
+				FF71970B2ECB13F900C3F3C1 /* DummyKorailTrainValue.swift in Sources */,
 				34BA0B2E29C039010044E2C2 /* TotalLoadModelTests.swift in Sources */,
 				3497DC9329D2F53900D2ABB9 /* ModalModelTests.swift in Sources */,
 				34C655752A5CF8210039C16B /* SettingNotiSelectModalModelTests.swift in Sources */,

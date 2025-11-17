@@ -14,6 +14,7 @@ class MockLoadModel: LoadModelProtocol {
     
     private var successData: Any!
     private var error: URLError!
+    private var korailTrainNumber: [KorailTrainNumber] = []
     
     func stationArrivalRequest(stationName: String) -> RxSwift.Single<Result<SubwayWhen.LiveStationModel, URLError>> {
         return self.toObservableResult()
@@ -26,7 +27,7 @@ class MockLoadModel: LoadModelProtocol {
     }
     
     func korailTrainNumberLoad() -> RxSwift.Observable<[SubwayWhen.KorailTrainNumber]> {
-        return self.toObservable()
+        return .just(self.korailTrainNumber)
     }
     
     func korailSchduleLoad(scheduleSearch: SubwayWhen.ScheduleSearch) -> RxSwift.Single<Result<SubwayWhen.KorailHeader, URLError>> {
@@ -79,6 +80,10 @@ extension MockLoadModel {
     func setFailure(_ error: URLError) {
         self.error = error
         self.successData = nil
+    }
+    
+    func setKorailTrainNumber(_ data: [KorailTrainNumber]) {
+        self.korailTrainNumber = data
     }
     
     private func toObservableResult<T>() -> Observable<Result<T, URLError>> {
