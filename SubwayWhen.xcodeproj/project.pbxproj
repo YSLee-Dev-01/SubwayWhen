@@ -382,6 +382,7 @@
 		FF6CB2142D1111AA00DF562B /* SubwayWhenCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF1D4A9D2C9D32A100AFD709 /* SubwayWhenCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF6CB2192D12991200DF562B /* TestLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6CB2182D12991200DF562B /* TestLocationManager.swift */; };
 		FF71959F2ECADD6900C3F3C1 /* SubwayNoticeDummy.json in Resources */ = {isa = PBXBuildFile; fileRef = FF71959E2ECADD6900C3F3C1 /* SubwayNoticeDummy.json */; };
+		FF7196522ECAE7CA00C3F3C1 /* SubwayNoticeDummyInfiniteDate.json in Resources */ = {isa = PBXBuildFile; fileRef = FF7196512ECAE7CA00C3F3C1 /* SubwayNoticeDummyInfiniteDate.json */; };
 		FF7837E32E29CF5B004E6BFF /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7837E22E29CF5B004E6BFF /* ReportView.swift */; };
 		FF7837E52E29D0B5004E6BFF /* ReportFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7837E42E29D0B5004E6BFF /* ReportFeature.swift */; };
 		FF7837E72E29D5AA004E6BFF /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7837E62E29D5AA004E6BFF /* Strings.swift */; };
@@ -830,6 +831,7 @@
 		FF6B35F92E8A47B000814E32 /* UIDevice+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+.swift"; sourceTree = "<group>"; };
 		FF6CB2182D12991200DF562B /* TestLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLocationManager.swift; sourceTree = "<group>"; };
 		FF71959E2ECADD6900C3F3C1 /* SubwayNoticeDummy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SubwayNoticeDummy.json; sourceTree = "<group>"; };
+		FF7196512ECAE7CA00C3F3C1 /* SubwayNoticeDummyInfiniteDate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SubwayNoticeDummyInfiniteDate.json; sourceTree = "<group>"; };
 		FF7837E22E29CF5B004E6BFF /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		FF7837E42E29D0B5004E6BFF /* ReportFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFeature.swift; sourceTree = "<group>"; };
 		FF7837E62E29D5AA004E6BFF /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -1014,6 +1016,7 @@
 		3481C4E429C1CF05003F5213 /* DummyData */ = {
 			isa = PBXGroup;
 			children = (
+				FF7196512ECAE7CA00C3F3C1 /* SubwayNoticeDummyInfiniteDate.json */,
 				34BA0B2A29C01E700044E2C2 /* SeoulStationScheduleDummy.json */,
 				349974F129C82A5A005FCF06 /* StationArrivalRequestErrorDummy.json */,
 				3497DC7829D2907300D2ABB9 /* StationNameSearchDummy.json */,
@@ -2617,6 +2620,7 @@
 				3481C4E329C1C7C2003F5213 /* KorailStationScheduleDummy.json in Resources */,
 				34724DA52A5BAFDC0058DB66 /* KakaoLocationAPIDummy.json in Resources */,
 				3497DC7929D2907300D2ABB9 /* StationNameSearchDummy.json in Resources */,
+				FF7196522ECAE7CA00C3F3C1 /* SubwayNoticeDummyInfiniteDate.json in Resources */,
 				FF71959F2ECADD6900C3F3C1 /* SubwayNoticeDummy.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

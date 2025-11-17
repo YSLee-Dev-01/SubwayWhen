@@ -17,6 +17,7 @@ let stationNameSearchData = DummyLoad().fileLoad("StationNameSearchDummy.json")
 let vicinityData = DummyLoad().fileLoad("KakaoLocationAPIDummy.json")
 let shinbundangSinsaStationData = DummyLoad().fileLoad("ShinbundangSinsaStationScheduleDummy.json")
 let subwayNoticeData = DummyLoad().fileLoad("SubwayNoticeDummy.json")
+let subwayNoticeInfiniteData = DummyLoad().fileLoad("SubwayNoticeDummyInfiniteDate.json")
 
 let arrivalDummyData = try! JSONDecoder().decode(LiveStationModel.self, from: arrivalData)
 let seoulScheduleDummyData = try! JSONDecoder().decode(ScheduleStationModel.self, from: seoulStationSchduleData)
@@ -66,6 +67,7 @@ let searchQueryRecommend = [
 ]
 
 let subwayNotice = SubwayNotice(title: "4호선 혜화역 하선 열차 무정차 통과 종료", content: "4호선 혜화역 특정장애인단체 불법시위로 인한 하선 열차 무정차 통과는 09:30분부로 종료되어 열차 정상운행 중입니다. 11-12 09:13:09 11-17 09:33:01", occurredAt: "2025-11-17T09:33:01", lineNames: "4호선", createdDate: "20251117", isNonstop: "Y", direction: "하행", exceptionEndedAt: "2025-11-17T09:30:00")
+let subwayNoticeInfiniteDate = SubwayNotice(title: "4호선 혜화역 하선 열차 무정차 통과 종료", content: "4호선 혜화역 특정장애인단체 불법시위로 인한 하선 열차 무정차 통과는 09:30분부로 종료되어 열차 정상운행 중입니다. 11-12 09:13:09 11-17 09:33:01", occurredAt: "2099-11-17T09:33:01", lineNames: "4호선", createdDate: "20991117", isNonstop: "Y", direction: "하행", exceptionEndedAt: "2099-11-17T09:30:00")
 
 let urlResponse = HTTPURLResponse(url: URL(string: url)!,
                                   statusCode: 200,
