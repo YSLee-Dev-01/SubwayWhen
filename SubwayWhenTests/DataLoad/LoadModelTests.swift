@@ -20,6 +20,7 @@ class LoadModelTests : XCTestCase{
     var korailScheduleLoadModel : LoadModelProtocol!
     var stationNameSearchModel : LoadModelProtocol!
     var kakaoVicinityStationModel: LoadModelProtocol!
+    var subwayNoticeLoadModel: LoadModelProtocol!
     
     override func setUp() {
         let mockURL = MockURLSession((response: urlResponse!, data: arrivalData))
@@ -37,6 +38,9 @@ class LoadModelTests : XCTestCase{
         
         let vicinityMock = MockURLSession((response: urlResponse!, data: vicinityData))
         self.kakaoVicinityStationModel = LoadModel(networkManager: NetworkManager(session: vicinityMock))
+        
+        let noticeMock = MockURLSession((response: urlResponse!, data: subwayNoticeData))
+        self.subwayNoticeLoadModel = LoadModel(networkManager: NetworkManager(session: noticeMock))
     }
     
     func testStationArrivalRequest(){
@@ -272,6 +276,77 @@ class LoadModelTests : XCTestCase{
         expect(requestStationName).to(
             equal(dummyStationName),
             description: "시간표 데이터를 요청한 지하철역명은 동일해야함"
+        )
+    }
+    
+    func testSubwayNoticeLoad() {
+        // GIVEN
+        let data = self.subwayNoticeLoadModel.subwayNoticeRequest()
+        let successData = data
+            .map{ data -> SubwayNotice? in
+                guard case .success(let value) = data else {return nil}
+                return value.response.body.items.item.first
+            }
+            .asObservable()
+            .filterNil()
+        
+        let blocking = successData.toBlocking()
+        let arrayData = try! blocking.toArray()
+        
+        // WHEN
+        let requestTitle = arrayData.first!.title
+        let dummyTitle = subwayNotice.title
+        
+        let requestContents = arrayData.first!.content
+        let dummyContents = subwayNotice.content
+        
+        let requestEndDate = arrayData.first!.endDate
+        let dummyEndDate = subwayNotice.endDate
+        
+        // THEN
+        expect(requestTitle).to(
+            equal(dummyTitle),
+            description: "타이틀은 동일해야함"
+        )
+        
+        expect(requestContents).to(
+            equal(dummyContents),
+            description: "컨텐츠 내용은 동일해야함"
+        )
+        
+        expect(requestEndDate).to(
+            equal(dummyEndDate),
+            description: "종료 날짜는 동일해야함"
+        )
+    }
+    
+    func testSubwayNoticeLoadFailed() {
+        // GIVEN
+        let data = self.arrivalLoadModel.subwayNoticeRequest() // 오류 발생을 위해 다른 model 사용
+        let successData = data
+            .map{ data -> SubwayNotice? in
+                guard case .success(let value) = data else {return nil}
+                return value.response.body.items.item.first
+            }
+            .asObservable()
+            .filterNil()
+        
+        let blocking = successData.toBlocking()
+        let arrayData = try! blocking.toArray()
+        
+        // WHEN
+        let requestTitle = arrayData.first?.title
+        let requestEndDate = arrayData.first?.endDate
+        
+        // THEN
+        expect(requestTitle).to(
+            beNil(),
+            description: "타이틀은 nil이여야 함"
+        )
+        
+        expect(requestEndDate).to(
+            beNil(),
+            description: "종료날짜는 nil이여야 함"
         )
     }
 }
