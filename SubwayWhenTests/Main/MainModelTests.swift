@@ -73,25 +73,17 @@ final class MainModelTests: XCTestCase {
         let requestFirstSectionTitle = data.first?.sectionName
         let duumyFirstSectionTitle = ""
         
-        let requestSecondSectionTitle = data[1].sectionName
-        let duumySecondSectionTitle = "실시간 현황"
-        
-        let requestThreeSectionData = data[2].items.first
-        let dummyThreeSectionData = mainCellDummyData
+        let requestFirstData = data.first?.items.first
+        let duumyFirstData = mainCellDummyData
         
         // THEN
         expect(requestFirstSectionTitle).to(
             equal(duumyFirstSectionTitle),
-            description: "첫 번째 Section의 타이틀은 없어야 함"
+            description: "Section의 타이틀은 없어야 함"
         )
         
-        expect(requestSecondSectionTitle).to(
-            equal(duumySecondSectionTitle),
-            description: "두 번째 Section의 타이틀은 (실시간 현황)이여야 함"
-        )
-        
-        expect(requestThreeSectionData).to(
-            equal(dummyThreeSectionData),
+        expect(requestFirstData).to(
+            equal(duumyFirstData),
             description: "통신 데이터는 동일해야함"
         )
     }
@@ -196,7 +188,5 @@ final class MainModelTests: XCTestCase {
             equal(dummyLineNumber),
             description: "라인넘버를 포함한 기본 정보는 동일해야함"
         )
-        
     }
-
 }
