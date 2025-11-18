@@ -30,6 +30,8 @@ class EditVC: TableVCCustom{
         customTappedBG: "AppIconColor",
         disabledBG: UIColor(named: "AppIconColor")?.withAlphaComponent(0.7)
     ).then {
+        $0.transform = CGAffineTransform(translationX: 0, y: 15)
+        $0.alpha = 0
         $0.isEnabled = false
         $0.setTitleColor(.white, for: .normal)
         $0.setTitleColor(.white, for: .disabled)
@@ -70,6 +72,7 @@ class EditVC: TableVCCustom{
         self.bind()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) { // ios26 이후 레이아웃 오류 방지
             self.layout()
+            self.saveBtnShowAnimation()
         }
     }
     
@@ -196,6 +199,13 @@ private extension EditVC{
     func leftGestrueCheck(_ sender: UIGestureRecognizer) {
         if sender.state == .began {
             self.editAction.accept(.backBtnTap)
+        }
+    }
+    
+    func saveBtnShowAnimation() {
+        UIView.animate(withDuration: 0.15, delay: 0.0, options: .allowUserInteraction) {
+            self.saveBtn.alpha = 1
+            self.saveBtn.transform = .identity
         }
     }
 }
