@@ -14,9 +14,8 @@ import RxCocoa
 import RxDataSources
 
 class EditVC: TableVCCustom{
-    private let bag = DisposeBag()
-    private let editAction = PublishRelay<EditVCAction>()
-    private let editViewModel: EditViewModel
+    
+    // MARK: - Properties
     
     private let noListLabel = UILabel().then{
         $0.font = .boldSystemFont(ofSize: ViewStyle.FontSize.mediumSize)
@@ -31,6 +30,7 @@ class EditVC: TableVCCustom{
         customTappedBG: "AppIconColor",
         disabledBG: UIColor(named: "AppIconColor")?.withAlphaComponent(0.7)
     ).then {
+        $0.isEnabled = false
         $0.setTitleColor(.white, for: .normal)
         $0.setTitleColor(.white, for: .disabled)
         $0.setTitle("저장", for: .normal)
@@ -40,6 +40,13 @@ class EditVC: TableVCCustom{
     private  lazy var backGestureView = UIView().then {
         $0.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(leftGestrueCheck)))
     }
+    
+    private let editAction = PublishRelay<EditVCAction>()
+    private let editViewModel: EditViewModel
+    
+    private let bag = DisposeBag()
+    
+    // MARK: - LifeCycle
     
     init(
         viewModel: EditViewModel
@@ -58,15 +65,20 @@ class EditVC: TableVCCustom{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.attribute()
-        self.layout()
         self.bind()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) { // ios26 이후 레이아웃 오류 방지
+            self.layout()
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         self.editAction.accept(.willDisappear)
     }
 }
+
+// MARK: - Methods
 
 private extension EditVC{
     func attribute(){
@@ -77,9 +89,7 @@ private extension EditVC{
     }
     
     func layout(){
-        [self.saveBtn, self.noListLabel, backGestureView].forEach {
-            self.view.addSubview($0)
-        }
+        self.view.addSubviews(self.saveBtn, self.noListLabel, self.backGestureView)
         self.noListLabel.snp.makeConstraints{
             $0.center.equalToSuperview()
         }
