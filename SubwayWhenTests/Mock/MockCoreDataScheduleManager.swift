@@ -28,7 +28,13 @@ class MockCoreDataScheduleManager: CoreDataScheduleManagerProtocol {
     
     func shinbundangScheduleDataSave(to scheduleData: [String : [SubwayWhen.ShinbundangScheduleModel]], scheduleVersion: String) {
         for (stationName, schedules) in scheduleData {
-            let entity = ShinbundangLineScheduleModel(context: mockContext)
+            guard let entity = NSEntityDescription.insertNewObject(
+                forEntityName: "ShinbundangLineScheduleModel",
+                into: self.mockContext
+            ) as? ShinbundangLineScheduleModel else {
+                continue
+            }
+            
             entity.stationName = stationName
             entity.scheduleData = schedules
             entity.scheduleVersion = scheduleVersion
@@ -44,5 +50,10 @@ class MockCoreDataScheduleManager: CoreDataScheduleManagerProtocol {
     
     func shinbundangScheduleDataRemove(stationName: String) {
         self.scheduleData[stationName] = nil
+    }
+    
+    func clearAll() {
+        self.scheduleData.removeAll()
+        self.mockContext.reset()
     }
 }
