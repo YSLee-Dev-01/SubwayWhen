@@ -15,9 +15,14 @@ import RxBlocking
 @testable import SubwayWhen
 
 final class TotalLoadModelTests: XCTestCase {
+    
+    // MARK: - Properties
+    
     var mockLoadModel: MockLoadModel!
     var totalLoadModel: TotalLoadModel!
     var mockCoreDataScheduleManager: MockCoreDataScheduleManager!
+    
+    // MARK: - LifeCycle
     
     override func setUp(){
         self.mockLoadModel = .init()
@@ -30,12 +35,7 @@ final class TotalLoadModelTests: XCTestCase {
         self.mockCoreDataScheduleManager.clearAll()
     }
     
-    private func createTotalLoadModel(data: Data) -> TotalLoadModel {
-        let session = MockURLSession((response: urlResponse!, data: data))
-        let networkManager = NetworkManager(session: session)
-        let loadModel = LoadModel(networkManager: networkManager)
-        return TotalLoadModel(loadModel: loadModel)
-    }
+    // MARK: - Tests
     
     func testTotalLiveDataLoad(){
         // GIVEN
@@ -510,8 +510,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testStationNameSearchResponse() async {
         // GIVEN
-        let model = self.createTotalLoadModel(data: stationNameSearchData)
-        let data = await model.stationNameSearchReponse("교대")
+        self.mockLoadModel.setSuccess(stationNameSearcDummyhData)
+        let data = await self.totalLoadModel.stationNameSearchReponse("교대")
         
         // WHEN
         let requestCount = data.count
@@ -543,8 +543,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testStationNameSearchReponseError() async {
         // GIVEN
-        let model = self.createTotalLoadModel(data: arrivalErrorData)
-        let data = await model.stationNameSearchReponse("교대")
+        self.mockLoadModel.setSuccess(arrivalErrorData)
+        let data = await self.totalLoadModel.stationNameSearchReponse("교대")
         
         // WHEN
         let requestCount = data.count
@@ -570,8 +570,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testVicinityStationsDataLoad() async {
         // GIVEN
-        let model = self.createTotalLoadModel(data: vicinityData)
-        let data = await model.vicinityStationsDataLoad(
+        self.mockLoadModel.setSuccess(vicinityStationsDummyData)
+        let data = await self.totalLoadModel.vicinityStationsDataLoad(
             x: 37.49388026940836, y: 127.01360357128935
         )
         let dummyData = vicinityStationsDummyData.documents
@@ -616,8 +616,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testVicinityStationDataLoadError() async {
         // GIVEN
-        let model = self.createTotalLoadModel(data: arrivalErrorData)
-        let data = await model.vicinityStationsDataLoad(
+        self.mockLoadModel.setSuccess(arrivalErrorData)
+        let data = await self.totalLoadModel.vicinityStationsDataLoad(
             x: 37.49388026940836, y: 127.01360357128935
         )
         
@@ -641,8 +641,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testWidgetSeoulScheduleLoad() {
         // GIVEN
-        let model = self.createTotalLoadModel(data: seoulStationSchduleData)
-        let data = model.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: true, isWidget: true)
+        self.mockLoadModel.setSuccess(seoulScheduleDummyData)
+        let data = self.totalLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: true, isWidget: true)
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -676,10 +676,13 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testWidgetSeoulScheduleLoad_ErrorOne() {
         // GIVEN
-        let model = self.createTotalLoadModel(data: arrivalErrorData)
-        let data = model.seoulScheduleLoad(
-            .init(stationCode: "0", upDown: "행", exceptionLastStation: "", line: "03호선", korailCode: "", stationName: "")
-            , isFirst: false, isNow: true, isWidget: true)
+        self.mockLoadModel.setSuccess(arrivalErrorData)
+        let data = self.totalLoadModel.seoulScheduleLoad(
+            .init(stationCode: "0", upDown: "행", exceptionLastStation: "", line: "03호선", korailCode: "", stationName: ""),
+            isFirst: false,
+            isNow: true,
+            isWidget: true
+        )
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -718,8 +721,8 @@ final class TotalLoadModelTests: XCTestCase {
         components.minute = 59
         let requestDate = Calendar.current.date(from: components)!
         
-        let model = self.createTotalLoadModel(data: seoulStationSchduleData)
-        let data = model.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: true, isWidget: true, requestDate: requestDate)
+        self.mockLoadModel.setSuccess(seoulScheduleDummyData)
+        let data = self.totalLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: true, isWidget: true, requestDate: requestDate)
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -1189,8 +1192,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testImportantDataLoad_서울시데이터() {
         // GIVEN
-        let model = self.createTotalLoadModel(data: subwayNoticeInfiniteData)
-        let data = model.importantDataLoad()
+        self.mockLoadModel.setSuccess(subwayNoticeInfiniteDate)
+        let data = self.totalLoadModel.importantDataLoad()
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
         
@@ -1216,8 +1219,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testImportantDataLoad_서울시데이터_날짜지남() {
         // GIVEN
-        let model = self.createTotalLoadModel(data: subwayNoticeData)
-        let data = model.importantDataLoad()
+        self.mockLoadModel.setSuccess(subwayNotice)
+        let data = self.totalLoadModel.importantDataLoad()
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
         
