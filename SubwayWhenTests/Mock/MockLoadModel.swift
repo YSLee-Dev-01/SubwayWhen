@@ -18,6 +18,7 @@ class MockLoadModel: LoadModelProtocol {
     private var error: URLError!
     private var korailTrainNumber: [KorailTrainNumber] = []
     private var shinbundangScheduleVersion = 0.0
+    private var importantData = ImportantData(title: "", contents: "")
     
     private(set) var shinbundangScheduleRequestCount = 0
     
@@ -57,7 +58,7 @@ class MockLoadModel: LoadModelProtocol {
     }
     
     func importantDataLoad() -> RxSwift.Observable<SubwayWhen.ImportantData> {
-        return self.toObservable()
+        return .just(self.importantData)
     }
     
     func shinbundangScheduleReqeust(scheduleSearch: SubwayWhen.ScheduleSearch) -> RxSwift.Observable<[SubwayWhen.ShinbundangScheduleModel]> {
@@ -98,6 +99,10 @@ extension MockLoadModel {
     
     func setShinbundangScheduleVersion(_ version: Double) {
         self.shinbundangScheduleVersion = version
+    }
+    
+    func setImportantData(_ data: ImportantData) {
+        self.importantData = data
     }
     
     private func toObservableResult<T>() -> Observable<Result<T, URLError>> {

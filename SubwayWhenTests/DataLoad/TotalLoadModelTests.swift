@@ -1192,7 +1192,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testImportantDataLoad_서울시데이터() {
         // GIVEN
-        self.mockLoadModel.setSuccess(subwayNoticeInfiniteDate)
+        self.mockLoadModel.setImportantData(ImportantData(title: "", contents: ""))
+        self.mockLoadModel.setSuccess(subwayNoticeInfiniteDummyData)
         let data = self.totalLoadModel.importantDataLoad()
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -1219,7 +1220,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testImportantDataLoad_서울시데이터_날짜지남() {
         // GIVEN
-        self.mockLoadModel.setSuccess(subwayNotice)
+        self.mockLoadModel.setImportantData(ImportantData(title: "", contents: ""))
+        self.mockLoadModel.setSuccess(subwayNoticeDummyData)
         let data = self.totalLoadModel.importantDataLoad()
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -1245,7 +1247,7 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testImportantDataLoad_firebase데이터() {
         // GIVEN
-        self.mockLoadModel.setSuccess(importantData)
+        self.mockLoadModel.setImportantData(importantData)
         let data = self.totalLoadModel.importantDataLoad()
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
