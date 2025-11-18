@@ -1502,9 +1502,7 @@
 		34A3036F29AF239300948EDD /* SubwayWhenTests */ = {
 			isa = PBXGroup;
 			children = (
-				FF71970C2ECBF20E00C3F3C1 /* MockCoreDataScheduleManager.swift */,
-				FF7196532ECAF1D300C3F3C1 /* MockLoadModel.swift */,
-				34B3104F29B0DAE500EA3A19 /* MockURLSession.swift */,
+				FF71970E2ECBF8FF00C3F3C1 /* Mock */,
 				34AB13352ACFB032008D04B0 /* Tutorial */,
 				3497DCC529D43D4200D2ABB9 /* Setting */,
 				3497DC8F29D2E7BE00D2ABB9 /* Search */,
@@ -2352,6 +2350,16 @@
 				FFC07F672D349B4E0001B1CD /* SearchQueryRecommendView.swift */,
 			);
 			path = Sub;
+			sourceTree = "<group>";
+		};
+		FF71970E2ECBF8FF00C3F3C1 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				FF71970C2ECBF20E00C3F3C1 /* MockCoreDataScheduleManager.swift */,
+				FF7196532ECAF1D300C3F3C1 /* MockLoadModel.swift */,
+				34B3104F29B0DAE500EA3A19 /* MockURLSession.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		FF7ECAC82C7BF83300D4643A /* SwiftUI */ = {
