@@ -387,6 +387,7 @@
 		FF7197092ECB129900C3F3C1 /* KorailTrainNumberDummy.json in Resources */ = {isa = PBXBuildFile; fileRef = FF7197082ECB129900C3F3C1 /* KorailTrainNumberDummy.json */; };
 		FF71970B2ECB13F900C3F3C1 /* DummyKorailTrainValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF71970A2ECB13F900C3F3C1 /* DummyKorailTrainValue.swift */; };
 		FF71970D2ECBF20E00C3F3C1 /* MockCoreDataScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF71970C2ECBF20E00C3F3C1 /* MockCoreDataScheduleManager.swift */; };
+		FF7197122ECC082000C3F3C1 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7197112ECC082000C3F3C1 /* DummyData.swift */; };
 		FF7837E32E29CF5B004E6BFF /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7837E22E29CF5B004E6BFF /* ReportView.swift */; };
 		FF7837E52E29D0B5004E6BFF /* ReportFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7837E42E29D0B5004E6BFF /* ReportFeature.swift */; };
 		FF7837E72E29D5AA004E6BFF /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7837E62E29D5AA004E6BFF /* Strings.swift */; };
@@ -840,6 +841,7 @@
 		FF7197082ECB129900C3F3C1 /* KorailTrainNumberDummy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = KorailTrainNumberDummy.json; sourceTree = "<group>"; };
 		FF71970A2ECB13F900C3F3C1 /* DummyKorailTrainValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyKorailTrainValue.swift; sourceTree = "<group>"; };
 		FF71970C2ECBF20E00C3F3C1 /* MockCoreDataScheduleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataScheduleManager.swift; sourceTree = "<group>"; };
+		FF7197112ECC082000C3F3C1 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		FF7837E22E29CF5B004E6BFF /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		FF7837E42E29D0B5004E6BFF /* ReportFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFeature.swift; sourceTree = "<group>"; };
 		FF7837E62E29D5AA004E6BFF /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -1397,6 +1399,7 @@
 		349E2F7029BF100900C54EE9 /* Dummy */ = {
 			isa = PBXGroup;
 			children = (
+				FF7197112ECC082000C3F3C1 /* DummyData.swift */,
 				34A3038529AF362600948EDD /* DummyLoad.swift */,
 				FF71970A2ECB13F900C3F3C1 /* DummyKorailTrainValue.swift */,
 				3481C4E429C1CF05003F5213 /* DummyData */,
@@ -2866,6 +2869,7 @@
 				34D7F50829D062B300A0B3DE /* EditModelTests.swift in Sources */,
 				34A3038629AF362700948EDD /* DummyLoad.swift in Sources */,
 				349D789529CC67FD00CA1B52 /* DetailFeatureTests.swift in Sources */,
+				FF7197122ECC082000C3F3C1 /* DummyData.swift in Sources */,
 				3499DE9129D17B9C00A6E8C1 /* EditViewModelTests.swift in Sources */,
 				3499DEAE29D1C07300A6E8C1 /* ReportCheckModalModelTests.swift in Sources */,
 				34A221BB29C9B64C003F035D /* MainViewModelTests.swift in Sources */,
