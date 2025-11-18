@@ -355,24 +355,14 @@ final class TotalLoadModelTests: XCTestCase {
         )
     }
     
-    // KorailTest: 테스트 객체는 외부환경에 의존하면 안되지만, FireBase에서 불러오는 데이터가 1000건이 넘으며, TrainCode 특성상 변경될 일이 없기 때문에 Observable을 기다리는 형태로 테스트 진행
     func testKorailScheduleLoad_isFirst_isNow(){
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
-        
         // GIVEN
-        let model = self.createTotalLoadModel(data: korailStationSchduleData)
-        var arrayData : [ResultSchdule] = []
-        let data = model.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: true, isNow: true, isWidget: false)
-        data
-            .subscribe(onNext: {
-                arrayData = $0
-                testException.fulfill()
-            })
-            .disposed(by: bag)
+        self.mockLoadModel.setKorailTrainNumber(korailTrainNumber)
+        self.mockLoadModel.setSuccess(korailHeaderDummyData)
         
-    
-        wait(for: [testException], timeout: 3)
+        let data = self.totalLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: true, isNow: true, isWidget: false)
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray().first!
     
         // WHEN
         let requestCount = arrayData.count
@@ -402,23 +392,13 @@ final class TotalLoadModelTests: XCTestCase {
     }
     
     func testKorailScheduleLoad_isFirst(){
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
-        
         // GIVEN
-        let model = self.createTotalLoadModel(data: korailStationSchduleData)
-        var arrayData : [ResultSchdule] = []
-        let data = model.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: true, isNow: false, isWidget: false)
-        data
-            .subscribe(onNext: {
-                arrayData = $0
-                print($0)
-                testException.fulfill()
-            })
-            .disposed(by: bag)
+        self.mockLoadModel.setKorailTrainNumber(korailTrainNumber)
+        self.mockLoadModel.setSuccess(korailHeaderDummyData)
         
-    
-        wait(for: [testException], timeout: 3)
+        let data = self.totalLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: true, isNow: false, isWidget: false)
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray().first!
     
         // WHEN
         let requestCount = arrayData.count
@@ -440,23 +420,13 @@ final class TotalLoadModelTests: XCTestCase {
     }
     
     func testKorailScheduleLoad_isNow(){
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
-        
         // GIVEN
-        let model = self.createTotalLoadModel(data: korailStationSchduleData)
-        var arrayData : [ResultSchdule] = []
-        let data = model.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: true, isWidget: false)
-        data
-            .subscribe(onNext: {
-                arrayData = $0
-                print($0)
-                testException.fulfill()
-            })
-            .disposed(by: bag)
+        self.mockLoadModel.setKorailTrainNumber(korailTrainNumber)
+        self.mockLoadModel.setSuccess(korailHeaderDummyData)
         
-    
-        wait(for: [testException], timeout: 3)
+        let data = self.totalLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: true, isWidget: false)
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray().first!
     
         // WHEN
         let requestCount = arrayData.count
@@ -478,23 +448,13 @@ final class TotalLoadModelTests: XCTestCase {
     }
     
     func testKorailScheduleLoad(){
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
+       // GIVEN
+        self.mockLoadModel.setKorailTrainNumber(korailTrainNumber)
+        self.mockLoadModel.setSuccess(korailHeaderDummyData)
         
-        // GIVEN
-        let model = self.createTotalLoadModel(data: korailStationSchduleData)
-        var arrayData : [ResultSchdule] = []
-        let data = model.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: false, isWidget: false)
-        data
-            .subscribe(onNext: {
-                arrayData = $0
-                print($0)
-                testException.fulfill()
-            })
-            .disposed(by: bag)
-        
-    
-        wait(for: [testException], timeout: 3)
+        let data = self.totalLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: false, isWidget: false)
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray().first!
     
         // WHEN
         let requestCount = arrayData.count
@@ -516,26 +476,18 @@ final class TotalLoadModelTests: XCTestCase {
     }
     
     func testKorailScheduleLoadInputError(){
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
-        
         // GIVEN
-        let model = self.createTotalLoadModel(data: korailStationSchduleData)
-        var arrayData : [ResultSchdule] = []
-        let data = model.korailSchduleLoad(
-            scheduleSearch: .init(
-                stationCode: "0", upDown: "하행", exceptionLastStation: "", line: "", korailCode: "K1", stationName: ""),
-            isFirst: false, isNow: false, isWidget: false)
-        data
-            .subscribe(onNext: {
-                arrayData = $0
-                print($0)
-                testException.fulfill()
-            })
-            .disposed(by: bag)
+        self.mockLoadModel.setKorailTrainNumber(korailTrainNumber)
+        self.mockLoadModel.setSuccess(korailHeaderDummyData)
         
-        
-        wait(for: [testException], timeout: 3)
+        let data = self.totalLoadModel.korailSchduleLoad(
+            scheduleSearch: .init(stationCode: "0", upDown: "하행", exceptionLastStation: "", line: "", korailCode: "K1", stationName: ""),
+            isFirst: false,
+            isNow: false,
+            isWidget: false
+        )
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray().first!
         
         // WHEN
         let requestCount = arrayData.count
@@ -800,22 +752,12 @@ final class TotalLoadModelTests: XCTestCase {
     }
     
     func testWidgetKorailScheduleLoad(){
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
-        
         // GIVEN
-        let model = self.createTotalLoadModel(data: korailStationSchduleData)
-        var arrayData : [ResultSchdule] = []
-        let data = model.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: true, isWidget: true)
-        data
-            .subscribe(onNext: {
-                arrayData = $0
-                testException.fulfill()
-            })
-            .disposed(by: bag)
-        
-    
-        wait(for: [testException], timeout: 3)
+        self.mockLoadModel.setKorailTrainNumber(korailTrainNumber)
+        self.mockLoadModel.setSuccess(korailHeaderDummyData)
+        let data = self.totalLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: true, isWidget: true)
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray().first!
     
         // WHEN
         let requestCount = arrayData.count
@@ -845,26 +787,17 @@ final class TotalLoadModelTests: XCTestCase {
     }
     
     func testWidgetKorailScheduleLoad_ErrorOne(){
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
-        
         // GIVEN
-        let model = self.createTotalLoadModel(data: korailStationSchduleData)
-        var arrayData : [ResultSchdule] = []
-        let data = model.korailSchduleLoad(
-            scheduleSearch: .init(
-                stationCode: "0", upDown: "하행", exceptionLastStation: "", line: "", korailCode: "K1", stationName: ""),
-            isFirst: false, isNow: true, isWidget: true)
-        data
-            .subscribe(onNext: {
-                arrayData = $0
-                print($0)
-                testException.fulfill()
-            })
-            .disposed(by: bag)
-        
-        
-        wait(for: [testException], timeout: 3)
+        self.mockLoadModel.setKorailTrainNumber(korailTrainNumber)
+        self.mockLoadModel.setSuccess(korailHeaderDummyData)
+        let data = self.totalLoadModel.korailSchduleLoad(
+            scheduleSearch: .init(stationCode: "0", upDown: "하행", exceptionLastStation: "", line: "", korailCode: "K1", stationName: ""),
+            isFirst: false,
+            isNow: true,
+            isWidget: true
+        )
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray().first!
         
         // WHEN
         let requestCount = arrayData.count
@@ -894,26 +827,23 @@ final class TotalLoadModelTests: XCTestCase {
     }
     
     func testWidgetKorailScheduleLoad_ErrorTwo(){
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
-        
         // GIVEN
-        let model = self.createTotalLoadModel(data: korailStationSchduleData)
         var components = Calendar.current.dateComponents([.hour, .minute], from: .now)
         components.hour = 23
         components.minute = 59
         let requestDate = Calendar.current.date(from: components)!
         
-        var arrayData : [ResultSchdule] = []
-        let data = model.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: true, isWidget: true, requestDate: requestDate)
-        data
-            .subscribe(onNext: {
-                arrayData = $0
-                testException.fulfill()
-            })
-            .disposed(by: bag)
-        
-        wait(for: [testException], timeout: 3)
+        self.mockLoadModel.setKorailTrainNumber(korailTrainNumber)
+        self.mockLoadModel.setSuccess(korailHeaderDummyData)
+        let data = self.totalLoadModel.korailSchduleLoad(
+           scheduleSearch: scheduleK215K1Line,
+            isFirst: false,
+            isNow: true,
+            isWidget: true,
+           requestDate: requestDate
+        )
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray().first!
         
         // WHEN
         let requestCount = arrayData.count
