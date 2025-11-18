@@ -12,12 +12,16 @@ import RxSwift
 
 class MockLoadModel: LoadModelProtocol {
     
+    // MARK: - Properties
+    
     private var successData: Any!
     private var error: URLError!
     private var korailTrainNumber: [KorailTrainNumber] = []
     private var shinbundangScheduleVersion = 0.0
     
     private(set) var shinbundangScheduleRequestCount = 0
+    
+    // MARK: - Methods (Protocol)
     
     func stationArrivalRequest(stationName: String) -> RxSwift.Single<Result<SubwayWhen.LiveStationModel, URLError>> {
         return self.toObservableResult()
@@ -74,6 +78,8 @@ class MockLoadModel: LoadModelProtocol {
             .asSingle()
     }
 }
+
+// MARK: - Methods
 
 extension MockLoadModel {
     func setSuccess(_ data: Any) {

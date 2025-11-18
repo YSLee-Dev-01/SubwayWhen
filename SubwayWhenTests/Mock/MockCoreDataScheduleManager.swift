@@ -13,6 +13,8 @@ import RxSwift
 
 class MockCoreDataScheduleManager: CoreDataScheduleManagerProtocol {
     
+    // MARK: - Properties
+    
     private lazy var mockContext: NSManagedObjectContext = {
         let container = NSPersistentContainer(name: "CoreDataScheduleModel")
         let description = NSPersistentStoreDescription()
@@ -25,6 +27,8 @@ class MockCoreDataScheduleManager: CoreDataScheduleManagerProtocol {
     private var scheduleData: [String: ShinbundangLineScheduleModel] = [:]
     
     private(set) var scheduleLoadCount = 0
+    
+    // MARK: - Methods (Protocol)
     
     func shinbundangScheduleDataSave(to scheduleData: [String : [SubwayWhen.ShinbundangScheduleModel]], scheduleVersion: String) {
         for (stationName, schedules) in scheduleData {
@@ -51,7 +55,11 @@ class MockCoreDataScheduleManager: CoreDataScheduleManagerProtocol {
     func shinbundangScheduleDataRemove(stationName: String) {
         self.scheduleData[stationName] = nil
     }
-    
+}
+
+// MARK: - Methods
+
+extension MockCoreDataScheduleManager {
     func clearAll() {
         self.scheduleData.removeAll()
         self.mockContext.reset()
