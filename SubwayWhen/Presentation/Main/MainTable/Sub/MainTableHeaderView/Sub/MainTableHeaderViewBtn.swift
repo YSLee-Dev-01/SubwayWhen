@@ -1,5 +1,5 @@
 //
-//  MainTableViewHeaderBtn.swift
+//  MainTableHeaderViewBtn.swift
 //  SubwayWhen
 //
 //  Created by 이윤수 on 2023/02/08.
@@ -12,14 +12,19 @@ import SnapKit
 
 import Lottie
 
-class MainTableViewHeaderBtn : ModalCustomButton{
-    let btnLabel = UILabel().then{
+class MainTableHeaderViewBtn: ModalCustomButton {
+    
+    // MARK: - Properties
+    
+    let btnLabel = UILabel().then {
         $0.font = .boldSystemFont(ofSize: ViewStyle.FontSize.largeSize)
     }
     
     let btnImg : LottieAnimationView
     
-    init(title : String, img : String){
+    // MARK: - LifeCycle
+    
+    init(title: String, img: String) {
         self.btnImg = LottieAnimationView(name: img)
         super.init(bgColor: UIColor(named: "MainColor") ?? .gray, customTappedBG: nil)
         self.layout()
@@ -32,28 +37,30 @@ class MainTableViewHeaderBtn : ModalCustomButton{
     }
 }
 
-extension MainTableViewHeaderBtn{
-    private func layout(){
+// MARK: - Methods
+
+extension MainTableHeaderViewBtn {
+    private func layout() {
         self.addSubview(self.btnLabel)
         self.addSubview(self.btnImg)
         
-        self.btnLabel.snp.makeConstraints{
+        self.btnLabel.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview().inset(15)
         }
         
-        self.btnImg.snp.makeConstraints{
+        self.btnImg.snp.makeConstraints {
             $0.trailing.bottom.equalToSuperview().inset(15)
             $0.size.equalTo(50)
         }
     }
     
-    private func attribute(title : String, img : String){
+    private func attribute(title : String, img : String) {
         self.tintColor = .gray
         self.btnLabel.text = title
         self.btnImg.isUserInteractionEnabled = false
     }
     
-    func iconAnimationPlay(){
+    func iconAnimationPlay() {
         self.btnImg.stop()
         self.btnImg.play()
     }

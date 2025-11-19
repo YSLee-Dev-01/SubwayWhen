@@ -1,5 +1,5 @@
 //
-//  GroupCustomButton.swift
+//  MainTableHeaderGroupBtn.swift
 //  SubwayWhen
 //
 //  Created by 이윤수 on 2022/12/01.
@@ -7,7 +7,10 @@
 
 import UIKit
 
-class MainTableViewGroupBtn : UIButton{
+class MainTableHeaderGroupBtn: UIButton {
+    
+    // MARK: - LifeCycle
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.attribute()
@@ -18,21 +21,23 @@ class MainTableViewGroupBtn : UIButton{
     }
 }
 
-extension MainTableViewGroupBtn {
-    private func attribute(){
+// MARK: - Methods
+
+extension MainTableHeaderGroupBtn {
+    private func attribute() {
         self.layer.cornerRadius = ViewStyle.Layer.radius
         self.layer.masksToBounds = true
         self.titleLabel?.font = .boldSystemFont(ofSize: ViewStyle.FontSize.mediumSize)
     }
     
-    func seleted(){
+    func seleted() {
         self.setTitleColor(.label, for: .normal)
         self.layer.borderWidth = 1.2
         self.backgroundColor = .systemBackground
         self.layer.borderColor = UIColor(named: "AppIconColor")?.cgColor
     }
     
-    func unSeleted(){
+    func unSeleted() {
         self.setTitleColor(.systemGray, for: .normal)
         self.layer.borderWidth = 0.0
         self.backgroundColor = UIColor(named: "MainColor")

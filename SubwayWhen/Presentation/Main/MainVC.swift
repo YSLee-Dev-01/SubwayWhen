@@ -13,15 +13,22 @@ import RxSwift
 import RxCocoa
 
 class MainVC: TableVCCustom {
-    private let bag = DisposeBag()
+    
+    // MARK: - Properties
     
     private let mainTableView = MainTableView()
+    private let heaerView = MainTableHeaderView()
+    
     private let mainViewModel : MainViewModel
     private let mainAction = PublishRelay<MainViewAction>()
     
+    private let bag = DisposeBag()
+    
+    // MARK: - LifeCycle
+    
     init(viewModel: MainViewModel){
         self.mainViewModel = viewModel
-        super.init(title: "홈", titleViewHeight: 62)
+        super.init(title: Strings.Main.title, titleViewHeight: 62, additionalHeaderView: self.heaerView)
         
         self.tableView = self.mainTableView
         self.tableView.delegate = self
@@ -43,6 +50,8 @@ class MainVC: TableVCCustom {
         self.mainAction.accept(.refreshEvent)
     }
 }
+
+// MARK: - Methods
  
 extension MainVC{
     private func attibute(){
@@ -68,13 +77,17 @@ extension MainVC{
         )
         
         let output = self.mainViewModel.trasnform(input: input)
-        self.mainTableView.setDI(action: self.mainAction)
-            .setDI(importantData: output.importantData)
-            .setDI(
-                tableViewData: output.tableViewData,
-                peopleData: output.peopleData,
-                groupData: output.groupData)
+        self.mainTableView
+            .setDI(action: self.mainAction)
+            .setDI(tableViewData: output.tableViewData)
             .setDI(setCellData: output.cellData)
+            .setDI(selectedGroup: output.groupData)
+        
+        self.heaerView
+            .setDI(action: self.mainAction)
+            .setDI(importantData: output.importantData)
+            .setDI(peopleData: output.peopleData)
+            .setDI(selectedGroup: output.groupData)
         
         output.tableViewData
             .map { _ in Void()}
@@ -84,9 +97,14 @@ extension MainVC{
         output.mainTitle
             .drive(self.rx.mainTitleSet)
             .disposed(by: self.bag)
-    }
         
+        output.importantData
+            .drive(self.rx.importantTransform)
+            .disposed(by: self.bag)
+    }
 }
+
+// MARK: - extension Reactive 
 
 extension Reactive where Base : MainVC {
     var mainTitleHidden : Binder<Void>{
@@ -99,5 +117,45 @@ extension Reactive where Base : MainVC {
         return Binder(base){base, data in
             base.titleView.mainTitleLabel.text = data
         }
+    }
+    
+    var importantTransform: Binder<ImportantData> {
+        return Binder(base) { base, data in
+            base.updateTableHeaderViewHeight()
+        }
+    }
+}
+
+extension MainVC {
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(
+            identifier: indexPath as NSCopying,
+            previewProvider: { [weak self] in
+                return self?.mainViewModel.getDetailVC(at: indexPath)
+            }, actionProvider: { [weak self] _ in
+                let reportBtn = UIAction(title: Strings.Main.reportIssue, image: UIImage(systemName: "exclamationmark.triangle")) { [weak self] _ in
+                    self?.mainAction.accept(.contextMenuReportBtnTap(indexPath))
+                }
+                
+                return UIMenu(title: "", children: (self?.mainViewModel.getAllowReport(at: indexPath) ?? false) ? [reportBtn] :[])
+            })
+    }
+    
+    func tableView(_ tableView: UITableView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: any UIContextMenuInteractionCommitAnimating) {
+        guard let indexPath = configuration.identifier as? IndexPath else {return}
+        self.mainAction.accept(.cellTap(indexPath))
+    }
+    
+    func tableView(_ tableView: UITableView, previewForHighlightingContextMenuWithConfiguration configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
+        guard let indexPath = configuration.identifier as? IndexPath,
+              let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCell
+        else {return nil}
+        
+        let parameters = UIPreviewParameters()
+        parameters.backgroundColor = .clear
+        parameters.shadowPath = UIBezierPath()
+        parameters.visiblePath = nil
+        
+        return UITargetedPreview(view: cell, parameters: parameters)
     }
 }

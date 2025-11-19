@@ -148,10 +148,12 @@ final class LoadModel : LoadModelProtocol{
             let search = subwayWhen?["ImportantData"]
             let list = search as? [String]
             
-            if let infoData = list,
-               infoData[0] != "Nil"
-            {
-                importantData.onNext(.init(title: infoData[0], contents: infoData[1]))
+            if let infoData = list {
+                if infoData[0] == "Nil" {
+                    importantData.onNext(.init(title: "", contents: ""))
+                } else {
+                    importantData.onNext(.init(title: infoData[0], contents: infoData[1]))
+                }
             }
             importantData.onCompleted();
         }
@@ -231,6 +233,11 @@ final class LoadModel : LoadModelProtocol{
         
         return recommendListData
             .asObservable()
+    }
+    
+    func subwayNoticeRequest() -> Single<Result<SubwayNoticeResponse, URLError>> {
+        let url = "http://openapi.seoul.go.kr:8088/\(Bundle.main.tokenLoad("SEOUL_TOKEN"))/json/getNtceList/1/5/"
+        return self.networkManager.requestData(url, dataType: SubwayNoticeResponse.self)
     }
     
     private func arrivalStationNameChack(stationName: String) -> String {

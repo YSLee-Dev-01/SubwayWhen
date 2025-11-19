@@ -26,15 +26,7 @@ class DetailCoordinator: Coordinator {
     }
     
     func start() {
-        self.store = StoreOf<DetailFeature>(initialState: DetailFeature.State(isDisposable: isDisposable, sendedLoadModel: data), reducer: {
-            var feature = DetailFeature()
-            feature.coordinatorDelegate = self
-            return feature
-        })
-        
-        guard let store = self.store else {return}
-        let detailView = DetailView(store: store)
-        let vc = UIHostingController(rootView: detailView)
+        guard let vc = self.createDetailVC() else {return}
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {[weak self] in
             if self?.isDisposable ?? false { // 임시인 경우 sheet, 기존 방식은 push
@@ -51,6 +43,18 @@ class DetailCoordinator: Coordinator {
                 self?.navigation.pushViewController(vc, animated: true)
             }
         }
+    }
+    
+    func createDetailVC() -> UIViewController? {
+        self.store = StoreOf<DetailFeature>(initialState: DetailFeature.State(isDisposable: isDisposable, sendedLoadModel: data), reducer: {
+            var feature = DetailFeature()
+            feature.coordinatorDelegate = self
+            return feature
+        })
+        
+        guard let store = self.store else {return nil}
+        let detailView = DetailView(store: store)
+        return UIHostingController(rootView: detailView)
     }
 }
 

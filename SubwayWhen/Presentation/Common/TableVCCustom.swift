@@ -22,11 +22,17 @@ class TableVCCustom : UIViewController{
         $0.separatorStyle = .none
     }
     
+    let additionalHeaderView: UIView?
+    
+    let titleViewHeight: CGFloat
     var viewTitle : String
    
-    init(title : String, titleViewHeight : CGFloat){
+    init(title : String, titleViewHeight : CGFloat, additionalHeaderView: UIView? = nil){
         self.viewTitle = title
+        self.titleViewHeight = titleViewHeight
+        self.additionalHeaderView = additionalHeaderView
         self.titleView = TitleView(frame: CGRect(x: 0, y: 0, width: 100 , height: titleViewHeight))
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -51,10 +57,14 @@ extension TableVCCustom{
         
         self.view.backgroundColor = .systemBackground
         
-        self.tableView.tableHeaderView = self.titleView
+        if let additionalHeaderView = self.additionalHeaderView {
+            self.tableView.tableHeaderView = self.makeComposedHeaderView(additionalHeaderView)
+        } else {
+            self.tableView.tableHeaderView = self.titleView
+        }
+        self.view.layoutIfNeeded()
         
         self.titleView.mainTitleLabel.text = self.viewTitle
-        
         self.topView.subTitleLabel.text = self.viewTitle
         
         if #available(iOS 26.0, *) {
@@ -83,15 +93,54 @@ extension TableVCCustom{
         }
     }
     
+    private func makeComposedHeaderView(_ additionalView: UIView) -> UIView {
+        let view = UIView(
+            frame: .init(
+                origin: .zero,
+                size: CGSize(width: 100, height: self.titleView.frame.height + additionalView.frame.height)
+            )
+        )
+        
+        view.addSubviews(self.titleView, additionalView)
+        self.titleView.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+            $0.height.equalTo(self.titleViewHeight)
+        }
+        
+        additionalView.snp.makeConstraints {
+            $0.top.equalTo(self.titleView.snp.bottom)
+            $0.leading.trailing.bottom.equalToSuperview()
+        }
+        return view
+    }
+    
+    /// 테이블뷰 헤더의 height를 업데이트 할 때 사용해요.
+    func updateTableHeaderViewHeight() {
+        guard let headerView = self.tableView.tableHeaderView else {return}
+        headerView.layoutIfNeeded()
+        
+        let size = headerView.systemLayoutSizeFitting(
+            .init(width: self.tableView.bounds.width, height: 0),
+            withHorizontalFittingPriority: .required,
+            verticalFittingPriority: .fittingSizeLevel
+        )
+        
+        var frame = headerView.frame
+        frame.size.height = size.height
+        headerView.frame = frame
+        
+        self.tableView.beginUpdates()
+        self.tableView.tableHeaderView = headerView
+        self.tableView.endUpdates()
+    }
 }
 
 extension TableVCCustom : UITableViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > 25{
+        if scrollView.contentOffset.y > 25 {
             self.topView.isMainTitleHidden(false)
-        }else{
+        } else {
             self.topView.isMainTitleHidden(true)
         }
-        
     }
 }

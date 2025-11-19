@@ -76,14 +76,14 @@ extension SettingNotiModalVC {
         self.mainBG.addSubview(self.settingNotiStationView)
         self.settingNotiStationView.snp.makeConstraints{
             $0.top.equalTo(self.subTitle.snp.bottom)
-            $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalTo(self.mainBG)
             $0.bottom.equalTo(self.okBtn!.snp.top)
         }
         
         self.view.addSubview(self.settingNotiExplanationView)
         self.settingNotiExplanationView.snp.makeConstraints{
             $0.bottom.equalTo(self.mainBG.snp.top).offset(-ViewStyle.padding.mainStyleViewTB)
-            $0.leading.trailing.equalToSuperview().inset(5)
+            $0.leading.trailing.equalTo(self.mainBG)
             $0.height.equalTo(50)
         }
     }

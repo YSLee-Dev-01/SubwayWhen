@@ -1,0 +1,6276 @@
+{
+    "value": [
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6000",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6001",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6002",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6003",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6004",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6005",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6006",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6007",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6008",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6009",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6010",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6011",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6012",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6013",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6014",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6015",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6016",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6017",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6018",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6019",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6020",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6021",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6022",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6023",
+            "week": "평일"
+        },
+        {
+            "endStation": "청량리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6024",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6025",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6026",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6027",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6028",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6029",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6030",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6031",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6032",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6033",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6034",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6035",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6036",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6037",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6038",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "청량리",
+            "trainNumber": "K6039",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6040",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6041",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6042",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6043",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6044",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6045",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6046",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6047",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6048",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6049",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6050",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6051",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6052",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6053",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6054",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6055",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6056",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6057",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6058",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6059",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6060",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6061",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6062",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6063",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6064",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6065",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6066",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6067",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6068",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6069",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6070",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6071",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6072",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6073",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6074",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6075",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6076",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6077",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6078",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6079",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6080",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6081",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6082",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "청량리",
+            "trainNumber": "K6083",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6084",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6085",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6086",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6087",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6088",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6089",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6090",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6091",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6092",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6093",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6094",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6095",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6096",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6097",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6098",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6099",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6100",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6101",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6102",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6103",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6104",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6105",
+            "week": "평일"
+        },
+        {
+            "endStation": "청량리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6106",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "청량리",
+            "trainNumber": "K6107",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6108",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6109",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6110",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6111",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6112",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6113",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6114",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "청량리",
+            "trainNumber": "K6115",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6116",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6117",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6118",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6119",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6120",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6121",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6122",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6123",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6124",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6125",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6126",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6127",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6128",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6129",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6130",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6131",
+            "week": "평일"
+        },
+        {
+            "endStation": "청량리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6132",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6133",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6134",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "청량리",
+            "trainNumber": "K6135",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6136",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6137",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6138",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6139",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6140",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6141",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6142",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6143",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6144",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6145",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6146",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6147",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6148",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6149",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6150",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6151",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6152",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6153",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6154",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6155",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6156",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6157",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6158",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6159",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6160",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "청량리",
+            "trainNumber": "K6161",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6162",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6163",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6164",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6165",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6166",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6167",
+            "week": "평일"
+        },
+        {
+            "endStation": "청량리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6168",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6169",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6170",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6171",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6172",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6173",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6174",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6175",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6176",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6177",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6178",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6179",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6180",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6181",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6182",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6183",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6184",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6185",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6186",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6187",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6188",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6189",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6190",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6191",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6192",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "청량리",
+            "trainNumber": "K6193",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6194",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6195",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6196",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6197",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6198",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6199",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6200",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6201",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6202",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6203",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6204",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6205",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6206",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6207",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6208",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6209",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6210",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6211",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6212",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6213",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6214",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6215",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6216",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6217",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6218",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6219",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6220",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6221",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6222",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6223",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6224",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6225",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6226",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6227",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6228",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6229",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6230",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6231",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6232",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6233",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6234",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6235",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6236",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6237",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6239",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6241",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6243",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6245",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6247",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6249",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6251",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6401",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6402",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6403",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6404",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6405",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6406",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6407",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6408",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6409",
+            "week": "평일"
+        },
+        {
+            "endStation": "청량리",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6410",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6411",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6412",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6413",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6414",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6500",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6501",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6502",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6503",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6504",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6505",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6506",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6507",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6508",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6509",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6510",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6511",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6512",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6513",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6514",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6515",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6516",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6517",
+            "week": "평일"
+        },
+        {
+            "endStation": "청량리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6518",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6519",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6520",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6521",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6522",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6523",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6524",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6525",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6526",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6527",
+            "week": "평일"
+        },
+        {
+            "endStation": "청량리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6528",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6529",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6530",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6531",
+            "week": "평일"
+        },
+        {
+            "endStation": "청량리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6532",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6533",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6534",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6535",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6536",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6537",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6538",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6539",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6540",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6541",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6542",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6543",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6544",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "청량리",
+            "trainNumber": "K6545",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6546",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6547",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6548",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6549",
+            "week": "평일"
+        },
+        {
+            "endStation": "청량리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6550",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6551",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6552",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6553",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6554",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6555",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6556",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6557",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6558",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6559",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6560",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6561",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6562",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6563",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6564",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6565",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6566",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6567",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6568",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6569",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6570",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "청량리",
+            "trainNumber": "K6571",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6572",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6573",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6574",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6575",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6576",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6577",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6578",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6579",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6580",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6581",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6582",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6583",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6584",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6585",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6586",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6587",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6588",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6589",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6590",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6591",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6592",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6593",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6594",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6595",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6596",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6597",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6598",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6599",
+            "week": "평일"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6600",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6601",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6602",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6603",
+            "week": "평일"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6604",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6605",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6606",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6607",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6700",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6701",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6703",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6704",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6705",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6706",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6707",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6709",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6711",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6712",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6714",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6715",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6716",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6718",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6719",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6720",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6721",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6722",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6723",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6724",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6725",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6726",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6727",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6728",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6731",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6733",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6735",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6737",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6801",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6802",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6803",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6804",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6805",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6806",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6808",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "급행",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6810",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6902",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6908",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6909",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6910",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6911",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6912",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6913",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6914",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6915",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6916",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6917",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6918",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6919",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6920",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6921",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6922",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6923",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6924",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6925",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6926",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6927",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6928",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6929",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6930",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6931",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6934",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6935",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6936",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6937",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6938",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6939",
+            "week": "평일"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6941",
+            "week": "평일"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6942",
+            "week": "평일"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6001",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6002",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6003",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6004",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6005",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6006",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6007",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6008",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6009",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6010",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6011",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6012",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6013",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6014",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6015",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6016",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6017",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6018",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6019",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6020",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6021",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6022",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6023",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6024",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6025",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6026",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6027",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6028",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6029",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6030",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6031",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6032",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6033",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6034",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6035",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6036",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6037",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6038",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6039",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6040",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6041",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6042",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6043",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6044",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6045",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6046",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6047",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6048",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6049",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6050",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6051",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6052",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6053",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6054",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6055",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6056",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6057",
+            "week": "주말"
+        },
+        {
+            "endStation": "청량리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6058",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "청량리",
+            "trainNumber": "K6059",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6060",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6061",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6062",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6063",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6064",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6065",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6066",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6067",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6068",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6069",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6070",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6071",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6072",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6073",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6074",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6075",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6076",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6077",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6078",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6079",
+            "week": "주말"
+        },
+        {
+            "endStation": "청량리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6080",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6081",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6082",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6083",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6084",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6085",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6086",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6087",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6088",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6089",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6090",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6091",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6092",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6093",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6094",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6095",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6096",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6097",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6098",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6099",
+            "week": "주말"
+        },
+        {
+            "endStation": "청량리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6100",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6101",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6102",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6103",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6104",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6105",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6106",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6107",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6108",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6109",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6110",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6111",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6112",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6113",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6114",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6115",
+            "week": "주말"
+        },
+        {
+            "endStation": "청량리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6116",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "청량리",
+            "trainNumber": "K6117",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6118",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6119",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6120",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6121",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6122",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6123",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6124",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6125",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6126",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6127",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6128",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6129",
+            "week": "주말"
+        },
+        {
+            "endStation": "청량리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6130",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6131",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6132",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6133",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6134",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6135",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6136",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6137",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6138",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6139",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6140",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6141",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6142",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6143",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6144",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6145",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6146",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6147",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6148",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6149",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6150",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6151",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6152",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6153",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6154",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6155",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6156",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6157",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6158",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6159",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6160",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6161",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6162",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6163",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6164",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6165",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6166",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6167",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6168",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6169",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6170",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6171",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6172",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6173",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6174",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6175",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6176",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6177",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6178",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6179",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6180",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6181",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6182",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6183",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6184",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6185",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6186",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6187",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6188",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6189",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6190",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6191",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6192",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6193",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6194",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6195",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6196",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6197",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6198",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6199",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6200",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6201",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6202",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "고색",
+            "trainNumber": "K6501",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6502",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "죽전",
+            "trainNumber": "K6503",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6504",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6505",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6506",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6507",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6508",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6509",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6510",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6511",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6512",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6513",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6514",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6515",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6516",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6517",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6518",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6519",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6520",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6521",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6522",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6523",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6524",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6525",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6526",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6527",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6528",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6529",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6530",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6531",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6532",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6533",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6534",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6535",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6536",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "청량리",
+            "trainNumber": "K6537",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6538",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6539",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6540",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6541",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6542",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "청량리",
+            "trainNumber": "K6543",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6544",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6545",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6546",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6547",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6548",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6549",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6550",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6551",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6552",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "청량리",
+            "trainNumber": "K6553",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6554",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6555",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6556",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6557",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6558",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6559",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6560",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6561",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6562",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6563",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6564",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6565",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6566",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6567",
+            "week": "주말"
+        },
+        {
+            "endStation": "왕십리",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6568",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6569",
+            "week": "주말"
+        },
+        {
+            "endStation": "죽전",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6570",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "왕십리",
+            "trainNumber": "K6571",
+            "week": "주말"
+        },
+        {
+            "endStation": "고색",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6572",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6701",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6702",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6703",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6704",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6705",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6706",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6707",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6708",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6709",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6710",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6711",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6712",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6713",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6714",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6715",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6716",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6717",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6718",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6719",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6720",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6721",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6722",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6723",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6724",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6725",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6726",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6727",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6728",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6729",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6730",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6731",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6732",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6733",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6734",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6735",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6736",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6737",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6738",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6739",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6740",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6741",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6742",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6743",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6744",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6745",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6746",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6747",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6748",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6749",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6750",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6751",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6752",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6753",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6754",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6755",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6756",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6757",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6758",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6759",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6760",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6761",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6762",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6763",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6764",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6765",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6766",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6767",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6768",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6769",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6770",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6771",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6772",
+            "week": "주말"
+        },
+        {
+            "endStation": "신인천",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "오이도",
+            "trainNumber": "K6773",
+            "week": "주말"
+        },
+        {
+            "endStation": "오이도",
+            "isFast": "일반",
+            "line": "수인분당선",
+            "startStation": "신인천",
+            "trainNumber": "K6774",
+            "week": "주말"
+        }
+    ]
+}

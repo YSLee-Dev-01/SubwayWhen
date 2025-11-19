@@ -15,42 +15,32 @@ import RxBlocking
 @testable import SubwayWhen
 
 final class TotalLoadModelTests: XCTestCase {
-    var arrivalTotalLoadModel : TotalLoadModel!
-    var arrivalErrorTotalLoadModel : TotalLoadModel!
-    var seoulScheduleLoadModel : TotalLoadModel!
-    var korailScheduleLoadModel : TotalLoadModel!
-    var stationNameSearchModel : TotalLoadModel!
-    var kakaoVicinityStationModel: TotalLoadModel!
-    var coreDataManager: CoreDataScheduleManagerProtocol!
+    
+    // MARK: - Properties
+    
+    var mockLoadModel: MockLoadModel!
+    var totalLoadModel: TotalLoadModel!
+    var mockCoreDataScheduleManager: MockCoreDataScheduleManager!
+    
+    // MARK: - LifeCycle
     
     override func setUp(){
-        let session = MockURLSession((response: urlResponse!, data: arrivalData))
-        let networkManager = NetworkManager(session: session)
-        let loadModel = LoadModel(networkManager: networkManager)
-        
-        self.arrivalTotalLoadModel = TotalLoadModel(loadModel: loadModel)
-        
-        self.arrivalErrorTotalLoadModel = TotalLoadModel(loadModel: LoadModel(networkManager: NetworkManager(session: MockURLSession(((response: urlResponse!, data: arrivalErrorData))))))
-        self.seoulScheduleLoadModel = TotalLoadModel(loadModel: LoadModel(networkManager: NetworkManager(session: MockURLSession(((response: urlResponse!, data: seoulStationSchduleData))))))
-        self.korailScheduleLoadModel = TotalLoadModel(loadModel: LoadModel(networkManager: NetworkManager(session: MockURLSession(((response: urlResponse!, data: korailStationSchduleData))))))
-        
-        let stationNameMock = MockURLSession((response: urlResponse!, data: stationNameSearchData))
-        self.stationNameSearchModel = TotalLoadModel(loadModel: LoadModel(networkManager: NetworkManager(session: stationNameMock)))
-        
-        let vicinityMock = MockURLSession((response: urlResponse!, data: vicinityData))
-        self.kakaoVicinityStationModel = TotalLoadModel(loadModel: LoadModel(networkManager: NetworkManager(session: vicinityMock)))
-        
-        self.coreDataManager = CoreDataScheduleManager.shared
+        self.mockLoadModel = .init()
+        self.mockCoreDataScheduleManager = .init()
+        self.totalLoadModel = .init(loadModel: self.mockLoadModel, coreDataManager: self.mockCoreDataScheduleManager)
     }
     
     override func tearDown() {
-        // coreData에 저장되어 있는 신분당선 시간표를 제거합니다.
-        self.coreDataManager.shinbundangScheduleDataRemove(stationName: scheduleSinsaShinbundagLine.stationName)
+        // 신분당선 시간표를 제거합니다.
+        self.mockCoreDataScheduleManager.clearAll()
     }
+    
+    // MARK: - Tests
     
     func testTotalLiveDataLoad(){
         // GIVEN
-        let data = self.arrivalTotalLoadModel.totalLiveDataLoad(stations: [arrivalGyodaeStation3Line])
+        self.mockLoadModel.setSuccess(arrivalDummyData)
+        let data = self.totalLoadModel.totalLiveDataLoad(stations: [arrivalGyodaeStation3Line])
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -92,7 +82,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testTotalLiveDataLoadError(){
         //GIVEN
-        let data = self.arrivalErrorTotalLoadModel.totalLiveDataLoad(stations: [arrivalGyodaeStation3Line])
+        self.mockLoadModel.setSuccess(arrivalErrorData)
+        let data = self.totalLoadModel.totalLiveDataLoad(stations: [arrivalGyodaeStation3Line])
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -126,7 +117,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSingleLiveDataLoad() {
         // GIVEN
-        let data = self.arrivalTotalLoadModel.singleLiveDataLoad(requestModel: detailArrivalDataRequestDummyModel)
+        self.mockLoadModel.setSuccess(arrivalDummyData)
+        let data = self.totalLoadModel.singleLiveDataLoad(requestModel: detailArrivalDataRequestDummyModel)
         let blocking = data.toBlocking()
         let requestData = try! blocking.toArray().first
         
@@ -159,11 +151,10 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSingleLiveDataLoadError() {
         // GIVEN
-        let data = self.arrivalErrorTotalLoadModel.singleLiveDataLoad(requestModel: detailArrivalDataRequestDummyModel)
+        self.mockLoadModel.setSuccess(arrivalErrorData)
+        let data = self.totalLoadModel.singleLiveDataLoad(requestModel: detailArrivalDataRequestDummyModel)
         let blocking = data.toBlocking()
         let requestData = try! blocking.toArray().first
-        
-        let dummyData = arrivalDummyData
         
         // WHEN
         let requestStationName = requestData?.first?.stationName
@@ -194,7 +185,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSeoulScheduleLoad_isFirst_isNow(){
         // GIVEN
-        let data = self.seoulScheduleLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: true, isNow: true, isWidget: false)
+        self.mockLoadModel.setSuccess(seoulScheduleDummyData)
+        let data = self.totalLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: true, isNow: true, isWidget: false)
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -228,7 +220,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSeoulScheduleLoad_isFirst(){
         // GIVEN
-        let data = self.seoulScheduleLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: true, isNow: false, isWidget: false)
+        self.mockLoadModel.setSuccess(seoulScheduleDummyData)
+        let data = self.totalLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: true, isNow: false, isWidget: false)
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -254,7 +247,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSeoulScheduleLoad_isNow(){
         // GIVEN
-        let data = self.seoulScheduleLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: true, isWidget: false)
+        self.mockLoadModel.setSuccess(seoulScheduleDummyData)
+        let data = self.totalLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: true, isWidget: false)
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -280,7 +274,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSeoulScheduleLoad(){
         // GIVEN
-        let data = self.seoulScheduleLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: false, isWidget: false)
+        self.mockLoadModel.setSuccess(seoulScheduleDummyData)
+        let data = self.totalLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: false, isWidget: false)
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -306,7 +301,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSeoulScheduleLoadServerError(){
         // GIVEN
-        let data = self.arrivalErrorTotalLoadModel.seoulScheduleLoad(scheduleK215K1Line, isFirst: false, isNow: false, isWidget: false)
+        self.mockLoadModel.setSuccess(arrivalErrorData)
+        let data = self.totalLoadModel.seoulScheduleLoad(scheduleK215K1Line, isFirst: false, isNow: false, isWidget: false)
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -332,7 +328,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testSeoulScheduleLoadInputError(){
         // GIVEN
-        let data = self.arrivalErrorTotalLoadModel.seoulScheduleLoad(
+        self.mockLoadModel.setSuccess(arrivalErrorData)
+        let data = self.totalLoadModel.seoulScheduleLoad(
             .init(stationCode: "0", upDown: "행", exceptionLastStation: "", line: "03호선", korailCode: "", stationName: "")
             , isFirst: false, isNow: false, isWidget: false)
         
@@ -358,23 +355,14 @@ final class TotalLoadModelTests: XCTestCase {
         )
     }
     
-    // KorailTest: 테스트 객체는 외부환경에 의존하면 안되지만, FireBase에서 불러오는 데이터가 1000건이 넘으며, TrainCode 특성상 변경될 일이 없기 때문에 Observable을 기다리는 형태로 테스트 진행
     func testKorailScheduleLoad_isFirst_isNow(){
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
-        
         // GIVEN
-        var arrayData : [ResultSchdule] = []
-        let data = self.korailScheduleLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: true, isNow: true, isWidget: false)
-        data
-            .subscribe(onNext: {
-                arrayData = $0
-                testException.fulfill()
-            })
-            .disposed(by: bag)
+        self.mockLoadModel.setKorailTrainNumber(korailTrainNumber)
+        self.mockLoadModel.setSuccess(korailHeaderDummyData)
         
-    
-        wait(for: [testException], timeout: 3)
+        let data = self.totalLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: true, isNow: true, isWidget: false)
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray().first!
     
         // WHEN
         let requestCount = arrayData.count
@@ -404,22 +392,13 @@ final class TotalLoadModelTests: XCTestCase {
     }
     
     func testKorailScheduleLoad_isFirst(){
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
-        
         // GIVEN
-        var arrayData : [ResultSchdule] = []
-        let data = self.korailScheduleLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: true, isNow: false, isWidget: false)
-        data
-            .subscribe(onNext: {
-                arrayData = $0
-                print($0)
-                testException.fulfill()
-            })
-            .disposed(by: bag)
+        self.mockLoadModel.setKorailTrainNumber(korailTrainNumber)
+        self.mockLoadModel.setSuccess(korailHeaderDummyData)
         
-    
-        wait(for: [testException], timeout: 3)
+        let data = self.totalLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: true, isNow: false, isWidget: false)
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray().first!
     
         // WHEN
         let requestCount = arrayData.count
@@ -441,22 +420,13 @@ final class TotalLoadModelTests: XCTestCase {
     }
     
     func testKorailScheduleLoad_isNow(){
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
-        
         // GIVEN
-        var arrayData : [ResultSchdule] = []
-        let data = self.korailScheduleLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: true, isWidget: false)
-        data
-            .subscribe(onNext: {
-                arrayData = $0
-                print($0)
-                testException.fulfill()
-            })
-            .disposed(by: bag)
+        self.mockLoadModel.setKorailTrainNumber(korailTrainNumber)
+        self.mockLoadModel.setSuccess(korailHeaderDummyData)
         
-    
-        wait(for: [testException], timeout: 3)
+        let data = self.totalLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: true, isWidget: false)
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray().first!
     
         // WHEN
         let requestCount = arrayData.count
@@ -478,22 +448,13 @@ final class TotalLoadModelTests: XCTestCase {
     }
     
     func testKorailScheduleLoad(){
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
+       // GIVEN
+        self.mockLoadModel.setKorailTrainNumber(korailTrainNumber)
+        self.mockLoadModel.setSuccess(korailHeaderDummyData)
         
-        // GIVEN
-        var arrayData : [ResultSchdule] = []
-        let data = self.korailScheduleLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: false, isWidget: false)
-        data
-            .subscribe(onNext: {
-                arrayData = $0
-                print($0)
-                testException.fulfill()
-            })
-            .disposed(by: bag)
-        
-    
-        wait(for: [testException], timeout: 3)
+        let data = self.totalLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: false, isWidget: false)
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray().first!
     
         // WHEN
         let requestCount = arrayData.count
@@ -515,25 +476,18 @@ final class TotalLoadModelTests: XCTestCase {
     }
     
     func testKorailScheduleLoadInputError(){
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
-        
         // GIVEN
-        var arrayData : [ResultSchdule] = []
-        let data = self.korailScheduleLoadModel.korailSchduleLoad(
-            scheduleSearch: .init(
-                stationCode: "0", upDown: "하행", exceptionLastStation: "", line: "", korailCode: "K1", stationName: ""),
-            isFirst: false, isNow: false, isWidget: false)
-        data
-            .subscribe(onNext: {
-                arrayData = $0
-                print($0)
-                testException.fulfill()
-            })
-            .disposed(by: bag)
+        self.mockLoadModel.setKorailTrainNumber(korailTrainNumber)
+        self.mockLoadModel.setSuccess(korailHeaderDummyData)
         
-        
-        wait(for: [testException], timeout: 3)
+        let data = self.totalLoadModel.korailSchduleLoad(
+            scheduleSearch: .init(stationCode: "0", upDown: "하행", exceptionLastStation: "", line: "", korailCode: "K1", stationName: ""),
+            isFirst: false,
+            isNow: false,
+            isWidget: false
+        )
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray().first!
         
         // WHEN
         let requestCount = arrayData.count
@@ -556,7 +510,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testStationNameSearchResponse() async {
         // GIVEN
-        let data = await self.stationNameSearchModel.stationNameSearchReponse("교대")
+        self.mockLoadModel.setSuccess(stationNameSearcDummyhData)
+        let data = await self.totalLoadModel.stationNameSearchReponse("교대")
         
         // WHEN
         let requestCount = data.count
@@ -588,7 +543,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testStationNameSearchReponseError() async {
         // GIVEN
-        let data = await self.arrivalErrorTotalLoadModel.stationNameSearchReponse("교대")
+        self.mockLoadModel.setSuccess(arrivalErrorData)
+        let data = await self.totalLoadModel.stationNameSearchReponse("교대")
         
         // WHEN
         let requestCount = data.count
@@ -614,7 +570,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testVicinityStationsDataLoad() async {
         // GIVEN
-        let data = await self.kakaoVicinityStationModel.vicinityStationsDataLoad(
+        self.mockLoadModel.setSuccess(vicinityStationsDummyData)
+        let data = await self.totalLoadModel.vicinityStationsDataLoad(
             x: 37.49388026940836, y: 127.01360357128935
         )
         let dummyData = vicinityStationsDummyData.documents
@@ -659,7 +616,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testVicinityStationDataLoadError() async {
         // GIVEN
-        let data = await self.arrivalErrorTotalLoadModel.vicinityStationsDataLoad(
+        self.mockLoadModel.setSuccess(arrivalErrorData)
+        let data = await self.totalLoadModel.vicinityStationsDataLoad(
             x: 37.49388026940836, y: 127.01360357128935
         )
         
@@ -683,7 +641,8 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testWidgetSeoulScheduleLoad() {
         // GIVEN
-        let data = self.seoulScheduleLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: true, isWidget: true)
+        self.mockLoadModel.setSuccess(seoulScheduleDummyData)
+        let data = self.totalLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: true, isWidget: true)
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -717,9 +676,13 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testWidgetSeoulScheduleLoad_ErrorOne() {
         // GIVEN
-        let data = self.arrivalErrorTotalLoadModel.seoulScheduleLoad(
-            .init(stationCode: "0", upDown: "행", exceptionLastStation: "", line: "03호선", korailCode: "", stationName: "")
-            , isFirst: false, isNow: true, isWidget: true)
+        self.mockLoadModel.setSuccess(arrivalErrorData)
+        let data = self.totalLoadModel.seoulScheduleLoad(
+            .init(stationCode: "0", upDown: "행", exceptionLastStation: "", line: "03호선", korailCode: "", stationName: ""),
+            isFirst: false,
+            isNow: true,
+            isWidget: true
+        )
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -758,7 +721,8 @@ final class TotalLoadModelTests: XCTestCase {
         components.minute = 59
         let requestDate = Calendar.current.date(from: components)!
         
-        let data = self.seoulScheduleLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: true, isWidget: true, requestDate: requestDate)
+        self.mockLoadModel.setSuccess(seoulScheduleDummyData)
+        let data = self.totalLoadModel.seoulScheduleLoad(scheduleGyodaeStation3Line, isFirst: false, isNow: true, isWidget: true, requestDate: requestDate)
         
         let blocking = data.toBlocking()
         let arrayData = try! blocking.toArray()
@@ -791,21 +755,12 @@ final class TotalLoadModelTests: XCTestCase {
     }
     
     func testWidgetKorailScheduleLoad(){
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
-        
         // GIVEN
-        var arrayData : [ResultSchdule] = []
-        let data = self.korailScheduleLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: true, isWidget: true)
-        data
-            .subscribe(onNext: {
-                arrayData = $0
-                testException.fulfill()
-            })
-            .disposed(by: bag)
-        
-    
-        wait(for: [testException], timeout: 3)
+        self.mockLoadModel.setKorailTrainNumber(korailTrainNumber)
+        self.mockLoadModel.setSuccess(korailHeaderDummyData)
+        let data = self.totalLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: true, isWidget: true)
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray().first!
     
         // WHEN
         let requestCount = arrayData.count
@@ -835,25 +790,17 @@ final class TotalLoadModelTests: XCTestCase {
     }
     
     func testWidgetKorailScheduleLoad_ErrorOne(){
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
-        
         // GIVEN
-        var arrayData : [ResultSchdule] = []
-        let data = self.korailScheduleLoadModel.korailSchduleLoad(
-            scheduleSearch: .init(
-                stationCode: "0", upDown: "하행", exceptionLastStation: "", line: "", korailCode: "K1", stationName: ""),
-            isFirst: false, isNow: true, isWidget: true)
-        data
-            .subscribe(onNext: {
-                arrayData = $0
-                print($0)
-                testException.fulfill()
-            })
-            .disposed(by: bag)
-        
-        
-        wait(for: [testException], timeout: 3)
+        self.mockLoadModel.setKorailTrainNumber(korailTrainNumber)
+        self.mockLoadModel.setSuccess(korailHeaderDummyData)
+        let data = self.totalLoadModel.korailSchduleLoad(
+            scheduleSearch: .init(stationCode: "0", upDown: "하행", exceptionLastStation: "", line: "", korailCode: "K1", stationName: ""),
+            isFirst: false,
+            isNow: true,
+            isWidget: true
+        )
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray().first!
         
         // WHEN
         let requestCount = arrayData.count
@@ -883,25 +830,23 @@ final class TotalLoadModelTests: XCTestCase {
     }
     
     func testWidgetKorailScheduleLoad_ErrorTwo(){
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
-        
         // GIVEN
         var components = Calendar.current.dateComponents([.hour, .minute], from: .now)
         components.hour = 23
         components.minute = 59
         let requestDate = Calendar.current.date(from: components)!
         
-        var arrayData : [ResultSchdule] = []
-        let data = self.korailScheduleLoadModel.korailSchduleLoad(scheduleSearch: scheduleK215K1Line,isFirst: false, isNow: true, isWidget: true, requestDate: requestDate)
-        data
-            .subscribe(onNext: {
-                arrayData = $0
-                testException.fulfill()
-            })
-            .disposed(by: bag)
-        
-        wait(for: [testException], timeout: 3)
+        self.mockLoadModel.setKorailTrainNumber(korailTrainNumber)
+        self.mockLoadModel.setSuccess(korailHeaderDummyData)
+        let data = self.totalLoadModel.korailSchduleLoad(
+           scheduleSearch: scheduleK215K1Line,
+            isFirst: false,
+            isNow: true,
+            isWidget: true,
+           requestDate: requestDate
+        )
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray().first!
         
         // WHEN
         let requestCount = arrayData.count
@@ -932,19 +877,11 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testShinbundangScheduleLoad() {
         // GIVEN
-        let requestObserverableData = self.seoulScheduleLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false, requestDate: .now)
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
-        
-        var requestData: [ResultSchdule] = []
-        requestObserverableData
-            .subscribe(onNext: {
-                requestData = $0
-                testException.fulfill()
-            })
-            .disposed(by: bag)
-        
-        wait(for: [testException], timeout: 3)
+        self.mockLoadModel.setSuccess(shinbundagSinsaStationScheduleDummyData)
+        self.mockLoadModel.setShinbundangScheduleVersion(1.0)
+        let data = self.totalLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false)
+        let blocking = data.toBlocking()
+        let requestData = try! blocking.toArray().first!
         
         let dummyData = shinbundagSinsaStationScheduleDummyData
         
@@ -977,19 +914,11 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testShinbundangScheduleLoad_isFirst_isNow() {
         // GIVEN
-        let requestObserverableData = self.seoulScheduleLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: true, isNow: true, isWidget: false, requestDate: .now)
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
-        
-        var requestData: [ResultSchdule] = []
-        requestObserverableData
-            .subscribe(onNext: {
-                requestData = $0
-                testException.fulfill()
-            })
-            .disposed(by: bag)
-        
-        wait(for: [testException], timeout: 3)
+        self.mockLoadModel.setSuccess(shinbundagSinsaStationScheduleDummyData)
+        self.mockLoadModel.setShinbundangScheduleVersion(1.0)
+        let data = self.totalLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: true, isNow: true, isWidget: false, requestDate: .now)
+        let blocking = data.toBlocking()
+        let requestData = try! blocking.toArray().first!
         
         let dummyData = shinbundagSinsaStationScheduleDummyData
         
@@ -1022,19 +951,11 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testShinbundangScheduleLoad_isFirst() {
         // GIVEN
-        let requestObserverableData = self.seoulScheduleLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: true, isNow: false, isWidget: false, requestDate: .now)
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
-        
-        var requestData: [ResultSchdule] = []
-        requestObserverableData
-            .subscribe(onNext: {
-                requestData = $0
-                testException.fulfill()
-            })
-            .disposed(by: bag)
-        
-        wait(for: [testException], timeout: 3)
+        self.mockLoadModel.setSuccess(shinbundagSinsaStationScheduleDummyData)
+        self.mockLoadModel.setShinbundangScheduleVersion(1.0)
+        let data = self.totalLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: true, isNow: false, isWidget: false, requestDate: .now)
+        let blocking = data.toBlocking()
+        let requestData = try! blocking.toArray().first!
         
         let dummyData = shinbundagSinsaStationScheduleDummyData
         
@@ -1067,19 +988,11 @@ final class TotalLoadModelTests: XCTestCase {
     
     func testShinbundangScheduleLoad_isNow() {
         // GIVEN
-        let requestObserverableData = self.seoulScheduleLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: true, isWidget: false, requestDate: .now)
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
-        
-        var requestData: [ResultSchdule] = []
-        requestObserverableData
-            .subscribe(onNext: {
-                requestData = $0
-                testException.fulfill()
-            })
-            .disposed(by: bag)
-        
-        wait(for: [testException], timeout: 3)
+        self.mockLoadModel.setSuccess(shinbundagSinsaStationScheduleDummyData)
+        self.mockLoadModel.setShinbundangScheduleVersion(1.0)
+        let data = self.totalLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: true, isWidget: false, requestDate: .now)
+        let blocking = data.toBlocking()
+        let requestData = try! blocking.toArray().first!
         
         let dummyData = shinbundagSinsaStationScheduleDummyData
         
@@ -1110,41 +1023,33 @@ final class TotalLoadModelTests: XCTestCase {
         )
     }
     
-    func testShinbundangScheduleLoad_CoreData() { // 브레이크 포인트 추가 이용 테스트
+    func testShinbundangScheduleLoad_CoreData() {
         // GIVEN
+        self.mockLoadModel.setSuccess(shinbundagSinsaStationScheduleDummyData)
+        self.mockLoadModel.setShinbundangScheduleVersion(1.0)
+        
         // 첫 요청이기 때문에 파이어베이스 데이터를 사용하는 데이터
-        let requestObserverableDataOne = self.seoulScheduleLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false, requestDate: .now)
+        let firstData = self.totalLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false)
+        let firstBlocking = firstData.toBlocking()
+        let firstRequestData = try! firstBlocking.toArray().first!
+        
         // 두 번째 요청이기 때문에 저장된 코어데이터를 사용하는 데이터
-        let requestObserverableDataTwo = self.seoulScheduleLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false, requestDate: .now)
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
-        
-        var requestDataOne: [ResultSchdule] = []
-        requestObserverableDataOne
-            .subscribe(onNext: {
-                requestDataOne = $0
-            })
-            .disposed(by: bag)
-        
-        var requestDataTwo: [ResultSchdule] = []
-        requestObserverableDataTwo
-            .subscribe(onNext: {
-                requestDataTwo = $0
-                testException.fulfill()
-            })
-            .disposed(by: bag)
-        
-        wait(for: [testException], timeout: 3)
+        let secondData = self.totalLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false)
+        let secondBlocking = secondData.toBlocking()
+        let secondRequestData = try! secondBlocking.toArray().first!
         
         // WHEN
-        let requestOneCount = requestDataOne.count
-        let requestTwoCount = requestDataTwo.count
+        let requestOneCount = firstRequestData.count
+        let requestTwoCount = secondRequestData.count
         
-        let requestOneFirstData = requestDataOne.first
-        let requestTwoFirstData = requestDataTwo.first
+        let requestOneFirstData = firstRequestData.first
+        let requestTwoFirstData = secondRequestData.first
         
-        let requestOneTypeCount = requestDataOne.filter {$0.type == .Shinbundang}.count
-        let requestTwoTypeCount = requestDataTwo.filter {$0.type == .Shinbundang}.count
+        let requestOneTypeCount = firstRequestData.filter {$0.type == .Shinbundang}.count
+        let requestTwoTypeCount = secondRequestData.filter {$0.type == .Shinbundang}.count
+        
+        let liveDataRequestCount = 1
+        let coreDataRequestCount = 2
         
         // THEN
         expect(requestOneCount).to(
@@ -1161,43 +1066,102 @@ final class TotalLoadModelTests: XCTestCase {
             equal(requestTwoTypeCount),
             description: "신분당선 시간표의 모든 데이터의 타입은 신분당선으로 동일해야함"
         )
+        
+        expect(self.mockLoadModel.shinbundangScheduleRequestCount).to(
+            equal(liveDataRequestCount),
+            description: "실제 데이터 요청(firebase)은 1회만 되어야 함"
+        )
+        
+        expect(self.mockCoreDataScheduleManager.scheduleLoadCount).to(
+            equal(coreDataRequestCount),
+            description: "CoreData에 데이터를 요청한 횟수는 2이어야 함"
+        )
     }
     
-    func testShinbundangScheduleLoad_Disposable() { // 브레이크 포인트 추가 이용 테스트
+    func testShinbundangScheduleLoad_CoreData_버전변경() {
         // GIVEN
+        self.mockLoadModel.setSuccess(shinbundagSinsaStationScheduleDummyData)
+        self.mockLoadModel.setShinbundangScheduleVersion(1.0)
+        
         // 첫 요청이기 때문에 파이어베이스 데이터를 사용하는 데이터
-        let requestObserverableDataOne = self.seoulScheduleLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false, isDisposable: true)
-        // 두 번째 요청이여도 isDisposable 상태가 true이기때문에 파어어베이스 데이터를 사용해야함
-        let requestObserverableDataTwo = self.seoulScheduleLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false, isDisposable: true)
-        let bag = DisposeBag()
-        let testException = XCTestExpectation(description: "옵저버블 대기")
+        let firstData = self.totalLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false)
+        let firstBlocking = firstData.toBlocking()
+        let firstRequestData = try! firstBlocking.toArray().first!
         
-        var requestDataOne: [ResultSchdule] = []
-        requestObserverableDataOne
-            .subscribe(onNext: {
-                requestDataOne = $0
-            })
-            .disposed(by: bag)
+        self.mockLoadModel.setShinbundangScheduleVersion(1.1)
         
-        var requestDataTwo: [ResultSchdule] = []
-        requestObserverableDataTwo
-            .subscribe(onNext: {
-                requestDataTwo = $0
-                testException.fulfill()
-            })
-            .disposed(by: bag)
-        
-        wait(for: [testException], timeout: 3)
+        // 두 번째 요청이지만 버전이 변경되었기 때문에 파이어베이스 데이터를 사용하는 데이터
+        let secondData = self.totalLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false)
+        let secondBlocking = secondData.toBlocking()
+        let secondRequestData = try! secondBlocking.toArray().first!
         
         // WHEN
-        let requestOneCount = requestDataOne.count
-        let requestTwoCount = requestDataTwo.count
+        let requestOneCount = firstRequestData.count
+        let requestTwoCount = secondRequestData.count
         
-        let requestOneFirstData = requestDataOne.first
-        let requestTwoFirstData = requestDataTwo.first
+        let requestOneFirstData = firstRequestData.first
+        let requestTwoFirstData = secondRequestData.first
         
-        let requestOneTypeCount = requestDataOne.filter {$0.type == .Shinbundang}.count
-        let requestTwoTypeCount = requestDataTwo.filter {$0.type == .Shinbundang}.count
+        let requestOneTypeCount = firstRequestData.filter {$0.type == .Shinbundang}.count
+        let requestTwoTypeCount = secondRequestData.filter {$0.type == .Shinbundang}.count
+        
+        let liveDataRequestCount = 2
+        let coreDataRequestCount = 2
+        
+        // THEN
+        expect(requestOneCount).to(
+            equal(requestTwoCount),
+            description: "FireBase 데이터와 로컬 데이터는 동일해야함"
+        )
+        
+        expect(requestOneFirstData).to(
+            equal(requestTwoFirstData),
+            description: "기본 데이터가 동일하고, isNow가 false이기 때문에 데이터가 동일해야함"
+        )
+        
+        expect(requestOneTypeCount).to(
+            equal(requestTwoTypeCount),
+            description: "신분당선 시간표의 모든 데이터의 타입은 신분당선으로 동일해야함"
+        )
+        
+        expect(self.mockLoadModel.shinbundangScheduleRequestCount).to(
+            equal(liveDataRequestCount),
+            description: "실제 데이터 요청(firebase)은 2회가 되어야 함"
+        )
+        
+        expect(self.mockCoreDataScheduleManager.scheduleLoadCount).to(
+            equal(coreDataRequestCount),
+            description: "CoreData에 데이터를 요청한 횟수는 2이어야 함"
+        )
+    }
+    
+    func testShinbundangScheduleLoad_Disposable() {
+        // GIVEN
+        self.mockLoadModel.setSuccess(shinbundagSinsaStationScheduleDummyData)
+        self.mockLoadModel.setShinbundangScheduleVersion(1.0)
+        
+        // 첫 요청이기 때문에 파이어베이스 데이터를 사용하는 데이터
+        let firstData = self.totalLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false, isDisposable: true)
+        let firstBlocking = firstData.toBlocking()
+        let firstRequestData = try! firstBlocking.toArray().first!
+        
+        // 두 번째 요청이여도 isDisposable 상태가 true이기때문에 파어어베이스 데이터를 사용해야함
+        let secondData = self.totalLoadModel.shinbundangScheduleLoad(scheduleSearch: scheduleSinsaShinbundagLine, isFirst: false, isNow: false, isWidget: false, isDisposable: true)
+        let secondBlocking = secondData.toBlocking()
+        let secondRequestData = try! secondBlocking.toArray().first!
+        
+        // WHEN
+        let requestOneCount = firstRequestData.count
+        let requestTwoCount = secondRequestData.count
+        
+        let requestOneFirstData = firstRequestData.first
+        let requestTwoFirstData = secondRequestData.first
+        
+        let requestOneTypeCount = firstRequestData.filter {$0.type == .Shinbundang}.count
+        let requestTwoTypeCount = secondRequestData.filter {$0.type == .Shinbundang}.count
+        
+        let liveDataRequestCount = 2
+        let coreDataRequestCount = 2
         
         // THEN
         expect(requestOneCount).to(
@@ -1213,6 +1177,97 @@ final class TotalLoadModelTests: XCTestCase {
         expect(requestOneTypeCount).to(
             equal(requestTwoTypeCount),
             description: "신분당선 시간표의 모든 데이터의 타입은 신분당선으로 동일해야함"
+        )
+        
+        expect(self.mockLoadModel.shinbundangScheduleRequestCount).to(
+            equal(liveDataRequestCount),
+            description: "실제 데이터 요청(firebase)은 2회가 되어야 함"
+        )
+        
+        expect(self.mockCoreDataScheduleManager.scheduleLoadCount).to(
+            equal(coreDataRequestCount),
+            description: "CoreData에 데이터를 요청한 횟수는 2이어야 함"
+        )
+    }
+    
+    func testImportantDataLoad_서울시데이터() {
+        // GIVEN
+        self.mockLoadModel.setImportantData(ImportantData(title: "", contents: ""))
+        self.mockLoadModel.setSuccess(subwayNoticeInfiniteDummyData)
+        let data = self.totalLoadModel.importantDataLoad()
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray()
+        
+        // WHEN
+        let requestTitle = arrayData.first?.title
+        let dummyTitle = subwayNotice.title
+        
+        // TotalModel은 하단에 추가 데이터가 있음 (96자 기준으로 dummy 데이터와 완전동일)
+        let requestContents = String(arrayData.first?.contents.prefix(96) ?? "")
+        let dummyContents = subwayNotice.content
+        
+        // THEN
+        expect(requestTitle).to(
+            equal(dummyTitle),
+            description: "타이틀은 동일해야함"
+        )
+        
+        expect(requestContents).to(
+            equal(dummyContents),
+            description: "컨텐츠 내용은 동일해야함"
+        )
+    }
+    
+    func testImportantDataLoad_서울시데이터_날짜지남() {
+        // GIVEN
+        self.mockLoadModel.setImportantData(ImportantData(title: "", contents: ""))
+        self.mockLoadModel.setSuccess(subwayNoticeDummyData)
+        let data = self.totalLoadModel.importantDataLoad()
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray()
+        
+        // WHEN
+        let requestTitle = arrayData.first?.title
+        let dummyTitle = ""
+        
+        let requestContents = arrayData.first?.contents
+        let dummyContents = ""
+        
+        // THEN
+        expect(requestTitle).to(
+            equal(dummyTitle),
+            description: "타이틀이 없어야함"
+        )
+        
+        expect(requestContents).to(
+            equal(dummyContents),
+            description: "컨텐츠 내용이 없어야함"
+        )
+    }
+    
+    func testImportantDataLoad_firebase데이터() {
+        // GIVEN
+        self.mockLoadModel.setImportantData(importantData)
+        let data = self.totalLoadModel.importantDataLoad()
+        let blocking = data.toBlocking()
+        let arrayData = try! blocking.toArray()
+        
+        // WHEN
+        let requestTitle = arrayData.first?.title
+        let dummyTitle = importantData.title
+        
+        let requestContents = arrayData.first?.contents
+        let dummyContents = importantData.contents
+        
+        // THEN
+        expect(requestTitle).to(
+            equal(dummyTitle),
+            description: "타이틀은 동일해야함"
+        )
+        
+        expect(requestContents).to(
+            equal(dummyContents),
+            description: "컨텐츠 내용은 동일해야함"
         )
     }
 }

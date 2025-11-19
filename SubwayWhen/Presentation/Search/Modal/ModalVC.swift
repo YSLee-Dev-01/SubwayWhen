@@ -159,10 +159,9 @@ extension ModalVC{
         self.view.addSubview(self.disposableView)
         self.disposableView.snp.makeConstraints{
             $0.bottom.equalTo(self.mainBG.snp.top).offset(-ViewStyle.padding.mainStyleViewTB)
-            $0.leading.trailing.equalToSuperview().inset(5)
+            $0.leading.trailing.equalTo(self.mainBG)
             $0.height.equalTo(50)
         }
-        
     }
     
     private func bind(){

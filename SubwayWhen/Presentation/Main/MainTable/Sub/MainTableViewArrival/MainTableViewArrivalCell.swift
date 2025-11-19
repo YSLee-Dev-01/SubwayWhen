@@ -12,12 +12,11 @@ import RxCocoa
 import Then
 import SnapKit
 
-class MainTableViewCell : TableViewCellCustom{
-    var type : MainTableViewCellType = .real
+class MainTableViewCell: TableViewCellCustom {
     
-    var bag = DisposeBag()
+    // MARK: - Properties
     
-    lazy var line = UILabel().then{
+    private lazy var line = UILabel().then{
         $0.layer.masksToBounds = true
         $0.layer.cornerRadius = 30
         $0.textColor = .white
@@ -25,24 +24,24 @@ class MainTableViewCell : TableViewCellCustom{
         $0.font = .boldSystemFont(ofSize: ViewStyle.FontSize.smallSize)
     }
     
-    var station = UILabel().then{
+    fileprivate var station = UILabel().then{
         $0.font = .systemFont(ofSize: ViewStyle.FontSize.smallSize)
         $0.textColor = .label
     }
     
-    var now = UILabel().then{
+    fileprivate var now = UILabel().then{
         $0.font = .boldSystemFont(ofSize: ViewStyle.FontSize.mediumSize)
         $0.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         $0.textColor = .label
     }
     
-    var arrivalTime = UILabel().then{
+    private var arrivalTime = UILabel().then{
         $0.font = .boldSystemFont(ofSize: ViewStyle.FontSize.largeSize)
         $0.textAlignment = .right
         $0.textColor = .label
     }
     
-    var nowStackView = UIStackView().then{
+    private var nowStackView = UIStackView().then{
         $0.distribution = .equalSpacing
         $0.spacing = 5
         $0.axis = .vertical
@@ -55,18 +54,28 @@ class MainTableViewCell : TableViewCellCustom{
         $0.tintColor = .white
     }
     
-    lazy var border = UIView().then{
+    private lazy var border = UIView().then{
         $0.layer.borderWidth = 1.0
     }
     
-    let refreshIcon = UIActivityIndicatorView().then{
+    private let refreshIcon = UIActivityIndicatorView().then{
         $0.color = UIColor(named: "AppIconColor")
     }
     
+    private var type : MainTableViewCellType = .real
+    var bag = DisposeBag()
+    
+    // MARK: - LifeCycle
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         self.layout()
         self.bind()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // 재사용 시 초기화 구문
@@ -75,40 +84,13 @@ class MainTableViewCell : TableViewCellCustom{
         self.refreshIcon.stopAnimating()
         self.bind()
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func cellSet(data : MainTableViewCellData){
-        if data.type == .loading {
-            self.refreshIcon.startAnimating()
-        } else {
-            self.refreshIcon.stopAnimating()
-        }
-        
-        self.station.text = "\(data.stationName) | \(data.lastStation)"
-        self.line.text = data.subwayLineData.useLine
-        
-        self.arrivalTime.text = "\(data.useTime)"
-        self.now.text = data.type == .schedule ? "⏱️\(data.useFast)\(data.stateMSG)" : "\(data.useFast)\(data.stateMSG)"
-        self.lineColor(line: data.subwayLineData.rawValue)
-        
-        self.type = data.type
-    }
-    
-    func lineColor(line : String){
-        self.border.layer.borderColor = UIColor(named: line)?.cgColor
-        self.line.backgroundColor = UIColor(named: line)
-        self.changeBtn.backgroundColor = UIColor(named: line)
-    }
 }
+
+// MARK: - Methods
 
 extension MainTableViewCell{
     private func layout(){
-        [self.line, self.nowStackView, self.arrivalTime, self.changeBtn, self.border].forEach{
-            self.mainBG.addSubview($0)
-        }
+        self.mainBG.addSubviews(self.line, self.nowStackView, self.arrivalTime, self.changeBtn, self.border)
         self.line.snp.makeConstraints{
             $0.leading.top.equalToSuperview().inset(15)
             $0.size.equalTo(60)
@@ -165,14 +147,39 @@ extension MainTableViewCell{
         self.refreshIcon.startAnimating()
         self.arrivalTime.text = ""
     }
+    
+    func cellSet(data : MainTableViewCellData){
+        if data.type == .loading {
+            self.refreshIcon.startAnimating()
+        } else {
+            self.refreshIcon.stopAnimating()
+        }
+        
+        self.station.text = "\(data.stationName) | \(data.lastStation)"
+        self.line.text = data.subwayLineData.useLine
+        
+        self.arrivalTime.text = "\(data.useTime)"
+        self.now.text = data.type == .schedule ? "⏱️\(data.useFast)\(data.stateMSG)" : "\(data.useFast)\(data.stateMSG)"
+        self.lineColor(line: data.subwayLineData.rawValue)
+        
+        self.type = data.type
+    }
+    
+    func lineColor(line : String){
+        self.border.layer.borderColor = UIColor(named: line)?.cgColor
+        self.line.backgroundColor = UIColor(named: line)
+        self.changeBtn.backgroundColor = UIColor(named: line)
+    }
 }
+
+// MARK: - extension Reactive
 
 extension Reactive where Base : MainTableViewCell{
     var loadingLabelShow : Binder<MainTableViewCellType>{
         return Binder(base){base, type in
             if type == .real{
                 base.now.text = "⏱️"
-                base.station.text = "시간표 로드 중"
+                base.station.text = Strings.Main.timetableLoding
                 base.refreshShow()
             }
         }

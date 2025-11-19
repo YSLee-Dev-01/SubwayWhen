@@ -5,7 +5,7 @@
 //  Created by 이윤수 on 2022/11/30.
 //
 
-import Foundation
+import UIKit
 
 import RxSwift
 import RxCocoa
@@ -20,6 +20,8 @@ enum MainViewAction {
     case groupTap(SaveStationGroup)
     case reportBtnTap
     case editBtnTap
+    case importantBtnTap
+    case contextMenuReportBtnTap(IndexPath)
 }
 
 class MainViewModel {
@@ -31,7 +33,7 @@ class MainViewModel {
         let mainTitle: Driver<String>
         let importantData: Driver<ImportantData>
         let tableViewData: Driver<[MainTableViewSection]>
-        let peopleData: Driver<Int>
+        let peopleData: Driver<String>
         let groupData: Driver<SaveStationGroup>
         let cellData: Driver<(MainTableViewCellData, Int)>
     }
@@ -41,12 +43,14 @@ class MainViewModel {
             .bind(onNext: self.actionProcess)
             .disposed(by: self.bag)
         
-        let importantData = self.mainModel.headerImportantDataLoad()
+        self.mainModel.headerImportantDataLoad()
+            .bind(to: self.nowImportantData)
+            .disposed(by: self.bag)
         
-        importantData
-            .filter {$0.title != ""}
+        self.nowImportantData
+            .skip(1)
             .withUnretained(self)
-            .subscribe(onNext: { viewModel, _ in
+            .subscribe(onNext: { viewModel, data in
                 // importantData오면 뷰 자체를 다시 그림
                 viewModel.tableViewDataSet()
                 viewModel.stationLiveDataLoad()
@@ -54,9 +58,10 @@ class MainViewModel {
             .disposed(by: self.bag)
         
         return Output(
-            mainTitle: self.mainModel.mainTitleLoad()
+            mainTitle: self.nowMainTitle
                 .asDriver(onErrorDriveWith: .empty()),
-            importantData: importantData
+            importantData: self.nowImportantData
+                .filterNil()
                 .asDriver(onErrorDriveWith: .empty()),
             tableViewData: self.nowTableViewCellData
                 .filter {$0.1}
@@ -65,8 +70,7 @@ class MainViewModel {
             peopleData: self.nowPeopleData
                 .asDriver(),
             groupData: self.nowGroupSet
-                .filter {!$0.1}
-                .map {$0.0}
+                .delay(.milliseconds(10), scheduler: MainScheduler.asyncInstance)
                 .asDriver(onErrorDriveWith: .empty()),
             cellData: self.nowSingleLiveData
                 .filterNil()
@@ -84,9 +88,11 @@ class MainViewModel {
         // false 로 된 데이터는 MainTableView를 재로딩 하지 않고, 값을 저장하는 용도로만 사용함
     private let nowSaveStationEmptyData = BehaviorRelay<[MainTableViewCellData]>(value: [])
     private let nowGroupData = BehaviorRelay<[MainTableViewCellData]>(value: [])
-    private let nowGroupSet = BehaviorRelay<(SaveStationGroup, Bool)>(value: (.one, false))
-    private let nowPeopleData = BehaviorRelay<Int>(value: 0)
+    private let nowGroupSet = BehaviorRelay<SaveStationGroup>(value: .one)
+    private let nowPeopleData = BehaviorRelay<String>(value: "🫥🫥🫥🫥🫥🫥🫥🫥🫥🫥")
     private let nowSingleLiveData = BehaviorRelay<(MainTableViewCellData, Int)?>(value: nil)
+    private let nowMainTitle = BehaviorRelay<String>(value: Strings.Main.defaultMessage)
+    private let nowImportantData = BehaviorRelay<ImportantData?>(value: nil)
     
     weak var delegate : MainDelegate?
     
@@ -98,8 +104,8 @@ class MainViewModel {
     }
 }
 
-private extension MainViewModel {
-    func actionProcess(type: MainViewAction) {
+extension MainViewModel {
+    private func actionProcess(type: MainViewAction) {
         switch type {
         case .editBtnTap:
             self.delegate?.pushTap(action: .Edit)
@@ -108,9 +114,9 @@ private extension MainViewModel {
             self.delegate?.pushTap(action: .Report(nil, nil))
             
         case .cellTap(let index):
-            if index.section != 2 {return}
+            if index.section != 0 {return}
             
-            let nowValue = nowTableViewCellData.value.0[2].items
+            let nowValue = nowTableViewCellData.value.0[0].items
             if nowValue.count <= index.row {return}
             let cellData = nowValue[index.row]
             
@@ -131,12 +137,24 @@ private extension MainViewModel {
                twoTime: FixInfo.saveSetting.mainGroupTwoTime,
                nowHour: Calendar.current.component(.hour, from: Date())
                )
-           .map {($0, false)}
            .bind(to: self.nowGroupSet)
            .disposed(by: self.bag)
             
+            // 메인 타이틀 업데이트
+            self.mainModel.mainTitleLoad()
+                .bind(to: self.nowMainTitle)
+                .disposed(by: self.bag)
+            
             // 혼잡도 세팅
             self.mainModel.congestionDataLoad()
+                .map { count in
+                    let emoji = count == 0 ? "🫥" : FixInfo.saveSetting.mainCongestionLabel
+                    let filledCount = count == 0 ? 10 : count
+                    let emptyCount = max(0, 10 - filledCount)
+                    
+                    return String(repeating: emoji, count: filledCount)
+                    + String(repeating: "🫥", count: emptyCount)
+                }
                 .bind(to: self.nowPeopleData)
                 .disposed(by: self.bag)
             
@@ -148,16 +166,24 @@ private extension MainViewModel {
             scheduleBtnAction(index: index)
             
         case .groupTap(let group):
-            self.nowGroupSet.accept((group, true))
+            self.nowGroupSet.accept(group)
             
             // 데이터 로드
             self.tableViewDataSet()
             self.stationLiveDataLoad()
+            
+        case .importantBtnTap:
+            guard let importantData = self.nowImportantData.value else {return}
+            self.delegate?.importantTap(data: importantData)
+            
+        case .contextMenuReportBtnTap(let indexPath):
+            let data = self.nowTableViewCellData.value.0[0].items[indexPath.row]
+            self.delegate?.pushTap(action: .Report(data.subwayLineData, data.stationName))
         }
     }
     
-    func tableViewDataSet() {
-        let data = self.nowSaveStationEmptyData.value.filter {$0.group == self.nowGroupSet.value.0.rawValue}
+    private func tableViewDataSet() {
+        let data = self.nowSaveStationEmptyData.value.filter {$0.group == self.nowGroupSet.value.rawValue}
         self.nowGroupData.accept(data)
         
         self.nowGroupData
@@ -169,17 +195,17 @@ private extension MainViewModel {
             .disposed(by: self.bag)
     }
     
-    func stationLiveDataLoad() {
+    private func stationLiveDataLoad() {
         let liveData = self.mainModel.arrivalDataLoad(
-            stations: FixInfo.saveStation.filter {$0.group ==  self.nowGroupSet.value.0}
+            stations: FixInfo.saveStation.filter {$0.group ==  self.nowGroupSet.value}
         )
             .withUnretained(self)
             .filter { viewModel, data in
                 let nowSecionData = viewModel.nowTableViewCellData.value.0
                 
-                guard data.0.group == viewModel.nowGroupSet.value.0.rawValue,
-                   nowSecionData[2].items.count > data.1,
-                   nowSecionData[2].items[data.1].id == data.0.id
+                guard data.0.group == viewModel.nowGroupSet.value.rawValue,
+                   nowSecionData[0].items.count > data.1,
+                   nowSecionData[0].items[data.1].id == data.0.id
                 else {return false}
                 
                 return true
@@ -195,7 +221,7 @@ private extension MainViewModel {
             .map { viewModel, data -> ([MainTableViewSection], Bool)? in
                 var nowSecionData = viewModel.nowTableViewCellData.value.0
                 
-                nowSecionData[2].items[data.1] = data.0
+                nowSecionData[0].items[data.1] = data.0
                 return (nowSecionData, false)
             }
             .filterNil()
@@ -203,9 +229,9 @@ private extension MainViewModel {
             .disposed(by: self.bag)
     }
     
-    func scheduleBtnAction(index: IndexPath) {
+    private func scheduleBtnAction(index: IndexPath) {
         // 시간표 버튼 클릭
-        let clickCellRow = self.nowTableViewCellData.value.0[2].items[index.row]
+        let clickCellRow = self.nowTableViewCellData.value.0[0].items[index.row]
         var nowSecionData = self.nowTableViewCellData.value.0
         
         // 구글 애널리틱스
@@ -223,9 +249,9 @@ private extension MainViewModel {
                 guard let scheduleData = scheduleData.first else {return nil}
                 let newData = viewModel.mainModel.scheduleDataToMainTableViewCell(data: scheduleData, nowData: clickCellRow)
                 
-                guard newData.group == viewModel.nowGroupSet.value.0.rawValue,
-                      nowSecionData[2].items.count > index.row,
-                      nowSecionData[2].items[index.row].id == newData.id
+                guard newData.group == viewModel.nowGroupSet.value.rawValue,
+                      nowSecionData[0].items.count > index.row,
+                      nowSecionData[0].items[index.row].id == newData.id
                 else {return nil}
                 
                 return (newData, index.row)
@@ -240,12 +266,21 @@ private extension MainViewModel {
         scheduleData
             .withUnretained(self)
             .map { viewModel, data -> ([MainTableViewSection], Bool)? in
-                nowSecionData[2].items[data.1] = data.0
+                nowSecionData[0].items[data.1] = data.0
                 return (nowSecionData, false)
             }
             .filterNil()
             .bind(to: self.nowTableViewCellData)
             .disposed(by: self.bag)
-       
+    }
+    
+    func getDetailVC(at indexPath: IndexPath) -> UIViewController? {
+        let data = self.nowTableViewCellData.value.0[0].items[indexPath.row]
+        return self.delegate?.detailLongPress(data: data)
+    }
+    
+    func getAllowReport(at indexPath: IndexPath) -> Bool {
+        let data = self.nowTableViewCellData.value.0[0].items[indexPath.row]
+        return data.subwayLineData.allowReport
     }
 }

@@ -200,11 +200,9 @@
 		B6438D412B667CB10099BFEF /* MainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D252B667CB10099BFEF /* MainTableView.swift */; };
 		B6438D422B667CB10099BFEF /* MainTableViewDefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D282B667CB10099BFEF /* MainTableViewDefaultCell.swift */; };
 		B6438D432B667CB10099BFEF /* MainTableViewArrivalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D2A2B667CB10099BFEF /* MainTableViewArrivalCell.swift */; };
-		B6438D442B667CB10099BFEF /* MainTableViewGroupBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D2D2B667CB10099BFEF /* MainTableViewGroupBtn.swift */; };
-		B6438D452B667CB10099BFEF /* MainTableViewGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D2E2B667CB10099BFEF /* MainTableViewGroupCell.swift */; };
-		B6438D462B667CB10099BFEF /* MainTableViewHeaderBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D312B667CB10099BFEF /* MainTableViewHeaderBtn.swift */; };
-		B6438D472B667CB10099BFEF /* MainTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D322B667CB10099BFEF /* MainTableViewHeaderView.swift */; };
-		B6438D482B667CB10099BFEF /* MainTableViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D332B667CB10099BFEF /* MainTableViewHeaderCell.swift */; };
+		B6438D442B667CB10099BFEF /* MainTableHeaderGroupBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D2D2B667CB10099BFEF /* MainTableHeaderGroupBtn.swift */; };
+		B6438D462B667CB10099BFEF /* MainTableHeaderViewBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D312B667CB10099BFEF /* MainTableHeaderViewBtn.swift */; };
+		B6438D472B667CB10099BFEF /* MainTableHeaderSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D322B667CB10099BFEF /* MainTableHeaderSubView.swift */; };
 		B6438D492B667CB10099BFEF /* MainTableViewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D352B667CB10099BFEF /* MainTableViewCellData.swift */; };
 		B6438D4A2B667CB10099BFEF /* MainTableViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D362B667CB10099BFEF /* MainTableViewSection.swift */; };
 		B6438D4B2B667CB10099BFEF /* MainModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6438D382B667CB10099BFEF /* MainModelProtocol.swift */; };
@@ -333,6 +331,12 @@
 		FF1D4AC22C9D3D4B00AFD709 /* TestTotalLoadTCADepdency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1D4A582C9CFFAE00AFD709 /* TestTotalLoadTCADepdency.swift */; };
 		FF1D4AC32C9D3D4B00AFD709 /* TestTotalLoadTCADepdency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1D4A582C9CFFAE00AFD709 /* TestTotalLoadTCADepdency.swift */; };
 		FF1D4AC42C9D3D4C00AFD709 /* TestTotalLoadTCADepdency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1D4A582C9CFFAE00AFD709 /* TestTotalLoadTCADepdency.swift */; };
+		FF20D8722EBC5CDD00B280D9 /* SubwayNoticeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20D8712EBC5CDD00B280D9 /* SubwayNoticeResponse.swift */; };
+		FF20D8732EBC5CDD00B280D9 /* SubwayNoticeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20D8712EBC5CDD00B280D9 /* SubwayNoticeResponse.swift */; };
+		FF20D8742EBC5CDD00B280D9 /* SubwayNoticeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20D8712EBC5CDD00B280D9 /* SubwayNoticeResponse.swift */; };
+		FF20D8772EBC5D6D00B280D9 /* SubwayNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20D8762EBC5D6D00B280D9 /* SubwayNotice.swift */; };
+		FF20D8782EBC5D6D00B280D9 /* SubwayNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20D8762EBC5D6D00B280D9 /* SubwayNotice.swift */; };
+		FF20D8792EBC5D6D00B280D9 /* SubwayNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20D8762EBC5D6D00B280D9 /* SubwayNotice.swift */; };
 		FF24F7512C92C3FD001B0457 /* CoreDataScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFABBB012C92A5C300CCC692 /* CoreDataScheduleManager.swift */; };
 		FF24F7AC2C981E5B001B0457 /* CoreDataScheduleModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF24F7AA2C981E5B001B0457 /* CoreDataScheduleModel.xcdatamodeld */; };
 		FF24F7AD2C981E5B001B0457 /* CoreDataScheduleModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF24F7AA2C981E5B001B0457 /* CoreDataScheduleModel.xcdatamodeld */; };
@@ -377,12 +381,20 @@
 		FF6CB2132D1111AA00DF562B /* SubwayWhenCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1D4A9D2C9D32A100AFD709 /* SubwayWhenCommon.framework */; };
 		FF6CB2142D1111AA00DF562B /* SubwayWhenCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF1D4A9D2C9D32A100AFD709 /* SubwayWhenCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF6CB2192D12991200DF562B /* TestLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6CB2182D12991200DF562B /* TestLocationManager.swift */; };
+		FF71959F2ECADD6900C3F3C1 /* SubwayNoticeDummy.json in Resources */ = {isa = PBXBuildFile; fileRef = FF71959E2ECADD6900C3F3C1 /* SubwayNoticeDummy.json */; };
+		FF7196522ECAE7CA00C3F3C1 /* SubwayNoticeDummyInfiniteDate.json in Resources */ = {isa = PBXBuildFile; fileRef = FF7196512ECAE7CA00C3F3C1 /* SubwayNoticeDummyInfiniteDate.json */; };
+		FF7196542ECAF1D300C3F3C1 /* MockLoadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7196532ECAF1D300C3F3C1 /* MockLoadModel.swift */; };
+		FF7197092ECB129900C3F3C1 /* KorailTrainNumberDummy.json in Resources */ = {isa = PBXBuildFile; fileRef = FF7197082ECB129900C3F3C1 /* KorailTrainNumberDummy.json */; };
+		FF71970B2ECB13F900C3F3C1 /* DummyKorailTrainValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF71970A2ECB13F900C3F3C1 /* DummyKorailTrainValue.swift */; };
+		FF71970D2ECBF20E00C3F3C1 /* MockCoreDataScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF71970C2ECBF20E00C3F3C1 /* MockCoreDataScheduleManager.swift */; };
+		FF7197122ECC082000C3F3C1 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7197112ECC082000C3F3C1 /* DummyData.swift */; };
 		FF7837E32E29CF5B004E6BFF /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7837E22E29CF5B004E6BFF /* ReportView.swift */; };
 		FF7837E52E29D0B5004E6BFF /* ReportFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7837E42E29D0B5004E6BFF /* ReportFeature.swift */; };
 		FF7837E72E29D5AA004E6BFF /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7837E62E29D5AA004E6BFF /* Strings.swift */; };
 		FF7837E92E29E16D004E6BFF /* ReportFirstQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7837E82E29E16D004E6BFF /* ReportFirstQuestionView.swift */; };
 		FF7A71312C7C5B160080B72B /* MainStyleViewInSUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A71302C7C5B160080B72B /* MainStyleViewInSUI.swift */; };
 		FF7A71332C7D51360080B72B /* DetailArrivalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A71322C7D51360080B72B /* DetailArrivalView.swift */; };
+		FF7D85852EB9B95900B48134 /* MainTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7D85842EB9B95900B48134 /* MainTableHeaderView.swift */; };
 		FF7ECAC52C7BF62B00D4643A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF7ECAC42C7BF62B00D4643A /* GoogleService-Info.plist */; };
 		FF7ECAC72C7BF82D00D4643A /* OffsetScrollViewInSUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7ECAC62C7BF82D00D4643A /* OffsetScrollViewInSUI.swift */; };
 		FF7ECACA2C7BF93900D4643A /* NavigationBarScrollViewInSUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7ECAC92C7BF93900D4643A /* NavigationBarScrollViewInSUI.swift */; };
@@ -395,6 +407,8 @@
 		FF8CBE232C89391700E6B4D2 /* SinbundangScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8CBE212C8938BF00E6B4D2 /* SinbundangScheduleModel.swift */; };
 		FF8CBE242C89393300E6B4D2 /* SinbundangScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8CBE212C8938BF00E6B4D2 /* SinbundangScheduleModel.swift */; };
 		FF9B1E352E7D29C100FA298B /* NotificationTCADependencyKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B1E342E7D29C100FA298B /* NotificationTCADependencyKey.swift */; };
+		FF9B797A2EB9BBC5009393C7 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B79792EB9BBC5009393C7 /* UIView+.swift */; };
+		FF9B7A2D2EB9C24D009393C7 /* MainTableHeaderGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B7A2C2EB9C24D009393C7 /* MainTableHeaderGroupView.swift */; };
 		FFA67B742D0C017D006EFAB7 /* SearchStaion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C6DB78293627AE00C4ED80 /* SearchStaion.swift */; };
 		FFABBB022C92A5C300CCC692 /* CoreDataScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFABBB012C92A5C300CCC692 /* CoreDataScheduleManager.swift */; };
 		FFABBB1A2C92C34000CCC692 /* CoreDataScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFABBB012C92A5C300CCC692 /* CoreDataScheduleManager.swift */; };
@@ -733,11 +747,9 @@
 		B6438D252B667CB10099BFEF /* MainTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableView.swift; sourceTree = "<group>"; };
 		B6438D282B667CB10099BFEF /* MainTableViewDefaultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewDefaultCell.swift; sourceTree = "<group>"; };
 		B6438D2A2B667CB10099BFEF /* MainTableViewArrivalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewArrivalCell.swift; sourceTree = "<group>"; };
-		B6438D2D2B667CB10099BFEF /* MainTableViewGroupBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewGroupBtn.swift; sourceTree = "<group>"; };
-		B6438D2E2B667CB10099BFEF /* MainTableViewGroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewGroupCell.swift; sourceTree = "<group>"; };
-		B6438D312B667CB10099BFEF /* MainTableViewHeaderBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewHeaderBtn.swift; sourceTree = "<group>"; };
-		B6438D322B667CB10099BFEF /* MainTableViewHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewHeaderView.swift; sourceTree = "<group>"; };
-		B6438D332B667CB10099BFEF /* MainTableViewHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewHeaderCell.swift; sourceTree = "<group>"; };
+		B6438D2D2B667CB10099BFEF /* MainTableHeaderGroupBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableHeaderGroupBtn.swift; sourceTree = "<group>"; };
+		B6438D312B667CB10099BFEF /* MainTableHeaderViewBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableHeaderViewBtn.swift; sourceTree = "<group>"; };
+		B6438D322B667CB10099BFEF /* MainTableHeaderSubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableHeaderSubView.swift; sourceTree = "<group>"; };
 		B6438D352B667CB10099BFEF /* MainTableViewCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCellData.swift; sourceTree = "<group>"; };
 		B6438D362B667CB10099BFEF /* MainTableViewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewSection.swift; sourceTree = "<group>"; };
 		B6438D382B667CB10099BFEF /* MainModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainModelProtocol.swift; sourceTree = "<group>"; };
@@ -798,6 +810,8 @@
 		FF1D4A9F2C9D32A100AFD709 /* SubwayWhenCommonFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubwayWhenCommonFramework.h; sourceTree = "<group>"; };
 		FF1D4AB02C9D346B00AFD709 /* TotalLoadModelDependencyKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalLoadModelDependencyKey.swift; sourceTree = "<group>"; };
 		FF1D4AB42C9D34DF00AFD709 /* Dependency+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dependency+.swift"; sourceTree = "<group>"; };
+		FF20D8712EBC5CDD00B280D9 /* SubwayNoticeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayNoticeResponse.swift; sourceTree = "<group>"; };
+		FF20D8762EBC5D6D00B280D9 /* SubwayNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayNotice.swift; sourceTree = "<group>"; };
 		FF24F7AB2C981E5B001B0457 /* CoreDataScheduleModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataScheduleModel.xcdatamodel; sourceTree = "<group>"; };
 		FF24F7AF2C981F49001B0457 /* ShinbundangLineScheduleModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ShinbundangLineScheduleModel+CoreDataProperties.swift"; path = "/Users/yslee_dev/Desktop/MyProject/SubwayWhen/SubwayWhenNetworking/CoreData/ShinbundangLineScheduleModel+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		FF24F7B02C981F49001B0457 /* ShinbundangLineScheduleModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ShinbundangLineScheduleModel+CoreDataClass.swift"; path = "/Users/yslee_dev/Desktop/MyProject/SubwayWhen/SubwayWhenNetworking/CoreData/ShinbundangLineScheduleModel+CoreDataClass.swift"; sourceTree = "<absolute>"; };
@@ -821,12 +835,20 @@
 		FF68CFC92CA27A630054BF69 /* SearchCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		FF6B35F92E8A47B000814E32 /* UIDevice+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+.swift"; sourceTree = "<group>"; };
 		FF6CB2182D12991200DF562B /* TestLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLocationManager.swift; sourceTree = "<group>"; };
+		FF71959E2ECADD6900C3F3C1 /* SubwayNoticeDummy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SubwayNoticeDummy.json; sourceTree = "<group>"; };
+		FF7196512ECAE7CA00C3F3C1 /* SubwayNoticeDummyInfiniteDate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SubwayNoticeDummyInfiniteDate.json; sourceTree = "<group>"; };
+		FF7196532ECAF1D300C3F3C1 /* MockLoadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoadModel.swift; sourceTree = "<group>"; };
+		FF7197082ECB129900C3F3C1 /* KorailTrainNumberDummy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = KorailTrainNumberDummy.json; sourceTree = "<group>"; };
+		FF71970A2ECB13F900C3F3C1 /* DummyKorailTrainValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyKorailTrainValue.swift; sourceTree = "<group>"; };
+		FF71970C2ECBF20E00C3F3C1 /* MockCoreDataScheduleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataScheduleManager.swift; sourceTree = "<group>"; };
+		FF7197112ECC082000C3F3C1 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		FF7837E22E29CF5B004E6BFF /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		FF7837E42E29D0B5004E6BFF /* ReportFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFeature.swift; sourceTree = "<group>"; };
 		FF7837E62E29D5AA004E6BFF /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		FF7837E82E29E16D004E6BFF /* ReportFirstQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFirstQuestionView.swift; sourceTree = "<group>"; };
 		FF7A71302C7C5B160080B72B /* MainStyleViewInSUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStyleViewInSUI.swift; sourceTree = "<group>"; };
 		FF7A71322C7D51360080B72B /* DetailArrivalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArrivalView.swift; sourceTree = "<group>"; };
+		FF7D85842EB9B95900B48134 /* MainTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableHeaderView.swift; sourceTree = "<group>"; };
 		FF7ECAC42C7BF62B00D4643A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FF7ECAC62C7BF82D00D4643A /* OffsetScrollViewInSUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetScrollViewInSUI.swift; sourceTree = "<group>"; };
 		FF7ECAC92C7BF93900D4643A /* NavigationBarScrollViewInSUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarScrollViewInSUI.swift; sourceTree = "<group>"; };
@@ -839,6 +861,8 @@
 		FF8CBE292C8977F700E6B4D2 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/System/iOSSupport/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
 		FF8CBE2B2C89781600E6B4D2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		FF9B1E342E7D29C100FA298B /* NotificationTCADependencyKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTCADependencyKey.swift; sourceTree = "<group>"; };
+		FF9B79792EB9BBC5009393C7 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		FF9B7A2C2EB9C24D009393C7 /* MainTableHeaderGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableHeaderGroupView.swift; sourceTree = "<group>"; };
 		FFABBB012C92A5C300CCC692 /* CoreDataScheduleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataScheduleManager.swift; sourceTree = "<group>"; };
 		FFC07F672D349B4E0001B1CD /* SearchQueryRecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchQueryRecommendView.swift; sourceTree = "<group>"; };
 		FFC07F692D34D63D0001B1CD /* SearchQueryRecommendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchQueryRecommendData.swift; sourceTree = "<group>"; };
@@ -1002,6 +1026,8 @@
 		3481C4E429C1CF05003F5213 /* DummyData */ = {
 			isa = PBXGroup;
 			children = (
+				FF7196512ECAE7CA00C3F3C1 /* SubwayNoticeDummyInfiniteDate.json */,
+				FF7197082ECB129900C3F3C1 /* KorailTrainNumberDummy.json */,
 				34BA0B2A29C01E700044E2C2 /* SeoulStationScheduleDummy.json */,
 				349974F129C82A5A005FCF06 /* StationArrivalRequestErrorDummy.json */,
 				3497DC7829D2907300D2ABB9 /* StationNameSearchDummy.json */,
@@ -1009,6 +1035,7 @@
 				3481C4E229C1C7C2003F5213 /* KorailStationScheduleDummy.json */,
 				34A3038329AF361B00948EDD /* StationArrivalRequestDummy.json */,
 				FF1D4A542C9BB89E00AFD709 /* ShinbundangSinsaStationScheduleDummy.json */,
+				FF71959E2ECADD6900C3F3C1 /* SubwayNoticeDummy.json */,
 			);
 			path = DummyData;
 			sourceTree = "<group>";
@@ -1372,7 +1399,9 @@
 		349E2F7029BF100900C54EE9 /* Dummy */ = {
 			isa = PBXGroup;
 			children = (
+				FF7197112ECC082000C3F3C1 /* DummyData.swift */,
 				34A3038529AF362600948EDD /* DummyLoad.swift */,
+				FF71970A2ECB13F900C3F3C1 /* DummyKorailTrainValue.swift */,
 				3481C4E429C1CF05003F5213 /* DummyData */,
 			);
 			path = Dummy;
@@ -1476,7 +1505,7 @@
 		34A3036F29AF239300948EDD /* SubwayWhenTests */ = {
 			isa = PBXGroup;
 			children = (
-				34B3104F29B0DAE500EA3A19 /* MockURLSession.swift */,
+				FF71970E2ECBF8FF00C3F3C1 /* Mock */,
 				34AB13352ACFB032008D04B0 /* Tutorial */,
 				3497DCC529D43D4200D2ABB9 /* Setting */,
 				3497DC8F29D2E7BE00D2ABB9 /* Search */,
@@ -1506,6 +1535,7 @@
 		34A3039C29AF86FD00948EDD /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				FF20D8752EBC5CE100B280D9 /* SubwayNotice */,
 				FFA67B732D0BFC5C006EFAB7 /* StationSearch */,
 				34F5F11129657B060010A21D /* StationId */,
 				FF03653C2D011CF300EF325D /* SubwayLine */,
@@ -1943,6 +1973,7 @@
 				34F5F0FC29641AC10010A21D /* TitleView.swift */,
 				FA9AA9B12BD639F300906A5B /* UIApplication+.swift */,
 				FF6B35F92E8A47B000814E32 /* UIDevice+.swift */,
+				FF9B79792EB9BBC5009393C7 /* UIView+.swift */,
 			);
 			path = Sub;
 			sourceTree = "<group>";
@@ -2077,8 +2108,7 @@
 			children = (
 				B6438D272B667CB10099BFEF /* MainTableViewDefault */,
 				B6438D292B667CB10099BFEF /* MainTableViewArrival */,
-				B6438D2B2B667CB10099BFEF /* MainTableViewGroup */,
-				B6438D2F2B667CB10099BFEF /* MainTableViewHeader */,
+				B6438D2F2B667CB10099BFEF /* MainTableHeaderView */,
 			);
 			path = Sub;
 			sourceTree = "<group>";
@@ -2099,37 +2129,22 @@
 			path = MainTableViewArrival;
 			sourceTree = "<group>";
 		};
-		B6438D2B2B667CB10099BFEF /* MainTableViewGroup */ = {
-			isa = PBXGroup;
-			children = (
-				B6438D2C2B667CB10099BFEF /* Sub */,
-				B6438D2E2B667CB10099BFEF /* MainTableViewGroupCell.swift */,
-			);
-			path = MainTableViewGroup;
-			sourceTree = "<group>";
-		};
-		B6438D2C2B667CB10099BFEF /* Sub */ = {
-			isa = PBXGroup;
-			children = (
-				B6438D2D2B667CB10099BFEF /* MainTableViewGroupBtn.swift */,
-			);
-			path = Sub;
-			sourceTree = "<group>";
-		};
-		B6438D2F2B667CB10099BFEF /* MainTableViewHeader */ = {
+		B6438D2F2B667CB10099BFEF /* MainTableHeaderView */ = {
 			isa = PBXGroup;
 			children = (
 				B6438D302B667CB10099BFEF /* Sub */,
-				B6438D332B667CB10099BFEF /* MainTableViewHeaderCell.swift */,
+				FF7D85842EB9B95900B48134 /* MainTableHeaderView.swift */,
+				FF9B7A2C2EB9C24D009393C7 /* MainTableHeaderGroupView.swift */,
 			);
-			path = MainTableViewHeader;
+			path = MainTableHeaderView;
 			sourceTree = "<group>";
 		};
 		B6438D302B667CB10099BFEF /* Sub */ = {
 			isa = PBXGroup;
 			children = (
-				B6438D312B667CB10099BFEF /* MainTableViewHeaderBtn.swift */,
-				B6438D322B667CB10099BFEF /* MainTableViewHeaderView.swift */,
+				B6438D312B667CB10099BFEF /* MainTableHeaderViewBtn.swift */,
+				B6438D322B667CB10099BFEF /* MainTableHeaderSubView.swift */,
+				B6438D2D2B667CB10099BFEF /* MainTableHeaderGroupBtn.swift */,
 			);
 			path = Sub;
 			sourceTree = "<group>";
@@ -2309,6 +2324,15 @@
 			path = Dependency;
 			sourceTree = "<group>";
 		};
+		FF20D8752EBC5CE100B280D9 /* SubwayNotice */ = {
+			isa = PBXGroup;
+			children = (
+				FF20D8712EBC5CDD00B280D9 /* SubwayNoticeResponse.swift */,
+				FF20D8762EBC5D6D00B280D9 /* SubwayNotice.swift */,
+			);
+			path = SubwayNotice;
+			sourceTree = "<group>";
+		};
 		FF36A3872C8065A800387A3D /* TCADependecy */ = {
 			isa = PBXGroup;
 			children = (
@@ -2329,6 +2353,16 @@
 				FFC07F672D349B4E0001B1CD /* SearchQueryRecommendView.swift */,
 			);
 			path = Sub;
+			sourceTree = "<group>";
+		};
+		FF71970E2ECBF8FF00C3F3C1 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				FF71970C2ECBF20E00C3F3C1 /* MockCoreDataScheduleManager.swift */,
+				FF7196532ECAF1D300C3F3C1 /* MockLoadModel.swift */,
+				34B3104F29B0DAE500EA3A19 /* MockURLSession.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		FF7ECAC82C7BF83300D4643A /* SwiftUI */ = {
@@ -2607,8 +2641,11 @@
 				34BA0B2B29C01E700044E2C2 /* SeoulStationScheduleDummy.json in Resources */,
 				349974F229C82A5B005FCF06 /* StationArrivalRequestErrorDummy.json in Resources */,
 				3481C4E329C1C7C2003F5213 /* KorailStationScheduleDummy.json in Resources */,
+				FF7197092ECB129900C3F3C1 /* KorailTrainNumberDummy.json in Resources */,
 				34724DA52A5BAFDC0058DB66 /* KakaoLocationAPIDummy.json in Resources */,
 				3497DC7929D2907300D2ABB9 /* StationNameSearchDummy.json in Resources */,
+				FF7196522ECAE7CA00C3F3C1 /* SubwayNoticeDummyInfiniteDate.json in Resources */,
+				FF71959F2ECADD6900C3F3C1 /* SubwayNoticeDummy.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2821,20 +2858,24 @@
 				3497DC9129D2EDE200D2ABB9 /* SearchFeatureTests.swift in Sources */,
 				349D789729CC78D400CA1B52 /* DetailResultScheduleModelTests.swift in Sources */,
 				34A221C229CAC1D1003F035D /* MainModelTests.swift in Sources */,
+				FF71970B2ECB13F900C3F3C1 /* DummyKorailTrainValue.swift in Sources */,
 				34BA0B2E29C039010044E2C2 /* TotalLoadModelTests.swift in Sources */,
 				3497DC9329D2F53900D2ABB9 /* ModalModelTests.swift in Sources */,
 				34C655752A5CF8210039C16B /* SettingNotiSelectModalModelTests.swift in Sources */,
 				FF5777972E841DAD00FE2CC8 /* SettingFeatureTests.swift in Sources */,
+				FF7196542ECAF1D300C3F3C1 /* MockLoadModel.swift in Sources */,
 				34AB13372ACFB04F008D04B0 /* TutorialViewModelTests.swift in Sources */,
 				34B3105029B0DAE500EA3A19 /* MockURLSession.swift in Sources */,
 				34D7F50829D062B300A0B3DE /* EditModelTests.swift in Sources */,
 				34A3038629AF362700948EDD /* DummyLoad.swift in Sources */,
 				349D789529CC67FD00CA1B52 /* DetailFeatureTests.swift in Sources */,
+				FF7197122ECC082000C3F3C1 /* DummyData.swift in Sources */,
 				3499DE9129D17B9C00A6E8C1 /* EditViewModelTests.swift in Sources */,
 				3499DEAE29D1C07300A6E8C1 /* ReportCheckModalModelTests.swift in Sources */,
 				34A221BB29C9B64C003F035D /* MainViewModelTests.swift in Sources */,
 				34A3038A29AF36FA00948EDD /* NetworkMangerTests.swift in Sources */,
 				34BA0B2629BF246E0044E2C2 /* LoadModelTests.swift in Sources */,
+				FF71970D2ECBF20E00C3F3C1 /* MockCoreDataScheduleManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2856,7 +2897,6 @@
 				34B3105229B1BEA900EA3A19 /* NetworkManagerProtocol.swift in Sources */,
 				FF8299032CFDAC08008ED530 /* AnimationButtonInSUI.swift in Sources */,
 				B6438D492B667CB10099BFEF /* MainTableViewCellData.swift in Sources */,
-				B6438D452B667CB10099BFEF /* MainTableViewGroupCell.swift in Sources */,
 				34A4F2742A527132002CA564 /* ModalSubCustomButton.swift in Sources */,
 				34A4F2722A5263FB002CA564 /* CollectionViewCellCustom.swift in Sources */,
 				FF7A71332C7D51360080B72B /* DetailArrivalView.swift in Sources */,
@@ -2908,7 +2948,7 @@
 				349E2F4129BDB99600C54EE9 /* EditCoordinator.swift in Sources */,
 				FF7ECACF2C7C041B00D4643A /* DetailView.swift in Sources */,
 				FF36A36C2C80387D00387A3D /* DetailScheduleView.swift in Sources */,
-				B6438D462B667CB10099BFEF /* MainTableViewHeaderBtn.swift in Sources */,
+				B6438D462B667CB10099BFEF /* MainTableHeaderViewBtn.swift in Sources */,
 				FF6B35FA2E8A47B000814E32 /* UIDevice+.swift in Sources */,
 				34A221B329C98A47003F035D /* NoNetworkView.swift in Sources */,
 				B6438D4F2B667CB10099BFEF /* MainVC.swift in Sources */,
@@ -2948,9 +2988,10 @@
 				FF0365322D00129800EF325D /* LocationManagerProtocol.swift in Sources */,
 				34C6DB552936274400C4ED80 /* AppDelegate.swift in Sources */,
 				349B518329A4BEFD00A53879 /* ReportCheckModalVC.swift in Sources */,
-				B6438D442B667CB10099BFEF /* MainTableViewGroupBtn.swift in Sources */,
+				B6438D442B667CB10099BFEF /* MainTableHeaderGroupBtn.swift in Sources */,
 				349D788629CC1B8700CA1B52 /* AppDefaultModelProtocol.swift in Sources */,
 				3497DC8829D2DED200D2ABB9 /* ModalModelProtocol.swift in Sources */,
+				FF9B7A2D2EB9C24D009393C7 /* MainTableHeaderGroupView.swift in Sources */,
 				3455CFA42A53DCF6001ADE61 /* ModalCoordinatorProtocol.swift in Sources */,
 				34A303B729AF86FD00948EDD /* ScheduleSearch.swift in Sources */,
 				FF03652F2D00126600EF325D /* LocationManager.swift in Sources */,
@@ -2958,6 +2999,7 @@
 				34D9E9FC2A54FD810080AD17 /* LocationModalVCActionProtocol.swift in Sources */,
 				349FF29C299F1AF9007A98F4 /* ModalVCCustom.swift in Sources */,
 				34A303B329AF86FD00948EDD /* TotalLoadModel.swift in Sources */,
+				FF20D8722EBC5CDD00B280D9 /* SubwayNoticeResponse.swift in Sources */,
 				FF3A5EB02D01609000BC7716 /* SearchVicinityView.swift in Sources */,
 				FF8CBE232C89391700E6B4D2 /* SinbundangScheduleModel.swift in Sources */,
 				349E2F5529BDC2B600C54EE9 /* SearchCoordinator.swift in Sources */,
@@ -2986,7 +3028,7 @@
 				FF24F7B82C98284B001B0457 /* CoreDataScheduleManagerProtocol.swift in Sources */,
 				34D9E9FA2A54FBB70080AD17 /* LocationModalViewModel.swift in Sources */,
 				34C6DB98293627AF00C4ED80 /* ModalViewModel.swift in Sources */,
-				B6438D472B667CB10099BFEF /* MainTableViewHeaderView.swift in Sources */,
+				B6438D472B667CB10099BFEF /* MainTableHeaderSubView.swift in Sources */,
 				34F5F0FD29641AC10010A21D /* TitleView.swift in Sources */,
 				FF03652C2CFFEDC700EF325D /* SearchFeature.swift in Sources */,
 				349E2F3129BDA39900C54EE9 /* Coordinator.swift in Sources */,
@@ -3026,6 +3068,7 @@
 				FF9B1E352E7D29C100FA298B /* NotificationTCADependencyKey.swift in Sources */,
 				3481C4E129C0693E003F5213 /* KorailTrainNumber.swift in Sources */,
 				3497DC9729D2F9E400D2ABB9 /* DetailResultScheduleViewModelProtocol.swift in Sources */,
+				FF9B797A2EB9BBC5009393C7 /* UIView+.swift in Sources */,
 				34C6DB91293627AF00C4ED80 /* SearchStaion.swift in Sources */,
 				341EEA722ACD56E600E8F1EF /* TutorialVCAction.swift in Sources */,
 				FF8298FF2CFD9C53008ED530 /* SearchView.swift in Sources */,
@@ -3041,6 +3084,7 @@
 				B6438D4A2B667CB10099BFEF /* MainTableViewSection.swift in Sources */,
 				FFC40B3F2E7A374000E5A41C /* SettingToggleView.swift in Sources */,
 				34D9EA0B2A557E780080AD17 /* VicinityDocumentData.swift in Sources */,
+				FF20D8772EBC5D6D00B280D9 /* SubwayNotice.swift in Sources */,
 				34E47A112A431319006BF6AA /* SettingNotiSelectModalVC.swift in Sources */,
 				34B6ADDE2A49906000D7A6DA /* SettingNotiSelectModalModel.swift in Sources */,
 				FFC40B352E792E8200E5A41C /* SettingTimeView.swift in Sources */,
@@ -3067,7 +3111,6 @@
 				B6438D412B667CB10099BFEF /* MainTableView.swift in Sources */,
 				349CEFAB2990FE1B00CC69E5 /* DetailResultScheduleViewCell.swift in Sources */,
 				FF7837E92E29E16D004E6BFF /* ReportFirstQuestionView.swift in Sources */,
-				B6438D482B667CB10099BFEF /* MainTableViewHeaderCell.swift in Sources */,
 				34C1D8382953036400FB6624 /* EditViewCellSection.swift in Sources */,
 				344D6A122ABD8A0F00ECB57D /* TutorialCoordinator.swift in Sources */,
 				3499DEAA29D1BCE700A6E8C1 /* ReportCheckModalViewModelProtocol.swift in Sources */,
@@ -3083,6 +3126,7 @@
 				34C6DB572936274400C4ED80 /* SceneDelegate.swift in Sources */,
 				349E2F3329BDA3CB00C54EE9 /* AppCoordinator.swift in Sources */,
 				3497DCAB29D3027000D2ABB9 /* SettingContentsModalModelProtocol.swift in Sources */,
+				FF7D85852EB9B95900B48134 /* MainTableHeaderView.swift in Sources */,
 				34F5F0FA2962E6580010A21D /* TableVCCustom.swift in Sources */,
 				B6438D4D2B667CB10099BFEF /* MainViewModel.swift in Sources */,
 			);
@@ -3112,6 +3156,7 @@
 				FF24F7AE2C981E5B001B0457 /* CoreDataScheduleModel.xcdatamodeld in Sources */,
 				FA4CB7C62BB687D9003C41F6 /* MainTableViewCellType.swift in Sources */,
 				FFC07F6D2D34D63D0001B1CD /* SearchQueryRecommendData.swift in Sources */,
+				FF20D8782EBC5D6D00B280D9 /* SubwayNotice.swift in Sources */,
 				FA4CB79A2BB684B1003C41F6 /* URLSessionProtocol.swift in Sources */,
 				FA4CB79B2BB684B1003C41F6 /* LoadModelProtocol.swift in Sources */,
 				FA4CB79C2BB684B1003C41F6 /* ResultSchedule.swift in Sources */,
@@ -3122,6 +3167,7 @@
 				FFE826212D06B1300070BFED /* DetailStationId.swift in Sources */,
 				FA4CB7A12BB684B1003C41F6 /* ScheduleStationModel.swift in Sources */,
 				FF03653A2D001FEC00EF325D /* VicinityTransformData.swift in Sources */,
+				FF20D8742EBC5CDD00B280D9 /* SubwayNoticeResponse.swift in Sources */,
 				FA4CB7A22BB684B1003C41F6 /* ImportantData.swift in Sources */,
 				FA4CB7A32BB684B1003C41F6 /* VicinityDocumentData.swift in Sources */,
 				FF24F7B12C981F49001B0457 /* ShinbundangLineScheduleModel+CoreDataClass.swift in Sources */,
@@ -3178,6 +3224,8 @@
 				FA4CB7B72BB684B1003C41F6 /* KorailBody.swift in Sources */,
 				FA4CB7732BB64D7A003C41F6 /* UserDefault+.swift in Sources */,
 				FF03653F2D011CFD00EF325D /* SubwayLineData.swift in Sources */,
+				FF20D8792EBC5D6D00B280D9 /* SubwayNotice.swift in Sources */,
+				FF20D8732EBC5CDD00B280D9 /* SubwayNoticeResponse.swift in Sources */,
 				FF24F7B92C98284B001B0457 /* CoreDataScheduleManagerProtocol.swift in Sources */,
 				FA4CB77A2BB651C9003C41F6 /* SaveStation.swift in Sources */,
 				FA4CB7772BB64FA7003C41F6 /* SaveStationGroup.swift in Sources */,
@@ -3500,9 +3548,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = SubwayWhen/SubwayWhen.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.7;
+				CURRENT_PROJECT_VERSION = 1.8.1;
 				DEVELOPMENT_TEAM = 6V8879W55Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SubwayWhen/Info.plist;
@@ -3518,7 +3567,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yslee.subwaywhen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3539,9 +3588,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = SubwayWhen/SubwayWhen.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.7;
+				CURRENT_PROJECT_VERSION = 1.8.1;
 				DEVELOPMENT_TEAM = 6V8879W55Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SubwayWhen/Info.plist;
@@ -3557,7 +3607,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yslee.subwaywhen;
 				PRODUCT_NAME = "$(TARGET_NAME)";

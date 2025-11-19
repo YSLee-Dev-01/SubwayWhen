@@ -13,15 +13,21 @@ import RxSwift
 
 typealias Responese = (response: HTTPURLResponse, data: Data)
 
-class MockURLSession : URLSessionProtocol{
+class MockURLSession: URLSessionProtocol {
     
-    let responese : Responese
+    // MARK: - Properties
     
-    init(_ responese : Responese) {
+    let responese: Responese
+    
+    // MARK: - LifeCycle
+    
+    init(_ responese: Responese) {
         self.responese = responese
     }
     
+    // MARK: - Methods (Protocol)
+    
     func response(request: URLRequest) -> RxSwift.Observable<(response: HTTPURLResponse, data: Data)> {
-        Observable<Responese>.just(self.responese)
+        return Observable<Responese>.just(self.responese)
     }
 }

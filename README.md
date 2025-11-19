@@ -8,9 +8,9 @@
 
 ### 📆 개발 기간
 
-`v1.6.2` 2025.02.26 ~ 2025.03.07  
-`v1.6.3` 2025.07.17 ~ 2025.08.13  
-`v1.7` 2025.09.16 ~ 2025.09.29
+`v1.6.3` 2025.07.17 ~ 2025.08.13 </br>
+`v1.7` 2025.09.16 ~ 2025.09.29 </br>
+`v1.8` 2025.11.04 ~ 2025.11.19 </br>
 
 <sub>ℹ️ [이전 버전 개발 기간 보기](https://carnelian-gateway-8a5.notion.site/465f44b6767546789c458d3ddfed0579)</sub>
 
@@ -26,8 +26,8 @@
  
 <img src="https://github.com/YSLee-Dev/SubwayWhen/assets/94354145/ed1d2dfc-9a21-4923-b312-e726387b206b.png" height="350" />
 <img src="https://github.com/user-attachments/assets/fb758b6d-804c-4028-8b5f-c885c8d96fb9" height="350" />
-<img src="https://github.com/user-attachments/assets/f715b21d-5d7a-492d-8571-eae6b68763e9" height="350" />
-<img src="https://github.com/user-attachments/assets/bd3ff7c1-5759-4058-8107-d619ebf78441" height="350" />
+<img src="https://github.com/user-attachments/assets/0acdc557-2b3d-4648-af74-15f494f99795" height="350" />
+<img src="https://github.com/user-attachments/assets/eb96564e-5f26-4e69-916d-6e09fffe5828" height="350" />
 </div>
 
 <br/>
